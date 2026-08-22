@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.DS_Store
+.vercel
+
+# raw/working video files - too big for the repo, site uses the compressed copies in assets/
+hero-reel.mp4
+hero-reel-editable.mp4
+new-hero.mp4
+technique-source.mp4
