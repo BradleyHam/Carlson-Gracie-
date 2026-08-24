@@ -570,6 +570,61 @@
     .post-grid.in .post:nth-child(3){transition-delay:.16s}
   }
 
+  /* ---------- FAQs ---------- */
+  .faq{margin-top:clamp(40px,6vw,64px);border-top:1px solid var(--line-ink)}
+  .faq details{border-bottom:1px solid var(--line-ink)}
+  .faq summary{
+    list-style:none;cursor:pointer;padding:24px 44px 24px 0;position:relative;
+    font-family:var(--body);font-weight:500;font-size:clamp(15px,1.5vw,17px);
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{
+    content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);
+    color:var(--carmine);font-size:20px;line-height:1;font-weight:400;
+  }
+  .faq details[open] summary::after{content:"\2013"}
+  .faq summary:hover{color:var(--carmine)}
+  .faq-a{padding:0 clamp(20px,6vw,80px) 26px 0}
+  .faq-a p{font-size:14.5px;line-height:1.75;color:rgba(23,23,27,.72);max-width:70ch}
+
+  /* ---------- Closing CTA ---------- */
+  .cta-final{text-align:left}
+  .cta-final h2{font-size:clamp(2.6rem,7vw,5.4rem);font-weight:600;max-width:13ch}
+  .cta-final .cta-row{justify-content:flex-start}
+  .btn-red{background:var(--carmine);color:#fff}
+  .btn-red:hover{background:var(--ink);color:#fff}
+
+  /* ---------- Footer ---------- */
+  .foot-cols{
+    max-width:1180px;margin:0 auto;display:grid;
+    grid-template-columns:1.1fr 1.5fr .7fr;gap:clamp(32px,5vw,64px);
+    padding-bottom:clamp(36px,5vw,56px);border-bottom:1px solid var(--line-soft);
+  }
+  .foot-brand .name{font-family:var(--display);font-weight:600;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1;display:block}
+  .foot-brand .name em{font-style:normal;color:var(--carmine)}
+  .foot-brand p{margin-top:16px;font-size:14px;line-height:1.7;color:rgba(23,23,27,.68);max-width:38ch}
+  .foot-brand .social-row{margin-top:20px;gap:20px}
+  .foot-cols h4{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;
+    color:rgba(23,23,27,.4);margin-bottom:18px;font-weight:500;
+  }
+  .acad-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 28px}
+  .acad-grid b{font-family:var(--body);font-weight:600;font-size:14px;display:block;margin-bottom:6px}
+  .acad-grid .hq{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--carmine);vertical-align:middle}
+  .acad-grid p{font-size:13px;line-height:1.65;color:rgba(23,23,27,.68)}
+  .acad-grid a{text-decoration:none}
+  .acad-grid a:hover{color:var(--carmine)}
+  .tbc{color:rgba(23,23,27,.35);font-style:italic}
+  .foot-explore ul{list-style:none}
+  .foot-explore li{margin-bottom:10px}
+  .foot-explore a{text-decoration:none;font-size:13.5px;color:rgba(23,23,27,.7)}
+  .foot-explore a:hover{color:var(--carmine)}
+  @media (max-width:900px){
+    .foot-cols{grid-template-columns:1fr;gap:36px}
+    .acad-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:520px){ .acad-grid{grid-template-columns:1fr} }
+
   /* ---------- Reveal motion ---------- */
   @media (prefers-reduced-motion:no-preference){
     .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
@@ -593,21 +648,6 @@
   .prog-img{filter:grayscale(1) contrast(1.04)}
   .tech-frame video{filter:grayscale(1);transition:filter .5s ease}
   .tech-frame video.playing{filter:none}
-  /* footer */
-  footer{padding:clamp(64px,9vw,120px) clamp(20px,4vw,48px) 40px}
-  .foot-top{max-width:1180px;margin:0 auto clamp(36px,5vw,60px);display:flex;align-items:center;gap:18px}
-  .foot-top img{width:72px;height:72px;display:block}
-  .foot-top .name{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1}
-  .foot-top .name em{font-style:normal;color:var(--carmine)}
-  .foot-grid{
-    max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
-    padding-bottom:clamp(36px,5vw,56px);border-bottom:1px solid var(--line-soft);
-  }
-  .foot-grid h4{font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:rgba(23,23,27,.4);margin-bottom:10px;font-weight:500}
-  .foot-grid p{font-size:14.5px;line-height:1.7;color:rgba(23,23,27,.78)}
-  .foot-grid a{text-decoration:none}
-  .foot-grid a:hover{color:var(--carmine)}
-  @media (max-width:700px){ .foot-grid{grid-template-columns:1fr} }
   .foot{margin-top:28px}
   /* staggered arrival for grid children: opacity only, so hover transforms stay untouched */
   @media (prefers-reduced-motion:no-preference){
@@ -639,9 +679,9 @@
     <li><a href="#academy">Academy</a></li>
     <li><a href="#training">Training</a></li>
     <li><a href="#seminars">Seminars</a></li>
-    <li><a href="#journey">The Journey</a></li>
+    <li><a href="#faqs">FAQs</a></li>
     <li class="keep"><a class="nav-ghost" href="#timetable">Timetable</a></li>
-    <li class="keep"><a class="nav-cta" href="#trial"><span class="cta-full">Become a member</span><span class="cta-short">Join</span></a></li>
+    <li class="keep"><a class="nav-cta" href="#trial-info"><span class="cta-full">Become a member</span><span class="cta-short">Join</span></a></li>
   </ul>
 </nav>
 
@@ -661,7 +701,7 @@
     </div>
     <div class="hero-actions">
       <div class="cta-row rise r4">
-        <a class="btn btn-solid" href="#trial">Become a member</a>
+        <a class="btn btn-solid" href="#trial-info">Become a member</a>
         <a class="hero-link" href="#timetable">See the timetable</a>
       </div>
       <p class="hero-proof rise r6"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp; 5.0 &middot; 161 Google reviews</p>
@@ -722,7 +762,7 @@
       </div>
     </div>
     <div class="review-actions reveal">
-      <a class="btn btn-solid" href="#trial">Come feel it yourself</a>
+      <a class="btn btn-solid" href="#trial-info">Come feel it yourself</a>
       <a class="hero-link" href="https://www.google.com/maps/place/Carlson+Gracie+New+Zealand/@-45.0225334,168.7472076,17z" target="_blank" rel="noopener">Read all 161 on Google &nearr;</a>
     </div>
   </div>
@@ -772,7 +812,7 @@
     <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">Start where you are</h2>
     <div style="margin-top:clamp(40px,6vw,64px)">
       <div class="prog reveal">
-        <a href="#trial">
+        <a href="#trial-info">
           <h3>Fundamentals<span class="pt">a base</span></h3>
           <span class="tag">No-Gi &middot; Beginners</span>
           <img class="prog-img" src="assets/prog-fundamentals.jpg" alt="Coach guiding a beginner on the mats" loading="lazy">
@@ -780,7 +820,7 @@
         </a>
       </div>
       <div class="prog reveal">
-        <a href="#trial">
+        <a href="#trial-info">
           <h3>All levels<span class="pt">o jogo</span></h3>
           <span class="tag">Gi &middot; All levels</span>
           <img class="prog-img" src="assets/prog-all-levels.jpg" alt="Full class training at the Queenstown academy" loading="lazy">
@@ -788,7 +828,7 @@
         </a>
       </div>
       <div class="prog reveal">
-        <a href="#trial">
+        <a href="#trial-info">
           <h3>No-Gi<span class="pt">sem kimono</span></h3>
           <span class="tag">No-Gi &middot; All levels</span>
           <img class="prog-img" src="assets/prog-nogi.jpg" alt="No-gi grappling in team rash guards" loading="lazy">
@@ -796,7 +836,7 @@
         </a>
       </div>
       <div class="prog reveal">
-        <a href="#trial">
+        <a href="#trial-info">
           <h3>Kids<span class="pt">os pequenos</span></h3>
           <span class="tag">Gi and No-Gi &middot; Ages 5&ndash;12</span>
           <img class="prog-img" src="assets/prog-kids.jpg" alt="Class gathered watching a demonstration" loading="lazy">
@@ -993,84 +1033,107 @@
   </div>
 </section>
 
-<section class="band band-paper" id="journey">
+<section class="band band-paper" id="faqs">
   <div class="wrap">
-    <p class="eyebrow reveal">The journey</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:13ch">There are no shortcuts here</h2>
-    <p class="lead reveal" style="margin-top:26px">The average black belt takes about ten years. That is the point. Every belt is earned on the mat and tied on by your professor, and each one still means what it meant in Carlson's day.</p>
-    <div class="journey-belt reveal" role="img" aria-label="Belt progression from white to black">
-      <span class="jb1"></span><span class="jb2"></span><span class="jb3"></span><span class="jb4"></span><span class="jb5"></span>
+    <p class="eyebrow reveal">Good to know</p>
+    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:14ch">Questions, answered</h2>
+    <!-- Only "What makes Carlson Gracie different?" uses Miranda's supplied copy.
+         The other answers are drafted from facts already on the page - for her to confirm. -->
+    <div class="faq reveal">
+      <details>
+        <summary>What should I bring to my first class?</summary>
+        <div class="faq-a"><p>Shorts and a t-shirt are fine. We have clean gis to borrow, so there is nothing to buy before you know you love it. Bring water, a towel, and no ego.</p></div>
+      </details>
+      <details open>
+        <summary>What makes Carlson Gracie different?</summary>
+        <div class="faq-a"><p>A few things you won&rsquo;t find together anywhere else in the region. A direct line to the founding Gracie family, through our head professor&rsquo;s black belt under Carlson Gracie Jr. A deep roster of black belts on the mat, more than 11 in all. And a family of academies across the South Island, in Queenstown, W&#257;naka, Invercargill and South Canterbury. We were the first to bring the sport to the Southern Lakes, and we have grown it ever since.</p></div>
+      </details>
+      <details>
+        <summary>Do I need to be fit to start?</summary>
+        <div class="faq-a"><p>No. You get fit by training, not before it. Every class runs at the pace your body sets, and nobody in the room is watching you.</p></div>
+      </details>
+      <details>
+        <summary>I have never done a martial art. Is that ok?</summary>
+        <div class="faq-a"><p>That describes most people&rsquo;s first class here. Fundamentals exists for exactly this: basic positions, submissions and escapes, and the habits that keep you safe before you join the regular classes.</p></div>
+      </details>
+      <details>
+        <summary>How do I become a member?</summary>
+        <div class="faq-a"><p>Start with a free class, then have a chat with us on the mat. Membership covers your classes, the seminars we host, and the full tutorial library in the app.</p></div>
+      </details>
+      <details>
+        <summary>What ages are the kids&rsquo; classes?</summary>
+        <div class="faq-a"><p>Ages 5 to 12, in gi and no-gi. Games first, technique always, and no striking, ever.</p></div>
+      </details>
+      <details>
+        <summary>Gi or no-gi, which should I pick?</summary>
+        <div class="faq-a"><p>Either, and most members end up doing both. Gi is the traditional kimono and rewards patience and grips. No-gi is faster, closer to wrestling, and a little less to learn on day one.</p></div>
+      </details>
     </div>
-    <div class="journey-labels reveal">
-      <div><b>White</b>Day one</div>
-      <div><b>Blue</b>Around 2 yrs</div>
-      <div><b>Purple</b>Around 5 yrs</div>
-      <div><b>Brown</b>Around 8 yrs</div>
-      <div><b>Black</b>Around 10 yrs</div>
-    </div>
-    <p class="journey-foot reveal">Typical timelines, not promises. Promotion is at your professor's discretion.</p>
   </div>
 </section>
 
-<section class="band band-mist" id="trial">
+<section class="band band-mist cta-final" id="trial-info">
   <div class="wrap">
-    <p class="eyebrow reveal">Your first class</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">Walking in is the hardest part</h2>
-    <div class="kit reveal">
-      <article>
-        <h3>Wear</h3>
-        <p>Shorts and a t-shirt are fine. We have clean gis to borrow, so there is nothing to buy before you know you love it.</p>
-      </article>
-      <article>
-        <h3>Expect</h3>
-        <p>A warm-up, one or two techniques, and light drilling with a partner. You roll when you are ready, not before.</p>
-      </article>
-      <article>
-        <h3>Bring</h3>
-        <p>Water, a towel, and no ego. Every black belt in the room was once the nervous person by the door.</p>
-      </article>
-    </div>
-    <figure class="trial-quote reveal">
-      <p>&ldquo;It was a Gi class and I didn&rsquo;t have one. &lsquo;Come in, we&rsquo;ll figure it out.&rsquo; Just great rolls and good vibes&hellip; Go, you won&rsquo;t regret it.&rdquo;</p>
-      <cite>Julian Saunders &middot; Google review, first visit</cite>
-    </figure>
-  </div>
-</section>
-
-<section class="band band-paper cta-final">
-  <div class="wrap">
-    <h2 class="display reveal">First class free.</h2>
-    <span class="serif-note reveal">then it gets hard, in the best way</span>
+    <p class="eyebrow reveal">Join us</p>
+    <h2 class="display reveal">Come and find your people</h2>
+    <span class="serif-note reveal">Start with a free class. It just might change your life.</span>
     <div class="cta-row reveal">
-      <a class="btn btn-solid" href="#trial">Book your free trial</a>
+      <!-- Gymdesk sign-up form, live on their account. Confirm with Jose this is the right one. -->
+      <a class="btn btn-red" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a>
     </div>
     <p class="sub reveal">Or just turn up. Times above, mats waiting.</p>
-    <p class="cta-proof reveal"><span class="stars" style="color:var(--bone)">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp; 5.0 from 161 Google reviews</p>
+    <p class="cta-proof reveal"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp; 5.0 from 161 Google reviews</p>
   </div>
 </section>
 
 <footer>
-  <div class="foot-top">
-    <img src="assets/cg-logo.png" alt="" loading="lazy">
-    <span class="name">Carlson Gracie <em>New Zealand</em></span>
-  </div>
-  <div class="foot-grid">
-    <div>
-      <h4>Visit</h4>
-      <p>6/15 Red Oaks Drive<br>Frankton, Queenstown 9300<br>The Q Building</p>
+  <div class="foot-cols">
+    <div class="foot-brand">
+      <span class="name">Carlson Gracie <em>NZ</em></span>
+      <p>Official Carlson Gracie Team affiliate and the academy that brought jiu-jitsu to the Southern Lakes. A family of academies across the South Island, for every age and every level.</p>
+      <div class="social-row">
+        <a href="https://www.facebook.com/CarlsonGracieJiuJitsuNewZealand/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>Facebook</a>
+        <a href="https://www.instagram.com/carlsongracie_nz/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.2-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9C2.4 3.9 4 2.4 7.1 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 5.1a4.7 4.7 0 100 9.4 4.7 4.7 0 000-9.4zm0 7.7a3 3 0 110-6 3 3 0 010 6zm4.9-7.9a1.1 1.1 0 100-2.2 1.1 1.1 0 000 2.2z"/></svg>Instagram</a>
+      </div>
     </div>
-    <div>
-      <h4>Call</h4>
-      <p><a href="tel:+642102304516">0210 230 4516</a></p>
+    <div class="foot-academies">
+      <h4>Our academies</h4>
+      <div class="acad-grid">
+        <div>
+          <b>Queenstown <span class="hq">HQ</span></b>
+          <p>6A/15 Red Oaks Drive<br>Remarkables Park, Frankton<br>Queenstown 9300<br><a href="tel:+642102304516">+64 21 0230 4516</a></p>
+        </div>
+        <div>
+          <b>Invercargill</b>
+          <p><span class="tbc">Address to confirm</span><br>Invercargill<br><span class="tbc">Phone to confirm</span></p>
+        </div>
+        <div>
+          <b>W&#257;naka</b>
+          <p><span class="tbc">Address to confirm</span><br>W&#257;naka<br><span class="tbc">Phone to confirm</span></p>
+        </div>
+        <div>
+          <b>South Canterbury</b>
+          <p><span class="tbc">Address to confirm</span><br>South Canterbury<br><span class="tbc">Phone to confirm</span></p>
+        </div>
+      </div>
     </div>
-    <div>
-      <h4>Proof</h4>
-      <p><a href="https://www.google.com/maps/place/Carlson+Gracie+New+Zealand/@-45.0225334,168.7472076,17z" target="_blank" rel="noopener">5.0 from 161 Google reviews</a></p>
+    <div class="foot-explore">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#instructors">Coaches</a></li>
+        <li><a href="#timetable">Timetable</a></li>
+        <li><a href="#seminars">Seminars &amp; events</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a></li>
+      </ul>
     </div>
   </div>
   <div class="foot">
-    <small>Official Carlson Gracie Team affiliate &middot; Aotearoa New Zealand</small>
     <small>&copy; 2026 Carlson Gracie Brazilian Jiu-Jitsu NZ</small>
+    <small>Aotearoa New Zealand</small>
   </div>
 </footer>
 
