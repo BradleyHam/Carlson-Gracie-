@@ -50,8 +50,11 @@
   /* ---------- Belt progress strip (signature, kept thin) ---------- */
   .belt{
     position:fixed;top:0;left:0;right:0;height:4px;z-index:70;
-    display:flex;
+    display:flex;opacity:0;transition:opacity .4s ease;
   }
+  body.is-scrolled .belt,body.is-scrolled .belt-cover{opacity:1}
+  body.is-scrolled .belt-label{opacity:.4}
+  .belt-cover,.belt-label{opacity:0;transition:opacity .4s ease}
   .belt span{flex:1;position:relative}
   .belt .b1{background:var(--belt-white)}
   .belt .b2{background:var(--belt-blue)}
@@ -68,50 +71,67 @@
   .belt-label{
     position:fixed;top:13px;right:20px;z-index:72;
     font-family:var(--mono);font-size:9.5px;letter-spacing:.3em;
-    color:var(--ink);opacity:.4;text-transform:uppercase;
+    color:var(--ink);text-transform:uppercase;
   }
 
-  /* ---------- Nav ---------- */
+  /* ---------- Nav: floats over the hero, condenses on scroll ---------- */
+  :root{--nav-solid-h:64px}
   nav{
-    position:fixed;top:4px;left:0;right:0;z-index:60;
+    position:fixed;top:0;left:0;right:0;z-index:60;
     display:flex;align-items:center;justify-content:space-between;
-    padding:14px clamp(20px,4vw,48px);
-    background:rgba(255,255,255,.92);
-    backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);
-    border-bottom:1px solid var(--line-soft);
+    padding:clamp(16px,2.2vw,26px) clamp(20px,4vw,48px);
+    background:transparent;border-bottom:1px solid transparent;
+    transition:padding .35s ease,height .35s ease,background .35s ease,border-color .35s ease;
   }
   .wordmark{
     font-family:var(--display);font-weight:600;
     font-size:20px;letter-spacing:.01em;text-decoration:none;line-height:1;
     display:flex;align-items:center;gap:12px;
   }
-  .wordmark-badge{width:96px;height:96px;display:block}
-  @media (max-width:520px){ .wordmark-badge{width:64px;height:64px} }
+  .wordmark-badge{
+    width:92px;height:92px;display:block;
+    filter:drop-shadow(0 2px 12px rgba(0,0,0,.5));
+    transition:width .35s ease,height .35s ease,filter .35s ease;
+  }
   .wordmark em{font-style:normal;color:var(--carmine)}
   .nav-links{display:flex;gap:30px;align-items:center;list-style:none}
   .nav-links a{
     font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
-    text-decoration:none;color:var(--ink);opacity:.65;
+    text-decoration:none;color:#fff;opacity:.86;
+    text-shadow:0 1px 10px rgba(0,0,0,.4);transition:color .35s ease,opacity .25s ease,text-shadow .35s ease;
   }
-  .nav-links a:hover{opacity:1;color:var(--carmine)}
-  .nav-cta{
+  .nav-links a:hover{opacity:1;color:#fff}
+  .nav-cta,.nav-ghost{
     font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
-    text-decoration:none;color:#fff!important;background:var(--ink);
-    padding:11px 18px;opacity:1!important;
+    text-decoration:none;opacity:1!important;white-space:nowrap;
+    transition:background .35s ease,color .35s ease,border-color .35s ease,padding .35s ease;
   }
+  .nav-cta{color:var(--ink)!important;background:#fff;padding:11px 18px;text-shadow:none}
   .nav-cta:hover{background:var(--carmine);color:#fff!important}
-  .nav-ghost{
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
-    text-decoration:none;color:var(--ink)!important;border:1px solid var(--line-ink);
-    padding:10px 17px;opacity:1!important;
+  .nav-ghost{color:#fff!important;border:1px solid rgba(255,255,255,.55);padding:10px 17px;text-shadow:none}
+  .nav-ghost:hover{border-color:#fff;background:rgba(255,255,255,.14)}
+
+  /* condensed state */
+  nav.is-solid{
+    height:var(--nav-solid-h);padding-top:0;padding-bottom:0;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);
+    border-bottom-color:var(--line-soft);
   }
-  .nav-ghost:hover{border-color:var(--carmine);color:var(--carmine)!important}
-  @media (max-width:860px){ .nav-links li:not(.keep){display:none} .belt-label{display:none} }
-  .nav-cta,.nav-ghost{white-space:nowrap}
+  nav.is-solid .wordmark-badge{width:44px;height:44px;filter:none}
+  nav.is-solid .nav-links a{color:var(--ink);opacity:.66;text-shadow:none}
+  nav.is-solid .nav-links a:hover{opacity:1;color:var(--carmine)}
+  nav.is-solid .nav-cta{background:var(--ink);color:#fff!important;padding:10px 17px}
+  nav.is-solid .nav-cta:hover{background:var(--carmine)}
+  nav.is-solid .nav-ghost{color:var(--ink)!important;border-color:var(--line-ink);padding:9px 16px}
+  nav.is-solid .nav-ghost:hover{border-color:var(--carmine);color:var(--carmine)!important;background:none}
+
+  @media (max-width:860px){ .nav-links li:not(.keep){display:none} }
   @media (max-width:520px){
     .nav-links{gap:10px}
-    .nav-cta,.nav-ghost{padding:9px 11px;font-size:9.5px;letter-spacing:.14em}
-    .wordmark{font-size:16px}
+    .nav-cta,.nav-ghost,nav.is-solid .nav-cta,nav.is-solid .nav-ghost{padding:9px 11px;font-size:9.5px;letter-spacing:.14em}
+    .wordmark-badge{width:62px;height:62px}
+    nav.is-solid .wordmark-badge{width:38px;height:38px}
   }
 
   /* ---------- Bands ---------- */
@@ -1194,8 +1214,8 @@
   function heroMeasure(){
     if (!heroStage || !heroCopy) return;
     var bottomPad = Math.max(36, Math.min(64, window.innerWidth * 0.06));
-    var navEl = document.querySelector('nav');
-    var navClear = (navEl ? navEl.offsetHeight + 8 : 140) + 16; // belt strip + breathing room
+    var solidH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-solid-h')) || 64;
+    var navClear = solidH + 28; // the nav is condensed by the time the copy parks
     var travel = Math.max(0, heroStage.clientHeight - heroCopy.offsetHeight - navClear - bottomPad);
     heroStage.style.setProperty('--copy-travel', travel + 'px');
   }
@@ -1217,13 +1237,22 @@
   // rAF loop instead of scroll events: immune to event throttling, pauses
   // automatically when the tab is hidden, and only recomputes when scrollY moves.
   var heroLastY = -1;
+  var navEl = document.querySelector('nav');
+  function navState(y){
+    var solid = y > 60;
+    navEl.classList.toggle('is-solid', solid);
+    document.body.classList.toggle('is-scrolled', solid);
+  }
   function heroTick(){
-    if (heroFxMq.matches){
-      var y = window.scrollY;
-      if (y !== heroLastY){ heroLastY = y; heroFx(); }
+    var y = window.scrollY;
+    if (y !== heroLastY){
+      heroLastY = y;
+      navState(y);
+      if (heroFxMq.matches) heroFx();
     }
     requestAnimationFrame(heroTick);
   }
+  navState(window.scrollY);
   window.addEventListener('resize', function(){ heroMeasure(); heroLastY = -1; }, {passive:true});
   window.addEventListener('load', function(){ heroMeasure(); heroLastY = -1; });
   heroMeasure(); heroFx();
