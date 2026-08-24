@@ -362,7 +362,7 @@
   .tech-copy{flex:1 1 auto;min-width:0}
   .tech-copy .lead{margin-top:26px}
   .tech-copy .cta-row{margin-top:34px}
-  .tech-player{flex:0 0 min(380px,36vw)}
+  .tech-player{flex:0 0 min(430px,38vw);margin-right:clamp(0px,7vw,110px)}
   .tech-frame{
     position:relative;border:1px solid var(--line-ink);background:var(--paper);
     padding:12px 12px 14px;
@@ -756,8 +756,8 @@
   }
   /* every still image reads monochrome; colour is earned on interaction */
   .prog-img{filter:grayscale(1) contrast(1.04)}
-  .tech-frame video{filter:grayscale(1);transition:filter .5s ease}
-  .tech-frame video.playing{filter:none}
+  .tech-frame video{filter:grayscale(1);transition:filter .6s ease}
+  .tech-frame:hover video{filter:grayscale(0)}
   .foot{margin-top:28px}
   /* staggered arrival for grid children: opacity only, so hover transforms stay untouched */
   @media (prefers-reduced-motion:no-preference){
@@ -1094,7 +1094,7 @@
       </div>
       <div class="tech-player reveal">
         <div class="tech-frame">
-          <video src="assets/technique.mp4" poster="assets/technique-poster.jpg" controls playsinline preload="metadata"></video>
+          <video src="assets/technique.mp4" poster="assets/technique-poster.jpg" controls muted loop playsinline preload="metadata"></video>
           <img class="tech-app" src="assets/app-content.png" alt="The members&rsquo; content library in the app" loading="lazy">
           <div class="tech-meta"><span>Sample from the members&rsquo; library</span><span>Armbar &middot; 0:15</span></div>
         </div>
@@ -1428,9 +1428,31 @@
   if (film) film.addEventListener('click', function(e){ if (e.target === film) closeFilm(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeFilm(); });
 
-  // Lesson teaser clip: monochrome until it plays
+  // Lesson teaser clip: plays itself, muted, while it's on screen.
+  // Muted + playsinline are what browsers require to allow autoplay at all.
   var techVid = document.querySelector('.tech-frame video');
-  if (techVid) techVid.addEventListener('play', function(){ techVid.classList.add('playing'); });
+  if (techVid && 'IntersectionObserver' in window) {
+    techVid.muted = true;
+    var techUserPaused = false;   // the visitor pressed pause themselves
+    var techSelfPausing = false;  // guard: 'pause' fires async, so flag our own pauses
+    techVid.addEventListener('pause', function(){
+      if (techSelfPausing) { techSelfPausing = false; return; }
+      if (!techVid.ended) techUserPaused = true;
+    });
+    techVid.addEventListener('play', function(){ techUserPaused = false; });
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          if (!techUserPaused && techVid.paused) {
+            var p = techVid.play(); if (p && p.catch) p.catch(function(){});
+          }
+        } else if (!techVid.paused) {
+          techSelfPausing = true;
+          techVid.pause();
+        }
+      });
+    }, {threshold:0.4}).observe(techVid);
+  }
 
   // Timetable: highlight today's column (Sunday matches nothing - no classes)
   var todayCol = document.querySelector('.tt-col[data-day="' + new Date().getDay() + '"]');
