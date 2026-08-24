@@ -663,6 +663,44 @@
   }
   @media (max-width:520px){ .acad-grid{grid-template-columns:1fr} }
 
+  /* ---------- Why Carlson Gracie ---------- */
+  .legacy{position:relative;overflow:hidden}
+  /* the team crest, ghosted, as the section's visual anchor */
+  .legacy-mark{
+    position:absolute;right:-8%;top:50%;transform:translateY(-50%);
+    width:min(52vw,660px);opacity:.05;filter:grayscale(1);pointer-events:none;user-select:none;
+  }
+  .legacy .wrap{position:relative;z-index:1}
+  .legacy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3.5vw,54px);margin-top:clamp(44px,6vw,74px)}
+  .legacy-col{border-top:1px solid var(--line-ink);padding-top:22px}
+  .legacy-col .n{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;
+    color:var(--carmine);display:block;margin-bottom:12px;
+  }
+  .legacy-col h3{font-family:var(--display);font-weight:600;font-size:1.5rem;line-height:1.05;margin-bottom:12px}
+  .legacy-col p{font-size:14px;line-height:1.7;color:rgba(23,23,27,.72)}
+  .legacy-note{
+    margin-top:clamp(44px,5.5vw,72px);max-width:46ch;
+    border-left:2px solid var(--carmine);padding-left:26px;
+  }
+  .legacy-note p{
+    font-family:var(--display);font-weight:600;
+    font-size:clamp(1.35rem,2.5vw,2rem);line-height:1.18;
+  }
+  .legacy-note em{font-style:normal;color:var(--carmine)}
+  .legacy-family{
+    margin-top:32px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:rgba(23,23,27,.45);
+  }
+  .legacy-family b{color:var(--ink);font-weight:500}
+  @media (max-width:900px){ .legacy-grid{grid-template-columns:1fr;gap:30px} .legacy-mark{width:90vw;opacity:.04} }
+  @media (prefers-reduced-motion:no-preference){
+    .legacy-grid .legacy-col{opacity:0;transition:opacity .65s ease}
+    .legacy-grid.in .legacy-col{opacity:1}
+    .legacy-grid.in .legacy-col:nth-child(2){transition-delay:.1s}
+    .legacy-grid.in .legacy-col:nth-child(3){transition-delay:.2s}
+  }
+
   /* ---------- Reveal motion ---------- */
   @media (prefers-reduced-motion:no-preference){
     .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
@@ -809,38 +847,33 @@
 <!-- POSITIONING BLOCK. Copy is placeholder for Miranda to replace.
      Sourced figures: "over eleven black belts" (Miranda); "grew from 15 people to
      over 200 members" since 2014 (gym's own instructor bio for Jose). Confirm before launch. -->
-<section class="band band-mist" id="academy">
+<section class="band band-mist legacy" id="academy">
+  <img class="legacy-mark" src="assets/cg-logo.png" alt="" aria-hidden="true" loading="lazy">
   <div class="wrap">
-    <p class="eyebrow reveal">Why Carlson Gracie</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.4rem);max-width:17ch">An academy, not a gym with mats in the corner</h2>
-    <p class="lead reveal" style="margin-top:26px">No machines, no treadmills, no timetable shared with five other sports. One art, taught properly, by people who have given their lives to it. If you are serious about jiu-jitsu, this is the room.</p>
-    <div class="lineage-rail reveal">
-      <div class="node">
-        <h3>Mitsuyo Maeda</h3>
-        <span class="yrs">1878&ndash;1941 &middot; K&#333;dokan</span>
-        <p>The judoka who carried the art from Japan to Brazil.</p>
-      </div>
-      <div class="node">
-        <h3>Carlos Gracie</h3>
-        <span class="yrs">1902&ndash;1994 &middot; Rio</span>
-        <p>Maeda&rsquo;s student. Founded the family academy in 1925.</p>
-      </div>
-      <div class="node">
-        <h3>Carlson Gracie</h3>
-        <span class="yrs">1932&ndash;2006 &middot; Team founder</span>
-        <p>The family&rsquo;s champion. Built the most respected competition team of its era.</p>
-      </div>
-      <div class="node">
-        <h3>Jose Gomes</h3>
-        <span class="yrs">3rd degree &middot; Queenstown</span>
-        <p>Trained in Brazil from 1996. Brought the team to New Zealand in 2014.</p>
-      </div>
-      <div class="node node-you">
-        <h3>You</h3>
-        <span class="yrs">Starts this week</span>
-        <p>White belt, day one. The same start everyone here was given.</p>
-      </div>
+    <p class="eyebrow reveal">The legacy</p>
+    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:13ch">Why Carlson Gracie</h2>
+    <p class="lead reveal" style="margin-top:26px">Carlson Gracie is one of the most important names in the history of Brazilian Jiu-Jitsu. We brought it to the Southern Lakes, and training here puts you in a direct line to the family that founded the sport.</p>
+    <div class="legacy-grid reveal">
+      <article class="legacy-col">
+        <span class="n">01</span>
+        <h3>The lineage</h3>
+        <p>The art passed from Mitsuyo Maeda to Carlos Gracie, and from Carlos to his son Carlson. Carlson defended the family name for two decades without losing, then became one of the finest coaches the sport has produced. Our head professor, Jose Gomes, earned his black belt under Carlson Gracie Jr, so that line runs unbroken onto our mats.</p>
+      </article>
+      <article class="legacy-col">
+        <span class="n">02</span>
+        <h3>The standard</h3>
+        <p>Plenty of gyms teach jiu-jitsu. Few carry this much rank. With more than 11 black belts training regularly at our dojo, alongside a deep bench of high belts, you&rsquo;ll be hard pressed to find deeper skill and knowledge anywhere in the country.</p>
+      </article>
+      <article class="legacy-col">
+        <span class="n">03</span>
+        <h3>The culture</h3>
+        <p>Carlson opened his mats to everyone and built teams instead of guarding secrets. That is the culture we keep: higher belts lift the newer ones, and everyone has a hand in someone else&rsquo;s journey. Family-first and everyone-welcome, every single day.</p>
+      </article>
     </div>
+    <figure class="legacy-note reveal">
+      <p>Opened in Queenstown in 2014. From 15 people to over 200 members, one of the largest jiu-jitsu academies in <em>New Zealand</em>.</p>
+    </figure>
+    <p class="legacy-family reveal">A family of academies across the South Island &nbsp;<b>Queenstown</b> &middot; <b>W&#257;naka</b> &middot; <b>Invercargill</b> &middot; <b>South Canterbury</b></p>
   </div>
 </section>
 
