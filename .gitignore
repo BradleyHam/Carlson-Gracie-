@@ -3,11 +3,17 @@ dist/
 .DS_Store
 .vercel
 
-# Raw/working footage lives at the repo root and never gets committed.
-# The site only needs the compressed copies in assets/, which stay tracked.
-/*.mp4
-/*.mov
-/*.MP4
-/*.MOV
-/*.avi
-/*.mkv
+# Video is ignored everywhere by default, so stray source footage can never be
+# committed by accident. Only the three files the site actually serves are allowed.
+*.mp4
+*.mov
+*.MP4
+*.MOV
+*.avi
+*.mkv
+!assets/hero-reel.mp4
+!assets/hero-film.mp4
+!assets/technique.mp4
+
+# original full-size photography stays local
+assets/images to add/
