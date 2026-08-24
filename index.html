@@ -83,6 +83,16 @@
     background:transparent;border-bottom:1px solid transparent;
     transition:padding .35s ease,height .35s ease,background .35s ease,border-color .35s ease;
   }
+  /* Vignette so white nav type holds up over whatever frame the film is on.
+     Belongs to the nav, so it clears itself when the bar condenses to white. */
+  nav::before{
+    content:"";position:absolute;left:0;right:0;top:0;height:210%;
+    pointer-events:none;z-index:0;
+    background:linear-gradient(180deg,rgba(10,10,14,.66),rgba(10,10,14,.34) 42%,rgba(10,10,14,0) 100%);
+    transition:opacity .35s ease;
+  }
+  nav.is-solid::before{opacity:0}
+  nav > *{position:relative;z-index:1}
   .wordmark{
     font-family:var(--display);font-weight:600;
     font-size:20px;letter-spacing:.01em;text-decoration:none;line-height:1;
@@ -501,7 +511,11 @@
   }
   .hero-play:hover .ring{background:rgba(255,255,255,.18);border-color:#fff;transform:scale(1.06)}
   .hero-play svg{width:20px;height:22px;margin-left:4px;fill:#fff}
-  .hero-play .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+  .hero-play .lbl{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;opacity:.9;
+    text-shadow:0 1px 12px rgba(0,0,0,.65);
+  }
+  .hero-play .ring{box-shadow:0 2px 24px rgba(0,0,0,.35)}
   @media (max-width:640px){ .hero-play{top:34%} .hero-play .ring{width:62px;height:62px} }
 
   .film{position:fixed;inset:0;z-index:200;background:rgba(18,18,22,.95);place-items:center;padding:clamp(16px,4vw,56px)}
