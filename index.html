@@ -75,7 +75,7 @@
   }
 
   /* ---------- Nav: floats over the hero, condenses on scroll ---------- */
-  :root{--nav-solid-h:64px}
+  :root{--nav-solid-h:78px}
   nav{
     position:fixed;top:0;left:0;right:0;z-index:60;
     display:flex;align-items:center;justify-content:space-between;
@@ -128,7 +128,7 @@
     backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);
     border-bottom-color:var(--line-soft);
   }
-  nav.is-solid .wordmark-badge{width:44px;height:44px;filter:none}
+  nav.is-solid .wordmark-badge{width:64px;height:64px;filter:none}
   nav.is-solid .nav-links a{color:var(--ink);opacity:.66;text-shadow:none}
   nav.is-solid .nav-links a:hover{opacity:1;color:var(--carmine)}
   nav.is-solid .nav-cta{background:var(--ink);color:#fff!important;padding:10px 17px}
@@ -138,10 +138,11 @@
 
   @media (max-width:860px){ .nav-links li:not(.keep){display:none} }
   @media (max-width:520px){
+    :root{--nav-solid-h:64px}
     .nav-links{gap:10px}
     .nav-cta,.nav-ghost,nav.is-solid .nav-cta,nav.is-solid .nav-ghost{padding:9px 11px;font-size:9.5px;letter-spacing:.14em}
-    .wordmark-badge{width:62px;height:62px}
-    nav.is-solid .wordmark-badge{width:38px;height:38px}
+    .wordmark-badge{width:66px;height:66px}
+    nav.is-solid .wordmark-badge{width:52px;height:52px}
   }
 
   /* ---------- Bands ---------- */
