@@ -202,11 +202,6 @@
   .hero-deco .accent::after{
     content:"";position:absolute;left:0;right:0;bottom:.08em;height:3px;background:var(--carmine);
   }
-  .hero h1{
-    font-family:var(--mono);font-weight:400;
-    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
-    color:rgba(255,255,255,.82);margin-top:20px;
-  }
   .hero .cta-row{margin-top:26px}
   .hero .hero-link{color:#fff}
   .hero-proof{
@@ -331,7 +326,7 @@
   @media (max-width:1000px){ .coach-grid{grid-template-columns:repeat(2,1fr)} }
   @media (max-width:560px){ .coach-grid{grid-template-columns:1fr;max-width:380px} }
 
-  /* ---------- Latest technique ---------- */
+  /* ---------- Lesson teaser (members app) ---------- */
   .tech-grid{display:flex;align-items:center;gap:clamp(36px,6vw,84px)}
   .tech-copy{flex:1 1 auto;min-width:0}
   .tech-copy .lead{margin-top:26px}
@@ -468,6 +463,113 @@
   .foot{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline}
   .foot small{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(23,23,27,.45)}
 
+  /* ---------- Hero kicker, play button, film modal ---------- */
+  .hero-kicker{
+    font-family:var(--serif);font-style:italic;font-weight:500;
+    font-size:clamp(1.15rem,2.2vw,1.6rem);color:rgba(255,255,255,.9);margin-bottom:18px;
+  }
+  .hero h1.hero-deco{font-size:clamp(2.4rem,6.4vw,5rem);max-width:14ch}
+  .hero-play{
+    position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);z-index:3;
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+    background:none;border:0;padding:0;cursor:pointer;color:#fff;
+  }
+  .hero-play .ring{
+    width:78px;height:78px;border-radius:50%;border:1px solid rgba(255,255,255,.6);
+    display:grid;place-items:center;
+    transition:background .3s ease,border-color .3s ease,transform .3s ease;
+  }
+  .hero-play:hover .ring{background:rgba(255,255,255,.18);border-color:#fff;transform:scale(1.06)}
+  .hero-play svg{width:20px;height:22px;margin-left:4px;fill:#fff}
+  .hero-play .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+  @media (max-width:640px){ .hero-play{top:34%} .hero-play .ring{width:62px;height:62px} }
+
+  .film{position:fixed;inset:0;z-index:200;background:rgba(18,18,22,.95);place-items:center;padding:clamp(16px,4vw,56px)}
+  .film[hidden]{display:none}
+  .film:not([hidden]){display:grid}
+  .film-inner{width:min(1100px,100%);position:relative}
+  .film video{width:100%;display:block;background:#000;max-height:80vh}
+  .film-close{
+    position:absolute;top:-40px;right:0;background:none;border:0;cursor:pointer;color:#fff;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  }
+  .film-close:hover{color:var(--carmine)}
+
+  /* ---------- Academy stat bar ---------- */
+  .stat-bar{background:var(--ink);color:#fff;padding:22px clamp(20px,4vw,48px)}
+  .stat-bar .wrap{
+    display:flex;flex-wrap:wrap;gap:14px clamp(24px,5vw,64px);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:rgba(255,255,255,.62);
+  }
+  .stat-bar b{color:#fff;font-weight:500}
+  @media (max-width:700px){ .stat-bar .wrap{font-size:9.5px;gap:10px 22px} }
+
+  /* ---------- Social row ---------- */
+  .social-row{display:flex;gap:26px;margin-top:30px}
+  .social-row a{
+    display:flex;align-items:center;gap:8px;text-decoration:none;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(23,23,27,.7);
+  }
+  .social-row svg{width:15px;height:15px;fill:currentColor}
+  .social-row a:hover{color:var(--carmine)}
+
+  .coach-rank{color:var(--carmine)!important}
+  .cta-short{display:none}
+  @media (max-width:520px){ .cta-full{display:none} .cta-short{display:inline} }
+
+  /* ---------- Guest seminars ---------- */
+  .guest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:clamp(40px,6vw,64px)}
+  .guest{background:var(--paper);border:1px solid var(--line-ink);padding:14px 14px 20px;transition:transform .3s ease,box-shadow .3s ease}
+  .guest:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(23,23,27,.08)}
+  .guest-photo{
+    aspect-ratio:4/5;background:var(--mist);display:grid;place-items:center;margin-bottom:18px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(23,23,27,.32);
+  }
+  .guest h3{font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.05}
+  .guest-cred{margin-top:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--carmine);line-height:1.5}
+  .guest-slot{border-style:dashed;background:none}
+  .guest-slot .guest-photo{background:none;border:1px dashed var(--line-ink);font-size:20px;letter-spacing:0;color:rgba(23,23,27,.25)}
+  .guest-slot h3,.guest-slot .guest-cred{color:rgba(23,23,27,.35)}
+  .guest-note{margin-top:26px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(23,23,27,.42)}
+  @media (max-width:1000px){ .guest-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:520px){ .guest-grid{grid-template-columns:1fr;max-width:340px} }
+
+  /* stagger the guest cards like the other grids */
+  @media (prefers-reduced-motion:no-preference){
+    .guest-grid .guest{opacity:0;transition:opacity .65s ease}
+    .guest-grid.in .guest{opacity:1}
+    .guest-grid.in .guest:nth-child(2){transition-delay:.08s}
+    .guest-grid.in .guest:nth-child(3){transition-delay:.16s}
+    .guest-grid.in .guest:nth-child(4){transition-delay:.24s}
+  }
+
+  /* ---------- Blog / events feed ---------- */
+  .post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:clamp(40px,6vw,64px)}
+  .post{background:var(--paper);border:1px solid var(--line-ink);display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
+  .post:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(23,23,27,.08)}
+  .post-img{
+    aspect-ratio:16/10;background:var(--mist);display:grid;place-items:center;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(23,23,27,.3);
+  }
+  .post-body{padding:20px 20px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .post-tag{
+    align-self:flex-start;font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--carmine);border:1px solid var(--carmine);padding:4px 8px;
+  }
+  .post-date{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,27,.45)}
+  .post h3{font-family:var(--display);font-weight:600;font-size:1.3rem;line-height:1.15}
+  .post p{font-size:13.5px;line-height:1.6;color:rgba(23,23,27,.7)}
+  .post-more{margin-top:auto;padding-top:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+  .post:hover .post-more{color:var(--carmine)}
+  @media (max-width:900px){ .post-grid{grid-template-columns:1fr;max-width:420px} }
+  @media (prefers-reduced-motion:no-preference){
+    .post-grid .post{opacity:0;transition:opacity .65s ease}
+    .post-grid.in .post{opacity:1}
+    .post-grid.in .post:nth-child(2){transition-delay:.08s}
+    .post-grid.in .post:nth-child(3){transition-delay:.16s}
+  }
+
   /* ---------- Reveal motion ---------- */
   @media (prefers-reduced-motion:no-preference){
     .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
@@ -536,9 +638,10 @@
   <ul class="nav-links">
     <li><a href="#academy">Academy</a></li>
     <li><a href="#training">Training</a></li>
+    <li><a href="#seminars">Seminars</a></li>
     <li><a href="#journey">The Journey</a></li>
     <li class="keep"><a class="nav-ghost" href="#timetable">Timetable</a></li>
-    <li class="keep"><a class="nav-cta" href="#trial">Free trial</a></li>
+    <li class="keep"><a class="nav-cta" href="#trial"><span class="cta-full">Become a member</span><span class="cta-short">Join</span></a></li>
   </ul>
 </nav>
 
@@ -547,17 +650,18 @@
   <div class="hero-video" aria-hidden="true">
     <video id="heroVid" autoplay muted loop playsinline preload="auto" src="assets/hero-reel.mp4"></video>
   </div>
+  <button class="hero-play" id="heroPlay" type="button" aria-label="Play the film with sound">
+    <span class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17l15-8.5z"/></svg></span>
+    <span class="lbl">Watch the film</span>
+  </button>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="display hero-deco">
-        <span class="l rise r1">Walk in nervous.</span>
-        <span class="l rise r2">Walk out <span class="accent">family.</span></span>
-      </p>
-      <h1 class="rise r3">Brazilian Jiu-Jitsu Classes in Queenstown</h1>
+      <p class="hero-kicker rise r1">Come as you are. Leave as one of us.</p>
+      <h1 class="display hero-deco rise r2">Brazilian Jiu-Jitsu Academy in Queenstown</h1>
     </div>
     <div class="hero-actions">
       <div class="cta-row rise r4">
-        <a class="btn btn-solid" href="#trial">Book a free trial</a>
+        <a class="btn btn-solid" href="#trial">Become a member</a>
         <a class="hero-link" href="#timetable">See the timetable</a>
       </div>
       <p class="hero-proof rise r6"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp; 5.0 &middot; 161 Google reviews</p>
@@ -565,6 +669,15 @@
   </div>
 </div>
 </header>
+
+<section class="stat-bar" aria-label="Academy at a glance">
+  <div class="wrap">
+    <div><b>Since 2014</b></div>
+    <div><b>200+</b> members</div>
+    <div><b>11+</b> black belts on the mat</div>
+    <div><b>4</b> academies across the South Island</div>
+  </div>
+</section>
 
 <section class="band band-paper" id="reviews">
   <div class="wrap">
@@ -623,20 +736,6 @@
     <p class="eyebrow reveal">Why Carlson Gracie</p>
     <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.4rem);max-width:17ch">An academy, not a gym with mats in the corner</h2>
     <p class="lead reveal" style="margin-top:26px">No machines, no treadmills, no timetable shared with five other sports. One art, taught properly, by people who have given their lives to it. If you are serious about jiu-jitsu, this is the room.</p>
-    <div class="proof-strip reveal">
-      <div>
-        <span class="n">11<em>+</em></span>
-        <p>Black belts training and teaching on these mats. Depth you cannot fake or fast-track.</p>
-      </div>
-      <div>
-        <span class="n">200<em>+</em></span>
-        <p>Members, from the fifteen who walked in when the doors opened in 2014.</p>
-      </div>
-      <div>
-        <span class="n">Seminars</span>
-        <p>World-class athletes run sessions here, included with your membership. No flights required.</p>
-      </div>
-    </div>
     <div class="lineage-rail reveal">
       <div class="node">
         <h3>Mitsuyo Maeda</h3>
@@ -670,20 +769,20 @@
 <section class="band band-paper" id="training">
   <div class="wrap">
     <p class="eyebrow reveal">Training</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">Pick your door in</h2>
+    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">Start where you are</h2>
     <div style="margin-top:clamp(40px,6vw,64px)">
       <div class="prog reveal">
         <a href="#trial">
           <h3>Fundamentals<span class="pt">a base</span></h3>
-          <span class="tag">Gi &middot; Beginners</span>
+          <span class="tag">No-Gi &middot; Beginners</span>
           <img class="prog-img" src="assets/prog-fundamentals.jpg" alt="Coach guiding a beginner on the mats" loading="lazy">
-          <p>Your first six months, taught properly. Positions, escapes, and the habits that keep you safe before anyone asks you to be dangerous.</p>
+          <p>This is where you start if you&rsquo;ve never tried Jiu Jitsu before. Basic positions, submissions and escapes, and the habits that keep you safe before you join the regular classes.</p>
         </a>
       </div>
       <div class="prog reveal">
         <a href="#trial">
           <h3>All levels<span class="pt">o jogo</span></h3>
-          <span class="tag">Gi &middot; Everyone</span>
+          <span class="tag">Gi &middot; All levels</span>
           <img class="prog-img" src="assets/prog-all-levels.jpg" alt="Full class training at the Queenstown academy" loading="lazy">
           <p>Technique, drilling, and live rolling. Where fundamentals get pressure tested, at whatever pace your rank calls for.</p>
         </a>
@@ -699,9 +798,9 @@
       <div class="prog reveal">
         <a href="#trial">
           <h3>Kids<span class="pt">os pequenos</span></h3>
-          <span class="tag">Ages 5&ndash;12</span>
+          <span class="tag">Gi and No-Gi &middot; Ages 5&ndash;12</span>
           <img class="prog-img" src="assets/prog-kids.jpg" alt="Class gathered watching a demonstration" loading="lazy">
-          <p>Falling safely, focus, and quiet confidence. Games first, technique always, and no striking, ever.</p>
+          <p>Falling safely, focus, and confidence. Games first, technique always, and no striking, ever.</p>
         </a>
       </div>
     </div>
@@ -711,35 +810,110 @@
   <div class="wrap">
     <p class="eyebrow reveal">Your professors</p>
     <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:15ch">Black belts who still roll with the white belts</h2>
-    <p class="lead reveal" style="margin-top:26px">Four black belts, one lineage, and the thing the reviews keep mentioning: every instructor gives attention to everyone, whatever your level.</p>
+    <p class="lead reveal" style="margin-top:26px">A deep roster of black belts and high belts with decades of combined mat time, guiding everyone from day-one white belts to competition regulars, with dedicated women&rsquo;s and kids&rsquo; classes.</p>
     <div class="coach-grid reveal">
       <article class="coach">
         <div class="coach-photo"><img src="assets/head-jiu-jitsu-coach--carlson-gracie.jpeg" alt="Jose Gomes, head professor at Carlson Gracie NZ" loading="lazy"></div>
         <div class="coach-belt" role="img" aria-label="Third degree black belt"><span class="tip"><i></i><i></i><i></i></span></div>
         <h3>Jose Gomes</h3>
-        <p class="coach-rank">3rd degree black belt &middot; Head professor</p>
-        <p class="coach-bio">Born in Curitiba, Brazil, and on the mats since 1996 under Rodrigo Zanon. Opened Carlson Gracie NZ in Queenstown in 2014 and has grown it from 15 people to over 200 members.</p>
+        <p class="coach-rank">Head professor &middot; Black belt under Carlson Gracie Jr</p>
+        <p class="coach-bio">Training since 1996 and a black belt under Carlson Gracie Jr. Opened Carlson Gracie NZ in 2014 and grew it from 15 to over 200 members, going on to seed academies in W&#257;naka, Invercargill and South Canterbury.</p>
       </article>
       <article class="coach">
         <div class="coach-photo"><img src="assets/jiu-jitsu-coach--carlson-gracie.jpeg" alt="Fabio De Carvalho, black belt instructor" loading="lazy"></div>
         <div class="coach-belt" role="img" aria-label="Black belt"><span class="tip"></span></div>
         <h3>Fabio De Carvalho</h3>
-        <p class="coach-rank">Black belt</p>
-        <p class="coach-bio">From Vit&oacute;ria, Esp&iacute;rito Santo. Walked in because a friend talked him into it and never left. Coaches fundamentals, beginners, advanced, women&rsquo;s and kids&rsquo; classes.</p>
+        <p class="coach-rank">Fundamentals, women&rsquo;s &amp; kids&rsquo; &middot; Black belt</p>
+        <p class="coach-bio">Coaches fundamentals, beginners, advanced, women&rsquo;s and kids&rsquo; classes. Walked in years ago and never left.</p>
       </article>
       <article class="coach">
         <div class="coach-photo"><img src="assets/jiu-jitsu-coach-2--carlson-gracie-queenstown.jpeg" alt="Renan Secco, first degree black belt instructor" loading="lazy"></div>
         <div class="coach-belt" role="img" aria-label="First degree black belt"><span class="tip"><i></i></span></div>
         <h3>Renan Secco</h3>
-        <p class="coach-rank">1st degree black belt</p>
-        <p class="coach-bio">Started in 2004 in his home town of Caxias do Sul. A key instructor at the academy, he teaches the advanced gi and no-gi adult classes.</p>
+        <p class="coach-rank">Advanced gi &amp; no-gi &middot; 1st degree black belt</p>
+        <p class="coach-bio">Training since 2004. A key instructor at the academy, teaching the advanced adult classes.</p>
       </article>
       <article class="coach">
         <div class="coach-photo"><img src="assets/jiu-jitsu-coach-3--carlson-gracie-queenstown.jpeg" alt="Ashley Smith, black belt instructor" loading="lazy"></div>
         <div class="coach-belt" role="img" aria-label="Black belt"><span class="tip"></span></div>
         <h3>Ashley Smith</h3>
-        <p class="coach-rank">Black belt</p>
-        <p class="coach-bio">Started in 2010 after watching a friend&rsquo;s first MMA fight, traded two years of boxing gloves for a gi, and has trained under Jose since the end of 2011.</p>
+        <p class="coach-rank">Adults &middot; Black belt</p>
+        <p class="coach-bio">Traded boxing gloves for a gi in 2010 and has trained under Jose since 2011.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band band-paper" id="seminars">
+  <div class="wrap">
+    <p class="eyebrow reveal">Seminars &amp; events</p>
+    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:16ch">World-class jiu-jitsu, on our mats</h2>
+    <p class="lead reveal" style="margin-top:26px">We&rsquo;re lucky to have hosted some of the best grapplers on the planet right here in Queenstown. As a member, you&rsquo;re in the room for it. You learn their techniques first-hand, drill under their eye, and roll with athletes you have only ever watched compete. That kind of access is rare, and it comes with the mat.</p>
+    <!-- PLACEHOLDER LINE-UP (Miranda's note): these are examples of the calibre, not a
+         confirmed list. Replace with athletes who have actually taught here, plus photos. -->
+    <div class="guest-grid reveal">
+      <article class="guest">
+        <div class="guest-photo"><span>Photo to come</span></div>
+        <h3>Roger Gracie</h3>
+        <p class="guest-cred">10x world champion</p>
+      </article>
+      <article class="guest">
+        <div class="guest-photo"><span>Photo to come</span></div>
+        <h3>Xande Ribeiro</h3>
+        <p class="guest-cred">6x world champion</p>
+      </article>
+      <article class="guest">
+        <div class="guest-photo"><span>Photo to come</span></div>
+        <h3>Marcus Almeida</h3>
+        <p class="guest-cred">&ldquo;Buchecha&rdquo; &middot; 13x world champion</p>
+      </article>
+      <article class="guest guest-slot">
+        <div class="guest-photo"><span>+</span></div>
+        <h3>Add a guest</h3>
+        <p class="guest-cred">Their headline credential</p>
+      </article>
+    </div>
+    <p class="guest-note reveal">Guest line-up shown as an example. We&rsquo;ll list the athletes who have actually run seminars here.</p>
+  </div>
+</section>
+
+<section class="band band-mist" id="events">
+  <div class="wrap">
+    <p class="eyebrow reveal">From the blog</p>
+    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:14ch">Events, all year round</h2>
+    <p class="lead reveal" style="margin-top:26px">Alongside the seminars, we regularly run tournaments in Queenstown and further afield. As part of the team you get the chance to compete, corner your teammates, volunteer, and learn to referee. Every one of those is another way in, and another thread in the community we build on and off the mat.</p>
+    <!-- CMS FEED: these three cards pull the latest posts tagged "events" from the blog.
+         Titles, dates, images and excerpts below are placeholders showing the pattern. -->
+    <div class="post-grid reveal">
+      <article class="post">
+        <div class="post-img"><span>Post image</span></div>
+        <div class="post-body">
+          <span class="post-tag">Events</span>
+          <span class="post-date">March 2026</span>
+          <h3>Post title pulls in from the blog</h3>
+          <p>A one or two line excerpt shows here automatically from the post tagged events.</p>
+          <span class="post-more">Read more &rarr;</span>
+        </div>
+      </article>
+      <article class="post">
+        <div class="post-img"><span>Post image</span></div>
+        <div class="post-body">
+          <span class="post-tag">Events</span>
+          <span class="post-date">February 2026</span>
+          <h3>Post title pulls in from the blog</h3>
+          <p>A one or two line excerpt shows here automatically from the post tagged events.</p>
+          <span class="post-more">Read more &rarr;</span>
+        </div>
+      </article>
+      <article class="post">
+        <div class="post-img"><span>Post image</span></div>
+        <div class="post-body">
+          <span class="post-tag">Events</span>
+          <span class="post-date">December 2025</span>
+          <h3>Post title pulls in from the blog</h3>
+          <p>A one or two line excerpt shows here automatically from the post tagged events.</p>
+          <span class="post-more">Read more &rarr;</span>
+        </div>
       </article>
     </div>
   </div>
@@ -749,22 +923,23 @@
   <div class="wrap">
     <div class="tech-grid">
       <div class="tech-copy">
-        <p class="eyebrow reveal">From the mats</p>
-        <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:13ch">Latest technique</h2>
+        <p class="eyebrow reveal">On and off the mats</p>
+        <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:12ch">Every day is a school day</h2>
         <!-- New technique: swap assets/technique.mp4 + assets/technique-poster.jpg,
              update the lead line and the label in .tech-meta below.
              "More techniques" points at techniques.html - not built yet. -->
-        <p class="lead reveal">The armbar from closed guard. Isolate the arm, climb the hips, swing the leg over. Filmed on our mats, taught in every fundamentals cycle.</p>
-        <p class="serif-note reveal" style="display:block;margin-top:18px;font-size:20px;color:rgba(16,16,20,.7)">watch it here, drill it in class</p>
-        <!-- Re-add when techniques.html exists:
-        <div class="cta-row reveal">
-          <a class="btn btn-ink" href="techniques.html">More techniques</a>
-        </div> -->
+        <p class="lead reveal">Training is only half of it. Every membership comes with our full tutorial library in the app, so the learning carries on after class. Review what you drilled tonight, get ahead of the next move before you arrive, and pick something up whenever you have ten minutes. Filmed by our coaches, on our mats.</p>
+        <div class="social-row reveal">
+          <a href="https://www.facebook.com/CarlsonGracieJiuJitsuNewZealand/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>Facebook</a>
+          <a href="https://www.instagram.com/carlsongracie_nz/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.2-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9C2.4 3.9 4 2.4 7.1 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 5.1a4.7 4.7 0 100 9.4 4.7 4.7 0 000-9.4zm0 7.7a3 3 0 110-6 3 3 0 010 6zm4.9-7.9a1.1 1.1 0 100-2.2 1.1 1.1 0 000 2.2z"/></svg>Instagram</a>
+        </div>
       </div>
       <div class="tech-player reveal">
         <div class="tech-frame">
           <video src="assets/technique.mp4" poster="assets/technique-poster.jpg" controls playsinline preload="metadata"></video>
-          <div class="tech-meta"><span>Armbar &middot; closed guard</span><span>15 sec</span></div>
+          <div class="tech-meta"><span>Sample from the members&rsquo; library</span><span>Armbar &middot; 0:15</span></div>
         </div>
       </div>
     </div>
@@ -899,6 +1074,13 @@
   </div>
 </footer>
 
+<div class="film" id="film" role="dialog" aria-modal="true" aria-label="Carlson Gracie NZ film" hidden>
+  <div class="film-inner">
+    <button class="film-close" id="filmClose" type="button">Close &times;</button>
+    <video id="filmVid" src="assets/hero-film.mp4" poster="assets/hero-poster.jpg" controls playsinline preload="none"></video>
+  </div>
+</div>
+
 <script>
   // ---- Hero video ----
   // Embedded as base64 so this single file previews anywhere.
@@ -1025,7 +1207,38 @@
     requestAnimationFrame(progFollow);
   })();
 
-  // Latest technique: monochrome until it plays
+  // Hero film: background loop stays muted; the play button opens it with sound
+  var film = document.getElementById('film');
+  var filmVid = document.getElementById('filmVid');
+  var heroPlay = document.getElementById('heroPlay');
+  var filmClose = document.getElementById('filmClose');
+  var filmReturnFocus = null;
+  function openFilm(){
+    if (!film) return;
+    filmReturnFocus = document.activeElement;
+    film.hidden = false;
+    document.body.style.overflow = 'hidden';
+    if (window.__lenis) window.__lenis.stop();
+    if (vid && !vid.paused) vid.pause();
+    filmVid.currentTime = 0;
+    var p = filmVid.play(); if (p && p.catch) p.catch(function(){});
+    filmClose.focus();
+  }
+  function closeFilm(){
+    if (!film || film.hidden) return;
+    filmVid.pause();
+    film.hidden = true;
+    document.body.style.overflow = '';
+    if (window.__lenis) window.__lenis.start();
+    if (vid) { var p = vid.play(); if (p && p.catch) p.catch(function(){}); }
+    if (filmReturnFocus) filmReturnFocus.focus();
+  }
+  if (heroPlay) heroPlay.addEventListener('click', openFilm);
+  if (filmClose) filmClose.addEventListener('click', closeFilm);
+  if (film) film.addEventListener('click', function(e){ if (e.target === film) closeFilm(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeFilm(); });
+
+  // Lesson teaser clip: monochrome until it plays
   var techVid = document.querySelector('.tech-frame video');
   if (techVid) techVid.addEventListener('play', function(){ techVid.classList.add('playing'); });
 
