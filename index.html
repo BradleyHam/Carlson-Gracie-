@@ -196,7 +196,7 @@
     .hero-grid{position:static}
     .hero-copy{
       position:absolute;z-index:2;left:clamp(20px,4vw,48px);
-      bottom:clamp(36px,6vw,64px);max-width:min(56vw,780px);
+      bottom:clamp(36px,6vw,64px);max-width:min(66vw,960px);
       transform:translateY(calc(var(--copy-travel,0px) * var(--p1,0) * -1));
       will-change:transform;
     }
@@ -499,7 +499,7 @@
     font-family:var(--serif);font-style:italic;font-weight:500;
     font-size:clamp(1.15rem,2.2vw,1.6rem);color:rgba(255,255,255,.9);margin-bottom:18px;
   }
-  .hero h1.hero-deco{font-size:clamp(2.4rem,6.4vw,5rem);max-width:14ch}
+  .hero h1.hero-deco{font-size:clamp(2.1rem,6vw,5.4rem);max-width:none}
   .hero-play{
     position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);z-index:3;
     display:flex;flex-direction:column;align-items:center;gap:12px;
@@ -539,7 +539,9 @@
     color:rgba(255,255,255,.6);text-shadow:0 1px 10px rgba(0,0,0,.55);
   }
   .hero-stats b{color:#fff;font-weight:500}
-  @media (max-width:520px){ .hero-stats{gap:7px 20px;font-size:9.5px;letter-spacing:.1em} }
+  @media (max-width:1320px){ .hero-stats{gap:8px 24px;font-size:9.5px;letter-spacing:.12em} }
+  @media (max-width:1120px){ .hero-stats{gap:7px 18px;font-size:9px;letter-spacing:.08em} }
+  @media (max-width:520px){ .hero-stats{gap:7px 16px;font-size:9px;letter-spacing:.08em} }
 
   /* ---------- Social row ---------- */
   .social-row{display:flex;gap:26px;margin-top:30px}
@@ -733,7 +735,10 @@
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="hero-kicker rise r1">Come as you are. Leave as one of us.</p>
-      <h1 class="display hero-deco rise r2">Brazilian Jiu-Jitsu Academy in Queenstown</h1>
+      <h1 class="display hero-deco rise r2">
+        <span class="l">Brazilian Jiu-Jitsu Academy</span>
+        <span class="l">in Queenstown</span>
+      </h1>
       <p class="hero-stats rise r3">
         <span><b>Since 2014</b></span>
         <span><b>200+</b> members</span>
