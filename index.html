@@ -6,6 +6,8 @@
 <title>Brazilian Jiu-Jitsu Queenstown | Carlson Gracie BJJ New Zealand</title>
 <meta name="description" content="Learn Brazilian jiu-jitsu in Queenstown with Carlson Gracie Team New Zealand. Beginner fundamentals, no-gi and kids classes. Your first class is free.">
 <link rel="icon" type="image/png" href="assets/cg-webclip.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" as="image" href="assets/hero-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -475,6 +477,49 @@
     .hero .r4{animation-delay:.4s}.hero .r5{animation-delay:.5s}.hero .r6{animation-delay:.6s}
     @keyframes rise{to{opacity:1;transform:none}}
   }
+
+  /* ---------- Refinement layer: air, rhythm, monochrome discipline ---------- */
+  body{counter-reset:sec}
+  .band:not(.hero-stage){padding:clamp(96px,13vw,176px) clamp(20px,4vw,48px)}
+  .display{line-height:1.02}
+  /* quiet editorial index on each section label */
+  .eyebrow::after{
+    counter-increment:sec;content:counter(sec,decimal-leading-zero);
+    margin-left:10px;color:rgba(23,23,27,.32);letter-spacing:.18em;
+  }
+  /* every still image reads monochrome; colour is earned on interaction */
+  .prog-img{filter:grayscale(1) contrast(1.04)}
+  .tech-frame video{filter:grayscale(1);transition:filter .5s ease}
+  .tech-frame video.playing{filter:none}
+  /* footer */
+  footer{padding:clamp(64px,9vw,120px) clamp(20px,4vw,48px) 40px}
+  .foot-top{max-width:1180px;margin:0 auto clamp(36px,5vw,60px);display:flex;align-items:center;gap:18px}
+  .foot-top img{width:72px;height:72px;display:block}
+  .foot-top .name{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1}
+  .foot-top .name em{font-style:normal;color:var(--carmine)}
+  .foot-grid{
+    max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+    padding-bottom:clamp(36px,5vw,56px);border-bottom:1px solid var(--line-soft);
+  }
+  .foot-grid h4{font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:rgba(23,23,27,.4);margin-bottom:10px;font-weight:500}
+  .foot-grid p{font-size:14.5px;line-height:1.7;color:rgba(23,23,27,.78)}
+  .foot-grid a{text-decoration:none}
+  .foot-grid a:hover{color:var(--carmine)}
+  @media (max-width:700px){ .foot-grid{grid-template-columns:1fr} }
+  .foot{margin-top:28px}
+  /* staggered arrival for grid children: opacity only, so hover transforms stay untouched */
+  @media (prefers-reduced-motion:no-preference){
+    .coach-grid .coach,.tt-grid .tt-col,.proof-strip>div,.kit article,.review-wall>*{
+      opacity:0;transition:opacity .65s ease;
+    }
+    .coach-grid.in .coach,.tt-grid.in .tt-col,.proof-strip.in>div,.kit.in article,.review-wall.in>*{opacity:1}
+    .coach-grid.in .coach:nth-child(2),.tt-grid.in .tt-col:nth-child(2),.proof-strip.in>div:nth-child(2),.kit.in article:nth-child(2),.review-wall.in>*:nth-child(2){transition-delay:.08s}
+    .coach-grid.in .coach:nth-child(3),.tt-grid.in .tt-col:nth-child(3),.proof-strip.in>div:nth-child(3),.kit.in article:nth-child(3),.review-wall.in>*:nth-child(3){transition-delay:.16s}
+    .coach-grid.in .coach:nth-child(4),.tt-grid.in .tt-col:nth-child(4),.review-wall.in>*:nth-child(4){transition-delay:.24s}
+    .tt-grid.in .tt-col:nth-child(5),.review-wall.in>*:nth-child(5){transition-delay:.32s}
+    .tt-grid.in .tt-col:nth-child(6),.review-wall.in>*:nth-child(6){transition-delay:.4s}
+    .review-wall.in>*:nth-child(7){transition-delay:.48s}
+  }
 </style>
 </head>
 <body>
@@ -489,6 +534,7 @@
 <nav>
   <a class="wordmark" href="#top" aria-label="Carlson Gracie NZ home"><img class="wordmark-badge" src="assets/cg-logo.png" alt="Carlson Gracie Jiu Jitsu New Zealand"></a>
   <ul class="nav-links">
+    <li><a href="#academy">Academy</a></li>
     <li><a href="#training">Training</a></li>
     <li><a href="#journey">The Journey</a></li>
     <li class="keep"><a class="nav-ghost" href="#timetable">Timetable</a></li>
@@ -829,8 +875,25 @@
 </section>
 
 <footer>
+  <div class="foot-top">
+    <img src="assets/cg-logo.png" alt="" loading="lazy">
+    <span class="name">Carlson Gracie <em>New Zealand</em></span>
+  </div>
+  <div class="foot-grid">
+    <div>
+      <h4>Visit</h4>
+      <p>6/15 Red Oaks Drive<br>Frankton, Queenstown 9300<br>The Q Building</p>
+    </div>
+    <div>
+      <h4>Call</h4>
+      <p><a href="tel:+642102304516">0210 230 4516</a></p>
+    </div>
+    <div>
+      <h4>Proof</h4>
+      <p><a href="https://www.google.com/maps/place/Carlson+Gracie+New+Zealand/@-45.0225334,168.7472076,17z" target="_blank" rel="noopener">5.0 from 161 Google reviews</a></p>
+    </div>
+  </div>
   <div class="foot">
-    <a class="wordmark" href="#top">Carlson Gracie <em>NZ</em></a>
     <small>Official Carlson Gracie Team affiliate &middot; Aotearoa New Zealand</small>
     <small>&copy; 2026 Carlson Gracie Brazilian Jiu-Jitsu NZ</small>
   </div>
@@ -962,6 +1025,10 @@
     requestAnimationFrame(progFollow);
   })();
 
+  // Latest technique: monochrome until it plays
+  var techVid = document.querySelector('.tech-frame video');
+  if (techVid) techVid.addEventListener('play', function(){ techVid.classList.add('playing'); });
+
   // Timetable: highlight today's column (Sunday matches nothing - no classes)
   var todayCol = document.querySelector('.tt-col[data-day="' + new Date().getDay() + '"]');
   if (todayCol) todayCol.classList.add('is-today');
@@ -982,7 +1049,7 @@
         const id = a.getAttribute('href');
         if (id.length > 1 && document.querySelector(id)) {
           e.preventDefault();
-          lenis.scrollTo(id);
+          lenis.scrollTo(id, {offset:-40});
         }
       });
     });
