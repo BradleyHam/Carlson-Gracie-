@@ -99,9 +99,9 @@
     display:flex;align-items:center;gap:12px;
   }
   .wordmark-badge{
-    width:92px;height:92px;display:block;
+    width:104px;height:104px;display:block;
     filter:drop-shadow(0 2px 12px rgba(0,0,0,.5));
-    transition:width .35s ease,height .35s ease,filter .35s ease;
+    transition:filter .35s ease;
   }
   .wordmark em{font-style:normal;color:var(--carmine)}
   .nav-links{display:flex;gap:30px;align-items:center;list-style:none}
@@ -128,7 +128,8 @@
     backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);
     border-bottom-color:var(--line-soft);
   }
-  nav.is-solid .wordmark-badge{width:64px;height:64px;filter:none}
+  nav.is-solid .wordmark{align-self:flex-start;padding-top:9px}
+  nav.is-solid .wordmark-badge{filter:drop-shadow(0 6px 16px rgba(23,23,27,.22))}
   nav.is-solid .nav-links a{color:var(--ink);opacity:.66;text-shadow:none}
   nav.is-solid .nav-links a:hover{opacity:1;color:var(--carmine)}
   nav.is-solid .nav-cta{background:var(--ink);color:#fff!important;padding:10px 17px}
@@ -139,10 +140,9 @@
   @media (max-width:860px){ .nav-links li:not(.keep){display:none} }
   @media (max-width:520px){
     :root{--nav-solid-h:64px}
+    .wordmark-badge{width:76px;height:76px}
     .nav-links{gap:10px}
     .nav-cta,.nav-ghost,nav.is-solid .nav-cta,nav.is-solid .nav-ghost{padding:9px 11px;font-size:9.5px;letter-spacing:.14em}
-    .wordmark-badge{width:66px;height:66px}
-    nav.is-solid .wordmark-badge{width:52px;height:52px}
   }
 
   /* ---------- Bands ---------- */
@@ -533,7 +533,7 @@
 
   .hero-stats{
     display:flex;flex-wrap:wrap;gap:9px 32px;
-    margin-top:26px;padding-top:20px;max-width:660px;
+    margin-top:26px;padding-top:20px;width:max-content;max-width:100%;
     border-top:1px solid rgba(255,255,255,.3);
     font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
     color:rgba(255,255,255,.6);text-shadow:0 1px 10px rgba(0,0,0,.55);
@@ -1227,8 +1227,8 @@
   function heroMeasure(){
     if (!heroStage || !heroCopy) return;
     var bottomPad = Math.max(36, Math.min(64, window.innerWidth * 0.06));
-    var solidH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-solid-h')) || 64;
-    var navClear = solidH + 28; // the nav is condensed by the time the copy parks
+    var badge = document.querySelector('.wordmark-badge');
+    var navClear = (badge ? badge.getBoundingClientRect().bottom : 122) + 26; // clear the overhanging emblem
     var travel = Math.max(0, heroStage.clientHeight - heroCopy.offsetHeight - navClear - bottomPad);
     heroStage.style.setProperty('--copy-travel', travel + 'px');
   }
@@ -1251,8 +1251,9 @@
   // automatically when the tab is hidden, and only recomputes when scrollY moves.
   var heroLastY = -1;
   var navEl = document.querySelector('nav');
+  var heroForNav = document.getElementById('top');
   function navState(y){
-    var solid = y > 60;
+    var solid = y > (heroForNav ? heroForNav.offsetHeight - innerHeight * 0.25 : 60);
     navEl.classList.toggle('is-solid', solid);
     document.body.classList.toggle('is-scrolled', solid);
   }
