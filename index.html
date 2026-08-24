@@ -530,15 +530,16 @@
   }
   .film-close:hover{color:var(--carmine)}
 
-  /* ---------- Academy stat bar ---------- */
-  .stat-bar{background:var(--ink);color:#fff;padding:22px clamp(20px,4vw,48px)}
-  .stat-bar .wrap{
-    display:flex;flex-wrap:wrap;gap:14px clamp(24px,5vw,64px);
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
-    color:rgba(255,255,255,.62);
+
+  .hero-stats{
+    display:flex;flex-wrap:wrap;gap:9px 32px;
+    margin-top:26px;padding-top:20px;max-width:660px;
+    border-top:1px solid rgba(255,255,255,.3);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);text-shadow:0 1px 10px rgba(0,0,0,.55);
   }
-  .stat-bar b{color:#fff;font-weight:500}
-  @media (max-width:700px){ .stat-bar .wrap{font-size:9.5px;gap:10px 22px} }
+  .hero-stats b{color:#fff;font-weight:500}
+  @media (max-width:520px){ .hero-stats{gap:7px 20px;font-size:9.5px;letter-spacing:.1em} }
 
   /* ---------- Social row ---------- */
   .social-row{display:flex;gap:26px;margin-top:30px}
@@ -733,6 +734,12 @@
     <div class="hero-copy">
       <p class="hero-kicker rise r1">Come as you are. Leave as one of us.</p>
       <h1 class="display hero-deco rise r2">Brazilian Jiu-Jitsu Academy in Queenstown</h1>
+      <p class="hero-stats rise r3">
+        <span><b>Since 2014</b></span>
+        <span><b>200+</b> members</span>
+        <span><b>11+</b> black belts on the mat</span>
+        <span><b>4</b> academies across the South Island</span>
+      </p>
     </div>
     <div class="hero-actions">
       <div class="cta-row rise r4">
@@ -744,15 +751,6 @@
   </div>
 </div>
 </header>
-
-<section class="stat-bar" aria-label="Academy at a glance">
-  <div class="wrap">
-    <div><b>Since 2014</b></div>
-    <div><b>200+</b> members</div>
-    <div><b>11+</b> black belts on the mat</div>
-    <div><b>4</b> academies across the South Island</div>
-  </div>
-</section>
 
 <section class="band band-paper" id="reviews">
   <div class="wrap">
