@@ -619,13 +619,23 @@
     font-family:var(--body);font-weight:500;font-size:clamp(15px,1.5vw,17px);
   }
   .faq summary::-webkit-details-marker{display:none}
+  .faq summary::before,
   .faq summary::after{
-    content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);
-    color:var(--carmine);font-size:20px;line-height:1;font-weight:400;
+    content:"";position:absolute;right:6px;top:50%;
+    width:15px;height:1.5px;background:var(--carmine);
+    transition:transform .38s cubic-bezier(.4,0,.2,1);
   }
-  .faq details[open] summary::after{content:"\2013"}
+  .faq summary::before{transform:translateY(-50%)}
+  .faq summary::after{transform:translateY(-50%) rotate(90deg)}
+  .faq details[open] summary::after{transform:translateY(-50%) rotate(0deg)}
   .faq summary:hover{color:var(--carmine)}
-  .faq-a{padding:0 clamp(20px,6vw,80px) 26px 0}
+  .faq-a{overflow:hidden;height:0}
+  .faq-inner{padding:0 clamp(20px,6vw,80px) 26px 0}
+  @media (prefers-reduced-motion:no-preference){
+    .faq-a{transition:height .38s cubic-bezier(.4,0,.2,1)}
+    .faq-inner{opacity:0;transform:translateY(-6px);transition:opacity .3s ease .08s,transform .3s ease .08s}
+    .faq details[open] .faq-inner{opacity:1;transform:none}
+  }
   .faq-a p{font-size:14.5px;line-height:1.75;color:rgba(23,23,27,.72);max-width:70ch}
 
   /* ---------- Closing CTA ---------- */
@@ -757,6 +767,11 @@
 
   .coach-belt-tbc{background:none;border-top:1px solid var(--line-ink);height:0;margin:18px 0 12px}
   .coach-rank-tbc{color:rgba(23,23,27,.38)!important;font-style:italic;text-transform:none;letter-spacing:.04em}
+
+  /* explicit line breaks for headlines that shouldn't wrap ragged;
+     collapses back to natural wrapping on small screens */
+  .split-lines span{display:block}
+  @media (max-width:640px){ .split-lines span{display:inline} }
 
   /* ---------- Reveal motion ---------- */
   @media (prefers-reduced-motion:no-preference){
@@ -989,7 +1004,10 @@
 <section class="band band-mist" id="instructors">
   <div class="wrap">
     <p class="eyebrow reveal">Your coaches</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:15ch">No matter your level, someone here has your back</h2>
+    <h2 class="display reveal split-lines" style="font-size:clamp(2.4rem,6vw,4.6rem)">
+      <span>No matter your level,</span>
+      <span>someone here has your back</span>
+    </h2>
     <p class="lead reveal" style="margin-top:26px">A deep roster of black belts and high belts with decades of combined mat time, guiding everyone from day-one white belts to competition regulars, with dedicated women&rsquo;s and kids&rsquo; classes.</p>
     <figure class="section-figure reveal">
       <img src="assets/black-belts.jpg" alt="The Carlson Gracie New Zealand coaching team in front of the club banner" loading="lazy">
@@ -1217,31 +1235,31 @@
     <div class="faq reveal">
       <details>
         <summary>What should I bring to my first class?</summary>
-        <div class="faq-a"><p>Shorts and a t-shirt are fine. We have clean gis to borrow, so there is nothing to buy before you know you love it. Bring water, a towel, and no ego.</p></div>
+        <div class="faq-a"><div class="faq-inner"><p>Shorts and a t-shirt are fine. We have clean gis to borrow, so there is nothing to buy before you know you love it. Bring water, a towel, and no ego.</p></div></div>
       </details>
       <details open>
         <summary>What makes Carlson Gracie different?</summary>
-        <div class="faq-a"><p>A few things you won&rsquo;t find together anywhere else in the region. A direct line to the founding Gracie family, through our head professor&rsquo;s black belt under Carlson Gracie Jr. A deep roster of black belts on the mat, more than 11 in all. And a family of academies across the South Island, in Queenstown, W&#257;naka, Invercargill and South Canterbury. We were the first to bring the sport to the Southern Lakes, and we have grown it ever since.</p></div>
+        <div class="faq-a"><div class="faq-inner"><p>A few things you won&rsquo;t find together anywhere else in the region. A direct line to the founding Gracie family, through our head professor&rsquo;s black belt under Carlson Gracie Jr. A deep roster of black belts on the mat, more than 11 in all. And a family of academies across the South Island, in Queenstown, W&#257;naka, Invercargill and South Canterbury. We were the first to bring the sport to the Southern Lakes, and we have grown it ever since.</p></div></div>
       </details>
       <details>
         <summary>Do I need to be fit to start?</summary>
-        <div class="faq-a"><p>No. You get fit by training, not before it. Every class runs at the pace your body sets, and nobody in the room is watching you.</p></div>
+        <div class="faq-a"><div class="faq-inner"><p>No. You get fit by training, not before it. Every class runs at the pace your body sets, and nobody in the room is watching you.</p></div></div>
       </details>
       <details>
         <summary>I have never done a martial art. Is that ok?</summary>
-        <div class="faq-a"><p>That describes most people&rsquo;s first class here. Fundamentals exists for exactly this: basic positions, submissions and escapes, and the habits that keep you safe before you join the regular classes.</p></div>
+        <div class="faq-a"><div class="faq-inner"><p>That describes most people&rsquo;s first class here. Fundamentals exists for exactly this: basic positions, submissions and escapes, and the habits that keep you safe before you join the regular classes.</p></div></div>
       </details>
       <details>
         <summary>How do I become a member?</summary>
-        <div class="faq-a"><p>Start with a free class, then have a chat with us on the mat. Membership covers your classes, the seminars we host, and the full tutorial library in the app.</p></div>
+        <div class="faq-a"><div class="faq-inner"><p>Start with a free class, then have a chat with us on the mat. Membership covers your classes, the seminars we host, and the full tutorial library in the app.</p></div></div>
       </details>
       <details>
         <summary>What ages are the kids&rsquo; classes?</summary>
-        <div class="faq-a"><p>Ages 5 to 12, in gi and no-gi. Games first, technique always, and no striking, ever.</p></div>
+        <div class="faq-a"><div class="faq-inner"><p>Ages 5 to 12, in gi and no-gi. Games first, technique always, and no striking, ever.</p></div></div>
       </details>
       <details>
         <summary>Gi or no-gi, which should I pick?</summary>
-        <div class="faq-a"><p>Either, and most members end up doing both. Gi is the traditional kimono and rewards patience and grips. No-gi is faster, closer to wrestling, and a little less to learn on day one.</p></div>
+        <div class="faq-a"><div class="faq-inner"><p>Either, and most members end up doing both. Gi is the traditional kimono and rewards patience and grips. No-gi is faster, closer to wrestling, and a little less to learn on day one.</p></div></div>
       </details>
     </div>
   </div>
@@ -1512,12 +1530,37 @@
     }, {threshold:0.4}).observe(techVid);
   }
 
-  // FAQs behave as an accordion: opening one closes the rest
-  var faqItems = document.querySelectorAll('.faq details');
+  // FAQs: one open at a time, with the panel height animated both ways.
+  // <details> snaps by default, so open/close is driven manually here.
+  var faqItems = [].slice.call(document.querySelectorAll('.faq details'));
+  var FAQ_MS = 380;
+  var faqMotion = window.matchMedia('(prefers-reduced-motion: no-preference)');
+  function faqPanel(d){ return d.querySelector('.faq-a'); }
+  function faqOpen(d){
+    var p = faqPanel(d);
+    d.open = true;
+    if (!faqMotion.matches) { p.style.height = 'auto'; return; }
+    p.style.height = '0px';
+    requestAnimationFrame(function(){ p.style.height = p.scrollHeight + 'px'; });
+    clearTimeout(d._faqT);
+    d._faqT = setTimeout(function(){ if (d.open) p.style.height = 'auto'; }, FAQ_MS);
+  }
+  function faqClose(d){
+    var p = faqPanel(d);
+    if (!d.open) return;
+    if (!faqMotion.matches) { d.open = false; p.style.height = '0px'; return; }
+    p.style.height = p.scrollHeight + 'px';
+    requestAnimationFrame(function(){ p.style.height = '0px'; });
+    clearTimeout(d._faqT);
+    d._faqT = setTimeout(function(){ d.open = false; }, FAQ_MS);
+  }
   faqItems.forEach(function(d){
-    d.addEventListener('toggle', function(){
-      if (!d.open) return;
-      faqItems.forEach(function(other){ if (other !== d) other.open = false; });
+    faqPanel(d).style.height = d.open ? 'auto' : '0px';
+    d.querySelector('summary').addEventListener('click', function(e){
+      e.preventDefault();
+      if (d.open) { faqClose(d); return; }
+      faqItems.forEach(function(o){ if (o !== d) faqClose(o); });
+      faqOpen(d);
     });
   });
 
