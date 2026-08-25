@@ -18,7 +18,7 @@
     --paper:#ffffff;        /* primary ground */
     --mist:#f3f3f4;         /* light grey alternating band */
     --bone:#ffffff;         /* light type over photography */
-    --carmine:#b3212e;      /* accent only, never a block */
+    --carmine:#b3212e;      /* CTAs / action buttons + belt red bar only */
     --belt-white:#e6e2d8;
     --belt-blue:#1e4e9c;
     --belt-purple:#5b3a8e;
@@ -43,9 +43,9 @@
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  ::selection{background:var(--carmine);color:#fff}
+  ::selection{background:var(--ink);color:#fff}
   a{color:inherit}
-  :focus-visible{outline:2px solid var(--carmine);outline-offset:3px}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
   /* ---------- Belt progress strip (signature, kept thin) ---------- */
   .belt{
@@ -72,7 +72,11 @@
     position:fixed;top:13px;right:20px;z-index:72;
     font-family:var(--mono);font-size:9.5px;letter-spacing:.3em;
     color:var(--ink);text-transform:uppercase;
+    pointer-events:none;
   }
+  /* Below the desktop nav width the rank label collides with the Timetable/Join
+     buttons, so the belt strip carries the progress on its own. */
+  @media (max-width:960px){ .belt-label{display:none} }
 
   /* ---------- Nav: floats over the hero, condenses on scroll ---------- */
   :root{--nav-solid-h:78px}
@@ -103,7 +107,7 @@
     filter:none;
     transition:filter .35s ease;
   }
-  .wordmark em{font-style:normal;color:var(--carmine)}
+  .wordmark em{font-style:normal;color:inherit}
   .nav-links{display:flex;gap:30px;align-items:center;list-style:none}
   .nav-links a{
     font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
@@ -131,7 +135,7 @@
   nav.is-solid .wordmark{align-self:flex-start;padding-top:9px}
   nav.is-solid .wordmark-badge{filter:none}
   nav.is-solid .nav-links a{color:var(--ink);opacity:.66;text-shadow:none}
-  nav.is-solid .nav-links a:hover{opacity:1;color:var(--carmine)}
+  nav.is-solid .nav-links a:hover{opacity:1;color:var(--ink)}
   nav.is-solid .nav-cta{background:var(--carmine);color:#fff!important;padding:10px 17px}
   nav.is-solid .nav-cta:hover{background:var(--ink)}
   nav.is-solid .nav-ghost{color:var(--ink)!important;border-color:var(--line-ink);padding:9px 16px}
@@ -219,7 +223,11 @@
   }
   .hero-video::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(20,20,24,.42),rgba(20,20,24,.16) 42%,rgba(20,20,24,.5) 100%);
+    background:
+      /* vignette: corners and edges pulled down so white type and the play button
+         hold up whatever frame of the film is on screen */
+      radial-gradient(115% 85% at 50% 43%, rgba(10,10,14,0) 38%, rgba(10,10,14,.34) 76%, rgba(10,10,14,.6) 100%),
+      linear-gradient(180deg,rgba(20,20,24,.44),rgba(20,20,24,.14) 42%,rgba(20,20,24,.56) 100%);
   }
   @media (prefers-reduced-motion:reduce){ .hero-video{display:none} }
 
@@ -231,7 +239,7 @@
   .hero-deco .l{display:block}
   .hero-deco .accent{color:#fff;position:relative}
   .hero-deco .accent::after{
-    content:"";position:absolute;left:0;right:0;bottom:.08em;height:3px;background:var(--carmine);
+    content:"";position:absolute;left:0;right:0;bottom:.08em;height:3px;background:var(--bone);
   }
   .hero .cta-row{margin-top:26px}
   .hero .hero-link{color:#fff}
@@ -239,6 +247,8 @@
     margin-top:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;
     text-transform:uppercase;color:rgba(255,255,255,.72);
   }
+  /* the shared .stars colour is ink, which vanishes over the film */
+  .hero-proof .stars{color:#fff}
   .hero .btn-solid{background:var(--carmine);color:#fff}
   .hero .btn-solid:hover{background:#fff;color:var(--ink)}
 
@@ -256,7 +266,7 @@
     font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
     color:var(--ink);text-underline-offset:6px;
   }
-  .hero-link:hover{color:var(--carmine)}
+  .hero-link:hover{text-decoration:underline}
 
   /* ---------- Academy proof strip ---------- */
   .proof-strip{
@@ -268,14 +278,14 @@
     font-family:var(--display);font-weight:600;font-size:clamp(2.4rem,4.4vw,3.6rem);
     line-height:1;display:block;
   }
-  .proof-strip .n em{font-style:normal;color:var(--carmine)}
+  .proof-strip .n em{font-style:normal;color:inherit}
   .proof-strip p{
     margin-top:10px;font-size:14px;line-height:1.55;color:rgba(23,23,27,.66);max-width:30ch;
   }
   @media (max-width:760px){ .proof-strip{grid-template-columns:1fr;gap:26px} }
 
   /* ---------- Reviews ---------- */
-  .stars{color:var(--carmine);letter-spacing:.18em}
+  .stars{color:var(--ink);letter-spacing:.18em}
   .review-wall{margin-top:clamp(40px,6vw,64px);columns:3;column-gap:20px}
   .rev-card{
     break-inside:avoid;margin-bottom:20px;padding:24px 22px 20px;position:relative;
@@ -299,9 +309,9 @@
   .rev-stat{
     break-inside:avoid;margin-bottom:20px;padding:26px 22px;
     background:var(--paper);color:var(--ink);
-    border:1px solid var(--line-ink);border-top:4px solid var(--carmine);
+    border:1px solid var(--line-ink);border-top:4px solid var(--belt-black);
   }
-  .rev-stat .n{font-family:var(--display);font-weight:600;font-size:66px;line-height:1;display:block;color:var(--carmine)}
+  .rev-stat .n{font-family:var(--display);font-weight:600;font-size:66px;line-height:1;display:block;color:var(--ink)}
   .rev-stat p{margin-top:8px;font-size:14px;line-height:1.55;color:rgba(23,23,27,.72)}
   .rev-stat small{display:block;margin-top:14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,27,.45)}
   .review-actions{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-top:clamp(28px,4vw,44px)}
@@ -310,7 +320,7 @@
 
   .trial-quote{
     margin-top:clamp(36px,5vw,56px);max-width:54ch;
-    border-left:2px solid var(--carmine);padding-left:24px;
+    border-left:2px solid var(--ink);padding-left:24px;
   }
   .trial-quote p{font-family:var(--serif);font-size:clamp(19px,2.2vw,25px);line-height:1.55;color:rgba(23,23,27,.85)}
   .trial-quote cite{
@@ -329,9 +339,9 @@
     content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;
     background:var(--ink);
   }
-  .node-you::before{background:var(--carmine);box-shadow:0 0 0 5px rgba(179,33,46,.14)}
+  .node-you::before{background:var(--ink);box-shadow:0 0 0 5px rgba(23,23,27,.12)}
   .node h3{font-family:var(--display);font-weight:600;font-size:clamp(1.2rem,2.2vw,1.7rem);line-height:1.05}
-  .node-you h3{color:var(--carmine)}
+  .node-you h3{color:var(--ink)}
   .node .yrs{font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(23,23,27,.5);display:block;margin:10px 0 8px}
   .node p{font-size:13.5px;line-height:1.6;color:rgba(23,23,27,.7);max-width:24ch}
   @media (max-width:860px){
@@ -355,8 +365,6 @@
   .coach-rank{margin-top:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(23,23,27,.5)}
   .coach-bio{margin-top:12px;font-size:13.5px;line-height:1.6;color:rgba(23,23,27,.7)}
   @media (max-width:1000px){ .coach-grid{grid-template-columns:repeat(2,1fr)} }
-  @media (max-width:560px){ .coach-grid{grid-template-columns:1fr;max-width:380px} }
-
   /* ---------- Lesson teaser (members app) ---------- */
   .tech-grid{display:flex;align-items:center;gap:clamp(36px,6vw,84px)}
   .tech-copy{flex:1 1 auto;min-width:0}
@@ -368,7 +376,7 @@
     padding:12px 12px 14px;
   }
   .tech-frame::before{
-    content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:var(--carmine);
+    content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:var(--ink);
   }
   .tech-frame video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--mist)}
   .tech-meta{
@@ -393,7 +401,7 @@
     font-family:var(--display);font-weight:600;
     font-size:clamp(2rem,5vw,3.4rem);line-height:1;
   }
-  .prog a:hover h3{color:var(--carmine)}
+  .prog a:hover h3{color:rgba(23,23,27,.62)}
   .prog .pt{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,2vw,1.5rem);color:rgba(23,23,27,.5);margin-left:14px}
   .prog .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(23,23,27,.45);white-space:nowrap}
   .prog p{grid-column:1/-1;max-width:62ch;color:rgba(23,23,27,.7);font-size:15px}
@@ -411,7 +419,7 @@
   }
   @media (hover:none), (max-width:640px){
     .prog-img{
-      grid-column:1/-1;width:100%;max-width:360px;aspect-ratio:3/2;object-fit:cover;
+      grid-column:1/-1;width:100%;max-width:none;aspect-ratio:3/2;object-fit:cover;
       border:1px solid var(--line-ink);margin-top:6px;
       transform:none!important;
     }
@@ -434,9 +442,9 @@
   }
   .tt-col .today-tag{
     display:none;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
-    text-transform:uppercase;color:#fff;background:var(--carmine);padding:3px 6px;
+    text-transform:uppercase;color:#fff;background:var(--ink);padding:3px 6px;
   }
-  .tt-col.is-today{border-color:var(--carmine)}
+  .tt-col.is-today{border-color:var(--ink)}
   .tt-col.is-today .today-tag{display:inline-block}
   .tt-class{
     margin-top:12px;padding:11px 11px 12px;
@@ -452,11 +460,11 @@
   .c-all{border-left-color:var(--belt-blue)}
   .c-nogi{border-left-color:var(--belt-black)}
   .c-kids{border-left-color:var(--belt-purple)}
-  .c-open{border-left-color:var(--carmine)}
+  .c-open{border-left-color:var(--belt-brown)}
   @media (max-width:1000px){ .tt-grid{grid-template-columns:repeat(3,1fr)} }
   @media (max-width:620px){ .tt-grid{grid-template-columns:repeat(2,1fr)} }
   @media (max-width:430px){ .tt-grid{grid-template-columns:1fr} }
-  .tt-note{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:rgba(23,23,27,.45);margin-top:26px;text-transform:uppercase}
+  .tt-note{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:rgba(23,23,27,.62);margin-top:26px;text-transform:uppercase}
 
   /* ---------- Journey ---------- */
   .journey-belt{display:flex;margin-top:clamp(48px,7vw,84px);height:44px}
@@ -472,7 +480,7 @@
     margin-top:20px;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;
     text-transform:uppercase;color:rgba(23,23,27,.5);
   }
-  .lineage-line em{font-style:normal;color:var(--carmine)}
+  .lineage-line em{font-style:normal;color:var(--ink)}
   @media (max-width:640px){ .journey-labels div{font-size:8px;letter-spacing:.1em} }
 
   /* ---------- First class ---------- */
@@ -482,13 +490,6 @@
   .kit p{font-size:15px;color:rgba(23,23,27,.72)}
   @media (max-width:820px){ .kit{grid-template-columns:1fr} }
 
-  /* ---------- Final CTA ---------- */
-  .cta-final{text-align:center}
-  .cta-final h2{font-size:clamp(2.6rem,7vw,5.4rem);font-weight:600}
-  .cta-final .serif-note{display:block;font-size:clamp(1.2rem,2.4vw,1.8rem);color:rgba(23,23,27,.6);margin-top:14px}
-  .cta-final .cta-row{margin-top:40px;justify-content:center}
-  .cta-final .sub{font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(23,23,27,.5);margin-top:26px}
-  .cta-final .cta-proof{color:rgba(23,23,27,.55)}
 
   footer{padding:46px clamp(20px,4vw,48px);border-top:1px solid var(--line-ink);background:var(--paper)}
   .foot{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline}
@@ -506,10 +507,24 @@
     background:none;border:0;padding:0;cursor:pointer;color:#fff;
   }
   .hero-play .ring{
+    position:relative;
     width:78px;height:78px;border-radius:50%;border:1px solid rgba(255,255,255,.6);
     display:grid;place-items:center;
     transition:background .3s ease,border-color .3s ease,transform .3s ease;
   }
+  /* One slow halo leaving the ring - enough to catch the eye, not a beacon. */
+  .hero-play .ring::before{
+    content:"";position:absolute;inset:-1px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.5);pointer-events:none;
+    animation:playPulse 3.4s cubic-bezier(.32,0,.36,1) infinite;
+  }
+  .hero-play:hover .ring::before{animation-play-state:paused;opacity:0}
+  @keyframes playPulse{
+    0%{transform:scale(1);opacity:.5}
+    65%{transform:scale(1.5);opacity:0}
+    100%{transform:scale(1.5);opacity:0}
+  }
+  @media (prefers-reduced-motion:reduce){ .hero-play .ring::before{animation:none;opacity:0} }
   .hero-play:hover .ring{background:rgba(255,255,255,.18);border-color:#fff;transform:scale(1.06)}
   .hero-play svg{width:20px;height:22px;margin-left:4px;fill:#fff}
   .hero-play .lbl{
@@ -550,13 +565,25 @@
     font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(23,23,27,.7);
   }
   .social-row svg{width:15px;height:15px;fill:currentColor}
-  .social-row a:hover{color:var(--carmine)}
+  .social-row a:hover{color:var(--ink)}
 
-  .coach-rank{color:var(--carmine)!important}
   .cta-short{display:none}
   @media (max-width:520px){ .cta-full{display:none} .cta-short{display:inline} }
 
   /* ---------- Guest seminars ---------- */
+  /* The section's paragraph sits under the portraits, right-hand side, with the
+     caption on the left - so the headline can run big and alone up top. */
+  .guest-foot{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr);
+    gap:clamp(20px,4vw,64px);align-items:start;margin-top:clamp(26px,3.5vw,40px);
+  }
+  .guest-foot .guest-note{margin-top:0}
+  .guest-foot .lead{margin-top:0;max-width:52ch}
+  @media (max-width:900px){
+    .guest-foot{grid-template-columns:1fr;gap:22px}
+    .guest-foot .lead{order:-1}
+  }
+
   .guest-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:clamp(40px,6vw,64px)}
   .guest{background:var(--paper);border:1px solid var(--line-ink);padding:14px 14px 20px;transition:transform .3s ease,box-shadow .3s ease}
   .guest:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(23,23,27,.08)}
@@ -569,11 +596,11 @@
   }
   .guest:hover .guest-photo img{filter:grayscale(0);transform:scale(1.03)}
   .guest h3{font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.05}
-  .guest-cred{margin-top:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--carmine);line-height:1.5}
-  .guest-note{margin-top:26px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(23,23,27,.42)}
+  .guest-cred{margin-top:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(23,23,27,.55);line-height:1.5}
+  .guest-note{margin-top:26px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(23,23,27,.62)}
   @media (max-width:1100px){ .guest-grid{grid-template-columns:repeat(3,1fr)} }
   @media (max-width:760px){ .guest-grid{grid-template-columns:repeat(2,1fr)} }
-  @media (max-width:520px){ .guest-grid{grid-template-columns:1fr;max-width:340px} }
+  @media (max-width:520px){ .guest-grid{grid-template-columns:1fr;max-width:none} }
 
   /* stagger the guest cards like the other grids */
   @media (prefers-reduced-motion:no-preference){
@@ -596,14 +623,14 @@
   .post-body{padding:20px 20px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
   .post-tag{
     align-self:flex-start;font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--carmine);border:1px solid var(--carmine);padding:4px 8px;
+    color:var(--ink);border:1px solid var(--line-ink);padding:4px 8px;
   }
   .post-date{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,27,.45)}
   .post h3{font-family:var(--display);font-weight:600;font-size:1.3rem;line-height:1.15}
   .post p{font-size:13.5px;line-height:1.6;color:rgba(23,23,27,.7)}
   .post-more{margin-top:auto;padding-top:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
-  .post:hover .post-more{color:var(--carmine)}
-  @media (max-width:900px){ .post-grid{grid-template-columns:1fr;max-width:420px} }
+  .post:hover .post-more{text-decoration:underline;text-underline-offset:4px}
+  @media (max-width:900px){ .post-grid{grid-template-columns:1fr;max-width:560px} }
   @media (prefers-reduced-motion:no-preference){
     .post-grid .post{opacity:0;transition:opacity .65s ease}
     .post-grid.in .post{opacity:1}
@@ -611,39 +638,126 @@
     .post-grid.in .post:nth-child(3){transition-delay:.16s}
   }
 
-  /* ---------- FAQs ---------- */
-  .faq{margin-top:clamp(40px,6vw,64px);border-top:1px solid var(--line-ink)}
-  .faq details{border-bottom:1px solid var(--line-ink)}
+  /* ---------- FAQs: headline holds the left column, questions run down the right
+     The headline stays put while you read, the questions are numbered like the
+     sections are, and the measure is short enough to actually read. */
+  .faq-wrap{
+    display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+    gap:clamp(36px,6vw,100px);align-items:start;
+  }
+  .faq-head{position:sticky;top:calc(var(--nav-solid-h) + 34px)}
+  .faq-head h2{font-size:clamp(2.4rem,4.4vw,3.7rem);max-width:9ch;line-height:.98}
+  .faq-aside{
+    margin-top:clamp(22px,3vw,32px);font-size:14.5px;line-height:1.75;
+    color:rgba(23,23,27,.6);max-width:32ch;
+  }
+  .faq-aside a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+  .faq-aside a:hover{color:var(--carmine)}
+
+  .faq{border-top:1px solid var(--line-ink);counter-reset:faq}
+  .faq details{position:relative;border-bottom:1px solid var(--line-ink);counter-increment:faq}
+  /* the question number, in the same mono voice as the section counters */
+  .faq details::before{
+    content:counter(faq,decimal-leading-zero);
+    position:absolute;left:0;top:31px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;
+    color:rgba(23,23,27,.34);transition:color .3s ease;
+  }
+  .faq details[open]::before,.faq details:hover::before{color:var(--carmine)}
   .faq summary{
-    list-style:none;cursor:pointer;padding:24px 44px 24px 0;position:relative;
-    font-family:var(--body);font-weight:500;font-size:clamp(15px,1.5vw,17px);
+    list-style:none;cursor:pointer;padding:26px 46px 26px 46px;position:relative;
+    font-family:var(--body);font-weight:500;font-size:clamp(15.5px,1.5vw,17.5px);
+    transition:color .25s ease,padding-left .25s ease;
   }
   .faq summary::-webkit-details-marker{display:none}
   .faq summary::before,
   .faq summary::after{
     content:"";position:absolute;right:6px;top:50%;
-    width:15px;height:1.5px;background:var(--carmine);
+    width:14px;height:1.5px;background:var(--carmine);
     transition:transform .38s cubic-bezier(.4,0,.2,1);
   }
   .faq summary::before{transform:translateY(-50%)}
   .faq summary::after{transform:translateY(-50%) rotate(90deg)}
   .faq details[open] summary::after{transform:translateY(-50%) rotate(0deg)}
-  .faq summary:hover{color:var(--carmine)}
+  /* the question steps toward you, like the program rows do */
+  .faq summary:hover{color:var(--carmine);padding-left:54px}
   .faq-a{overflow:hidden;height:0}
-  .faq-inner{padding:0 clamp(20px,6vw,80px) 26px 0}
+  .faq-inner{padding:0 clamp(10px,3vw,48px) 28px 46px}
   @media (prefers-reduced-motion:no-preference){
     .faq-a{transition:height .38s cubic-bezier(.4,0,.2,1)}
     .faq-inner{opacity:0;transform:translateY(-6px);transition:opacity .3s ease .08s,transform .3s ease .08s}
     .faq details[open] .faq-inner{opacity:1;transform:none}
   }
-  .faq-a p{font-size:14.5px;line-height:1.75;color:rgba(23,23,27,.72);max-width:70ch}
+  .faq-a p{font-size:14.5px;line-height:1.8;color:rgba(23,23,27,.72);max-width:62ch}
+  @media (max-width:900px){
+    .faq-wrap{grid-template-columns:1fr;gap:clamp(28px,6vw,40px)}
+    .faq-head{position:static}
+    .faq-head h2{max-width:none;font-size:clamp(2.2rem,7vw,3.2rem)}
+    .faq-aside{max-width:46ch}
+  }
+  @media (max-width:520px){
+    .faq details::before{top:25px}
+    .faq summary{padding:22px 34px 22px 34px;font-size:15.5px}
+    .faq summary:hover{padding-left:40px}
+    .faq-inner{padding:0 0 24px 34px}
+  }
 
-  /* ---------- Closing CTA ---------- */
-  .cta-final{text-align:left}
-  .cta-final h2{font-size:clamp(2.6rem,7vw,5.4rem);font-weight:600;max-width:13ch}
-  .cta-final .cta-row{justify-content:flex-start}
+  /* ---------- Closing CTA: dark finale, the photo bleeding off the right edge ----------
+     The page opens on film and closes on film. Copy sits on the ink at the same
+     left margin as every other section; the photo runs to the edge of the screen
+     and dissolves into the band rather than sitting in a box. */
+  .cta-final{position:relative;background:var(--ink);color:#fff;overflow:hidden}
+  .cta-inner{
+    display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);
+    align-items:stretch;min-height:clamp(440px,64vh,660px);
+  }
+  .cta-copy{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(64px,8vw,104px) clamp(30px,4vw,64px) clamp(64px,8vw,104px)
+            max(clamp(20px,4vw,48px), calc((100vw - 1180px) / 2));
+  }
+  .cta-final .eyebrow{color:rgba(255,255,255,.55)}
+  .cta-final .eyebrow::after{color:rgba(255,255,255,.3)}
+  .cta-final h2{font-size:clamp(2.6rem,6.2vw,5rem);font-weight:600;max-width:13ch;line-height:.96}
+  .cta-final .serif-note{
+    display:block;margin-top:18px;font-size:clamp(1.2rem,2.2vw,1.7rem);
+    color:rgba(255,255,255,.66);
+  }
+  .cta-final .cta-row{margin-top:clamp(30px,4vw,44px);justify-content:flex-start;align-items:center;gap:28px}
+  .cta-final .hero-link{color:#fff}
+  .cta-final .hero-link:hover{color:var(--carmine)}
+  .cta-final .sub{
+    margin-top:clamp(26px,3vw,34px);font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.5);
+  }
+  .cta-final .cta-proof{color:rgba(255,255,255,.55)}
+  /* the shared .stars colour is ink, which disappears on this band */
+  .cta-final .stars{color:#fff}
   .btn-red{background:var(--carmine);color:#fff}
-  .btn-red:hover{background:var(--ink);color:#fff}
+  .btn-red:hover{background:#fff;color:var(--ink)}
+
+  .cta-media{position:relative;margin:0;overflow:hidden}
+  .cta-media img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(1) contrast(1.06);transform:scale(1.02);
+    transition:filter .7s ease,transform 1.4s cubic-bezier(.2,.6,.2,1);
+  }
+  .cta-media:hover img{filter:grayscale(0) contrast(1.02);transform:scale(1.06)}
+  .cta-media::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      linear-gradient(90deg,var(--ink) 0%,rgba(18,18,22,.7) 16%,rgba(18,18,22,0) 54%),
+      linear-gradient(180deg,rgba(18,18,22,.45),rgba(18,18,22,0) 34%,rgba(18,18,22,.45));
+  }
+  @media (max-width:900px){
+    .cta-inner{grid-template-columns:1fr;min-height:0}
+    .cta-media{order:-1;height:clamp(230px,52vw,380px)}
+    .cta-media::after{background:linear-gradient(180deg,rgba(18,18,22,.3),rgba(18,18,22,.78))}
+    .cta-copy{padding:clamp(38px,8vw,58px) clamp(20px,5vw,32px) clamp(44px,9vw,64px)}
+    .cta-final .cta-row{margin-top:26px;gap:18px}
+    .cta-final .sub{margin-top:22px}
+    .cta-final h2{max-width:none}
+  }
 
   /* ---------- Footer ---------- */
   .foot-cols{
@@ -651,8 +765,9 @@
     grid-template-columns:1.1fr 1.5fr .7fr;gap:clamp(32px,5vw,64px);
     padding-bottom:clamp(36px,5vw,56px);border-bottom:1px solid var(--line-soft);
   }
+  .foot-mark{width:96px;height:auto;display:block;margin-bottom:20px}
   .foot-brand .name{font-family:var(--display);font-weight:600;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1;display:block}
-  .foot-brand .name em{font-style:normal;color:var(--carmine)}
+  .foot-brand .name em{font-style:normal;color:inherit}
   .foot-brand p{margin-top:16px;font-size:14px;line-height:1.7;color:rgba(23,23,27,.68);max-width:38ch}
   .foot-brand .social-row{margin-top:20px;gap:20px}
   .foot-cols h4{
@@ -661,15 +776,15 @@
   }
   .acad-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 28px}
   .acad-grid b{font-family:var(--body);font-weight:600;font-size:14px;display:block;margin-bottom:6px}
-  .acad-grid .hq{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--carmine);vertical-align:middle}
+  .acad-grid .hq{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:rgba(23,23,27,.45);vertical-align:middle}
   .acad-grid p{font-size:13px;line-height:1.65;color:rgba(23,23,27,.68)}
   .acad-grid a{text-decoration:none}
-  .acad-grid a:hover{color:var(--carmine)}
+  .acad-grid a:hover{color:var(--ink)}
   .tbc{color:rgba(23,23,27,.35);font-style:italic}
   .foot-explore ul{list-style:none}
   .foot-explore li{margin-bottom:10px}
   .foot-explore a{text-decoration:none;font-size:13.5px;color:rgba(23,23,27,.7)}
-  .foot-explore a:hover{color:var(--carmine)}
+  .foot-explore a:hover{color:var(--ink)}
   @media (max-width:900px){
     .foot-cols{grid-template-columns:1fr;gap:36px}
     .acad-grid{grid-template-columns:1fr 1fr}
@@ -688,19 +803,19 @@
   .legacy-col{border-top:1px solid var(--line-ink);padding-top:22px}
   .legacy-col .n{
     font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;
-    color:var(--carmine);display:block;margin-bottom:12px;
+    color:rgba(23,23,27,.45);display:block;margin-bottom:12px;
   }
   .legacy-col h3{font-family:var(--display);font-weight:600;font-size:1.5rem;line-height:1.05;margin-bottom:12px}
   .legacy-col p{font-size:13.5px;line-height:1.75;color:rgba(23,23,27,.68);max-width:34ch}
   .legacy-note{
     margin-top:clamp(44px,5.5vw,72px);max-width:46ch;
-    border-left:2px solid var(--carmine);padding-left:26px;
+    border-left:2px solid var(--ink);padding-left:26px;
   }
   .legacy-note p{
     font-family:var(--display);font-weight:600;
     font-size:clamp(1.35rem,2.5vw,2rem);line-height:1.18;
   }
-  .legacy-note em{font-style:normal;color:var(--carmine)}
+  .legacy-note em{font-style:normal;color:inherit}
   .legacy-family{
     margin-top:32px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;
     text-transform:uppercase;color:rgba(23,23,27,.45);
@@ -717,13 +832,24 @@
   /* ---------- Editorial imagery ---------- */
   .image-band{position:relative;overflow:hidden;background:var(--ink);margin:0}
   .image-band img{
-    display:block;width:100%;height:clamp(340px,56vh,600px);
-    object-fit:cover;object-position:center 38%;filter:grayscale(1) contrast(1.03);
+    display:block;width:100%;
+    /* 2:1 rather than a fixed strip height, so the band grows with the screen and
+       the crop stays the same shape: his head clears the top edge, the kid in the
+       beanie keeps his face. Capped so it never swallows the viewport. */
+    height:auto;aspect-ratio:2/1;min-height:320px;max-height:min(900px,88vh);
+    object-fit:cover;object-position:center 15%;filter:grayscale(1) contrast(1.03);
   }
   .image-band::after{
     content:"";position:absolute;left:0;right:0;bottom:0;height:45%;pointer-events:none;
     background:linear-gradient(180deg,rgba(10,10,14,0),rgba(10,10,14,.62));
   }
+  .image-band .band-eyebrow{
+    position:absolute;z-index:1;left:clamp(20px,4vw,48px);bottom:clamp(24px,3vw,40px);
+    margin:0;display:flex;align-items:center;gap:12px;
+    font-family:var(--mono);font-style:normal;font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+    color:rgba(255,255,255,.85);text-shadow:0 1px 12px rgba(0,0,0,.5);
+  }
+  .image-band .band-eyebrow::before{content:"";width:34px;height:1px;background:currentColor;opacity:.6}
   .image-band figcaption{
     position:absolute;z-index:1;left:clamp(20px,4vw,48px);bottom:clamp(24px,3vw,40px);
     font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.2vw,1.7rem);
@@ -746,6 +872,9 @@
     border-radius:10px;box-shadow:0 20px 46px rgba(23,23,27,.34);
     background:#fff;
   }
+  /* Parallax layers: the script writes the transform, so nothing here should
+     set one on these elements. */
+  [data-par]{will-change:transform}
   @media (max-width:1100px){ .tech-app{right:-22%;width:44%} }
   @media (max-width:880px){ .tech-app{right:-6%;bottom:8%;width:40%} }
 
@@ -767,6 +896,7 @@
 
   .coach-belt-tbc{background:none;border-top:1px solid var(--line-ink);height:0;margin:18px 0 12px}
   .coach-rank-tbc{color:rgba(23,23,27,.38)!important;font-style:italic;text-transform:none;letter-spacing:.04em}
+  .coach-bio-tbc{color:rgba(23,23,27,.38);font-style:italic}
 
   /* explicit line breaks for headlines that shouldn't wrap ragged;
      collapses back to natural wrapping on small screens */
@@ -793,7 +923,10 @@
     margin-left:10px;color:rgba(23,23,27,.32);letter-spacing:.18em;
   }
   /* every still image reads monochrome; colour is earned on interaction */
-  .prog-img{filter:grayscale(1) contrast(1.04)}
+  .prog-img{filter:grayscale(1) contrast(1.04);transition:filter .45s ease}
+  /* colour is already there the moment it appears (no grey flash); it only fades
+     back to mono on the way out */
+  .prog a:hover .prog-img,.prog a.is-hot .prog-img{filter:grayscale(0) contrast(1.02);transition:filter 0s}
   .tech-frame video{filter:grayscale(1);transition:filter .6s ease}
   .tech-frame:hover video{filter:grayscale(0)}
   .foot{margin-top:28px}
@@ -809,6 +942,177 @@
     .tt-grid.in .tt-col:nth-child(5),.review-wall.in>*:nth-child(5){transition-delay:.32s}
     .tt-grid.in .tt-col:nth-child(6),.review-wall.in>*:nth-child(6){transition-delay:.4s}
     .review-wall.in>*:nth-child(7){transition-delay:.48s}
+  }
+
+  /* ---------- Coaches on a phone: a snap rail, not eight stacked cards ----------
+     The next card peeks past the screen edge and the hairline fills as you swipe,
+     so it reads as "there are more" without a wall of scrolling. */
+  .rail-meta{
+    display:none;align-items:center;gap:14px;margin-top:20px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(23,23,27,.45);
+  }
+  .rail-count b{color:var(--ink);font-weight:500}
+  .rail-track{flex:1;height:1px;background:var(--line-ink);position:relative;overflow:hidden}
+  .rail-track i{
+    position:absolute;left:0;top:-1px;bottom:-1px;width:12.5%;background:var(--carmine);
+    transition:transform .2s ease-out;
+  }
+  .rail-hint{transition:opacity .45s ease}
+  .rail-hint-desk{display:none}
+  .rail-meta.is-moved .rail-hint{opacity:0}
+  .rail-bar{display:none;align-items:center;gap:clamp(16px,2vw,26px);margin-top:24px}
+  .rail-bar .rail-meta{display:flex;flex:1;margin-top:0}
+  .rail-nav{display:flex;gap:10px}
+  .rail-btn{
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line-ink);
+    background:none;cursor:pointer;display:grid;place-items:center;color:var(--ink);padding:0;
+    transition:background .25s ease,border-color .25s ease,color .25s ease,opacity .25s ease;
+  }
+  .rail-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .rail-btn:hover:not(:disabled){background:var(--ink);border-color:var(--ink);color:#fff}
+  .rail-btn:disabled{opacity:.26;cursor:default}
+
+  /* ---------- Coaches on one rail (desktop) ----------
+     Eight cards in a single line that runs off the right edge of the screen, with
+     the band colour fading over the cut and arrows to move it. The fade lifts
+     once you reach the end. */
+  @media (min-width:961px){
+    .rail-bar{display:flex}
+    .rail-hint{display:none}
+    .rail-hint-desk{display:block}
+    .coach-rail{position:relative}
+    .coach-grid{
+      display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x proximity;
+      scrollbar-width:none;cursor:grab;padding:4px 0 10px;
+      margin-right:min(0px,calc(50% - 50vw));
+      padding-right:max(0px,calc(50vw - 50%));
+    }
+    .coach-grid::-webkit-scrollbar{display:none}
+    .coach-grid.is-dragging{cursor:grabbing;scroll-snap-type:none}
+    .coach-grid .coach{flex:0 0 clamp(238px,21vw,292px);scroll-snap-align:start}
+    .rail-fade{
+      position:absolute;top:0;bottom:0;right:min(0px,calc(50% - 50vw));
+      width:clamp(90px,11vw,170px);pointer-events:none;
+      background:linear-gradient(90deg,rgba(240,240,238,0),var(--mist) 78%);
+      opacity:1;transition:opacity .4s ease;
+    }
+    .coach-rail.is-end .rail-fade{opacity:0}
+  }
+  @media (max-width:560px){
+    .coach-grid,.guest-grid{
+      display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;
+      scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+      padding:2px 20px 6px;margin:clamp(28px,6vw,40px) -20px 0;
+    }
+    .coach-grid::-webkit-scrollbar,.guest-grid::-webkit-scrollbar{display:none}
+    .coach-grid .coach{flex:0 0 78%;scroll-snap-align:center}
+    .guest-grid .guest{flex:0 0 72%;scroll-snap-align:center}
+    .rail-bar{display:flex;margin-top:20px}
+    .rail-nav{display:none}
+    .rail-hint-desk{display:none}
+    .guest-foot{margin-top:22px}
+    .rail-meta{display:flex}
+  }
+
+  /* ---------- Hero on a phone ----------
+     One idea per screen: where you are, one line of proof, one action. The
+     kicker, the four-stat strip and the film caption all read as clutter at this
+     size, so they step aside and let the headline and the button carry it. */
+  @media (max-width:640px){
+    .hero-stage{min-height:100svh;padding-top:116px;padding-bottom:clamp(30px,8vw,48px)}
+    .hero-stats,.hero-play .lbl{display:none}
+    /* the line stays, just quieter, so it sets the tone without crowding the title */
+    .hero-kicker{font-size:clamp(1rem,4.3vw,1.3rem);margin-bottom:10px;color:rgba(255,255,255,.86)}
+    /* one sentence, reflowed: "Brazilian Jiu-Jitsu / Academy in Queenstown"
+       balances better on a phone than the desktop line break */
+    .hero h1.hero-deco{font-size:clamp(1.65rem,7.5vw,2.9rem);letter-spacing:-.01em}
+    .hero-deco .l{display:inline}
+    .hero-grid{gap:18px}
+    .hero-proof{margin:16px 0 0;font-size:9.5px;letter-spacing:.16em}
+    .hero .cta-row{margin-top:24px;flex-direction:column;align-items:stretch;gap:14px}
+    .hero .cta-row .btn{width:100%;text-align:center;padding:19px 24px}
+    /* a deeper base under the type so it never has to fight a bright frame */
+    .hero-video::after{
+      background:linear-gradient(180deg,
+        rgba(10,10,14,.5) 0%,rgba(10,10,14,.12) 26%,
+        rgba(10,10,14,.55) 68%,rgba(10,10,14,.88) 100%);
+    }
+    .hero-play{top:clamp(100px,24vw,122px)}
+  }
+
+  /* ---------- Stat plinth (phones) ----------
+     A dark shelf under the film: the four numbers the hero used to carry, with
+     room to read, bridging the hero into the first paper band. */
+  .stat-plinth{display:none}
+  @media (max-width:640px){
+    .stat-plinth{
+      display:grid;grid-template-columns:1fr 1fr;
+      background:var(--ink);color:rgba(255,255,255,.55);
+      border-top:1px solid rgba(255,255,255,.1);
+    }
+    .stat-plinth div{
+      padding:18px 20px 17px;
+      border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    .stat-plinth div:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)}
+    .stat-plinth div:nth-last-child(-n+2){border-bottom:0}
+    .stat-plinth b{
+      display:block;font-family:var(--display);font-weight:600;
+      font-size:1.6rem;line-height:1;color:#fff;margin-bottom:7px;
+    }
+    .stat-plinth span{
+      font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+    }
+  }
+
+  /* ---------- Sticky offer bar (phones) ---------- */
+  .sticky-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:65;display:none;
+    align-items:center;justify-content:space-between;gap:14px;
+    padding:11px 16px calc(11px + env(safe-area-inset-bottom,0px));
+    background:rgba(18,18,22,.94);
+    -webkit-backdrop-filter:saturate(1.5) blur(14px);backdrop-filter:saturate(1.5) blur(14px);
+    border-top:1px solid rgba(255,255,255,.14);
+    transform:translateY(115%);transition:transform .5s cubic-bezier(.4,0,.2,1);
+  }
+  .sticky-cta.is-in{transform:none}
+  .sticky-note{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(255,255,255,.62);
+  }
+  .sticky-cta .btn{padding:14px 20px;font-size:10px;letter-spacing:.2em;white-space:nowrap}
+  @media (max-width:640px){ .sticky-cta{display:flex} }
+  @media (prefers-reduced-motion:reduce){ .sticky-cta{transition:none} }
+
+  /* ---------- Mobile pass ----------
+     Phones: cards run the full width of the band, the timetable reads as rows
+     instead of stacked blocks, and the vertical rhythm tightens up. */
+  @media (max-width:640px){
+    /* cards used to stop short of the right edge; now they fill the band */
+    .coach-grid,.guest-grid,.post-grid{max-width:none}
+    .coach-photo{aspect-ratio:4/5}
+    .prog-img{max-width:none}
+    .tech-player{width:100%}
+
+    /* less air top and bottom so the page is not endless to scroll */
+    .band{padding:clamp(56px,13vw,84px) 20px}
+    footer{padding:40px 20px}
+    .lead{font-size:15.5px;line-height:1.7}
+    .legacy-mark{width:76vw;opacity:.028}
+
+    /* timetable: time and class on one row, roughly half the height */
+    .tt-grid{gap:10px}
+    .tt-col{padding:14px 12px 16px}
+    .tt-class{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:3px 10px;padding:10px 12px}
+    .tt-class .t{flex:0 0 58px}
+    .tt-class .n{flex:1 1 auto}
+    .tt-class .l{flex:1 0 100%}
+
+    /* the members&rsquo; app shot used to hang off the edge beside the player */
+    .tech-app{right:4%;bottom:8%;width:32%}
+    .tech-frame video{aspect-ratio:3/4}
+    .tech-meta{flex-direction:column;gap:4px}
   }
 </style>
 </head>
@@ -836,7 +1140,8 @@
 <header class="hero" id="top">
 <div class="band hero-stage">
   <div class="hero-video" aria-hidden="true">
-    <video id="heroVid" autoplay muted loop playsinline preload="auto" src="assets/hero-reel.mp4"></video>
+    <video id="heroVid" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg"
+           data-src="assets/hero-reel.mp4" data-src-mobile="assets/hero-reel-mobile.mp4"></video>
   </div>
   <button class="hero-play" id="heroPlay" type="button" aria-label="Play the film with sound">
     <span class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17l15-8.5z"/></svg></span>
@@ -858,14 +1163,23 @@
     </div>
     <div class="hero-actions">
       <div class="cta-row rise r4">
+        <!-- Timetable lives in the nav; one ask only down here. -->
         <a class="btn btn-solid" href="#trial-info">Become a member</a>
-        <a class="hero-link" href="#timetable">See the timetable</a>
       </div>
       <p class="hero-proof rise r6"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp; 5.0 &middot; 161 Google reviews</p>
     </div>
   </div>
 </div>
 </header>
+
+<!-- Phones only: the stat line steps out from under the headline and becomes a
+     plinth beneath the film. Above 640px the hero carries it, and this is hidden. -->
+<div class="stat-plinth">
+  <div><b>2014</b><span>Established</span></div>
+  <div><b>200+</b><span>Members</span></div>
+  <div><b>11+</b><span>Black belts</span></div>
+  <div><b>4</b><span>Academies</span></div>
+</div>
 
 <section class="band band-paper" id="reviews">
   <div class="wrap">
@@ -936,7 +1250,7 @@
         <a href="#trial-info">
           <h3>All levels<span class="pt">o jogo</span></h3>
           <span class="tag">Gi &middot; All levels</span>
-          <img class="prog-img" src="assets/prog-all-levels.jpg" alt="Full class training at the Queenstown academy" loading="lazy">
+          <img class="prog-img" src="assets/prog-gi.jpg" alt="Gi class training at the Queenstown academy" loading="lazy">
           <p>Technique, drilling, and live rolling. Where fundamentals get pressure tested, at whatever pace your rank calls for.</p>
         </a>
       </div>
@@ -944,7 +1258,7 @@
         <a href="#trial-info">
           <h3>No-Gi<span class="pt">sem kimono</span></h3>
           <span class="tag">No-Gi &middot; All levels</span>
-          <img class="prog-img" src="assets/prog-nogi.jpg" alt="No-gi grappling in team rash guards" loading="lazy">
+          <img class="prog-img" src="assets/prog-no-gi.jpg" alt="No-gi grappling on the mats in Queenstown" loading="lazy">
           <p>No collars, no sleeves, faster scrambles. Wrestling, leg attacks and modern grappling for sport and self defence.</p>
         </a>
       </div>
@@ -999,6 +1313,7 @@
 
 <figure class="image-band">
   <img src="assets/family.jpg" alt="A coach on the mats surrounded by laughing children after class" loading="lazy">
+  <figcaption class="band-eyebrow">After kids class</figcaption>
 </figure>
 
 <section class="band band-mist" id="instructors">
@@ -1014,6 +1329,7 @@
     </figure>
     <!-- Four coaches still need rank + bio from Maranda; their cards show a
          "to confirm" line rather than invented detail. -->
+    <div class="coach-rail">
     <div class="coach-grid reveal">
     <article class="coach">
       <div class="coach-photo"><img src="assets/coach-jose.jpg" alt="Jose Gomes, head professor" loading="lazy"></div>
@@ -1045,29 +1361,122 @@
     </article>
     <article class="coach">
       <div class="coach-photo"><img src="assets/coach-kadu.jpg" alt="Kadu, coach at Carlson Gracie New Zealand" loading="lazy"></div>
-      <div class="coach-belt coach-belt-tbc" aria-hidden="true"></div>
+      <div class="coach-belt" role="img" aria-label="Black belt"><span class="tip"></span></div>
       <h3>Kadu</h3>
-      <p class="coach-rank coach-rank-tbc">Rank and bio to confirm</p>
+      <p class="coach-rank">Black belt</p>
+      <p class="coach-bio coach-bio-tbc">Bio to confirm</p>
     </article>
     <article class="coach">
       <div class="coach-photo"><img src="assets/coach-maranda.jpg" alt="Maranda Mitchell, fundamentals coach" loading="lazy"></div>
       <div class="coach-belt coach-belt-tbc" aria-hidden="true"></div>
       <h3>Maranda Mitchell</h3>
-      <p class="coach-rank coach-rank-tbc">Rank and bio to confirm</p>
+      <p class="coach-rank coach-rank-tbc">Bio to confirm</p>
     </article>
     <article class="coach">
       <div class="coach-photo"><img src="assets/coach-patricia.jpg" alt="Patricia, coach at Carlson Gracie New Zealand" loading="lazy"></div>
       <div class="coach-belt coach-belt-tbc" aria-hidden="true"></div>
       <h3>Patricia</h3>
-      <p class="coach-rank coach-rank-tbc">Rank and bio to confirm</p>
+      <p class="coach-rank coach-rank-tbc">Bio to confirm</p>
     </article>
     <article class="coach">
       <div class="coach-photo"><img src="assets/coach-thiago.jpg" alt="Thiago, coach at Carlson Gracie New Zealand" loading="lazy"></div>
-      <div class="coach-belt coach-belt-tbc" aria-hidden="true"></div>
+      <div class="coach-belt" role="img" aria-label="Black belt"><span class="tip"></span></div>
       <h3>Thiago</h3>
-      <p class="coach-rank coach-rank-tbc">Rank and bio to confirm</p>
+      <p class="coach-rank">Black belt</p>
+      <p class="coach-bio coach-bio-tbc">Bio to confirm</p>
     </article>
     </div>
+    <span class="rail-fade" aria-hidden="true"></span>
+    </div>
+    <!-- The coaches run on one rail at every size: counter and hairline show where
+         you are, the arrows move it a card at a time. -->
+    <div class="rail-bar">
+      <div class="rail-meta" data-rail=".coach-grid" aria-hidden="true">
+        <span class="rail-count"><b>01</b> / <span class="rail-total">08</span></span>
+        <span class="rail-track"><i></i></span>
+        <span class="rail-hint">Swipe</span>
+        <span class="rail-hint rail-hint-desk">Drag, or use the arrows</span>
+      </div>
+      <div class="rail-nav" data-rail=".coach-grid">
+        <button class="rail-btn" type="button" data-dir="-1" aria-label="Previous coaches"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="rail-btn" type="button" data-dir="1" aria-label="Next coaches"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-paper" id="technique">
+  <div class="wrap">
+    <div class="tech-grid">
+      <div class="tech-copy" data-par="14">
+        <p class="eyebrow reveal">On and off the mats</p>
+        <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:12ch">Every day is a school day</h2>
+        <!-- New technique: swap assets/technique.mp4 + assets/technique-poster.jpg,
+             update the lead line and the label in .tech-meta below.
+             "More techniques" points at techniques.html - not built yet. -->
+        <p class="lead reveal">Training is only half of it. Every membership comes with our full tutorial library in the app, so the learning carries on after class. Review what you drilled tonight, get ahead of the next move before you arrive, and pick something up whenever you have ten minutes. Filmed by our coaches, on our mats.</p>
+        <div class="social-row reveal">
+          <a href="https://www.facebook.com/CarlsonGracieJiuJitsuNewZealand/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>Facebook</a>
+          <a href="https://www.instagram.com/carlsongracie_nz/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.2-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9C2.4 3.9 4 2.4 7.1 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 5.1a4.7 4.7 0 100 9.4 4.7 4.7 0 000-9.4zm0 7.7a3 3 0 110-6 3 3 0 010 6zm4.9-7.9a1.1 1.1 0 100-2.2 1.1 1.1 0 000 2.2z"/></svg>Instagram</a>
+        </div>
+      </div>
+      <div class="tech-player reveal">
+        <div class="tech-frame" data-par="34">
+          <video src="assets/technique.mp4" poster="assets/technique-poster.jpg" controls muted loop playsinline preload="metadata"></video>
+          <img class="tech-app" data-par="-56" src="assets/app-content.png" alt="The members&rsquo; content library in the app" loading="lazy">
+          <div class="tech-meta"><span>Sample from the members&rsquo; library</span><span>Berimbolo &middot; 0:15</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-mist" id="timetable">
+  <div class="wrap">
+    <p class="eyebrow reveal">Timetable</p>
+    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">On the mats six days a week</h2>
+    <div class="tt-legend reveal">
+      <span><i style="background:var(--belt-white)"></i>Fundamentals</span>
+      <span><i style="background:var(--belt-blue)"></i>All levels</span>
+      <span><i style="background:var(--belt-black)"></i>No-Gi</span>
+      <span><i style="background:var(--belt-purple)"></i>Kids</span>
+      <span><i style="background:var(--belt-brown)"></i>Open mat</span>
+    </div>
+    <div class="tt-grid reveal">
+      <div class="tt-col" data-day="1">
+        <h3>Mon <span class="today-tag">Today</span></h3>
+        <div class="tt-class c-kids"><span class="t">4:30 pm</span><span class="n">Kids</span><span class="l">Ages 5&ndash;12</span></div>
+        <div class="tt-class c-fund"><span class="t">6:00 pm</span><span class="n">Fundamentals</span><span class="l">Gi &middot; Beginners</span></div>
+        <div class="tt-class c-all"><span class="t">7:00 pm</span><span class="n">All levels</span><span class="l">Gi</span></div>
+      </div>
+      <div class="tt-col" data-day="2">
+        <h3>Tue <span class="today-tag">Today</span></h3>
+        <div class="tt-class c-all"><span class="t">6:30 am</span><span class="n">All levels</span><span class="l">Gi</span></div>
+        <div class="tt-class c-nogi"><span class="t">6:00 pm</span><span class="n">No-Gi</span><span class="l">All levels</span></div>
+      </div>
+      <div class="tt-col" data-day="3">
+        <h3>Wed <span class="today-tag">Today</span></h3>
+        <div class="tt-class c-kids"><span class="t">4:30 pm</span><span class="n">Kids</span><span class="l">Ages 5&ndash;12</span></div>
+        <div class="tt-class c-fund"><span class="t">6:00 pm</span><span class="n">Fundamentals</span><span class="l">Gi &middot; Beginners</span></div>
+        <div class="tt-class c-all"><span class="t">7:00 pm</span><span class="n">All levels</span><span class="l">Gi</span></div>
+      </div>
+      <div class="tt-col" data-day="4">
+        <h3>Thu <span class="today-tag">Today</span></h3>
+        <div class="tt-class c-all"><span class="t">6:30 am</span><span class="n">All levels</span><span class="l">Gi</span></div>
+        <div class="tt-class c-nogi"><span class="t">6:00 pm</span><span class="n">No-Gi</span><span class="l">All levels</span></div>
+      </div>
+      <div class="tt-col" data-day="5">
+        <h3>Fri <span class="today-tag">Today</span></h3>
+        <div class="tt-class c-all"><span class="t">6:00 pm</span><span class="n">All levels</span><span class="l">Gi</span></div>
+      </div>
+      <div class="tt-col" data-day="6">
+        <h3>Sat <span class="today-tag">Today</span></h3>
+        <div class="tt-class c-open"><span class="t">10:00 am</span><span class="n">Open mat</span><span class="l">Everyone welcome</span></div>
+      </div>
+    </div>
+    <p class="tt-note">Times can shift around holidays and gradings. Check before your first visit.</p>
   </div>
 </section>
 
@@ -1075,7 +1484,6 @@
   <div class="wrap">
     <p class="eyebrow reveal">Seminars &amp; events</p>
     <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:16ch">World-class jiu-jitsu, on our mats</h2>
-    <p class="lead reveal" style="margin-top:26px">We&rsquo;re lucky to have hosted some of the best grapplers on the planet right here in Queenstown. As a member, you&rsquo;re in the room for it. You learn their techniques first-hand, drill under their eye, and roll with athletes you have only ever watched compete. That kind of access is rare, and it comes with the mat.</p>
     <!-- Real seminar guests, all photographed on the academy mats.
          Credentials to be confirmed by Jose before launch. -->
     <div class="guest-grid reveal">
@@ -1105,14 +1513,22 @@
         <p class="guest-cred">IBJJF world champion</p>
       </article>
     </div>
-    <p class="guest-note reveal">A few of the athletes who have taught on our mats.</p>
+    <div class="rail-meta" data-rail=".guest-grid" aria-hidden="true">
+      <span class="rail-count"><b>01</b> / <span class="rail-total">05</span></span>
+      <span class="rail-track"><i></i></span>
+      <span class="rail-hint">Swipe</span>
+    </div>
+    <div class="guest-foot">
+      <p class="guest-note reveal">A few of the athletes who have taught on our mats.</p>
+      <p class="lead reveal">We&rsquo;re lucky to have hosted some of the best grapplers on the planet right here in Queenstown. As a member, you&rsquo;re in the room for it. You learn their techniques first-hand, drill under their eye, and roll with athletes you have only ever watched compete. That kind of access is rare, and it comes with the mat.</p>
+    </div>
   </div>
 </section>
 
 <section class="band band-mist" id="events">
   <div class="wrap">
     <p class="eyebrow reveal">From the blog</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:14ch">Events, all year round</h2>
+    <h2 class="display reveal" style="font-size:clamp(2rem,5.4vw,4.6rem);max-width:none;white-space:nowrap">Events, all year round</h2>
     <p class="lead reveal" style="margin-top:26px">Alongside the seminars, we regularly run tournaments in Queenstown and further afield. As part of the team you get the chance to compete, corner your teammates, volunteer, and learn to referee. Every one of those is another way in, and another thread in the community we build on and off the mat.</p>
     <!-- CMS FEED: these three cards pull the latest posts tagged "events" from the blog.
          Titles, dates, images and excerpts below are placeholders showing the pattern. -->
@@ -1151,85 +1567,13 @@
   </div>
 </section>
 
-<section class="band band-paper" id="technique">
-  <div class="wrap">
-    <div class="tech-grid">
-      <div class="tech-copy">
-        <p class="eyebrow reveal">On and off the mats</p>
-        <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:12ch">Every day is a school day</h2>
-        <!-- New technique: swap assets/technique.mp4 + assets/technique-poster.jpg,
-             update the lead line and the label in .tech-meta below.
-             "More techniques" points at techniques.html - not built yet. -->
-        <p class="lead reveal">Training is only half of it. Every membership comes with our full tutorial library in the app, so the learning carries on after class. Review what you drilled tonight, get ahead of the next move before you arrive, and pick something up whenever you have ten minutes. Filmed by our coaches, on our mats.</p>
-        <div class="social-row reveal">
-          <a href="https://www.facebook.com/CarlsonGracieJiuJitsuNewZealand/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>Facebook</a>
-          <a href="https://www.instagram.com/carlsongracie_nz/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.2-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9C2.4 3.9 4 2.4 7.1 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 5.1a4.7 4.7 0 100 9.4 4.7 4.7 0 000-9.4zm0 7.7a3 3 0 110-6 3 3 0 010 6zm4.9-7.9a1.1 1.1 0 100-2.2 1.1 1.1 0 000 2.2z"/></svg>Instagram</a>
-        </div>
-      </div>
-      <div class="tech-player reveal">
-        <div class="tech-frame">
-          <video src="assets/technique.mp4" poster="assets/technique-poster.jpg" controls muted loop playsinline preload="metadata"></video>
-          <img class="tech-app" src="assets/app-content.png" alt="The members&rsquo; content library in the app" loading="lazy">
-          <div class="tech-meta"><span>Sample from the members&rsquo; library</span><span>Armbar &middot; 0:15</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="band band-mist" id="timetable">
-  <div class="wrap">
-    <p class="eyebrow reveal">Timetable</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">On the mats six days a week</h2>
-    <div class="tt-legend reveal">
-      <span><i style="background:var(--belt-white)"></i>Fundamentals</span>
-      <span><i style="background:var(--belt-blue)"></i>All levels</span>
-      <span><i style="background:var(--belt-black)"></i>No-Gi</span>
-      <span><i style="background:var(--belt-purple)"></i>Kids</span>
-      <span><i style="background:var(--carmine)"></i>Open mat</span>
-    </div>
-    <div class="tt-grid reveal">
-      <div class="tt-col" data-day="1">
-        <h3>Mon <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-kids"><span class="t">4:30 pm</span><span class="n">Kids</span><span class="l">Ages 5&ndash;12</span></div>
-        <div class="tt-class c-fund"><span class="t">6:00 pm</span><span class="n">Fundamentals</span><span class="l">Gi &middot; Beginners</span></div>
-        <div class="tt-class c-all"><span class="t">7:00 pm</span><span class="n">All levels</span><span class="l">Gi</span></div>
-      </div>
-      <div class="tt-col" data-day="2">
-        <h3>Tue <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-all"><span class="t">6:30 am</span><span class="n">All levels</span><span class="l">Gi</span></div>
-        <div class="tt-class c-nogi"><span class="t">6:00 pm</span><span class="n">No-Gi</span><span class="l">All levels</span></div>
-      </div>
-      <div class="tt-col" data-day="3">
-        <h3>Wed <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-kids"><span class="t">4:30 pm</span><span class="n">Kids</span><span class="l">Ages 5&ndash;12</span></div>
-        <div class="tt-class c-fund"><span class="t">6:00 pm</span><span class="n">Fundamentals</span><span class="l">Gi &middot; Beginners</span></div>
-        <div class="tt-class c-all"><span class="t">7:00 pm</span><span class="n">All levels</span><span class="l">Gi</span></div>
-      </div>
-      <div class="tt-col" data-day="4">
-        <h3>Thu <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-all"><span class="t">6:30 am</span><span class="n">All levels</span><span class="l">Gi</span></div>
-        <div class="tt-class c-nogi"><span class="t">6:00 pm</span><span class="n">No-Gi</span><span class="l">All levels</span></div>
-      </div>
-      <div class="tt-col" data-day="5">
-        <h3>Fri <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-all"><span class="t">6:00 pm</span><span class="n">All levels</span><span class="l">Gi</span></div>
-      </div>
-      <div class="tt-col" data-day="6">
-        <h3>Sat <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-open"><span class="t">10:00 am</span><span class="n">Open mat</span><span class="l">Everyone welcome</span></div>
-      </div>
-    </div>
-    <p class="tt-note">Times can shift around holidays and gradings. Check before your first visit.</p>
-  </div>
-</section>
-
 <section class="band band-paper" id="faqs">
-  <div class="wrap">
+  <div class="wrap faq-wrap">
+   <div class="faq-head">
     <p class="eyebrow reveal">Good to know</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:14ch">Questions, answered</h2>
+    <h2 class="display reveal">Questions, answered</h2>
+    <p class="faq-aside reveal">Still wondering about something? Call <a href="tel:+642102304516">+64 21 0230 4516</a>, or just turn up and ask at the door.</p>
+   </div>
     <!-- Only "What makes Carlson Gracie different?" uses Miranda's supplied copy.
          The other answers are drafted from facts already on the page - for her to confirm. -->
     <div class="faq reveal">
@@ -1265,23 +1609,31 @@
   </div>
 </section>
 
-<section class="band band-mist cta-final" id="trial-info">
-  <div class="wrap">
+<section class="cta-final" id="trial-info">
+  <div class="cta-inner">
+   <div class="cta-copy">
     <p class="eyebrow reveal">Join us</p>
     <h2 class="display reveal">Come and find your people</h2>
     <span class="serif-note reveal">Start with a free class. It just might change your life.</span>
     <div class="cta-row reveal">
       <!-- Gymdesk sign-up form, live on their account. Confirm with Jose this is the right one. -->
       <a class="btn btn-red" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a>
+      <a class="hero-link" href="#timetable">See the timetable</a>
     </div>
     <p class="sub reveal">Or just turn up. Times above, mats waiting.</p>
     <p class="cta-proof reveal"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp; 5.0 from 161 Google reviews</p>
+   </div>
+   <!-- Swap assets/fundamentals.jpg for any shot that says "your people". -->
+   <figure class="cta-media reveal">
+     <img src="assets/finding-your-people.jpg" alt="Members training together on the mats at Carlson Gracie New Zealand" loading="lazy">
+   </figure>
   </div>
 </section>
 
 <footer>
   <div class="foot-cols">
     <div class="foot-brand">
+      <img class="foot-mark" src="assets/cg-logo.png" alt="Carlson Gracie Jiu-Jitsu New Zealand crest" loading="lazy">
       <span class="name">Carlson Gracie <em>NZ</em></span>
       <p>Official Carlson Gracie Team affiliate and the academy that brought jiu-jitsu to the Southern Lakes. A family of academies across the South Island, for every age and every level.</p>
       <div class="social-row">
@@ -1330,6 +1682,13 @@
   </div>
 </footer>
 
+<!-- Phones only: the offer follows you down the page, and steps aside once the
+     closing CTA is on screen so you never see two asks at once. -->
+<div class="sticky-cta" id="stickyCta">
+  <span class="sticky-note">First class is free</span>
+  <a class="btn btn-red" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a>
+</div>
+
 <div class="film" id="film" role="dialog" aria-modal="true" aria-label="Carlson Gracie NZ film" hidden>
   <div class="film-inner">
     <button class="film-close" id="filmClose" type="button">Close &times;</button>
@@ -1339,12 +1698,15 @@
 
 <script>
   // ---- Hero video ----
-  // Embedded as base64 so this single file previews anywhere.
   var vid = document.getElementById('heroVid');
   if (vid) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // no reel at all for reduced motion: the poster carries the hero
       vid.removeAttribute('autoplay'); vid.pause();
     } else {
+      // phones pull a smaller cut of the reel than desktops do
+      var small = window.matchMedia('(max-width:640px)').matches;
+      vid.src = vid.getAttribute(small ? 'data-src-mobile' : 'data-src');
       var vp = vid.play(); if (vp && vp.catch) { vp.catch(function(){}); }
     }
   }
@@ -1363,6 +1725,129 @@
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+
+  // Parallax: anything tagged data-par drifts by that many pixels across the
+  // screen's travel. Positive lags behind the page, negative runs ahead of it,
+  // and the gap between the two is what reads as depth. Desktop, motion-safe.
+  var parEls = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
+  var parMq = window.matchMedia('(min-width:961px)');
+  var parReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var parQueued = false;
+  function parApply(){
+    parQueued = false;
+    var live = parMq.matches && !parReduce.matches;
+    var vh = window.innerHeight;
+    for (var i=0;i<parEls.length;i++){
+      var el = parEls[i];
+      if (!live){ el.style.transform = ''; continue; }
+      var r = el.getBoundingClientRect();
+      if (r.bottom < -240 || r.top > vh + 240) continue;
+      var p = ((r.top + r.height/2) - vh/2) / vh;   // -1 above centre, 1 below
+      if (p < -1) p = -1; if (p > 1) p = 1;
+      var amt = parseFloat(el.getAttribute('data-par')) || 0;
+      el.style.transform = 'translate3d(0,' + (p*amt).toFixed(2) + 'px,0)';
+    }
+  }
+  function parTick(){ if (!parQueued){ parQueued = true; requestAnimationFrame(parApply); } }
+  if (parEls.length){
+    window.addEventListener('scroll', parTick, {passive:true});
+    window.addEventListener('resize', parTick);
+    parApply();
+  }
+
+  // Card rails (phones): keep each counter and hairline in step with the swipe
+  Array.prototype.forEach.call(document.querySelectorAll('.rail-meta'), function(meta){
+    var rail = document.querySelector(meta.getAttribute('data-rail'));
+    if (!rail) return;
+    var count = meta.querySelector('.rail-count b');
+    var fill  = meta.querySelector('.rail-track i');
+    var total = rail.children.length;
+    var pad = function(n){ return (n < 10 ? '0' : '') + n; };
+    meta.querySelector('.rail-total').textContent = pad(total);
+    fill.style.width = (100 / total) + '%';
+    var queued = false;
+    function sync(){
+      queued = false;
+      var max = rail.scrollWidth - rail.clientWidth;
+      if (max < 8) { fill.style.transform = 'translateX(0)'; return; }
+      var p = Math.min(1, Math.max(0, rail.scrollLeft / max));
+      var track = fill.parentNode.clientWidth;
+      fill.style.transform = 'translateX(' + (p * (track - fill.offsetWidth)).toFixed(1) + 'px)';
+      count.textContent = pad(Math.round(p * (total - 1)) + 1);
+      if (rail.scrollLeft > 12) meta.classList.add('is-moved');
+      var shell = rail.parentNode;
+      if (shell && shell.classList.contains('coach-rail')) {
+        shell.classList.toggle('is-end', rail.scrollLeft >= max - 4);
+      }
+    }
+    function tick(){ if (!queued){ queued = true; requestAnimationFrame(sync); } }
+    rail.addEventListener('scroll', tick, {passive:true});
+    window.addEventListener('resize', tick);
+    sync();
+  });
+
+  // The offer bar rides along between the hero and the closing CTA
+  var stickyCta = document.getElementById('stickyCta');
+  if (stickyCta && 'IntersectionObserver' in window) {
+    var heroTop = document.getElementById('top');
+    var finalCta = document.getElementById('trial-info');
+    var foot = document.querySelector('footer');
+    var pastHero = false, atEnd = { cta:false, foot:false };
+    var stickyObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.target === heroTop) pastHero = !e.isIntersecting;
+        if (e.target === finalCta) atEnd.cta = e.isIntersecting;
+        if (e.target === foot) atEnd.foot = e.isIntersecting;
+      });
+      stickyCta.classList.toggle('is-in', pastHero && !atEnd.cta && !atEnd.foot);
+    }, {threshold:0});
+    [heroTop, finalCta, foot].forEach(function(el){ if (el) stickyObs.observe(el); });
+  }
+
+  // Rail arrows: one card at a time, disabled at the ends
+  Array.prototype.forEach.call(document.querySelectorAll('.rail-nav'), function(nav){
+    var rail = document.querySelector(nav.getAttribute('data-rail'));
+    if (!rail) return;
+    var btns = nav.querySelectorAll('.rail-btn');
+    function step(dir){
+      var card = rail.querySelector('.coach, .guest');
+      var by = card ? card.getBoundingClientRect().width + 24 : rail.clientWidth * 0.8;
+      rail.scrollBy({left: dir * by, behavior: 'smooth'});
+    }
+    Array.prototype.forEach.call(btns, function(b){
+      b.addEventListener('click', function(){ step(parseFloat(b.getAttribute('data-dir'))); });
+    });
+    function ends(){
+      var max = rail.scrollWidth - rail.clientWidth;
+      btns[0].disabled = rail.scrollLeft <= 2;
+      btns[1].disabled = rail.scrollLeft >= max - 2 || max < 8;
+    }
+    rail.addEventListener('scroll', ends, {passive:true});
+    window.addEventListener('resize', ends);
+    ends();
+
+    // click and drag the rail with a mouse
+    var down = false, startX = 0, startLeft = 0, moved = 0;
+    rail.addEventListener('pointerdown', function(e){
+      if (e.pointerType === 'touch' || window.innerWidth < 961) return;
+      down = true; moved = 0; startX = e.clientX; startLeft = rail.scrollLeft;
+      rail.classList.add('is-dragging');
+    });
+    rail.addEventListener('pointermove', function(e){
+      if (!down) return;
+      var dx = e.clientX - startX; moved = Math.abs(dx); rail.scrollLeft = startLeft - dx;
+    });
+    ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+      rail.addEventListener(ev, function(){
+        if (!down) return;
+        down = false; rail.classList.remove('is-dragging');
+        if (moved > 6) {
+          var kill = function(ce){ ce.preventDefault(); ce.stopPropagation(); rail.removeEventListener('click', kill, true); };
+          rail.addEventListener('click', kill, true);
+        }
+      });
+    });
+  });
 
   // Section reveals
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1440,7 +1925,12 @@
   var progActive = null, progActiveRow = null;
   var pTx = 0, pTy = 0, pCx = 0, pCy = 0, pW = 1;
   var mouseX = -1, mouseY = -1, hasMouse = false;
-  document.addEventListener('mousemove', function(e){ mouseX = e.clientX; mouseY = e.clientY; hasMouse = true; }, {passive:true});
+  function progPoint(e){ mouseX = e.clientX; mouseY = e.clientY; hasMouse = true; }
+  document.addEventListener('mousemove', progPoint, {passive:true});
+  /* a wheel or trackpad scroll reports the cursor position too, so the rows light
+     up even when the pointer itself has not moved since the page loaded */
+  document.addEventListener('wheel', progPoint, {passive:true});
+  document.addEventListener('mouseover', progPoint, {passive:true});
   document.addEventListener('mouseout', function(e){ if (!e.relatedTarget) hasMouse = false; });
   function progSetActive(row){
     if (progActiveRow) progActiveRow.classList.remove('is-hot');
@@ -1453,9 +1943,21 @@
     }
   }
   (function progFollow(){
-    if (progHoverOk.matches && hasMouse){
-      var el = document.elementFromPoint(mouseX, mouseY);
-      var row = el ? el.closest('.prog a') : null;
+    if (progHoverOk.matches){
+      var row = null;
+      if (hasMouse){
+        var el = document.elementFromPoint(mouseX, mouseY);
+        row = el ? el.closest('.prog a') : null;
+      } else {
+        // No pointer position yet - the page just loaded, or the cursor came back
+        // from outside the window. The browser still knows what is hovered, so
+        // trust that and start the image from the middle of the row.
+        row = document.querySelector('.prog a:hover');
+        if (row){
+          var rr = row.getBoundingClientRect();
+          mouseX = rr.left + rr.width / 2; mouseY = rr.top + rr.height / 2; hasMouse = true;
+        }
+      }
       if (row !== progActiveRow) progSetActive(row);
       else if (row){
         var r = row.getBoundingClientRect();

@@ -12,8 +12,12 @@ dist/
 *.avi
 *.mkv
 !assets/hero-reel.mp4
+!assets/hero-reel-mobile.mp4
 !assets/hero-film.mp4
 !assets/technique.mp4
 
 # original full-size photography stays local
 assets/images to add/
+
+# pre-optimisation originals: kept locally so any asset can be re-encoded
+assets/_original/
