@@ -1140,9 +1140,32 @@
 <header class="hero" id="top">
 <div class="band hero-stage">
   <div class="hero-video" aria-hidden="true">
-    <video id="heroVid" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg"
-           data-src="assets/hero-reel.mp4" data-src-mobile="assets/hero-reel-mobile.mp4"></video>
+    <video id="heroVid" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
+      <!-- Both cuts are declared as real <source> tags so the build emits and
+           fingerprints them; the script below picks one and drops the other. -->
+      <source data-hero="desktop" src="assets/hero-reel.mp4" type="video/mp4">
+      <source data-hero="mobile" src="assets/hero-reel-mobile.mp4" type="video/mp4">
+    </video>
   </div>
+  <script>
+    // Runs inline, right after the element, so the choice is made before the
+    // browser gets far into the wrong file. Reads the URLs off the source tags
+    // because the build rewrites them - hard-coded paths only exist in dev.
+    (function(){
+      var v = document.getElementById('heroVid');
+      if (!v) return;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var want = window.matchMedia('(max-width:640px)').matches ? 'mobile' : 'desktop';
+      var pick = v.querySelector('source[data-hero="' + want + '"]');
+      var url = pick && pick.getAttribute('src');
+      while (v.firstElementChild) v.removeChild(v.firstElementChild);
+      if (reduce) { v.removeAttribute('autoplay'); v.load(); return; }
+      if (url) v.src = url;
+      v.load();
+      var play = v.play();
+      if (play && play.catch) play.catch(function(){});
+    })();
+  </script>
   <button class="hero-play" id="heroPlay" type="button" aria-label="Play the film with sound">
     <span class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17l15-8.5z"/></svg></span>
     <span class="lbl">Watch the film</span>
@@ -1698,18 +1721,7 @@
 
 <script>
   // ---- Hero video ----
-  var vid = document.getElementById('heroVid');
-  if (vid) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      // no reel at all for reduced motion: the poster carries the hero
-      vid.removeAttribute('autoplay'); vid.pause();
-    } else {
-      // phones pull a smaller cut of the reel than desktops do
-      var small = window.matchMedia('(max-width:640px)').matches;
-      vid.src = vid.getAttribute(small ? 'data-src-mobile' : 'data-src');
-      var vp = vid.play(); if (vp && vp.catch) { vp.catch(function(){}); }
-    }
-  }
+  // (the hero reel picks its own source inline, up in the markup)
 
   // Belt scroll progress + rank label
   var cover = document.getElementById('beltCover');
