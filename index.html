@@ -1138,7 +1138,7 @@
 <header class="hero" id="top">
 <div class="band hero-stage">
   <div class="hero-video" aria-hidden="true">
-    <video id="heroVid" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
+    <video id="heroVid" autoplay muted loop playsinline preload="auto">
       <!-- Both cuts are declared as real <source> tags so the build emits and
            fingerprints them; the script below picks one and drops the other. -->
       <source data-hero="desktop" src="assets/hero-reel.mp4" type="video/mp4">
@@ -1157,11 +1157,21 @@
       var pick = v.querySelector('source[data-hero="' + want + '"]');
       var url = pick && pick.getAttribute('src');
       while (v.firstElementChild) v.removeChild(v.firstElementChild);
-      if (reduce) { v.removeAttribute('autoplay'); v.load(); return; }
-      if (url) v.src = url;
-      v.load();
-      var play = v.play();
-      if (play && play.catch) play.catch(function(){});
+      if (reduce || !url) { v.removeAttribute('autoplay'); v.load(); return; }
+      // iOS only autoplays when muted and inline are set as properties, not just
+      // as attributes, and it ignores a play() issued before anything buffers.
+      v.muted = true; v.defaultMuted = true; v.playsInline = true;
+      v.src = url;
+      function heroPlayTry(){
+        var p = v.play();
+        if (p && p.catch) p.catch(function(){});
+      }
+      heroPlayTry();
+      v.addEventListener('loadeddata', heroPlayTry);
+      v.addEventListener('canplay', heroPlayTry);
+      document.addEventListener('visibilitychange', function(){
+        if (!document.hidden) heroPlayTry();
+      });
     })();
   </script>
   <button class="hero-play" id="heroPlay" type="button" aria-label="Play the film with sound">
