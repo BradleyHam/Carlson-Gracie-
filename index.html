@@ -668,7 +668,7 @@
   /* the team crest, ghosted, as the section's visual anchor */
   .legacy-mark{
     position:absolute;right:-8%;top:50%;transform:translateY(-50%);
-    width:min(52vw,660px);opacity:.05;filter:grayscale(1);pointer-events:none;user-select:none;
+    width:min(46vw,560px);opacity:.032;filter:grayscale(1);pointer-events:none;user-select:none;
   }
   .legacy .wrap{position:relative;z-index:1}
   .legacy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3.5vw,54px);margin-top:clamp(44px,6vw,74px)}
@@ -678,7 +678,7 @@
     color:var(--carmine);display:block;margin-bottom:12px;
   }
   .legacy-col h3{font-family:var(--display);font-weight:600;font-size:1.5rem;line-height:1.05;margin-bottom:12px}
-  .legacy-col p{font-size:14px;line-height:1.7;color:rgba(23,23,27,.72)}
+  .legacy-col p{font-size:13.5px;line-height:1.75;color:rgba(23,23,27,.68);max-width:34ch}
   .legacy-note{
     margin-top:clamp(44px,5.5vw,72px);max-width:46ch;
     border-left:2px solid var(--carmine);padding-left:26px;
@@ -729,11 +729,28 @@
 
   /* the members' app, layered onto the technique clip */
   .tech-app{
-    position:absolute;z-index:2;right:-7%;bottom:6%;width:47%;
+    position:absolute;z-index:2;right:-32%;bottom:15%;width:47%;
     border-radius:10px;box-shadow:0 20px 46px rgba(23,23,27,.34);
     background:#fff;
   }
-  @media (max-width:880px){ .tech-app{right:-4%;width:42%} }
+  @media (max-width:1100px){ .tech-app{right:-22%;width:44%} }
+  @media (max-width:880px){ .tech-app{right:-6%;bottom:8%;width:40%} }
+
+  .legacy-figure{margin:clamp(40px,5.5vw,64px) 0 0;position:relative;overflow:hidden;background:var(--ink)}
+  .legacy-figure img{
+    display:block;width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 46%;
+    filter:grayscale(1) contrast(1.04);
+  }
+  .legacy-figure::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:52%;pointer-events:none;
+    background:linear-gradient(180deg,rgba(10,10,14,0),rgba(10,10,14,.55));
+  }
+  .legacy-figure figcaption{
+    position:absolute;z-index:1;left:clamp(18px,2.5vw,32px);bottom:clamp(16px,2vw,26px);
+    font-family:var(--serif);font-style:italic;font-size:clamp(1rem,1.8vw,1.35rem);
+    color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.6);
+  }
+  @media (max-width:700px){ .legacy-figure img{aspect-ratio:16/10} }
 
   /* ---------- Reveal motion ---------- */
   @media (prefers-reduced-motion:no-preference){
@@ -890,6 +907,10 @@
     <p class="eyebrow reveal">The legacy</p>
     <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:13ch">Why Carlson Gracie</h2>
     <p class="lead reveal" style="margin-top:26px">Carlson Gracie is one of the most important names in the history of Brazilian Jiu-Jitsu. We brought it to the Southern Lakes, and training here puts you in a direct line to the family that founded the sport.</p>
+    <figure class="legacy-figure reveal">
+      <img src="assets/legacy.jpg" alt="The academy mats beneath the Brazilian flag, the team banner and the New Zealand flag" loading="lazy">
+      <figcaption>Brazil to the Southern Lakes.</figcaption>
+    </figure>
     <div class="legacy-grid reveal">
       <article class="legacy-col">
         <span class="n">01</span>
