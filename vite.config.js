@@ -1,5 +1,45 @@
+import { resolve } from 'path';
+
 export default {
   server: {
     port: Number(process.env.PORT) || 5173,
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        'main': resolve(__dirname, 'index.html'),
+        'about_coaches': resolve(__dirname, 'about/coaches/index.html'),
+        'about_gear': resolve(__dirname, 'about/gear/index.html'),
+        'about_our-method': resolve(__dirname, 'about/our-method/index.html'),
+        'about_our-story': resolve(__dirname, 'about/our-story/index.html'),
+        'about_seminars-with-jose': resolve(__dirname, 'about/seminars-with-jose/index.html'),
+        'about_why-carlson-gracie': resolve(__dirname, 'about/why-carlson-gracie/index.html'),
+        'contact': resolve(__dirname, 'contact/index.html'),
+        'faq': resolve(__dirname, 'faq/index.html'),
+        'locations': resolve(__dirname, 'locations/index.html'),
+        'locations_invercargill': resolve(__dirname, 'locations/invercargill/index.html'),
+        'locations_queenstown': resolve(__dirname, 'locations/queenstown/index.html'),
+        'locations_south-canterbury': resolve(__dirname, 'locations/south-canterbury/index.html'),
+        'locations_wanaka': resolve(__dirname, 'locations/wanaka/index.html'),
+        'membership_app': resolve(__dirname, 'membership/app/index.html'),
+        'membership': resolve(__dirname, 'membership/index.html'),
+        'membership_start-here': resolve(__dirname, 'membership/start-here/index.html'),
+        'membership_trial': resolve(__dirname, 'membership/trial/index.html'),
+        'membership_visitors': resolve(__dirname, 'membership/visitors/index.html'),
+        'privacy': resolve(__dirname, 'privacy/index.html'),
+        'seminars_events': resolve(__dirname, 'seminars/events/index.html'),
+        'seminars': resolve(__dirname, 'seminars/index.html'),
+        'seminars_news': resolve(__dirname, 'seminars/news/index.html'),
+        'seminars_technique': resolve(__dirname, 'seminars/technique/index.html'),
+        'terms': resolve(__dirname, 'terms/index.html'),
+        'training_adults': resolve(__dirname, 'training/adults/index.html'),
+        'training_beginners': resolve(__dirname, 'training/beginners/index.html'),
+        'training': resolve(__dirname, 'training/index.html'),
+        'training_kids': resolve(__dirname, 'training/kids/index.html'),
+        'training_private': resolve(__dirname, 'training/private/index.html'),
+        'training_timetable': resolve(__dirname, 'training/timetable/index.html'),
+        'training_womens': resolve(__dirname, 'training/womens/index.html'),
+      },
+    },
   },
 };
