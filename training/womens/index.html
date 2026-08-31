@@ -11,6 +11,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles/site.css">
+<style>
+  /* womens hero frame: subject rides the right third of the footage */
+  .page-hero-media img{object-position:center 24%}
+  @media (max-width:960px){ .page-hero-media img{object-position:74% 24%} }
+</style>
 </head>
 <body>
 
@@ -84,7 +89,7 @@
 
 <header class="page-hero page-hero--film" id="top">
   <div class="ph-stage">
-    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/card-womens.jpg" alt="Women’s jiu-jitsu class at the Queenstown academy"></div>
+    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/womens-hero.jpg" alt="A woman passing guard in the women’s class at the Queenstown academy"></div>
     <div class="wrap">
       <div class="ph-copy">
         <p class="eyebrow rise r1">Women’s classes</p>
@@ -112,54 +117,57 @@
 
 <section class="band band-paper">
   <div class="wrap">
-    <p class="eyebrow reveal">What it’s really like</p>
+    <p class="eyebrow reveal">What it&rsquo;s really like</p>
     <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem);max-width:20ch">A lot more fun than it looks from the doorway</h2>
-    <p class="lead reveal" style="margin-top:26px">You’ll work hard. You’ll learn a real martial art. And you’ll walk out with messy hair, a red face and a big grin. Fun here means feeling safe, getting better, and loving the work.</p>
-
-    <figure class="section-figure reveal">
-      <img src="../../assets/card-womens.jpg" alt="The women’s class training together" loading="lazy">
+    <p class="lead reveal" style="margin-top:26px">You&rsquo;ll work hard. You&rsquo;ll learn a real martial art. And you&rsquo;ll walk out with messy hair, a red face and a big grin. Fun here means feeling safe, getting better, and loving the work.</p>
+    <figure class="section-clip">
+      <video src="../../assets/womens-rolling.mp4" poster="../../assets/womens-rolling-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Women rolling at the Queenstown academy"></video>
+      <figcaption class="clip-meta"><span>On the Queenstown mats</span><span>Women&rsquo;s &middot; all levels</span></figcaption>
     </figure>
+    <div class="clip-after reveal">
+      <blockquote class="clip-cite">
+        <p>&ldquo;If there are girls in the gym, it&rsquo;s a healthier environment. I&rsquo;ve thought that since day one.&rdquo;</p>
+        <cite>Jose Gomes &middot; Head professor</cite>
+      </blockquote>
+      <div class="cta-row">
+        <a class="btn btn-red" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="band band-mist legacy">
   <div class="wrap">
     <p class="eyebrow reveal">Where it leads</p>
     <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem);max-width:16ch">The whole gym is theirs</h2>
-    <p class="lead reveal" style="margin-top:26px">Most women who start in this class end up in the all-levels classes too, once they’ve found their feet. They keep coming back to the women’s class because they love it, and they take on the rest of the timetable because they can.</p>
-    <div class="num-blocks">
-      <div class="num-block reveal">
-        <span class="n">01</span>
-        <div>
-        <h3>Looked after</h3>
-        <p>Our higher-belt women are a tight, brilliant crew. You’re safe here, and you’re never on your own.</p>
-        </div>
-      </div>
-    </div>
-
-    <figure class="trial-quote reveal">
-      <p>&ldquo;If there are girls in the gym, it’s a healthier environment. I’ve thought that since day one.&rdquo;</p>
-      <cite>Jose Gomes, head professor</cite>
+    <div class="legacy-figwrap"><figure class="legacy-figure legacy-figure--lead reveal">
+      <img src="../../assets/women-line-up.jpg" alt="The women of Carlson Gracie New Zealand lined up under the team banner" loading="lazy" style="object-position:center 40%">
     </figure>
-
-    <div class="cta-row reveal">
-      <a class="btn btn-red" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a>
+      <img class="legacy-mark" src="../../assets/cg-logo.png" alt="" aria-hidden="true" loading="lazy">
+    </div>
+    <div class="fig-lead reveal">
+      <p>Most women who start in this class end up in the all-levels classes too, once they&rsquo;ve found their feet. They keep coming back to the women&rsquo;s class because they love it, and they take on the rest of the timetable because they can.</p>
+      <span>A tight, brilliant crew. You&rsquo;re safe here, and you&rsquo;re never on your own.</span>
     </div>
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="band band-paper">
   <div class="wrap">
-    <p class="eyebrow reveal">Onward</p>
-    <h2 class="display reveal" style="font-size:clamp(2rem,4.6vw,3.4rem)">Where next</h2>
-    <div class="onward-list reveal">
+    <div class="onward-cards reveal">
       <a href="../../about/coaches/">
-        <span class="q">Meet the coaches who’ll look after you.</span>
-        <span class="go">Our Coaches &rarr;</span>
+        <figure><img src="../../assets/black-belts.jpg" alt="Carlson Gracie black belts lined up in front of the team banner" loading="lazy"></figure>
+        <div class="oc-body">
+          <span class="q">Meet the coaches who&rsquo;ll look after you.</span>
+          <h3 class="display">Our coaches<span class="arr">&nbsp;&rarr;</span></h3>
+        </div>
       </a>
       <a href="../../membership/start-here/">
-        <span class="q">New to all of this? Here’s where to begin.</span>
-        <span class="go">Start Here &rarr;</span>
+        <figure><img src="../../assets/fiinding-your-people.jpeg" alt="Members gathered on the mats at the academy" loading="lazy"></figure>
+        <div class="oc-body">
+          <span class="q">New to all of this? Here&rsquo;s where to begin.</span>
+          <h3 class="display">Start here<span class="arr">&nbsp;&rarr;</span></h3>
+        </div>
       </a>
     </div>
   </div>
@@ -473,6 +481,79 @@
       faqOpen(d);
     });
   });
+
+  // Live-class clips: play only while on screen; reduced-motion users get the poster
+  var clips = [].slice.call(document.querySelectorAll('.section-clip video'));
+  if (clips.length) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      clips.forEach(function(v){ v.removeAttribute('autoplay'); v.pause(); });
+    } else if ('IntersectionObserver' in window) {
+      var clipObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { e.target.play().catch(function(){}); }
+          else { e.target.pause(); }
+        });
+      }, {threshold:.2});
+      clips.forEach(function(v){ clipObs.observe(v); });
+    }
+  }
+
+  // Live-class clip choreography: the frame opens at column width and grows
+  // to near-fullscreen as it rides up the viewport; the footage drifts inside.
+  var clipFrame = document.querySelector('.section-clip');
+  if (clipFrame && window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    var clipVid = clipFrame.querySelector('video');
+    // everything in the wrap above the clip lifts with it, whatever it is
+    var clipLift = [];
+    (function(){ var n = clipFrame.previousElementSibling;
+      while (n){ clipLift.push(n); n = n.previousElementSibling; } })();
+    var clipLastY = -1;
+    var clipScale = 1;      // the scale we last wrote, so we can undo it below
+    var clipPeak = 0;       // furthest progress reached; never given back
+    var clipEase = 0;       // trails clipPeak, so the growth lags the scroll
+    var CLIP_PAD = 24;      // the white breathing room at full size
+    var CLIP_MAX = 1.3;     // growth cap so ultrawide screens stay sane
+    var CLIP_LAG = 0.085;   // lower = longer, smoother catch-up
+    function clipFx(){
+      var r = clipFrame.getBoundingClientRect();
+      var vh = window.innerHeight, vw = window.innerWidth;
+      var base = clipFrame.offsetWidth, h = clipFrame.offsetHeight;
+      // The rect above is the *scaled* box. Scaling happens about the centre,
+      // so half the growth sits above the layout position - add it back to get
+      // the untransformed top. Without this the scale feeds into its own input.
+      var uTop = r.top + ((clipScale - 1) * h) / 2;
+      // Off-screen: settle the eased value so the loop can go quiet again.
+      if (uTop > vh + 200 || uTop + h < -200){ clipEase = clipPeak; return; }
+      var target = Math.max(1, Math.min((vw - CLIP_PAD * 2) / base, CLIP_MAX));
+      // At full size the frame's top edge rises by half the added height, so
+      // finishing there puts the scaled top exactly on the top of the viewport.
+      var end = (target - 1) * h / 2;
+      var start = Math.max(end + 1, vh * 0.5);
+      var p = Math.min(1, Math.max(0, (start - uTop) / (start - end)));
+      var e = 1 - Math.pow(1 - p, 3);
+      // Once it has opened it stays open: scrolling back up never shrinks it.
+      if (e > clipPeak) clipPeak = e;
+      clipEase += (clipPeak - clipEase) * CLIP_LAG;
+      if (clipPeak - clipEase < 0.0004) clipEase = clipPeak;
+      clipScale = 1 + (target - 1) * clipEase;
+      clipFrame.style.transform = 'scale(' + clipScale.toFixed(4) + ')';
+      // The frame grows about its centre, so its top edge climbs by half the
+      // added height. The copy above lifts a little further on the same curve,
+      // so the gap between the two opens rather than closes.
+      var lift = 'translateY(' + (-(clipEase * 56)).toFixed(1) + 'px)';
+      for (var i = 0; i < clipLift.length; i++) clipLift[i].style.transform = lift;
+      var pv = Math.min(1, Math.max(0, (vh - uTop) / (vh + h)));
+      clipVid.style.transform = 'translateY(' + ((pv - 0.5) * 10).toFixed(2) + '%) scale(1.12)';
+    }
+    function clipTick(){
+      var y = window.scrollY;
+      if (y !== clipLastY || clipEase !== clipPeak){ clipLastY = y; clipFx(); }
+      requestAnimationFrame(clipTick);
+    }
+    window.addEventListener('resize', function(){ clipLastY = -1; }, {passive:true});
+    clipFx();
+    requestAnimationFrame(clipTick);
+  }
 
   // Timetable: highlight today's column (Sunday matches nothing)
   var todayCol = document.querySelector('.tt-col[data-day="' + new Date().getDay() + '"]');
