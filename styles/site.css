@@ -1881,3 +1881,125 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 @media (max-width:700px){
   .method-block{--crest-y:calc(234px + 59.6vw)}
 }
+
+/* ---------- Private-lesson rate band ----------
+   A full-bleed split, mirroring .cta-final but light and reversed: Jose's
+   portrait bleeds off the left edge carrying his quote over a scrim, the price
+   and its CTA sit in the copy column on the right, aligned to the 1180 wrap.
+   Red stays on the button - the CMS brackets are a neutral grey marker. */
+.rate-band{position:relative;background:var(--mist);color:var(--ink);overflow:hidden}
+.rate-inner{
+  display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+  align-items:stretch;min-height:clamp(460px,66vh,680px);
+}
+
+.rate-media{position:relative;margin:0;overflow:hidden;background:var(--ink)}
+.rate-media img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;
+  filter:grayscale(1) contrast(1.06);transform:scale(1.02);
+  transition:filter .7s ease,transform 1.4s cubic-bezier(.2,.6,.2,1);
+}
+.rate-media:hover img{filter:grayscale(0) contrast(1.02);transform:scale(1.06)}
+.rate-media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(14,14,18,.30) 0%, rgba(14,14,18,.04) 24%,
+    rgba(14,14,18,.42) 56%, rgba(14,14,18,.88) 100%);
+}
+.rate-quote{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;color:#fff;
+  padding:clamp(28px,3.6vw,48px) clamp(26px,3vw,44px) clamp(30px,3.8vw,48px)
+          max(clamp(20px,4vw,48px), calc((100vw - 1180px) / 2));
+}
+.rate-quote p{
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(1.12rem,1.75vw,1.5rem);line-height:1.36;
+  color:rgba(255,255,255,.97);text-wrap:balance;
+  text-shadow:0 1px 18px rgba(10,10,14,.45);
+}
+.rate-quote cite{
+  display:block;margin-top:clamp(12px,1.4vw,18px);font-style:normal;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.62);
+}
+
+.rate-copy{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(64px,8vw,104px) max(clamp(20px,4vw,48px), calc((100vw - 1180px) / 2))
+          clamp(64px,8vw,104px) clamp(34px,4.6vw,74px);
+}
+.rate-figure{margin:0}
+.rate-from{
+  display:block;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.35em;text-transform:uppercase;
+  color:rgba(23,23,27,.45);margin-bottom:clamp(10px,1.2vw,16px);
+}
+.rate-amt{
+  display:flex;align-items:baseline;gap:.22em;flex-wrap:wrap;
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(3.6rem,7.6vw,6.4rem);
+  line-height:.86;letter-spacing:-.015em;color:var(--ink);
+}
+.rate-cms{
+  font-family:var(--display);font-size:1em;font-weight:600;
+  letter-spacing:-.02em;white-space:nowrap;color:var(--ink);
+}
+/* Red is reserved for CTAs, so the CMS brackets are a neutral grey marker. */
+.rate-cms i{font-style:normal;color:rgba(23,23,27,.22)}
+.rate-cms em{font-style:normal;color:var(--ink)}
+.rate-unit{
+  font-family:var(--mono);font-weight:400;
+  font-size:clamp(10.5px,.95vw,12.5px);letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(23,23,27,.5);white-space:nowrap;
+}
+.rate-foot{
+  margin-top:clamp(26px,3vw,38px);padding-top:clamp(22px,2.6vw,30px);
+  border-top:1px solid var(--line-ink);
+}
+.rate-note{max-width:36ch;font-size:16px;line-height:1.62;color:rgba(23,23,27,.66)}
+.rate-band .cta-row{margin-top:clamp(24px,3vw,34px)}
+
+@media (max-width:900px){
+  .rate-inner{grid-template-columns:1fr;min-height:0}
+  .rate-media{order:-1;height:clamp(340px,74vw,500px)}
+  .rate-media img{object-position:center 24%}
+  .rate-media::after{
+    background:linear-gradient(180deg,
+      rgba(14,14,18,.24) 0%, rgba(14,14,18,.06) 26%,
+      rgba(14,14,18,.5) 58%, rgba(14,14,18,.9) 100%);
+  }
+  .rate-quote{padding:clamp(26px,6vw,38px) clamp(20px,5vw,32px) clamp(28px,6vw,40px)}
+  .rate-copy{padding:clamp(42px,8vw,62px) clamp(20px,5vw,32px) clamp(50px,9vw,70px)}
+  .rate-amt{font-size:clamp(3.4rem,15vw,5.4rem)}
+  .rate-note{max-width:38ch}
+}
+@media (max-width:520px){
+  .rate-band .cta-row .btn{width:100%;text-align:center}
+}
+
+
+/* ---------- Belt arc: the ranks Jose earned on these mats (about/our-story).
+   Same grammar as .class-arc, but each column is topped by its own belt so the
+   four ranks read as a progression rather than a list. Black stays plain: red
+   belongs to the CTAs alone. ---------- */
+.class-arc--belts>div{border-top-width:3px}
+.class-arc--belts>div:nth-child(1){border-top-color:var(--belt-blue)}
+.class-arc--belts>div:nth-child(2){border-top-color:var(--belt-purple)}
+.class-arc--belts>div:nth-child(3){border-top-color:var(--belt-brown)}
+.class-arc--belts>div:nth-child(4){border-top-color:var(--belt-black)}
+.class-arc--belts .n{color:rgba(23,23,27,.62)}
+.class-arc--belts b{font-size:clamp(1.1rem,1.75vw,1.5rem);line-height:1.05}
+
+/* ---------- Section clip, still-photograph variant ----------
+   The frame choreography is the same as the live-class clips; only the payload
+   changes. A 2:1 crop rather than 21:9, because the stills are shot 3:2 and the
+   wider letterbox takes the heads off the back row. */
+.section-clip--still img{
+  display:block;width:100%;aspect-ratio:2/1;object-fit:cover;object-position:center 34%;
+  filter:grayscale(1) contrast(1.04);transition:filter .6s ease;
+  will-change:transform;
+}
+.section-clip--still:hover img{filter:grayscale(0)}
+@media (max-width:700px){
+  .section-clip--still img{aspect-ratio:5/4}
+}
