@@ -1121,6 +1121,7 @@
   width:100%;height:100%;object-fit:cover;object-position:center 30%;
   filter:grayscale(1) contrast(1.05);opacity:.5;
 }
+.page-hero-media--armbar img{object-position:center 45%}
 .page-hero-media::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(13,13,17,.88),rgba(13,13,17,.46) 48%,rgba(13,13,17,.94));
@@ -1137,6 +1138,7 @@
     padding:0;
   }
   .page-hero--film .page-hero-media img{opacity:.8;object-position:center 24%}
+  .page-hero--film .page-hero-media--armbar img{object-position:center 45%}
   .page-hero--film .page-hero-media::after{
     background:
       radial-gradient(115% 85% at 50% 43%, rgba(10,10,14,0) 38%, rgba(10,10,14,.4) 76%, rgba(10,10,14,.66) 100%),
@@ -1887,6 +1889,95 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
    Re-declared after the base .method-block rule so it still wins. */
 @media (max-width:700px){
   .method-block{--crest-y:calc(234px + 59.6vw)}
+}
+
+/* ---------- Why Carlson Gracie: the training-page arc, extended ---------- */
+.legacy-opening{
+  display:grid;grid-template-columns:minmax(360px,.95fr) minmax(420px,1.05fr);
+  gap:clamp(56px,7vw,96px);align-items:end;
+}
+.legacy-opening h2{
+  max-width:13ch;font-size:clamp(2.2rem,7vw,5rem);line-height:.98;
+}
+.legacy-opening .lead{max-width:43ch;margin:0 0 .15em auto}
+.lineage-route{margin-top:clamp(68px,8vw,106px);padding-bottom:clamp(68px,7vw,98px)}
+.lineage-endpoints{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 calc(100% / 12);margin-bottom:24px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(23,23,27,.46);
+}
+.lineage-chain{
+  --lineage-p:1;
+  position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+}
+.lineage-chain::before{
+  content:"";position:absolute;top:5px;left:calc(100% / 12);right:calc(100% / 12);
+  z-index:0;height:2px;background:rgba(23,23,27,.14);
+}
+.lineage-chain::after{
+  content:"";position:absolute;top:5px;left:calc(100% / 12);right:calc(100% / 12);
+  z-index:0;height:2px;background:linear-gradient(90deg,rgba(23,23,27,.42),var(--ink));
+  transform:scaleX(var(--lineage-p));transform-origin:left center;will-change:transform;
+}
+.lineage-node{
+  position:relative;min-width:0;min-height:142px;padding:36px 10px 0;text-align:center;
+  will-change:transform,opacity;
+}
+.lineage-node::before{
+  content:"";position:absolute;z-index:1;left:50%;top:5px;width:8px;height:8px;
+  transform:translate(-50%,-50%);border:2px solid rgba(23,23,27,.38);border-radius:50%;
+  background:var(--mist);box-shadow:0 0 0 5px var(--mist);
+}
+.lineage-node:nth-child(1)::before{border-color:rgba(23,23,27,.26)}
+.lineage-node:nth-child(2)::before{border-color:rgba(23,23,27,.34)}
+.lineage-node:nth-child(3)::before{border-color:rgba(23,23,27,.42)}
+.lineage-node:nth-child(4)::before{border-color:rgba(23,23,27,.5)}
+.lineage-node .n{
+  display:block;font-family:var(--mono);font-size:9px;letter-spacing:.18em;
+  color:rgba(23,23,27,.42);margin-bottom:13px;
+}
+.lineage-node b{
+  display:block;font-family:var(--display);font-size:clamp(1.05rem,1.55vw,1.38rem);
+  font-weight:600;line-height:1.05;color:var(--ink);
+}
+.lineage-node .cms{font-family:inherit;font-size:inherit;letter-spacing:inherit;color:inherit}
+.lineage-node .t{
+  display:block;margin-top:10px;font-size:12px;line-height:1.45;color:rgba(23,23,27,.56);
+}
+.lineage-node--jose::before{
+  border-color:var(--ink);background:var(--mist);
+  box-shadow:0 0 0 5px var(--mist),0 0 0 6px rgba(23,23,27,.34);
+}
+.lineage-node--you::before{border-color:var(--ink);background:var(--ink)}
+.lineage-node--you b{font-size:clamp(1.35rem,2vw,1.8rem)}
+@media (max-width:900px){
+  .legacy-opening{grid-template-columns:1fr;gap:26px}
+  .legacy-opening h2{max-width:10ch}
+  .legacy-opening .lead{max-width:46ch;margin:0}
+}
+@media (max-width:1050px){
+  .lineage-route{padding-bottom:68px}
+  .lineage-endpoints{padding:0;margin-bottom:34px}
+  .lineage-chain{grid-template-columns:1fr;margin-left:2px}
+  .lineage-chain::before{
+    top:8px;bottom:8px;left:5px;right:auto;width:2px;height:auto;
+    background:rgba(23,23,27,.14);
+  }
+  .lineage-chain::after{
+    top:8px;bottom:8px;left:5px;right:auto;width:2px;height:auto;
+    background:linear-gradient(180deg,rgba(23,23,27,.42),var(--ink));
+    transform:scaleY(var(--lineage-p));transform-origin:center top;
+  }
+  .lineage-node{min-height:0;padding:0 0 38px 40px;text-align:left}
+  .lineage-node:last-child{padding-bottom:0}
+  .lineage-node::before{left:5px;top:8px}
+  .lineage-node .n{margin-bottom:9px}
+  .lineage-node b{font-size:clamp(1.35rem,4vw,1.8rem)}
+  .lineage-node--you b{font-size:clamp(1.65rem,5vw,2.1rem)}
+}
+@media (max-width:430px){
+  .lineage-endpoints{font-size:8px;letter-spacing:.16em}
 }
 
 /* ---------- Editorial quote spread ---------- */
