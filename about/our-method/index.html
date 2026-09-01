@@ -109,10 +109,21 @@
   </div>
 </div>
 
-<section class="band band-paper">
+<section class="band band-paper legacy band--close-bottom-even">
   <div class="wrap">
-    <p class="eyebrow reveal">Our method</p>
+    <p class="eyebrow reveal">The Carlson Gracie standard</p>
     <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem);max-width:15ch">It comes down to three things</h2>
+
+    <div class="legacy-figwrap">
+      <figure class="section-clip method-film reveal">
+        <video id="methodFilmVid" poster="../../assets/hero-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Carlson Gracie students training together during an all-levels class">
+          <source data-method-film="desktop" src="../../assets/hero-reel.mp4" type="video/mp4">
+          <source data-method-film="mobile" src="../../assets/hero-reel-mobile.mp4" type="video/mp4">
+        </video>
+        <figcaption class="method-film-caption">Technique is taught slowly. Learning happens together.</figcaption>
+      </figure>
+      <img class="legacy-mark" src="../../assets/cg-logo.png" alt="" aria-hidden="true" loading="lazy">
+    </div>
 
     <div class="legacy-grid reveal">
       <article class="legacy-col">
@@ -131,35 +142,41 @@
         <p>This is the part nobody can copy. Welcoming and competitive at the same time. The higher belts pull the newer ones up. Everybody has a hand in somebody else’s journey. It’s why people stay for years, and why the ones who move away still call this place home.</p>
       </article>
     </div>
-
-    <figure class="section-figure reveal">
-      <img src="../../assets/culture.jpg" alt="Coaches, senior belts and their kids watching a class from the wall" loading="lazy">
-    </figure>
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="method-quote" data-quote-index="03">
   <div class="wrap">
-
-    <figure class="trial-quote reveal" style="margin-top:0">
-      <p>&ldquo;I keep the traditional jiu-jitsu alive, and I’m open-minded enough to bring in the new things that make people better.&rdquo;</p>
-      <cite>Jose Gomes, head professor</cite>
+    <blockquote class="method-quote-copy">
+      <p class="eyebrow reveal">The head professor</p>
+      <p>&ldquo;I keep the traditional jiu&#8209;jitsu alive, and I’m open-minded enough to bring in the new things that make people better.&rdquo;</p>
+      <cite class="reveal"><b>Jose Gomes</b><span>Head professor &middot; 3rd degree black belt</span></cite>
+    </blockquote>
+    <figure class="method-quote-media reveal">
+      <img src="../../assets/coach-jose.jpg" alt="Jose Gomes, head professor at Carlson Gracie New Zealand" loading="lazy">
+      <figcaption>Tradition, carried forward.</figcaption>
     </figure>
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="band band-paper band--close-top">
   <div class="wrap">
     <p class="eyebrow reveal">Onward</p>
     <h2 class="display reveal" style="font-size:clamp(2rem,4.6vw,3.4rem)">Where next</h2>
-    <div class="onward-list reveal">
+    <div class="onward-cards reveal" style="margin-top:clamp(36px,5vw,56px)">
       <a href="../../about/our-story/">
-        <span class="q">Where it all began.</span>
-        <span class="go">Our Story &rarr;</span>
+        <figure><img src="../../assets/community.jpg" alt="Carlson Gracie members gathered together on the mats" loading="lazy" style="object-position:center 34%"></figure>
+        <div class="oc-body">
+          <span class="q">Where it all began.</span>
+          <h3 class="display">Our story<span class="arr">&nbsp;&rarr;</span></h3>
+        </div>
       </a>
       <a href="../../about/coaches/">
-        <span class="q">The people who teach it.</span>
-        <span class="go">Our Coaches &rarr;</span>
+        <figure><img src="../../assets/black-belts.jpg" alt="Carlson Gracie New Zealand black belt coaches" loading="lazy" style="object-position:center 24%"></figure>
+        <div class="oc-body">
+          <span class="q">The people who teach it.</span>
+          <h3 class="display">Our coaches<span class="arr">&nbsp;&rarr;</span></h3>
+        </div>
       </a>
     </div>
   </div>
@@ -324,6 +341,121 @@
     phMeasure(); phFx();
     requestAnimationFrame(phTick);
   })();
+
+  // Our Method film: use a short excerpt from the homepage reel, with the
+  // mobile crop on phones. It only plays while visible and rests on the poster
+  // for reduced-motion visitors.
+  var methodFilm = document.getElementById('methodFilmVid');
+  if (methodFilm) (function(){
+    var want = window.matchMedia('(max-width:640px)').matches ? 'mobile' : 'desktop';
+    var pick = methodFilm.querySelector('source[data-method-film="' + want + '"]');
+    var url = pick && pick.getAttribute('src');
+    var startAt = 0;
+    var endAt = 8;
+    while (methodFilm.firstElementChild) methodFilm.removeChild(methodFilm.firstElementChild);
+    methodFilm.addEventListener('loadedmetadata', function(){
+      if (methodFilm.currentTime < startAt || methodFilm.currentTime >= endAt) methodFilm.currentTime = startAt;
+    });
+    methodFilm.addEventListener('timeupdate', function(){
+      if (methodFilm.currentTime >= endAt){
+        methodFilm.currentTime = startAt;
+        if (!reduced) methodFilm.play().catch(function(){});
+      }
+    });
+    if (url){ methodFilm.src = url; methodFilm.load(); }
+    if (reduced){
+      methodFilm.removeAttribute('autoplay');
+      methodFilm.pause();
+    } else if ('IntersectionObserver' in window){
+      var methodFilmObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) e.target.play().catch(function(){});
+          else e.target.pause();
+        });
+      }, {threshold:.2});
+      methodFilmObs.observe(methodFilm);
+    }
+  })();
+
+  // The frame begins at the content width, then grows toward the viewport as
+  // it rises. This mirrors the live-film movement on the kids page.
+  var methodFilmFrame = document.querySelector('.method-film');
+  if (methodFilmFrame && window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    var methodFilmVideo = methodFilmFrame.querySelector('video');
+    var methodFilmLift = [];
+    (function(){
+      var filmWrap = methodFilmFrame.closest('.legacy-figwrap');
+      var n = filmWrap ? filmWrap.previousElementSibling : null;
+      while (n){ methodFilmLift.push(n); n = n.previousElementSibling; }
+    })();
+    var methodFilmLastY = -1;
+    var methodFilmScale = 1;
+    var methodFilmPeak = 0;
+    var methodFilmEase = 0;
+    var METHOD_FILM_PAD = 24;
+    var METHOD_FILM_MAX = 1.3;
+    var METHOD_FILM_MIN = 1.16;
+    var METHOD_FILM_LAG = 0.11;
+    function methodFilmFx(){
+      var r = methodFilmFrame.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var vw = window.innerWidth;
+      var base = methodFilmFrame.offsetWidth;
+      var h = methodFilmFrame.offsetHeight;
+      var uTop = r.top + ((methodFilmScale - 1) * h) / 2;
+      if (uTop > vh + 200 || uTop + h < -200){ methodFilmEase = methodFilmPeak; return; }
+      var availableScale = (vw - METHOD_FILM_PAD * 2) / base;
+      var target = Math.min(Math.max(availableScale, METHOD_FILM_MIN), METHOD_FILM_MAX);
+      // Start as the film enters the viewport and complete most of the
+      // expansion in its upper third. The minimum target keeps the movement
+      // legible on widths where the content frame already sits near full bleed.
+      var end = Math.max((target - 1) * h / 2, vh * .28);
+      var start = Math.max(end + 1, vh * .98);
+      var p = Math.min(1, Math.max(0, (start - uTop) / (start - end)));
+      var e = 1 - Math.pow(1 - p, 3);
+      if (e > methodFilmPeak) methodFilmPeak = e;
+      methodFilmEase += (methodFilmPeak - methodFilmEase) * METHOD_FILM_LAG;
+      if (methodFilmPeak - methodFilmEase < .0004) methodFilmEase = methodFilmPeak;
+      methodFilmScale = 1 + (target - 1) * methodFilmEase;
+      methodFilmFrame.style.transform = 'scale(' + methodFilmScale.toFixed(4) + ')';
+      var lift = 'translateY(' + (-(methodFilmEase * 74)).toFixed(1) + 'px)';
+      for (var i = 0; i < methodFilmLift.length; i++) methodFilmLift[i].style.transform = lift;
+      var pv = Math.min(1, Math.max(0, (vh - uTop) / (vh + h)));
+      methodFilmVideo.style.transform = 'translateY(' + ((pv - .5) * 10).toFixed(2) + '%) scale(1.12)';
+    }
+    function methodFilmTick(){
+      var y = window.scrollY;
+      if (y !== methodFilmLastY || methodFilmEase !== methodFilmPeak){ methodFilmLastY = y; methodFilmFx(); }
+      requestAnimationFrame(methodFilmTick);
+    }
+    window.addEventListener('resize', function(){ methodFilmLastY = -1; }, {passive:true});
+    methodFilmFx();
+    requestAnimationFrame(methodFilmTick);
+  }
+
+  // A quieter depth cue in the testimonial: the portrait travels a few percent
+  // inside its fixed crop as the section crosses the viewport.
+  var methodQuoteMedia = document.querySelector('.method-quote-media');
+  if (methodQuoteMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    var methodQuoteImage = methodQuoteMedia.querySelector('img');
+    var methodQuoteLastY = -1;
+    function methodQuoteFx(){
+      var r = methodQuoteMedia.getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (r.top > vh + 120 || r.bottom < -120) return;
+      var p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+      var drift = (p - .5) * 7;
+      methodQuoteImage.style.transform = 'translateY(' + drift.toFixed(2) + '%) scale(1.1)';
+    }
+    function methodQuoteTick(){
+      var y = window.scrollY;
+      if (y !== methodQuoteLastY){ methodQuoteLastY = y; methodQuoteFx(); }
+      requestAnimationFrame(methodQuoteTick);
+    }
+    window.addEventListener('resize', function(){ methodQuoteLastY = -1; }, {passive:true});
+    methodQuoteFx();
+    requestAnimationFrame(methodQuoteTick);
+  }
 
   // Voice statement: the words lift from dim to full as the paragraph rides
   // up through the viewport. Each word gets its own slice of the progress, so

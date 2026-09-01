@@ -1692,6 +1692,13 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(180deg,rgba(10,10,14,.32),rgba(10,10,14,0) 26%,rgba(10,10,14,0) 78%,rgba(10,10,14,.28));
 }
+.method-film{transform-origin:center center}
+.method-film video{object-position:center 50%}
+.method-film-caption{
+  position:absolute;z-index:2;left:clamp(18px,2.5vw,32px);bottom:clamp(16px,2vw,26px);
+  font-family:var(--serif);font-style:italic;font-size:clamp(1rem,1.8vw,1.35rem);
+  color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.6);pointer-events:none;
+}
 .clip-meta{
   position:absolute;left:0;right:0;top:0;z-index:2;
   display:flex;justify-content:space-between;gap:18px;
@@ -1880,6 +1887,98 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
    Re-declared after the base .method-block rule so it still wins. */
 @media (max-width:700px){
   .method-block{--crest-y:calc(234px + 59.6vw)}
+}
+
+/* ---------- Editorial quote spread ---------- */
+.method-quote{
+  position:relative;isolation:isolate;overflow:hidden;color:var(--ink);
+  background:linear-gradient(90deg,#f7f7f5 0 66%,#efefec 66% 100%);
+  padding:clamp(76px,8.5vw,116px) clamp(20px,4vw,48px);
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+}
+.method-quote::before{
+  content:attr(data-quote-index);position:absolute;z-index:0;right:-.015em;top:-.04em;
+  font-family:var(--display);font-size:clamp(15rem,28vw,32rem);font-weight:600;
+  line-height:.78;letter-spacing:-.055em;color:transparent;
+  -webkit-text-stroke:1px rgba(23,23,27,.055);pointer-events:none;
+}
+.method-quote .wrap{
+  position:relative;z-index:1;min-height:clamp(520px,48vw,670px);
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(320px,.68fr);
+  gap:clamp(58px,8.5vw,126px);align-items:center;
+}
+.method-quote-copy{position:relative;z-index:2;margin:0;max-width:620px}
+.method-quote-copy .eyebrow{margin-bottom:clamp(28px,4vw,46px)}
+.method-quote-copy > p:not(.eyebrow){
+  max-width:26ch;font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.7rem,3.15vw,2.7rem);line-height:1.22;
+  color:rgba(23,23,27,.92);
+}
+.method-quote-copy cite{
+  display:grid;grid-template-columns:auto 1fr;gap:3px 16px;align-items:center;
+  margin-top:clamp(28px,3.4vw,42px);font-style:normal;
+}
+.method-quote-copy cite::before{
+  content:"";width:34px;height:1px;background:rgba(23,23,27,.42);
+}
+.method-quote-copy cite b{
+  font-family:var(--display);font-size:1.05rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink);
+}
+.method-quote-copy cite span{
+  grid-column:2;font-family:var(--mono);font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,27,.48);
+}
+.method-quote-media{
+  position:relative;z-index:1;margin:0;overflow:hidden;aspect-ratio:4/5;background:#e3e3e0;
+  transform:translateY(-18px);
+  box-shadow:clamp(14px,1.8vw,26px) clamp(14px,1.8vw,26px) 0 rgba(23,23,27,.06);
+}
+.method-quote-media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:inset 0 0 0 1px rgba(23,23,27,.06),inset 0 -100px 100px -70px rgba(10,10,14,.55);
+}
+.method-quote-media img{
+  display:block;width:100%;height:100%;object-fit:cover;object-position:center 12%;
+  filter:grayscale(1) contrast(1.02) brightness(1.06);
+  transform:scale(1.1);will-change:transform;
+  transition:filter .7s ease,transform 1.2s cubic-bezier(.2,.6,.2,1);
+}
+.method-quote-media:hover img{filter:grayscale(.25) contrast(1.01) brightness(1.04)}
+.method-quote-media figcaption{
+  position:absolute;z-index:2;left:clamp(18px,2vw,28px);bottom:clamp(16px,2vw,24px);
+  font-family:var(--serif);font-size:clamp(1rem,1.45vw,1.25rem);font-style:italic;
+  color:rgba(255,255,255,.94);text-shadow:0 2px 14px rgba(0,0,0,.55);
+}
+.method-quote--wide-copy .wrap{max-width:1280px}
+.method-quote--wide-copy .method-quote-copy{max-width:720px}
+.method-quote--wide-copy .method-quote-copy > p:not(.eyebrow){max-width:30ch}
+.method-quote--reverse{
+  background:linear-gradient(90deg,#efefec 0 34%,#f7f7f5 34% 100%);
+}
+.method-quote--reverse::before{left:-.015em;right:auto}
+.method-quote--reverse .wrap{
+  grid-template-columns:minmax(320px,.68fr) minmax(0,1.12fr);
+}
+.method-quote--reverse .method-quote-copy{grid-column:2;grid-row:1}
+.method-quote--reverse .method-quote-media{
+  grid-column:1;grid-row:1;transform:translateY(18px);
+}
+@media (max-width:800px){
+  .method-quote{background:#f7f7f5}
+  .method-quote::before{right:-.04em;top:46%;font-size:clamp(13rem,52vw,22rem)}
+  .method-quote .wrap{grid-template-columns:1fr;gap:clamp(44px,10vw,64px)}
+  .method-quote-copy{max-width:580px}
+  .method-quote-media{width:min(100%,520px);aspect-ratio:4/5;transform:none}
+  .method-quote--reverse::before{left:auto;right:-.04em}
+  .method-quote--reverse .method-quote-copy,
+  .method-quote--reverse .method-quote-media{grid-column:auto;grid-row:auto}
+}
+@media (max-width:520px){
+  .method-quote{padding-top:76px;padding-bottom:76px}
+  .method-quote-copy > p:not(.eyebrow){font-size:clamp(1.65rem,8vw,2.15rem)}
+  .method-quote-copy cite{grid-template-columns:28px 1fr;column-gap:12px}
 }
 
 /* ---------- Private-lesson rate band ----------

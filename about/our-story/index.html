@@ -171,13 +171,17 @@
   </div>
 </section>
 
-<section class="voice-band">
-  <div class="voice-media" aria-hidden="true"><img src="../../assets/jose-gomes.jpg" alt="" style="object-position:center 6%" loading="lazy"></div>
+<section class="method-quote method-quote--wide-copy" data-quote-index="04">
   <div class="wrap">
-    <blockquote class="voice-quote">
-      <p class="reveal">&ldquo;I never counted on it, so I was never afraid it wouldn&rsquo;t work. It&rsquo;s something I do because I love it.&rdquo;</p>
+    <blockquote class="method-quote-copy">
+      <p class="eyebrow reveal">In Jose&rsquo;s words</p>
+      <p>&ldquo;I never counted on it, so I was never afraid it wouldn&rsquo;t work. It&rsquo;s something I do because I love it.&rdquo;</p>
       <cite class="reveal"><b>Jose Gomes</b><span>Head professor &middot; 3rd degree black belt</span></cite>
     </blockquote>
+    <figure class="method-quote-media reveal">
+      <img src="../../assets/jose-gomes.jpg" alt="Jose Gomes, head professor at Carlson Gracie New Zealand" style="object-position:center 6%" loading="lazy">
+      <figcaption>Built from love, not a business plan.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -516,6 +520,28 @@
   // Timetable: highlight today's column (Sunday matches nothing)
   var todayCol = document.querySelector('.tt-col[data-day="' + new Date().getDay() + '"]');
   if (todayCol) todayCol.classList.add('is-today');
+
+  // Editorial quote portrait: a restrained drift inside the fixed crop.
+  var editorialQuoteMedia = document.querySelector('.method-quote-media');
+  if (editorialQuoteMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    var editorialQuoteImage = editorialQuoteMedia.querySelector('img');
+    var editorialQuoteLastY = -1;
+    function editorialQuoteFx(){
+      var r = editorialQuoteMedia.getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (r.top > vh + 120 || r.bottom < -120) return;
+      var p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+      editorialQuoteImage.style.transform = 'translateY(' + (((p - .5) * 7).toFixed(2)) + '%) scale(1.1)';
+    }
+    function editorialQuoteTick(){
+      var y = window.scrollY;
+      if (y !== editorialQuoteLastY){ editorialQuoteLastY = y; editorialQuoteFx(); }
+      requestAnimationFrame(editorialQuoteTick);
+    }
+    window.addEventListener('resize', function(){ editorialQuoteLastY = -1; }, {passive:true});
+    editorialQuoteFx();
+    requestAnimationFrame(editorialQuoteTick);
+  }
 
   // Story photograph: the frame opens at column width and grows to near
   // full-bleed as it rides up the viewport. Same choreography as the live-class
