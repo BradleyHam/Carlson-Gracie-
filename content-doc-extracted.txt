@@ -1,0 +1,505 @@
+*$iiiiiiiiiiii
+en_US@rg=uszzzz:
+en_US@rg=uszzzzP
+gregorian
+latn"
+January"
+February"
+March"
+April"
+May"
+June"
+July"
+August"
+September"
+October"
+November"
+December*
+January*
+February*
+March*
+April*
+May*
+June*
+July*
+August*
+September*
+October*
+November*
+December2
+Jan2
+Feb2
+Mar2
+Apr2
+May2
+Jun2
+Jul2
+Aug2
+Sep2
+Oct2
+Nov2
+Dec:
+Jan:
+Feb:
+Mar:
+Apr:
+May:
+Jun:
+Jul:
+Aug:
+Sep:
+Oct:
+Nov:
+DecB
+SundayB
+MondayB
+TuesdayB
+WednesdayB
+ThursdayB
+FridayB
+SaturdayJ
+SundayJ
+MondayJ
+TuesdayJ
+WednesdayJ
+ThursdayJ
+FridayJ
+SaturdayR
+SunR
+MonR
+TueR
+WedR
+ThuR
+FriR
+SatZ
+SunZ
+MonZ
+TueZ
+WedZ
+ThuZ
+FriZ
+Satb
+AMj
+PMr
+1st quarter
+2nd quarter
+3rd quarter
+4th quarter
+Before Christ
+Anno Domini
+M/d/yy
+MMM d, y
+MMMM d, y
+EEEE, MMMM d, y
+h:mm a
+h:mm:ss a
+h:mm:ss a z
+h:mm:ss a zzzz
+NaN
+USD
+AUD
+BRL
+CAD
+CA$
+CNY
+CN¥
+EUR
+GBP
+HKD
+HK$
+ILS
+INR
+JPY
+KRW
+MXN
+MX$
+NZD
+NZ$
+PHP
+TWD
+NT$
+VND
+XAF
+FCFA
+XCD
+EC$
+XCG
+Cg.
+XOF
+F CFA
+XPF
+CFPF
+XXX
+en-AU"
+iso-a4
+Custom Format 1
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii2
+Office Theme"
+ff>%ff>-ff>5
+>%HH
+?%000?-BAA?5
+poo?%
+?-KK>5
+?%POO?-j?5
+yx8?%>-.?5
+PPP?%
+vu>%=?-EE>5
+Qu?%W
+>%Z>?-Mn?5
+d*$iiiiiiiiiiii
+*<iiiiiiiiiiiiiiiiiiii
+D*!iiiiiiiiiii
+j**iiiiiiiiiiiiii
+_ҵC'GG,j
+.ot
+tFӽ)x&H
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+WEBSITE CONTENT
+Carlson Gracie New Zealand
+NOTES
+Names, prices and figures are shown in [red brackets] as placeholders to finalise in the CMS.
+Pull quotes are Jose’s own words, lightly tidied for reading.
+Lineage is written per his interview: through Alexandre Penão and Roger Ulet, under Carlson Gracie. Worth correcting on the homepage too.
+The gym is open seven days a week. Onward blocks are the internal links; Direction notes suggest a module or image.
+TRAINING
+Training    /training
+The programs hub. Sends people into the right class fast.
+1 · HERO
+Start where you are
+Never rolled before? You’ll fit right in. Been on the mats for years? You’ll get pushed. We run classes seven days a week, morning to night, so there’s always a session that works around your shifts, your kids and your ski days. You’ll learn the basics properly, you’ll roll every time you train, and you’ll do it next to people who want to see you get good.
+BUTTONS   Become a member    ·    See the timetable
+2 · FIND YOUR CLASS
+There’s a class here for every kind of person. Have a look and pick your way in.
+Adults, all levels, gi & no-gi. Our biggest classes, and the beating heart of the place.
+Beginners / fundamentals. The front door. Learn the basics properly before you jump in.
+Kids. Ages 5 to 12. Confidence, focus, and a serious amount of fun.
+Women’s. The easiest place to start. Women training with women, always looked after.
+Private lessons. One on one, built around you. The fastest way to level up.
+DIRECTION  A card each, one photo, linking to the class pages below.
+3 · WHAT EVERY CLASS SHARES
+Whichever one you pick, three things never change. You’ll be welcomed like the room’s been waiting for you. You’ll learn in short blocks, a few weeks on one idea, so it actually sticks. And you’ll roll every session, because that’s how it really goes in. That’s our method, and it’s why people get good here.
+“Everyone who comes in is a good surprise that they made it. Whoever’s already there goes, oh cool, this person came.” JOSE GOMES
+ONWARD
+Not sure where to begin? We’ll walk you through it.  → Start Here
+Curious how we actually teach?  → Our Method
+Class Timetable    /training/timetable
+The live schedule, pulled from the booking app.
+On the mats seven days a week
+A class before work, a quick one at lunch, or a session after the kids are down. Hospitality hours, shift work, working from home, we’ve built the week around a Queenstown life. Pick the times that suit you and just show up.
+2 · THE LIVE SCHEDULE
+Times shift a little around holidays and gradings, so the app always holds the real version. Grab it, set your reminders, and you’ll never miss a roll.
+DIRECTION  Embed the live timetable from the booking app. Filter by class type and by location.
+3 · NEW HERE?
+Brand new, look for the beginners and fundamentals classes. That’s your front door, and you’ll never be thrown in the deep end.
+BUTTONS   Live timetable in the app    ·    Book a free trial
+Not sure what to expect on day one?  → Start Here
+Adults All Levels · Gi & No-Gi    /training/adults
+The main adult program.
+Adults, all levels
+Gi and no-gi, every level
+This is where most of the academy lives. White belts and black belts on the same mat, learning the same thing, pushing each other along. It’s friendly and it’s competitive at the same time, and that mix is the whole magic of the place.
+2 · HOW A CLASS RUNS
+We teach in blocks, a few weeks on one position, so you go deep instead of skimming the surface. Every class is a warm-up, some technique, drilling, then rolling. You don’t learn jiu-jitsu by watching it. You learn it by doing it, over and over, with someone who knows more than you.
+3 · GI OR NO-GI?
+The gi is grips, control and patience. No-gi is faster and sweatier, more scrambles. Most people end up doing both and loving them for different reasons. Try one, try the other, and see which one grabs you.
+4 · NEW TO IT
+If you’ve never trained, don’t overthink it. Most people find their feet in the beginners and fundamentals classes first, then step straight into this room. Either way you’ll be looked after. They’ll guide you, give you tips, and go easy while you find your feet. The only person who can make jiu-jitsu dangerous is you, and we won’t let you do that.
+BUTTONS   Become a member
+DIRECTION  A short clip of a live class would sell this page better than any photo.
+“The higher belts are the safest people in the room to roll with. And always the nicest.” JOSE GOMES
+Brand new? Start with the basics.  → Beginners / Fundamentals
+Want to move faster? A private gets you there quicker.  → Private Lessons
+Beginners / Fundamentals    /training/beginners
+The structured entry pathway. A dedicated place to learn the basics before the all-levels classes.
+Your first weeks on the mat
+Beginners and fundamentals
+This is the front door. A dedicated class to learn the basics properly, at a pace that suits someone brand new, before you step into the all-levels sessions. No experience, no pressure, and nobody expecting you to know a thing.
+2 · HOW IT WORKS
+We teach the fundamentals in blocks, a few weeks on one foundation at a time. Posture, escapes, the handful of core positions everything else is built on. You’ll drill them until they feel natural, and you’ll roll gently and safely while it all sinks in. Get these right and the rest of jiu-jitsu opens up.
+3 · WHO IT’S FOR
+Total beginners, and anyone coming back after a break who wants to sharpen the basics. You don’t need to be fit, flexible or tough. You just need to turn up and be willing to learn.
+4 · WHERE IT LEADS
+Once the foundations are there, you’re ready for the all-levels adults classes, and Fabio will make sure you’re set. Most people are surprised how quickly they go from lost to holding their own.
+BUTTONS   Book a free trial
+Ready for the next step?  → Adults
+Kids    /training/kids
+Kids program, written for parents.
+Kids
+Ages 5 to 12
+Games first, technique always, and no striking, ever. Our kids’ classes are busy, fun and safe, and they teach the stuff that lasts. How to fall without getting hurt. How to focus. How to back yourself when it counts.
+2 · WHAT PARENTS NOTICE
+Parents tell us the same things, over and over. Their kid stands up for themselves at school. They listen better at home. They’re more confident, a bit more disciplined, and proud of what they can do. It shows up off the mat as much as on it.
+3 · GOT A SHY ONE?
+Perfect. We never push a nervous kid to join in before they’re ready. We let them watch, warm up, and come in on their own terms. Nine times out of ten, within a month they’re the one dragging you to class.
+DIRECTION  Warm, real photo of the kids’ class. A one-line parent quote sits beautifully here.
+“Within a month, we usually get them wanting to be there. A lot of parents say they never felt that comfortable anywhere else.” JOSE GOMES
+Questions about ages, safety or what to pack?  → FAQ
+See when the kids’ classes run.  → Timetable
+Women’s    /training/womens
+Women’s program. The safe entry point.
+Women’s classes
+A safe door in
+Women training with women, in a room that has your back from the first minute. It’s the easiest place to start, and it’s exactly what it sounds like.
+2 · WHAT IT’S REALLY LIKE
+You’ll work hard. You’ll learn a real martial art. And you’ll walk out with messy hair, a red face and a big grin, because it’s a lot more fun than it looks from the doorway. Fun here means feeling safe, getting better, and loving the work.
+3 · WHERE IT LEADS
+Most women who start in this class end up in the all-levels classes too, once they’ve found their feet. They keep coming back to the women’s class because they love it, and they take on the rest of the timetable because they can. The whole gym is theirs.
+4 · LOOKED AFTER
+Our higher-belt women are a tight, brilliant crew. You’re safe here, and you’re never on your own.
+“If there are girls in the gym, it’s a healthier environment. I’ve thought that since day one.” JOSE GOMES
+Meet the coaches who’ll look after you.  → Our Coaches
+New to all of this? Here’s where to begin.  → Start Here
+Private Lessons    /training/private
+Privates. Pricing shown upfront, on purpose.
+Private lessons
+Faster progress, one on one
+A class teaches the curriculum to the room. A private teaches jiu-jitsu to you. It’s the fastest way to get good, and the surest way to fix the thing that keeps tripping you up.
+2 · WHO IT’S FOR
+New and want to catch up quick? A few privates and the whole game starts to make sense. Been rolling a while and keep getting stuck in the same spot? We’ll drill exactly that until it’s gone. Prepping for a comp? We’ll sharpen the details that win matches. If you’ve ever thought “why does this keep happening to me,” this is the fix.
+3 · PRICING, UPFRONT
+From [$120] an hour, depending on the coach. If it’s for you, you’ll know, and we’ll get you booked.
+BUTTONS   Enquire about a private
+“It’s where training becomes specific to you. Your body type, how fast you learn. It gets you to understand the game a lot faster.” JOSE GOMES
+Not sure yet? Get rolling in a class first.  → Adults
+Ready to make it official?  → Membership
+ABOUT
+Our Method    /about/our-method
+The differentiator page. Jose never wrote his method down, so this puts it on paper: tradition, foundations, culture.
+How we teach
+People think all jiu-jitsu is the same. Walk into three gyms and you’ll find out fast that it isn’t. Every academy teaches differently, whether they’ve ever said so out loud or not. Here’s ours, and it comes down to three things.
+2 · TRADITION
+We’re Carlson Gracie, right down to the warm-up. We run the mats, we line up, and we show respect to each other and to the room. We’re not precious about it. You won’t get told off for the wrong colour gi. But that old-school respect is what turns a room full of strangers into a proper academy.
+3 · STRONG FOUNDATIONS, TAUGHT IN BLOCKS
+We don’t chase whatever’s trendy this year. We build deep foundations and teach in blocks, one idea at a time over a few weeks, so it actually lands. And we roll every single session. You can watch a hundred videos, but you get good by doing.
+4 · CULTURE THAT CARRIES YOU
+This is the part nobody can copy. Welcoming and competitive at the same time. The higher belts pull the newer ones up. Everybody has a hand in somebody else’s journey. It’s why people stay for years, and why the ones who move away still call this place home.
+“I keep the traditional jiu-jitsu alive, and I’m open-minded enough to bring in the new things that make people better.” JOSE GOMES
+Where it all began.  → Our Story
+The people who teach it.  → Our Coaches
+Our Story    /about/our-story
+The New Zealand journey. The pioneer years, the growth.
+It started with one blue belt and no plan
+Jose Gomes found jiu-jitsu at 16, back in Brazil. He’d tried karate and capoeira first, and neither one grabbed him. Jiu-jitsu did. What hooked him was that he could roll for real from day one, instead of tapping pads and pretending.
+2 · A LONG WAY FROM HOME
+New Zealand wasn't much of a decision. A mate mentioned an island at the bottom of the world you could get into on a three-month visa, and that was enough. Jose landed with barely a word of English and no idea what came next, a gym least of all. He just wanted to see somewhere new, and to keep training while he was there.
+3 · TEACHING FROM SCRATCH
+There was no jiu-jitsu in Queenstown. None in Central Otago. So Jose started teaching, for one simple reason. He wanted people to train with. He earned his purple, brown and black belts here, flying home for camps and leaning on the odd visiting black belt while he had no coach of his own. Slowly, teaching became coaching. Coaching became a school. The school became a family.
+“I never counted on it, so I was never afraid it wouldn’t work. It’s something I do because I love it.” JOSE GOMES
+4 · FIFTEEN TO TWO HUNDRED
+Fifteen people became more than two hundred. One mat in Queenstown became a family of academies across the South Island. Jose never chased any of it, which is exactly why it worked.
+What the name carries.  → Why Carlson Gracie
+How far it’s spread.  → Locations
+Why Carlson Gracie    /about/why-carlson-gracie
+The heritage and lineage argument.
+Why Carlson Gracie
+Carlson Gracie is one of the biggest names in the history of the sport, and it’s not a name we wear lightly.
+2 · WHAT CARLSON DID
+Carlson threw the doors open. While parts of the Gracie family wanted to keep jiu-jitsu close, he spread it to everyone he could reach. That’s the spirit we’ve kept. To us the name means tradition, hard work, and a door held open for anyone who walks up to it.
+“There are gyms all over that come from Carlson Gracie. They just changed the name. We stayed real.” JOSE GOMES
+3 · WE KEEP IT REAL
+Plenty of academies started under Carlson Gracie and quietly rebranded to chase their own thing. We didn’t. Look back far enough and a huge slice of the jiu-jitsu world traces home to Carlson. We’re proud to still carry the name, and to carry it properly.
+4 · OUR LINEAGE
+Ours runs from Carlson Gracie through [Alexandre Penão] in Curitiba, to [Rodrigo Zanon], to [Roger Ulet], Jose’s professor to this day. Real jiu-jitsu, passed hand to hand, all the way to our mats in Queenstown.
+“I don’t think we’re better than anyone. But there’s something in our culture that’s special. It’s unique. No one else is going to get it.” JOSE GOMES
+See how we teach it.  → Our Method
+World-class names on our mats.  → Seminars & Events
+Our Coaches    /about/coaches
+The roster and the depth of rank. Bios finalised in the CMS.
+No matter your level, someone here has your back
+We’ve got a deep bench of black belts and high belts, with more coming through every year. For a beginner, that’s the best news going. The higher the belt, the safer and more helpful the roll, and the more you’ve got to aim at.
+2 · WHAT IT TAKES TO COACH HERE
+Rank alone doesn’t get you on the whiteboard. To coach at this academy you need three things. Real knowledge, taught from the stuff you actually use. A proper welcome for every new face. And the ability to hold the culture and keep the mats safe, so the room stays the room.
+“Part of the jiu-jitsu journey is helping the people underneath you. That’s the sharing.” JOSE GOMES
+3 · THE ROSTER (BIOS IN CMS)
+Jose Gomes, head professor. Found jiu-jitsu at sixteen in Brazil, brought it to Queenstown, and built the academy from fifteen members to over two hundred.
+Fabio, the beginners’ go-to. White or blue, ask Fabio. He makes sure the newest members never get left behind.
+[Renan]. Teaches the advanced adult classes.
+[Cadu]. Teaches the no-gi and advanced classes.
+[Add the rest of the team here, same format.]
+BUTTONS   Our team
+DIRECTION  Flexible grid, add and remove coaches freely. Headshots from the Dropbox.
+Come meet them on the mat.  → Book a free trial
+How they teach.  → Our Method
+Gear & Apparel    /about/gear
+Not a shop. Photos and prices, links out to APE and Carlson Gracie gear.
+APE, made by grapplers
+APE is our own fightwear, designed and founded by Jose so members could get gear that fits, lasts, and doesn’t cost you a fortune in disappointment.
+2 · THE NAME
+Why APE? Because apes were the first grapplers. Long before any of us, they were rolling around on the ground sorting things out. We liked that. The design is clean and simple, no clutter, and that’s the way Jose wanted it.
+3 · TRIED AND TRUSTED
+We train in it. We compete in it. So it’s tested to bits before it ever reaches you. People go hunting for a cheap gi online, it turns up baggy and rough, and they end up back at the academy trying ours on. Everyone who does is surprised by how good it feels.
+“We picked Ape because apes were the first ones grappling. I think that’s a really cool concept.” JOSE GOMES
+4 · WHERE TO BUY
+Come try it on at the gym, or shop online any time. You’ll find genuine Carlson Gracie gear here too.
+BUTTONS   Shop APE    ·
+DIRECTION  Product photos with prices. Links out to buy, no checkout on our site.
+Kitted out and keen?  → Book a free trial
+Seminars with Jose    /about/seminars-with-jose
+Outbound seminars. For gyms that want to hire Jose to teach at their academy. Distinct from the Seminars & Events section, which is about guests we host in Queenstown.
+Bring Jose to your gym
+Jose travels to teach. Thirty years of real Carlson Gracie jiu-jitsu, a warm room, and a seminar your members will still be talking about weeks later. If you run an academy and want him on your mats, here’s how it works.
+2 · WHAT HE BRINGS
+Traditional, efficient jiu-jitsu, taught the way it was passed to him. Strong foundations for the newer members, and sharper, specific games for your competitors. Gi or no-gi. He reads the room and pitches it to the level in front of him, so everyone walks away with something they can use on Monday.
+3 · WHY JOSE
+A real Carlson Gracie lineage, three decades on the mat, and the coach who brought jiu-jitsu to Central Otago and built a family of academies from scratch. He’s known and trusted across New Zealand, he’s brought world-class names into the country himself, and he’s as good with a room of white belts as he is with a room of black belts.
+“They come to me because they like the culture, and they know I take jiu-jitsu very seriously.” JOSE GOMES
+4 · BOOK A SEMINAR
+Send us your dates, your location, and a rough idea of your group size and level. We’ll come back with what Jose can cover and sort the details from there.
+BUTTONS   Enquire about a seminar
+DIRECTION  Keep this separate from the Seminars & Events section. That one is inbound (guests we host); this is outbound (hiring Jose out). A short enquiry form works well here.
+Meet the man himself.  → Our Story
+See the guests we host in Queenstown.  → Seminars & Events
+MEMBERSHIP
+Membership & Pricing    /membership
+The conversion hub. Value, transparent pricing, and the cancel-anytime reassurance Jose flagged as the big local blocker.
+Become a member
+One membership, the whole academy. Every class, seven days a week, taught by people who’ve been part of this team for years. The same trusted coaches, every time you walk in.
+2 · WHAT YOU’RE ACTUALLY GETTING
+Mornings, middays and nights, so it fits around real work and real Queenstown hours. A community that quietly becomes your people. Events, get-togethers, seminars with world-class names, and comps if you fancy them. For the price of a weekly membership, that’s a lot of life packed in. No rack of dumbbells is going to touch it.
+“You can be quite lonely in Queenstown. Here, you find your group of people. A lot of them find a hobby for life.” JOSE GOMES
+3 · PRICING (FINALISE IN CMS)
+Adult membership, [$XX / week]
+Kids membership, [$XX / week]
+Casual and visitor drop-in, [$XX]
+Family and off-peak options, [ask us]
+4 · CANCEL ANY TIME
+People in this town worry about one thing above all, and that’s getting locked in. So let’s put it to bed. Train for a couple of weeks, and if it’s not for you, one phone call and you’re done. No hoops, no guilt trip. Jose would rather you gave it a proper go than talked yourself out of it before you started.
+BUTTONS   Book a free trial    ·    Become a member
+Brand new to jiu-jitsu? Start gentle.  → Start Here
+Got questions before you commit?  → FAQ
+Book a Trial Class    /membership/trial
+The trial booking page. Linked from ads.
+Book a trial class
+Your first class is on us. Come feel what a session’s actually like, meet the crew, and see for yourself why people stick around for years.
+2 · WHAT TO BRING
+No experience needed, no gear needed. Wear shorts and a t-shirt, bring water and a towel, and we’ll welcome you with open arms. That’s the lot. Just turn up.
+BUTTONS   Book your free trial
+Want to know exactly what happens first?  → Start Here
+Find a time that suits.  → Timetable
+Start Here    /membership/start-here
+For the complete beginner. Everything they need before day one.
+Never done jiu-jitsu? Start here.
+If you’re nervous, good. Everyone was. Every black belt in this room was once the person hovering by the door, wondering if they’d made a mistake. Here’s everything you need, so you can walk in knowing exactly what happens next.
+2 · WHAT ACTUALLY HAPPENS IN A CLASS
+A warm-up to get moving. One or two techniques, taught slow. Some drilling with a partner. Then rolling, if and when you’re ready, never before. From the door it can look like a fight. It isn’t. It’s a game of leverage and timing, closer to chess than boxing.
+“The only person who makes it dangerous for you is yourself. And in our gym, you don’t get to do that, because we won’t let you.” JOSE GOMES
+3 · WHAT TO WEAR AND BRING
+Shorts and a t-shirt for your first go. Water and a towel.
+4 · YOUR FIRST MONTH
+Most people walk in a bit timid and, three months later, they’re part of the furniture. Chatting before class. Hanging around after with questions. Getting a big grin from the room when they come up the stairs. That shift, from stranger to family, is the whole point of this place.
+5 · HOW TO JOIN
+Book a free class, come in, and if it feels right we’ll sort your membership face to face. Easy in, and just as easy out.
+See what a membership includes.  → Membership
+Still got questions?  → FAQ
+Members App    /membership/app
+The online tutorial library, framed as a membership perk.
+Every day is a school day
+Your membership comes with our online tutorial library, and it’s not just a pile of random videos. It’s the exact stuff we’re drilling in the gym right now, filmed by our own coaches.
+2 · WHY THAT MATTERS
+Go looking on YouTube and you’ll find five people teaching the same move five different ways, and end up more confused than when you started. Our library only shows you what we teach, the way we teach it. Get a head start on next week’s block. Turn ten spare minutes into better jiu-jitsu.
+“It’s the stuff we actually do in the gym. Focus on that and get good at it. You don’t need to study everything out there.” JOSE GOMES
+3 · ALL IN YOUR POCKET
+Techniques, the timetable, updates, the lot. Everything you need to keep improving between sessions.
+BUTTONS   App Store    ·    Google Play
+Not a member yet? Here’s how it works.  → Membership
+Visitors    /membership/visitors
+Drop-in info for travellers. A real traffic source.
+Just passing through?
+Travelling and don’t want to lose your progress? Come and roll with us. We get visitors from all over, and you’ll get the same welcome our members do. No exceptions.
+2 · DROPPING IN
+Drop in for a single class, or train the whole time you’re in town. Grab the timetable, pick your sessions, and bring your gi if you’ve got one. If not, we’ll sort you out.
+3 · RATES
+Casual drop-in, [$XX] a class. Weekly visitor rate, [$XX].
+BUTTONS   See the timetable    ·    Contact us
+Staying a while? A short-term membership works out better.  → Membership
+LOCATIONS
+Locations    /locations
+The network hub.
+A family of academies across the South Island
+It started on one mat in Queenstown. Today there’s a family of Carlson Gracie academies across the South Island, and every one of them began the same way, with someone who trained here and wanted to carry it home.
+2 · ONE STANDARD, WHEREVER YOU ROLL
+The standard holds in every room. Friendly, safe, welcoming, and a real level of jiu-jitsu. Each academy checks in with Jose, so the culture and the teaching stay true to the source, no matter which town you land in.
+“They all come from people who trained with me in Queenstown, and wanted to carry on under the lineage. That means a lot to me.” JOSE GOMES
+3 · FIND YOUR MAT
+Queenstown [HQ]
+Wanaka
+Invercargill
+South Canterbury
+DIRECTION  A map with all four pinned would land the network story instantly.
+New to the whole thing?  → Start Here
+Location page (template)    /locations/queenstown
+One per academy. Queenstown shown, repeat for Wanaka, Invercargill and South Canterbury.
+Carlson Gracie Queenstown
+The original academy, and the home of Carlson Gracie New Zealand. Jose calls this room magical, and he’s not wrong. It’s a proper dojo, and people travel across town and across the world to train in it.
+“I love our space. I think it’s magical. It’s a dojo. It’s beautiful.” JOSE GOMES
+2 · THE DETAILS (PER LOCATION)
+Address […]
+Phone […]
+This academy’s timetable
+Coaches at this location
+Map and directions
+BUTTONS   Become a member    ·    Get directions
+See the whole network.  → Locations
+SEMINARS & EVENTS
+Seminars & Events    /seminars
+World-class guests, tournaments, member opportunities, the hire-us section, and the blog.
+World-class jiu-jitsu, on our mats
+Some of the best grapplers on the planet have taught on our mats, right here in Queenstown. When a big name tours New Zealand, the call tends to come to Jose, because people know he takes this seriously and looks after his guests. Names on our mats have included [Felipe Pena, Clark Gracie and more].
+2 · OPEN TO EVERYONE
+We don’t lock the doors so only the black belts get to play. Every seminar is open to all our members. These athletes teach, they roll with the room, and half the time they’re out to dinner with the crew afterwards. Rolling with someone you’ve only ever watched compete, in your own town, is a rare thing. It comes with your membership.
+“When I came here I was jealous of people who’d trained with the big names. Being able to give that to my team now is unreal for me.” JOSE GOMES
+3 · TOURNAMENTS AND COMPETING
+We’ve run comps to full IBJJF standard around the area for ten years. So when our members step onto a mat in Sydney, Tokyo or Vegas, none of it feels strange. They’ve seen the set-up, they know the drill. Want to compete? There’s a whole crew who travel and back each other. Don’t want to? No pressure at all. Plenty of our best never compete and love it just as much. You can also corner a teammate, volunteer, or learn to referee. It’s all part of being here.
+4 · HIRE US TO HOST
+Bringing a touring athlete to New Zealand, or want Jose at your academy? We’d love to host. Get in touch.
+BUTTONS   Enquire about hosting
+5 · THE BLOG
+Everything we host, and everything we head off to, gets posted here, so it’s easy to keep up. Tagged Events, Technique and News.
+DIRECTION  Blog previews tagged Events pull through automatically. Photo gallery from past seminars.
+Want to host a seminar?  → Contact
+CONTACT
+Contact    /contact
+Form, map, socials, and links through to each location.
+Get in touch
+First-class bookings, questions, seminar hosting, or just trying to find the door. Drop us a line. You’ll get a real person, a quick reply, and zero hard sell.
+2 · ON THE PAGE
+Enquiry form, name, email, message
+A prompt for hosting a seminar
+Quick links to each location
+Map and socials
+Find your nearest academy.  → Locations
+Quick answers to the common ones.  → FAQ
+FAQ · FOOTER
+Frequently asked questions    /faq
+Answers the real signup fears Jose named, cancellation and price first. Add more from the CMS over time.
+CAN I CANCEL ANY TIME?
+Yes, and we mean it. No lock-in. Train for a couple of weeks, and if it’s not for you, one phone call sorts it. We’d rather you felt free to give it a proper go.
+HOW MUCH IS MEMBERSHIP?
+[$XX a week] for adults, [$XX] for kids, with casual and visitor rates on the membership page. We put the prices up front so there are no awkward surprises.
+I’VE NEVER DONE JIU-JITSU. WHERE DO I START?
+Right here. Head to Start Here, or just book a free class. Our beginner and fundamentals classes are built for people on day one.
+DO I NEED TO BE FIT TO START?
+Not at all. You train at your own pace from day one, and the fitness comes from the training itself.
+WHAT SHOULD I BRING TO MY FIRST CLASS?
+Shorts, a t-shirt, water and a towel. We’ll lend you a clean gi, so there’s nothing to buy before you know you love it.
+ISN’T IT JUST FIGHTING? WILL I GET HURT?
+It looks like a fight from the outside, but it’s a game of leverage and timing. Leave your ego at the door, come to learn, and it’s safe. In our gym, the higher belts make sure of it.
+WHAT AGES ARE THE KIDS’ CLASSES?
+Ages 5 to 12. Games first, technique always, and no striking, ever.
+GI OR NO-GI, WHICH SHOULD I PICK?
+Try both. The gi is about control and patience, no-gi is faster and more scramble-heavy. Most people end up doing both.
+I’M ONLY VISITING. CAN I DROP IN?
+Always welcome. See the visitor rates and the timetable, and come as you are.
+HOW MUCH ARE PRIVATE LESSONS?
+From [$110] an hour, depending on the coach.
+WHAT MAKES CARLSON GRACIE DIFFERENT?
+A real Carlson Gracie lineage, a deep roster of black belts, world-class seminars in our own town, and a family of academies across the South Island. Most of all, a culture where everyone has a hand in helping everyone else get better.
+Ready when you are.  → Membership
+Never trained before?  → Start Here
+Carlson Gracie NZ    ·    Website content · draft three · prepared by Whitelaw Mitchell*!
+iBJ
+iiii
+Chapter 1
+iiiiii
+en_US@rg=uszzzz
+Blank

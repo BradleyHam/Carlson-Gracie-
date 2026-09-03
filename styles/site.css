@@ -405,7 +405,7 @@
       opacity:0;transition:opacity .25s ease;will-change:transform;
       transform:translate(-9999px,-9999px);
     }
-    .prog a:hover .prog-img,.prog a.is-hot .prog-img{opacity:1}
+    .prog a.is-hot .prog-img{opacity:1}
   }
   @media (hover:none), (max-width:640px){
     .prog-img{
@@ -914,7 +914,7 @@
   .prog-img{filter:grayscale(1) contrast(1.04);transition:filter .45s ease}
   /* colour is already there the moment it appears (no grey flash); it only fades
      back to mono on the way out */
-  .prog a:hover .prog-img,.prog a.is-hot .prog-img{filter:grayscale(0) contrast(1.02);transition:filter 0s}
+  .prog a.is-hot .prog-img{filter:grayscale(0) contrast(1.02);transition:filter 0s}
   .tech-frame video{filter:grayscale(1);transition:filter .6s ease}
   .tech-frame:hover video{filter:grayscale(0)}
   .foot{margin-top:28px}
@@ -1247,6 +1247,9 @@ nav.is-solid .nav-links a.is-here{border-bottom-color:var(--carmine)}
 
 /* ---------- CMS placeholders: red brackets, as in the content doc ---------- */
 .cms{color:var(--carmine);font-family:var(--mono);font-style:normal;font-size:.85em;letter-spacing:.02em;white-space:nowrap}
+/* A cms placeholder filled with a stand-in value: reads as ordinary copy.
+   STAND-IN PRICES - grep cms-set for every figure still to be confirmed. */
+.cms-set{color:inherit;font-family:inherit;font-size:inherit;letter-spacing:inherit}
 
 /* ---------- Photo placeholders for Brad to fill ---------- */
 .ph{
@@ -1280,6 +1283,7 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   line-height:1;display:block;margin-top:16px;
 }
 .price .amt .cms{font-size:.9em}
+.price .amt .cms-set{font-size:1em}
 .price p{margin-top:12px;font-size:13.5px;line-height:1.6;color:rgba(23,23,27,.7);flex:1}
 .price .btn{margin-top:20px;text-align:center;padding:14px 18px;font-size:10px}
 @media (max-width:1000px){.price-grid{grid-template-columns:repeat(2,1fr)}}
@@ -1340,6 +1344,61 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   .num-block{grid-template-columns:1fr;gap:10px;padding:26px 0}
 }
 
+/* ================================================================
+   FREE TRIAL — a clear first step, not another long sales page
+   ================================================================ */
+.trial-page{overflow-x:hidden}
+/* The hero is a standard .page-hero--film, same as the other 20 pages. All that
+   is left page-specific is a crop tuned for this particular frame. */
+.trial-hero .page-hero-media img{object-position:center 38%}
+
+.trial-intro{padding-top:clamp(82px,9vw,124px)!important}
+.trial-clip{margin-top:clamp(58px,7vw,92px)}
+.method-quote.start-quote{background:linear-gradient(90deg,#f7f7f8 0 66%,#eeeef0 66% 100%)}
+/* Start Here's practical beat. Twelve words of content, so it is deliberately
+   the shortest section on the page: heading left, the list ruled on the right,
+   no photograph. It is the breath between the Jose quote and the method block,
+   and the only place on the page where type sits beside a list rather than
+   above a picture. */
+.start-kit{padding-top:clamp(64px,7vw,96px)!important;padding-bottom:clamp(64px,7vw,96px)!important}
+.start-kit-head{
+  display:grid;grid-template-columns:minmax(280px,.9fr) minmax(0,1.1fr);
+  gap:clamp(44px,7vw,110px);align-items:start;
+}
+.start-kit-head h2{
+  margin-top:clamp(18px,2.2vw,28px);max-width:16ch;
+  font-size:clamp(2.4rem,5vw,4rem);line-height:.92;
+}
+.kit-list{border-top:1px solid var(--line-ink)}
+.kit-list>div{
+  display:grid;grid-template-columns:minmax(90px,.2fr) 1fr;gap:clamp(18px,3vw,44px);
+  padding:clamp(22px,2.6vw,30px) 0;border-bottom:1px solid var(--line-ink);
+}
+.kit-list span{
+  padding-top:.5em;font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(23,23,27,.42);
+}
+.kit-list p{max-width:46ch;font-size:16px;line-height:1.68;color:rgba(23,23,27,.72)}
+@media (max-width:900px){
+  .start-kit-head{grid-template-columns:1fr;gap:32px}
+  .start-kit-head h2{max-width:none}
+  .kit-list>div{grid-template-columns:1fr;gap:10px}
+}
+
+/* Same spacing as the other "Where next" blocks. */
+.trial-onward h2,.start-onward h2{margin:28px 0 clamp(48px,6vw,72px);font-size:clamp(2rem,4.6vw,3.4rem)}
+.trial-review{background:linear-gradient(90deg,#f7f7f5 0 66%,#efefec 66% 100%)}
+.trial-review .method-quote-copy{max-width:760px}
+.trial-review .method-quote-copy>p:not(.eyebrow){max-width:31ch}
+.trial-review .method-quote-media img{object-position:center 28%;transform:scale(1.04)}
+.trial-final .cta-inner{min-height:clamp(500px,68vh,680px)}
+.trial-final .cta-media img{object-position:center 38%}
+
+@media (max-width:560px){
+  .trial-intro{padding-top:70px!important}
+  .trial-review .method-quote-copy>p:not(.eyebrow){max-width:none}
+}
+
 /* ---------- Two-up feature (gi vs no-gi, etc.) ---------- */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(40px,6vw,64px)}
 .duo article{background:var(--paper);border:1px solid var(--line-ink);padding:14px 14px 24px}
@@ -1369,6 +1428,226 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 .loc .go{margin-top:auto;padding-top:12px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
 .loc:hover .go{color:var(--carmine)}
 @media (max-width:760px){.loc-grid{grid-template-columns:1fr}}
+
+/* ================================================================
+   LOCATIONS INDEX — the academy family, presented as one network
+   ================================================================ */
+.locations-page{overflow-x:hidden}
+.locations-page .page-hero-media img{object-position:center 28%}
+.locations-hero-meta{
+  display:flex;flex-wrap:wrap;gap:9px clamp(18px,2.4vw,34px);
+  margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.28);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.64);
+}
+.locations-hero-meta b{font-size:1.15em;font-weight:500;color:#fff}
+
+.locations-intro{--crest-y:72%;padding-top:clamp(86px,9vw,124px);padding-bottom:clamp(88px,10vw,138px)}
+.locations-intro .wrap>h2{
+  max-width:none;font-size:clamp(3rem,6vw,5.5rem);line-height:.91;text-wrap:balance;
+}
+.locations-intro .wrap>h2 span{display:block}
+@media (min-width:651px){.locations-intro .wrap>h2 span{white-space:nowrap}}
+.locations-lineage-film{
+  position:relative;overflow:hidden;aspect-ratio:21/9;margin:clamp(44px,5.5vw,68px) 0 0;
+  background:var(--ink);border:1px solid rgba(23,23,27,.08);
+}
+.locations-lineage-film::after{
+  content:"";position:absolute;z-index:2;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(8,8,12,.22) 0%,transparent 40%,rgba(8,8,12,.72) 100%);
+}
+.locations-lineage-reels{
+  position:absolute;inset:0;background:var(--ink);
+}
+.locations-lineage-reel{
+  position:absolute;inset:0;overflow:hidden;background:var(--ink);opacity:0;
+  animation:locations-source-clip 12.6s linear infinite;
+}
+.locations-lineage-reel:nth-child(1){opacity:1}
+.locations-lineage-reel:nth-child(2){animation-delay:4.2s}
+.locations-lineage-reel:nth-child(3){animation-delay:8.4s}
+.locations-lineage-reel video{
+  display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);
+  transform:scale(1.12);transform-origin:center;will-change:transform;
+  transition:filter .7s ease;
+}
+.locations-lineage-film:hover .locations-lineage-reel video{filter:grayscale(.2) contrast(1.02)}
+.locations-lineage-reel:nth-child(1) video{object-position:56% center}
+.locations-lineage-reel:nth-child(2) video{object-position:52% center}
+.locations-lineage-reel:nth-child(3) video{object-position:60% center}
+.locations-source-mark{
+  position:absolute;z-index:3;top:clamp(18px,2.2vw,28px);left:clamp(16px,2vw,26px);
+  display:flex;gap:10px;font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(255,255,255,.84);text-shadow:0 1px 10px rgba(0,0,0,.55);
+}
+.locations-source-mark span{color:var(--carmine)}
+.locations-source-mark b{font-weight:500;color:rgba(255,255,255,.82)}
+.locations-lineage-film figcaption{
+  position:absolute;z-index:3;left:clamp(20px,2.6vw,34px);bottom:clamp(18px,2.3vw,30px);
+  max-width:32ch;font-family:var(--serif);font-size:clamp(1rem,1.75vw,1.32rem);
+  font-style:italic;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.72);
+}
+.locations-lineage-film figcaption span{
+  display:block;margin-bottom:7px;font-family:var(--mono);font-size:8px;font-style:normal;
+  letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);
+}
+@keyframes locations-source-clip{
+  0%,30%{opacity:1}
+  35%,100%{opacity:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .locations-lineage-reel{animation:none;opacity:0}
+  .locations-lineage-reel:first-child{opacity:1}
+  .locations-lineage-reel video{transform:scale(1.025)}
+}
+
+.academy-finder{
+  position:relative;isolation:isolate;overflow:hidden;
+  padding:clamp(90px,10vw,142px) clamp(20px,4vw,48px);background:var(--mist);color:var(--ink);
+}
+.academy-finder::before{
+  content:"04";position:absolute;z-index:-1;right:-.02em;top:-.09em;
+  font-family:var(--display);font-size:clamp(18rem,37vw,40rem);font-weight:600;line-height:.8;
+  color:transparent;-webkit-text-stroke:1px rgba(23,23,27,.045);pointer-events:none;
+}
+.academy-finder .eyebrow{color:rgba(23,23,27,.5)}
+.academy-finder-head{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.55fr);
+  gap:clamp(40px,8vw,120px);align-items:end;
+}
+.academy-finder-head h2{font-size:clamp(3rem,6.6vw,6.5rem);line-height:.88}
+.academy-finder-head>p{
+  max-width:42ch;margin:0 0 .35em auto;font-size:14.5px;line-height:1.75;
+  color:rgba(23,23,27,.68);
+}
+.academy-rail-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  margin-top:clamp(54px,7vw,86px);
+}
+.academy-rail-toolbar>span{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(23,23,27,.46);
+}
+.academy-rail-controls{display:flex;gap:8px}
+.academy-rail-controls button{
+  width:42px;height:42px;border:1px solid rgba(23,23,27,.18);background:rgba(255,255,255,.48);
+  font-size:1.15rem;line-height:1;color:var(--ink);cursor:pointer;
+  transition:background .25s ease,border-color .25s ease,color .25s ease,opacity .25s ease;
+}
+.academy-rail-controls button:hover:not(:disabled){background:var(--ink);border-color:var(--ink);color:#fff}
+.academy-rail-controls button:disabled{opacity:.26;cursor:default}
+.academy-card-rail{
+  position:relative;width:calc(100vw - max(clamp(20px,4vw,48px),calc(50vw - 590px)));
+  margin-top:18px;
+}
+.academy-card-rail::before,.academy-card-rail::after{
+  content:"";position:absolute;z-index:4;top:0;bottom:20px;width:clamp(54px,9vw,132px);
+  pointer-events:none;opacity:1;transition:opacity .3s ease;
+}
+.academy-card-rail::before{left:0;background:linear-gradient(90deg,var(--mist),rgba(238,238,241,0))}
+.academy-card-rail::after{right:0;background:linear-gradient(270deg,var(--mist),rgba(238,238,241,0))}
+.academy-card-rail.is-at-start::before,.academy-card-rail.is-at-end::after{opacity:0}
+.academy-card-grid{
+  display:flex;gap:24px;overflow-x:auto;overscroll-behavior-inline:contain;
+  padding:0 clamp(72px,9vw,136px) 20px 0;scroll-snap-type:x mandatory;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.academy-card-grid::-webkit-scrollbar{display:none}
+.academy-card{
+  position:relative;display:flex;flex:0 0 clamp(430px,43vw,590px);flex-direction:column;
+  min-width:0;padding:14px;background:var(--paper);scroll-snap-align:start;
+  border:1px solid var(--line-ink);text-decoration:none;
+  transition:transform .35s ease,box-shadow .35s ease;
+}
+.academy-card:hover{transform:translateY(-5px);box-shadow:0 16px 38px rgba(23,23,27,.09)}
+.academy-card--hq{box-shadow:inset 0 3px 0 var(--carmine)}
+.academy-card-media{
+  position:relative;isolation:isolate;overflow:hidden;aspect-ratio:16/10;
+  display:flex;align-items:flex-end;padding:clamp(18px,2.6vw,30px);background:#e5e5e7;
+  border:1px solid rgba(23,23,27,.07);
+}
+.academy-card-media::before{
+  content:attr(data-mark);position:absolute;z-index:-1;right:-.02em;top:-.08em;
+  font-family:var(--display);font-size:clamp(9rem,19vw,17rem);font-weight:600;line-height:.9;
+  color:transparent;-webkit-text-stroke:1px rgba(23,23,27,.09);
+  transition:transform .7s cubic-bezier(.2,.6,.2,1),-webkit-text-stroke-color .4s ease;
+}
+.academy-card-media::after{
+  content:"";position:absolute;inset:12px;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(var(--ink),var(--ink)) left top/18px 1px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) left top/1px 18px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) right top/18px 1px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) right top/1px 18px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) left bottom/18px 1px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) left bottom/1px 18px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) right bottom/18px 1px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) right bottom/1px 18px no-repeat;
+  opacity:.18;
+}
+.academy-card:hover .academy-card-media::before{
+  transform:translateX(-.035em);-webkit-text-stroke-color:rgba(179,33,46,.2);
+}
+.academy-card-media>span{display:flex;align-items:baseline;gap:14px;position:relative;z-index:1}
+.academy-card-media b{
+  font-family:var(--mono);font-size:8.5px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(23,23,27,.46);
+}
+.academy-card-media em{font-family:var(--serif);font-size:clamp(1rem,1.6vw,1.25rem);color:rgba(23,23,27,.72)}
+.academy-card-body{display:flex;flex:1;flex-direction:column;padding:26px 12px 14px}
+.academy-card-meta{display:flex;justify-content:space-between;gap:20px}
+.academy-card-meta span,.academy-card-meta em{
+  font-family:var(--mono);font-size:8.5px;font-style:normal;letter-spacing:.21em;
+  text-transform:uppercase;color:rgba(23,23,27,.4);
+}
+.academy-card h3{
+  margin-top:18px;font-family:var(--display);font-size:clamp(2.25rem,4.4vw,4rem);
+  font-weight:600;line-height:.9;
+}
+.academy-card h3 small{
+  display:inline-block;vertical-align:.42em;margin-left:8px;padding:4px 6px;
+  border:1px solid rgba(23,23,27,.26);font-family:var(--mono);font-size:7.5px;
+  font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+}
+.academy-card p{max-width:52ch;margin-top:18px;font-size:13.5px;line-height:1.68;color:rgba(23,23,27,.68)}
+.academy-card-link{
+  display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:30px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+}
+.academy-card-link b{font-size:1.45rem;font-weight:400;color:rgba(23,23,27,.44);transition:color .3s ease,transform .3s ease}
+.academy-card:hover .academy-card-link b{color:var(--carmine);transform:translate(3px,-3px)}
+
+.locations-quote .method-quote-copy>p:not(.eyebrow){max-width:28ch}
+.locations-quote .method-quote-media img{object-position:center 42%;transform:scale(1.04)}
+.locations-page .cta-final .hero-link{color:rgba(255,255,255,.78)}
+.locations-page .cta-final .hero-link:hover{color:#fff}
+.locations-page .cta-media img{object-position:center 40%}
+
+@media (max-width:940px){
+  .academy-finder-head{grid-template-columns:1fr;gap:40px}
+  .academy-finder-head>p{margin:0;max-width:48ch}
+}
+@media (max-width:650px){
+  .locations-page .page-hero-media img{object-position:48% center}
+  .locations-hero-meta{gap:8px 18px;letter-spacing:.13em}
+  .locations-intro .wrap>h2{font-size:clamp(2.8rem,13.5vw,4.2rem);line-height:.9}
+  .locations-lineage-film{aspect-ratio:16/10}
+  .locations-source-mark{top:16px;left:18px}
+  .locations-lineage-film figcaption{max-width:22ch;left:20px;bottom:18px}
+  .academy-finder-head h2{font-size:clamp(3rem,14vw,4.6rem)}
+  .academy-rail-toolbar{margin-top:46px}
+  .academy-rail-toolbar>span{max-width:16ch;line-height:1.6}
+  .academy-rail-controls button{width:38px;height:38px}
+  .academy-card-rail{margin-top:14px}
+  .academy-card-grid{gap:14px;padding-right:44px;padding-bottom:14px}
+  .academy-card{flex-basis:calc(100vw - 64px)}
+  .academy-card{padding:10px}
+  .academy-card-media{aspect-ratio:4/3;padding:22px}
+  .academy-card-media::before{font-size:clamp(9rem,54vw,13rem)}
+  .academy-card-media>span{align-items:flex-start;flex-direction:column;gap:3px}
+  .academy-card-body{padding:22px 10px 14px}
+  .academy-card h3{font-size:clamp(2.6rem,13vw,3.8rem)}
+}
 
 /* ---------- Legal prose ---------- */
 .prose{max-width:68ch;margin-top:clamp(36px,5vw,56px)}
@@ -2615,56 +2894,29 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
    MEMBERSHIP / PRICING — one clear choice, quieter ways in
    ================================================================ */
 .membership-page .page-hero-media img{object-position:center 46%}
-.membership-value{padding-top:clamp(76px,8vw,112px)!important;overflow:hidden}
-.membership-value-voice{margin-top:clamp(28px,3vw,42px)}
-.membership-value-statement{
+/* overflow was clipping the old crest watermark, which is gone; the clip below
+   grows past the wrap and needs to be free to do it, same as the training pages. */
+.membership-value{padding-top:clamp(76px,8vw,112px)!important}
+/* A section that opens on a statement and runs into a .section-clip: the voice
+   copy goes block-level and up to headline weight. Membership value + trial intro. */
+.voice-copy--statement{display:block;margin-top:clamp(28px,3vw,42px)}
+.voice-copy--statement .voice-statement{
   grid-column:auto;max-width:44ch;margin:0;text-align:left;text-wrap:pretty;
   font-size:clamp(1.55rem,1.9vw,2.15rem);line-height:1.38;letter-spacing:-.012em;
 }
-.membership-value-statement strong{font-weight:600}
-.membership-value-media-wrap{
-  position:relative;margin:clamp(52px,5vw,76px) 0 0;
-}
-.membership-value-media{
-  position:relative;z-index:1;height:clamp(500px,58vw,760px);margin:0;
-  overflow:hidden;background:var(--ink);color:#fff;
-}
-.membership-value-mark{
-  position:absolute;z-index:0;right:clamp(-154px,-9vw,-84px);bottom:clamp(-154px,-9vw,-96px);
-  width:clamp(230px,24vw,350px);height:auto;opacity:.055;filter:grayscale(1);
-  pointer-events:none;user-select:none;
-}
-.membership-value-media>img{
-  display:block;width:100%;height:100%;object-fit:cover;object-position:center 48%;
-  filter:grayscale(1) contrast(1.03);transition:filter .8s ease,transform 1.2s cubic-bezier(.2,.6,.2,1);
-}
-.membership-value-media:hover>img{filter:grayscale(.05);transform:scale(1.018)}
-.membership-value-media::after{
-  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:
-    linear-gradient(180deg,rgba(10,10,14,.28),transparent 30%,transparent 58%,rgba(10,10,14,.8)),
-    radial-gradient(90% 80% at 18% 88%,rgba(10,10,14,.7),transparent 68%);
-}
-.membership-media-label{
-  position:absolute;z-index:2;top:28px;font-family:var(--mono);font-size:9px;
-  letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7);
-}
-.membership-media-label--left{left:30px}
-.membership-media-label--right{right:30px;text-align:right}
-.membership-value-media figcaption{
-  position:absolute;z-index:2;left:clamp(28px,5vw,72px);bottom:clamp(30px,5vw,68px);
-  max-width:680px;
-}
-.membership-value-media figcaption p{
-  max-width:34ch;font-family:var(--serif);font-size:clamp(1.55rem,2.8vw,2.65rem);
-  font-style:italic;line-height:1.3;text-shadow:0 2px 30px rgba(0,0,0,.45);
-}
-.membership-value-media figcaption cite{
-  display:block;margin-top:22px;font-family:var(--mono);font-size:9px;font-style:normal;
-  letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.66);
-}
-.membership-value-media .membership-media-saying p{
-  max-width:18ch;font-size:clamp(1.4rem,2.35vw,2.15rem);line-height:1.25;
+.voice-copy--statement .voice-statement strong{font-weight:600}
+/* The value section's media is the shared .section-clip: the frame opens at
+   column width and grows toward full-bleed as it rides up the viewport, with
+   the footage drifting inside it. Same component the training pages use. The
+   crest watermark that used to sit behind the old still figure is gone - the
+   clip fills that space itself as it opens. */
+.membership-value-clip{margin-top:clamp(52px,7vw,84px)}
+.clip-saying{
+  position:absolute;z-index:2;margin:0;pointer-events:none;
+  left:clamp(24px,4vw,64px);bottom:clamp(26px,4vw,58px);max-width:18ch;
+  font-family:var(--serif);font-style:italic;color:#fff;
+  font-size:clamp(1.4rem,2.35vw,2.15rem);line-height:1.25;
+  text-shadow:0 2px 30px rgba(0,0,0,.45);
 }
 .membership-testimonial .method-quote-copy{max-width:760px}
 .membership-testimonial .method-quote-copy>p:not(.eyebrow){max-width:31ch}
@@ -2673,7 +2925,7 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   margin-top:clamp(44px,6vw,76px);
 }
 .membership-beats article{border-top:1px solid rgba(23,23,27,.16);padding-top:24px}
-.membership-beats article>span,.membership-plan-meta{
+.membership-beats article>span{
   font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
   color:rgba(23,23,27,.38);
 }
@@ -2692,95 +2944,62 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   font-size:clamp(3.4rem,6.6vw,6.3rem);line-height:.89;
 }
 .membership-price-head .lead{max-width:47ch;margin:0 0 .2em auto}
-.membership-plan-layout{
-  display:grid;grid-template-columns:minmax(400px,1.03fr) minmax(460px,.97fr);
-  gap:clamp(18px,2.2vw,30px);margin-top:clamp(62px,8vw,104px);
+/* ---------- Plans: the same ruled rows as the training page's class list, with
+   the rate carried in the right column. No boxes and no card borders; the row's
+   photograph trails the cursor exactly as it does under "Find your class". */
+.plan-rows{margin-top:clamp(56px,7vw,92px)}
+.prog--plan a{
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:start;gap:0 clamp(30px,4.4vw,72px);
+  padding:clamp(30px,3.4vw,44px) 6px;
 }
-.membership-plan{
-  position:relative;background:var(--paper);border:1px solid rgba(23,23,27,.15);
+.prog--plan .plan-kicker{
+  grid-column:1;grid-row:1;
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(23,23,27,.38);
 }
-.membership-plan--primary{
-  display:flex;flex-direction:column;min-height:100%;padding:clamp(36px,5vw,66px);
-  border-top:3px solid var(--ink);
+.prog--plan h3{
+  grid-column:1;grid-row:2;margin-top:clamp(14px,1.7vw,22px);
+  font-size:clamp(1.9rem,4.4vw,3.1rem);
 }
-.membership-plan-meta{display:flex;justify-content:space-between;gap:20px}
-.membership-plan-meta em{font-style:normal;text-align:right}
-.membership-plan--primary h3{
-  max-width:9ch;margin-top:clamp(44px,7vw,86px);font-family:var(--display);
-  font-size:clamp(3.4rem,6vw,6rem);font-weight:600;line-height:.86;
+.prog--plan p{grid-column:1;grid-row:3;max-width:58ch;margin-top:16px}
+.prog--plan .plan-rate{
+  grid-column:2;grid-row:1/4;align-self:center;
+  display:flex;flex-direction:column;align-items:flex-end;gap:clamp(8px,1vw,12px);
+  text-align:right;
 }
-.membership-plan-price{
-  display:flex;align-items:baseline;gap:16px;margin-top:clamp(34px,5vw,56px);
-  font-family:var(--display);font-weight:600;line-height:1;
+.plan-amt{
+  font-family:var(--display);font-weight:600;line-height:.86;letter-spacing:-.02em;
+  font-size:clamp(2.1rem,3.6vw,3.3rem);color:var(--ink);white-space:nowrap;
 }
-.membership-plan-price .cms{font-family:var(--display);font-size:clamp(2.6rem,5vw,4.7rem);color:var(--ink);letter-spacing:-.02em}
-.membership-plan-price small{
-  font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(23,23,27,.42);
+/* Red is reserved for CTAs, so the CMS brackets are a neutral grey marker. */
+.plan-cms{font-family:var(--display);font-size:1em;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.plan-cms i{font-style:normal;color:rgba(23,23,27,.22)}
+.plan-cms em{font-style:normal;color:var(--ink)}
+.plan-rate small{
+  font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(23,23,27,.42);white-space:nowrap;
 }
-.membership-plan--primary>p{
-  max-width:46ch;margin-top:26px;font-size:15px;line-height:1.7;color:rgba(23,23,27,.68);
+.prog--plan a:hover .plan-amt,.prog--plan a:hover .plan-cms em{color:rgba(23,23,27,.62)}
+.plan-act{margin-top:clamp(38px,4.4vw,56px)}
+.plan-act .cta-row{justify-content:flex-start;gap:20px}
+/* On touch the row photo drops inline. Four full-bleed 3:2 frames in a row
+   turns the price list into a scroll, so the plan rows use a slimmer band. */
+@media (hover:none), (max-width:640px){
+  .prog--plan .prog-img{aspect-ratio:12/5;margin-top:18px}
 }
-.membership-plan--primary ul{
-  display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;margin:clamp(34px,5vw,52px) 0 0;
-  padding:24px 0 0;border-top:1px solid rgba(23,23,27,.14);list-style:none;
+@media (max-width:640px){
+  .prog--plan a{grid-template-columns:1fr;padding:28px 4px}
+  .prog--plan .plan-kicker,.prog--plan h3,.prog--plan p,.prog--plan .plan-rate{grid-column:1;grid-row:auto}
+  .prog--plan .plan-rate{flex-direction:row;align-items:baseline;gap:14px;margin-top:18px;text-align:left}
 }
-.membership-plan--primary li{
-  position:relative;padding-left:18px;font-size:12.5px;line-height:1.5;color:rgba(23,23,27,.7);
-}
-.membership-plan--primary li::before{
-  content:"";position:absolute;left:0;top:.48em;width:6px;height:6px;border:1px solid rgba(23,23,27,.6);
-}
-.membership-plan--primary .btn{align-self:flex-start;margin-top:auto;padding:18px 30px}
-.membership-plan-secondary{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.2vw,30px)}
-.membership-plan--compact{display:flex;flex-direction:column;padding:clamp(28px,3vw,40px)}
-.membership-plan--compact h3{
-  max-width:10ch;margin-top:34px;font-family:var(--display);font-size:clamp(2rem,3.2vw,3.1rem);
-  font-weight:600;line-height:.92;
-}
-.membership-plan--compact .membership-plan-price{margin-top:26px}
-.membership-plan--compact .membership-plan-price .cms{font-size:clamp(2rem,3.2vw,3.1rem)}
-.membership-plan--compact p{margin-top:18px;font-size:13px;line-height:1.65;color:rgba(23,23,27,.65)}
-.membership-plan--compact>a{
-  display:flex;justify-content:space-between;gap:20px;margin-top:auto;padding-top:28px;
-  font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink);text-decoration:none;
-}
-.membership-plan--compact>a span{transition:transform .3s ease}
-.membership-plan--compact>a:hover span{transform:translateX(6px)}
-.membership-plan--ask{grid-column:1/3;min-height:250px}
-.membership-plan--ask h3{max-width:none}
-.membership-plan--ask .membership-plan-price{margin-top:18px}
-.membership-included{
-  display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(52px,7vw,82px);
-  border-top:1px solid rgba(23,23,27,.18);border-bottom:1px solid rgba(23,23,27,.18);
-}
-.membership-included div{padding:clamp(26px,4vw,42px) clamp(20px,3vw,38px)}
-.membership-included div+div{border-left:1px solid rgba(23,23,27,.18)}
-.membership-included strong{display:block;font-family:var(--display);font-size:clamp(1.9rem,3vw,2.8rem);font-weight:600;line-height:.95}
-.membership-included span{display:block;margin-top:12px;font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,27,.42)}
-
-.membership-freedom{
-  position:relative;display:block;min-height:clamp(790px,72vw,960px);
-  padding:clamp(82px,8vw,122px) clamp(20px,4vw,64px);
-  overflow:hidden;background:linear-gradient(180deg,var(--mist) 0 34%,var(--paper) 34% 100%);
-}
-.membership-freedom-media{
-  position:relative;width:min(74vw,1080px);height:clamp(610px,57vw,790px);margin:0;
-  overflow:hidden;background:var(--mist);box-shadow:0 28px 70px rgba(23,23,27,.07);
-}
-.membership-freedom-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 45%;filter:grayscale(1) contrast(1.04);transition:filter .8s ease,transform 1.2s cubic-bezier(.2,.6,.2,1)}
-.membership-freedom-media:hover img{filter:grayscale(.1);transform:scale(1.018)}
-.membership-freedom-copy{
-  position:absolute;z-index:2;top:50%;right:clamp(24px,6vw,106px);width:min(45vw,650px);
-  transform:translateY(-43%);padding:clamp(48px,5vw,78px) clamp(40px,5.5vw,82px);
-  background:rgba(250,250,248,.97);border:1px solid rgba(23,23,27,.1);
-  box-shadow:clamp(16px,2vw,30px) clamp(16px,2vw,30px) 0 rgba(23,23,27,.045);
-}
-.membership-freedom-copy h2{max-width:12ch;margin-top:36px;font-size:clamp(3.25rem,5vw,5.15rem);line-height:.88}
-.membership-freedom-copy .lead{max-width:46ch;margin-top:36px}
-.membership-freedom-copy .serif-note{display:block;max-width:38ch;margin-top:34px;padding-top:28px;border-top:1px solid rgba(23,23,27,.14);color:rgba(23,23,27,.68)}
-.membership-freedom-copy .cta-row{margin-top:40px}
+/* The "no lock-in" statement reuses .method-block wholesale (crest watermark,
+   21:9 method-figure with a serif caption, rule-and-bold method-note). Only the
+   closing CTA needs spacing of its own. */
+/* The crest reads heavier on paper than on the mist band the training page
+   uses, so any method-block on paper dials it back. */
+.band-paper.method-block .method-crest{opacity:.026}
+.membership-freedom .cta-row{margin-top:clamp(38px,4.6vw,58px);justify-content:flex-start;gap:20px}
 .membership-onward h2{margin:28px 0 clamp(48px,6vw,72px);font-size:clamp(3rem,5vw,4.8rem)}
 .membership-onward .onward-cards a:first-child img{object-position:center 38%}
 .membership-onward .onward-cards a:last-child img{object-position:center 30%}
@@ -2788,54 +3007,308 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 @media (max-width:1040px){
   .membership-price-head{grid-template-columns:1fr;gap:34px}
   .membership-price-head .lead{margin:0;max-width:58ch}
-  .membership-plan-layout{grid-template-columns:1fr}
-  .membership-plan--primary{min-height:660px}
-}
-@media (max-width:900px){
-  .membership-freedom{min-height:0;padding:0 20px 80px;background:var(--paper);overflow:visible}
-  .membership-freedom-media{
-    width:calc(100% + 40px);height:auto;aspect-ratio:5/4;margin-left:-20px;box-shadow:none;
-  }
-  .membership-freedom-copy{
-    position:relative;top:auto;right:auto;width:calc(100% - 26px);margin:-54px 0 0 26px;
-    transform:none;padding:clamp(48px,8vw,68px) clamp(30px,7vw,56px);
-  }
 }
 @media (max-width:760px){
   .membership-page .page-hero-media img{object-position:58% center}
   .membership-value .eyebrow{font-size:8px;letter-spacing:.2em;white-space:nowrap}
   .membership-value{padding-top:68px!important}
-  .membership-value-voice{margin-top:24px}
-  .membership-value-statement{max-width:none;font-size:clamp(1.5rem,6.2vw,1.85rem);line-height:1.4}
+  .voice-copy--statement{margin-top:24px}
+  .voice-copy--statement .voice-statement{max-width:none;font-size:clamp(1.5rem,6.2vw,1.85rem);line-height:1.4}
   .membership-price-head h2{font-size:clamp(3rem,14vw,4.6rem)}
-  .membership-value-media{height:auto;aspect-ratio:4/5}
-  .membership-value-mark{right:-74px;bottom:-72px;width:190px;opacity:.05}
-  .membership-value-media>img{object-position:58% center}
-  .membership-media-label{top:18px;font-size:8px}
-  .membership-media-label--left{left:18px}.membership-media-label--right{right:18px}
-  .membership-value-media figcaption{left:22px;right:22px;bottom:26px}
-  .membership-value-media figcaption p{font-size:clamp(1.3rem,6.6vw,1.85rem)}
+  .clip-saying{left:20px;bottom:22px;max-width:14ch;font-size:clamp(1.3rem,6.6vw,1.85rem)}
   .membership-beats{grid-template-columns:1fr;gap:28px}
-  .membership-plan--primary{min-height:0;padding:34px 26px}
-  .membership-plan--primary h3{margin-top:56px;font-size:clamp(3rem,15vw,4.4rem)}
-  .membership-plan--primary ul{grid-template-columns:1fr}
-  .membership-plan--primary .btn{width:100%;margin-top:42px;text-align:center}
-  .membership-plan-secondary{grid-template-columns:1fr}
-  .membership-plan--ask{grid-column:auto;min-height:0}
-  .membership-plan--compact{min-height:320px;padding:30px 24px}
-  .membership-included{grid-template-columns:1fr}
-  .membership-included div+div{border-left:0;border-top:1px solid rgba(23,23,27,.18)}
-  .membership-freedom-media{aspect-ratio:4/5}
-  .membership-freedom-copy{width:calc(100% - 18px);margin-left:18px;padding:56px 24px 70px}
-  .membership-freedom-copy h2{font-size:clamp(3.1rem,14vw,4.5rem)}
-  .membership-freedom-copy .cta-row{flex-direction:column;align-items:stretch}
-  .membership-freedom-copy .btn{text-align:center}
+  .plan-rows{margin-top:44px}
+  .plan-act .cta-row{flex-direction:column;align-items:stretch}
+  .plan-act .btn{text-align:center}
 }
 @media (prefers-reduced-motion:no-preference){
-  .membership-beats article,.membership-plan-secondary .membership-plan{
+  .membership-beats article{
     opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease;
   }
-  .membership-beats.in article,.membership-plan-layout.in .membership-plan-secondary .membership-plan{opacity:1;transform:none}
-  .membership-beats.in article:nth-child(2),.membership-plan-layout.in .membership-plan-secondary .membership-plan:nth-child(2){transition-delay:.08s}
-  .membership-beats.in article:nth-child(3),.membership-plan-layout.in .membership-plan-secondary .membership-plan:nth-child(3){transition-delay:.16s}
+  .membership-beats.in article{opacity:1;transform:none}
+  .membership-beats.in article:nth-child(2){transition-delay:.08s}
+  .membership-beats.in article:nth-child(3){transition-delay:.16s}
+}
+
+/* ================================================================
+   VISITORS — the same editorial rhythm, with the practical details first
+   ================================================================ */
+.visitors-page{overflow-x:hidden}
+.visitor-hero .page-hero-media img{object-position:center 48%}
+.visitor-hero .ph-side .cta-row{margin-top:28px}
+.visitor-intro{padding-top:clamp(80px,8.5vw,116px)!important}
+.visitor-statement .voice-statement{max-width:42ch}
+.visitor-intro-clip{margin-top:clamp(54px,7vw,86px)}
+.visitor-intro-clip img{object-position:center 55%}
+
+.visitor-rates{position:relative;isolation:isolate;overflow:hidden;padding-top:clamp(74px,7vw,98px)!important}
+.visitor-rates>.wrap{position:relative;z-index:1}
+.visitor-rates-mark{
+  position:absolute;z-index:0;right:clamp(-108px,-5vw,-54px);bottom:clamp(-116px,-6vw,-62px);
+  width:clamp(250px,27vw,410px);height:auto;opacity:.035;filter:grayscale(1);
+  pointer-events:none;user-select:none;
+}
+.visitor-rates-head{
+  display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,1.1fr);
+  gap:clamp(52px,8vw,124px);align-items:end;
+}
+.visitor-rates-head h2{
+  margin-top:clamp(18px,2vw,26px);max-width:9em;
+  font-size:clamp(3.15rem,4.5vw,4.8rem);line-height:.93;
+}
+.visitor-rates-head .lead{max-width:48ch;margin:0 0 6px;font-size:clamp(1.05rem,1.45vw,1.25rem);line-height:1.7}
+.visitor-rate-list{margin-top:clamp(46px,5vw,64px);border-top:1px solid rgba(23,23,27,.2)}
+.visitor-rate-list article{
+  display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:clamp(24px,4vw,64px);
+  align-items:center;padding:clamp(28px,3.6vw,46px) 0;border-bottom:1px solid rgba(23,23,27,.18);
+}
+.visitor-rate-number{
+  align-self:start;padding-top:8px;font-family:var(--mono);font-size:9px;
+  letter-spacing:.22em;color:rgba(23,23,27,.38);
+}
+.visitor-rate-list h3{font-family:var(--display);font-size:clamp(2rem,3.5vw,3.25rem);font-weight:600;line-height:.95}
+.visitor-rate-list article p{margin-top:11px;max-width:43ch;font-size:14px;line-height:1.65;color:rgba(23,23,27,.64)}
+.visitor-rate-price{min-width:170px;text-align:right}
+.visitor-rate-price strong{
+  display:block;font-family:var(--display);font-size:clamp(4.1rem,7vw,6.6rem);
+  font-weight:600;line-height:.78;letter-spacing:-.03em;color:var(--ink);
+}
+.visitor-rate-price span{
+  display:block;margin-top:13px;font-family:var(--mono);font-size:9px;
+  letter-spacing:.2em;text-transform:uppercase;color:rgba(23,23,27,.42);
+}
+.visitor-rate-actions{
+  display:flex;justify-content:space-between;align-items:end;gap:32px;
+  margin-top:clamp(38px,5vw,58px);
+}
+.visitor-rate-actions>p{max-width:40ch;font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.45;color:rgba(23,23,27,.68)}
+.visitor-rate-actions .cta-row{margin:0;flex-shrink:0}
+
+.visitor-arrive{padding-top:clamp(84px,9vw,122px)!important}
+.visitor-arrive> .wrap>h2{margin-top:clamp(20px,2.8vw,34px);font-size:clamp(3.4rem,6vw,5.9rem);line-height:.9}
+.visitor-guide{grid-template-columns:repeat(3,1fr)}
+.visitor-arrive .method-figure{margin-top:clamp(56px,7vw,88px)}
+.visitor-arrive .method-figure img{object-position:center 46%}
+.visitor-onward h2{margin:28px 0 clamp(46px,5.8vw,70px);font-size:clamp(3rem,5vw,4.8rem)}
+.visitor-onward .onward-cards a:first-child img{object-position:center 58%}
+.visitor-onward .onward-cards a:last-child img{object-position:72% center}
+.visitor-final .cta-media img{object-position:center 34%}
+
+@media (max-width:900px){
+  .visitor-rates-head{grid-template-columns:1fr;gap:30px}
+  .visitor-rates-head h2{max-width:12ch}
+  .visitor-rate-list article{grid-template-columns:52px minmax(0,1fr) auto;gap:22px}
+  .visitor-rate-actions{align-items:flex-start;flex-direction:column}
+}
+@media (max-width:700px){
+  .visitor-hero .page-hero-media img{object-position:56% center}
+  .visitor-intro{padding-top:68px!important}
+  .visitor-guide{grid-template-columns:1fr;gap:26px}
+  .visitor-rate-list article{grid-template-columns:minmax(0,1fr) auto;gap:20px 16px}
+  .visitor-rate-number{grid-column:1/-1;padding-top:0}
+  .visitor-rate-price{min-width:104px}
+  .visitor-rate-price strong{font-size:clamp(3.8rem,18vw,5rem)}
+  .visitor-rate-actions .cta-row{width:100%;align-items:stretch;flex-direction:column}
+  .visitor-rate-actions .btn{text-align:center}
+  .visitor-rates-mark{right:-72px;bottom:-70px;width:220px}
+}
+
+/* ---------- Location page utilities ---------- */
+/* The pages themselves use the same method, timetable, roster and quote
+   components as the homepage, Training and About. */
+.location-map-quote{background:var(--paper)}
+.location-map-quote .method-quote-copy .cta-row{margin-top:clamp(28px,3.4vw,42px)}
+.location-map-quote .method-quote-media{background:var(--mist);box-shadow:clamp(14px,1.8vw,26px) clamp(14px,1.8vw,26px) 0 rgba(23,23,27,.045)}
+.location-map-embed{
+  display:block;width:100%;height:100%;border:0;
+  filter:grayscale(1) contrast(.9);transition:filter .7s ease;
+}
+.location-map-quote .method-quote-media:hover .location-map-embed{filter:grayscale(.35) contrast(1)}
+.tt-grid.location-tt-grid--four{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1000px){.tt-grid.location-tt-grid--four{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:430px){.tt-grid.location-tt-grid--four{grid-template-columns:1fr}}
+
+/* ================================================================
+   SEMINARS & EVENTS — the hosted-guest archive and its journal
+   The sitemap keeps this as one hub with Events, Technique and News
+   beneath it. Jose's outbound seminar page remains under About.
+   ================================================================ */
+.seminars-hub-page,.seminar-journal-page{overflow-x:hidden}
+
+/* Hub hero: the same film movement as the strongest Training and About pages,
+   with a crop tuned to the Cole Abate and Jose portrait. */
+.seminars-hero .page-hero-media img{object-position:center 34%}
+.seminars-hero .ph-copy{max-width:min(62vw,850px)}
+
+.seminar-section-head{
+  display:grid;grid-template-columns:minmax(0,.92fr) minmax(320px,.58fr);
+  gap:clamp(42px,7vw,110px);align-items:end;
+}
+.seminar-section-head h2{
+  max-width:14ch;font-size:clamp(2.8rem,5.7vw,5.2rem);line-height:.91;
+}
+.seminar-section-head>.lead{margin:0 0 .1em auto;max-width:55ch}
+
+/* The names are still the shared guest cards, but the borderless five-frame
+   composition feels like an archive wall instead of a generic card grid. */
+.seminars-hub-page .guest-grid{
+  grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(16px,2vw,26px);
+  margin-top:clamp(58px,8vw,96px);
+}
+.seminars-hub-page .guest{grid-column:span 4;background:transparent;border:0;padding:0;box-shadow:none}
+.seminars-hub-page .guest:nth-child(n+4){grid-column:span 6}
+.seminars-hub-page .guest:hover{box-shadow:none}
+.seminars-hub-page .guest-photo{margin-bottom:20px;box-shadow:0 18px 48px rgba(23,23,27,.07)}
+.seminars-hub-page .guest h3{font-size:clamp(1.55rem,2.2vw,2.1rem)}
+.seminars-hub-page .guest-foot{align-items:end}
+.seminars-hub-page .guest-foot .serif-note{
+  display:block;max-width:30ch;font-size:clamp(1.2rem,2vw,1.55rem);line-height:1.45;
+  color:rgba(23,23,27,.7);
+}
+
+.seminar-host-quote .method-quote-media img{object-position:center 48%;transform:scale(1.03)}
+.seminar-competing .class-arc{margin-top:clamp(58px,7vw,88px)}
+.seminar-competing-photo{margin-top:clamp(64px,8vw,104px)}
+.seminar-competing-photo img{aspect-ratio:16/8.5;object-position:center 52%}
+.seminar-hosting-title{
+  margin-top:clamp(22px,3vw,34px);max-width:18ch;
+  font-size:clamp(3rem,6vw,5.8rem);line-height:.9;
+}
+.seminar-hosting-cards{margin-top:clamp(52px,7vw,86px)}
+.seminar-hosting-cards a:first-child img{object-position:center 44%}
+.seminar-hosting-cards a:last-child img{object-position:center 48%}
+
+.seminar-journal-links .seminar-section-head{margin-top:clamp(22px,3vw,34px)}
+.seminar-journal-links .seminar-section-head h2{max-width:16ch}
+.seminar-topic-cards{
+  grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,18px);
+  margin-top:clamp(54px,7vw,86px);
+}
+.seminar-topic-cards a{aspect-ratio:4/5}
+.seminar-topic-cards h3{font-size:clamp(2.15rem,3vw,3.05rem)}
+.seminar-topic-cards a:nth-child(1) img{object-position:center 48%}
+.seminar-topic-cards a:nth-child(2) img{object-position:center 52%}
+.seminar-topic-cards a:nth-child(3) img{object-position:center 34%}
+
+/* Category heroes are shorter editorial covers. The page hierarchy remains
+   obvious without repeating the hub's long scroll-led film treatment. */
+.page-hero--journal .ph-stage{
+  min-height:clamp(620px,78svh,820px);display:flex;align-items:flex-end;
+  padding-top:clamp(160px,18vw,220px);
+}
+.page-hero--journal .wrap{
+  width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.62fr);
+  gap:clamp(42px,7vw,110px);align-items:end;
+}
+.page-hero--journal .ph-side{max-width:560px;justify-self:end}
+.page-hero--journal .ph-side .lead{margin-top:0}
+.page-hero--journal .page-hero-media img{opacity:.7}
+.page-hero--journal .page-hero-media::after{
+  background:
+    radial-gradient(100% 90% at 68% 42%,rgba(13,13,17,0) 20%,rgba(13,13,17,.36) 70%,rgba(13,13,17,.66)),
+    linear-gradient(180deg,rgba(13,13,17,.72),rgba(13,13,17,.18) 42%,rgba(13,13,17,.94));
+}
+.seminar-events-page .page-hero-media img{object-position:center 46%}
+.seminar-technique-page .page-hero-media img{object-position:center 58%}
+.seminar-news-page .page-hero-media img{object-position:center 26%}
+
+.technique-feature .tech-frame{box-shadow:24px 24px 0 rgba(23,23,27,.045)}
+.technique-feature .tech-frame video{aspect-ratio:3/4}
+
+.journal-feed-head{align-items:end}
+.journal-feed-head h2{max-width:13ch}
+.journal-feed{
+  display:grid;grid-template-columns:minmax(0,1.35fr) minmax(330px,.65fr);
+  column-gap:clamp(28px,4vw,56px);margin-top:clamp(58px,8vw,96px);
+}
+.journal-card{
+  display:grid;grid-template-columns:minmax(110px,.38fr) minmax(0,.62fr);
+  gap:clamp(18px,2.4vw,30px);align-items:start;
+  padding:clamp(18px,2.2vw,26px) 0;border-top:1px solid var(--line-ink);
+}
+.journal-card figure{margin:0;aspect-ratio:4/3;overflow:hidden;background:var(--mist)}
+.journal-card img{
+  display:block;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.05);transform:scale(1.01);
+  transition:filter .6s ease,transform 1s cubic-bezier(.2,.6,.2,1);
+}
+.journal-card:hover img{filter:grayscale(.15) contrast(1.02);transform:scale(1.05)}
+.journal-card--feature{
+  grid-row:span 4;display:block;padding:0 clamp(28px,4vw,56px) 0 0;
+  border-top:0;border-right:1px solid var(--line-ink);
+}
+.journal-card--feature figure{aspect-ratio:16/10}
+.journal-card-body{min-width:0}
+.journal-card--feature .journal-card-body{padding-top:clamp(22px,2.8vw,34px)}
+.journal-meta{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.journal-card h3{
+  margin-top:16px;font-family:var(--display);font-weight:600;
+  font-size:clamp(1.45rem,2.1vw,2rem);line-height:1.04;
+}
+.journal-card--feature h3{font-size:clamp(2.2rem,3.8vw,3.9rem);max-width:12ch}
+.journal-card p{margin-top:12px;font-size:13.5px;line-height:1.65;color:rgba(23,23,27,.67)}
+.journal-card .post-more{display:block;margin-top:18px;color:rgba(23,23,27,.7)}
+.journal-card h3 .cms{
+  white-space:normal;color:rgba(23,23,27,.28);font-family:inherit;font-size:inherit;
+  letter-spacing:inherit;
+}
+.journal-card h3 .cms-set{color:inherit}
+.journal-card p .cms{
+  white-space:normal;color:inherit;font-family:inherit;font-size:inherit;letter-spacing:inherit;
+}
+.journal-onward-title{
+  margin-top:clamp(22px,3vw,32px);font-size:clamp(3rem,5.4vw,5rem);line-height:.91;
+}
+.journal-onward .onward-cards{margin-top:clamp(46px,6vw,72px)}
+.journal-final .cta-media img{object-position:center 48%}
+.seminar-technique-page .journal-final .cta-media img{object-position:center 54%}
+
+@media (max-width:1000px){
+  .seminar-section-head{grid-template-columns:1fr;gap:30px;align-items:start}
+  .seminar-section-head>.lead{margin:0;max-width:62ch}
+  .seminars-hub-page .guest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .seminars-hub-page .guest,.seminars-hub-page .guest:nth-child(n+4){grid-column:auto}
+  .seminars-hub-page .guest:last-child{grid-column:1/-1;width:calc(50% - 10px)}
+  .seminar-topic-cards{grid-template-columns:1fr 1fr}
+  .seminar-topic-cards a:last-child{grid-column:1/-1;aspect-ratio:16/8}
+  .journal-feed{grid-template-columns:1fr}
+  .journal-card--feature{grid-row:auto;padding:0 0 clamp(38px,6vw,58px);border-right:0;border-bottom:1px solid var(--line-ink)}
+  .journal-card--feature h3{max-width:16ch}
+}
+
+@media (max-width:960px){
+  .page-hero--journal .ph-stage{display:block;min-height:0;padding:0}
+  .page-hero--journal .wrap{display:block}
+  .page-hero--journal .ph-side{max-width:none}
+}
+
+@media (max-width:760px){
+  .seminar-hosting-title{font-size:clamp(2.6rem,11vw,4.1rem)}
+  .seminar-topic-cards{grid-template-columns:1fr}
+  .seminar-topic-cards a,.seminar-topic-cards a:last-child{grid-column:auto;aspect-ratio:4/3}
+  .seminar-competing-photo img{aspect-ratio:5/4}
+}
+
+@media (max-width:620px){
+  .seminars-hero .page-hero-media img{object-position:52% 34%}
+  .seminars-hub-page .section-index span,.seminar-journal-page .section-index span{display:none}
+  .seminars-hub-page .section-index .wrap,.seminar-journal-page .section-index .wrap{gap:16px}
+  .seminars-hub-page .section-index a,.seminar-journal-page .section-index a{font-size:8.5px;letter-spacing:.14em}
+  .seminar-section-head h2{font-size:clamp(2.5rem,12vw,3.65rem)}
+  .seminars-hub-page .guest-grid{
+    display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding:2px 20px 8px;margin:46px -20px 0;
+  }
+  .seminars-hub-page .guest-grid::-webkit-scrollbar{display:none}
+  .seminars-hub-page .guest,.seminars-hub-page .guest:last-child{flex:0 0 78%;width:auto;scroll-snap-align:center}
+  .seminars-hub-page .guest-photo{box-shadow:none}
+  .seminars-hub-page .guest-foot{grid-template-columns:1fr}
+  .seminar-host-quote .method-quote-media img{object-position:center 54%}
+  .journal-card,.journal-card--feature{display:block;padding:24px 0}
+  .journal-card--feature{padding-top:0}
+  .journal-card figure,.journal-card--feature figure{aspect-ratio:4/3}
+  .journal-card-body,.journal-card--feature .journal-card-body{padding-top:20px}
+  .journal-meta{justify-content:flex-start}
+  .journal-card--feature h3{font-size:clamp(2.15rem,10vw,3rem)}
 }

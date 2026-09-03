@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles/site.css">
 </head>
-<body>
+<body class="locations-page">
 
 <!-- Belt scroll progress: the page is the journey, white belt to black -->
 <div class="belt" aria-hidden="true">
@@ -91,7 +91,12 @@
         <h1 class="display rise r2">A family of academies across the South Island</h1>
       </div>
       <div class="ph-side">
-      <p class="lead rise r3">It started on one mat in Queenstown. Today there’s a family of Carlson Gracie academies across the South Island, and every one of them began the same way, with someone who trained here and wanted to carry it home.</p>
+        <p class="lead rise r3">It started on one mat in Queenstown. Today there&rsquo;s a family of Carlson Gracie academies across the South Island, each grown by people who trained here and wanted to carry it home.</p>
+        <div class="locations-hero-meta rise r4" aria-label="Four academies, one shared standard">
+          <span><b>04</b> academies</span>
+          <span><b>01</b> standard</span>
+          <span>South Island</span>
+        </div>
       </div>
     </div>
   </div>
@@ -108,85 +113,136 @@
   </div>
 </div>
 
-<section class="band band-paper">
+<section class="band band-paper method-block locations-intro">
+  <img class="method-crest" src="../assets/cg-logo.png" alt="" aria-hidden="true" loading="lazy">
   <div class="wrap">
     <p class="eyebrow reveal">One standard, wherever you roll</p>
-    <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem);max-width:17ch">The standard holds in every room</h2>
-    <p class="lead reveal" style="margin-top:26px">Friendly, safe, welcoming, and a real level of jiu-jitsu. Each academy checks in with Jose, so the culture and the teaching stay true to the source, no matter which town you land in.</p>
+    <h2 class="display reveal"><span>One room set the standard.</span><span>Four carry it forward.</span></h2>
 
-    <figure class="trial-quote reveal">
-      <p>&ldquo;They all come from people who trained with me in Queenstown, and wanted to carry on under the lineage. That means a lot to me.&rdquo;</p>
-      <cite>Jose Gomes, head professor</cite>
+    <figure class="locations-lineage-film reveal">
+      <div class="locations-lineage-reels" aria-hidden="true">
+        <div class="locations-lineage-reel">
+          <video src="../assets/locations-train.mp4" poster="../assets/locations-train-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="locations-lineage-reel">
+          <video src="../assets/locations-teach.mp4" poster="../assets/locations-teach-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="locations-lineage-reel">
+          <video src="../assets/locations-belong.mp4" poster="../assets/locations-belong-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+      </div>
+      <div class="locations-source-mark"><span>Queenstown</span><b>The original academy</b></div>
+      <figcaption><span>The source mat</span>Where the Carlson Gracie New Zealand family line began.</figcaption>
     </figure>
+
+    <div class="method-beats reveal">
+      <article><span class="n">01</span><h3>The source in Queenstown</h3></article>
+      <article><span class="n">02</span><h3>The teaching carried south</h3></article>
+      <article><span class="n">03</span><h3>Four academies, one lineage</h3></article>
+    </div>
+
+    <div class="method-note reveal">
+      <p>These clips are from Queenstown, the original academy. Every branch grew from people who trained here and wanted to carry that standard home. <strong>Four towns now share the same family line.</strong></p>
+    </div>
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="academy-finder" id="academies">
   <div class="wrap">
-    <p class="eyebrow reveal">Find your mat</p>
-    <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem)">Four academies, one family</h2>
+    <div class="academy-finder-head reveal">
+      <div>
+        <p class="eyebrow">Find your mat</p>
+        <h2 class="display">Four academies.<br>One family.</h2>
+      </div>
+      <p>Choose your nearest academy for local class information, timetables and the best way to start.</p>
+    </div>
 
-    <div class="loc-grid reveal">
-      <a class="loc" href="../locations/queenstown/">
-        <div class="loc-photo"><img src="../assets/hero-poster.jpg" alt="The Queenstown dojo" loading="lazy"></div>
-        <div class="loc-body">
-          <h3>Queenstown <span class="hq">HQ</span></h3>
-          <p>The original academy, and the home of Carlson Gracie New Zealand. 6A/15 Red Oaks Drive, Remarkables Park, Frankton.</p>
-          <span class="go">Visit the academy &rarr;</span>
+    <div class="academy-rail-toolbar reveal">
+      <span>Scroll to explore all four</span>
+      <div class="academy-rail-controls" aria-label="Academy carousel controls">
+        <button type="button" data-academy-prev aria-label="Previous academy">&larr;</button>
+        <button type="button" data-academy-next aria-label="Next academy">&rarr;</button>
+      </div>
+    </div>
+
+    <div class="academy-card-rail is-at-start reveal">
+      <div class="academy-card-grid" id="academyRail" tabindex="0" aria-label="Browse all four Carlson Gracie academies">
+      <a class="academy-card academy-card--hq" href="../locations/queenstown/">
+        <div class="academy-card-media" data-mark="QTN" role="img" aria-label="Placeholder for a photo of the Queenstown academy">
+          <span><b>Image 01</b><em>Queenstown academy</em></span>
+        </div>
+        <div class="academy-card-body">
+          <div class="academy-card-meta"><span>Headquarters</span><em>01</em></div>
+          <h3>Queenstown <small>HQ</small></h3>
+          <p>The original academy and the home of Carlson Gracie New Zealand, at Remarkables Park.</p>
+          <span class="academy-card-link">Visit the academy <b aria-hidden="true">&nearr;</b></span>
         </div>
       </a>
-      <a class="loc" href="../locations/wanaka/">
-        <figure class="ph ph-169" style="margin:0">Photo to add &middot; W&#257;naka academy</figure>
-        <div class="loc-body">
+
+      <a class="academy-card" href="../locations/wanaka/">
+        <div class="academy-card-media" data-mark="W&#256;" role="img" aria-label="Placeholder for a photo of the Wānaka academy">
+          <span><b>Image 02</b><em>W&#257;naka academy</em></span>
+        </div>
+        <div class="academy-card-body">
+          <div class="academy-card-meta"><span>Southern Lakes</span><em>02</em></div>
           <h3>W&#257;naka</h3>
           <p>Over the Crown Range, the same jiu-jitsu. Grown from the Queenstown mats and true to the source.</p>
-          <span class="go">Visit the academy &rarr;</span>
+          <span class="academy-card-link">Visit the academy <b aria-hidden="true">&nearr;</b></span>
         </div>
       </a>
-      <a class="loc" href="../locations/invercargill/">
-        <figure class="ph ph-169" style="margin:0">Photo to add &middot; Invercargill academy</figure>
-        <div class="loc-body">
+
+      <a class="academy-card" href="../locations/invercargill/">
+        <div class="academy-card-media" data-mark="INV" role="img" aria-label="Placeholder for a photo of the Invercargill academy">
+          <span><b>Image 03</b><em>Invercargill academy</em></span>
+        </div>
+        <div class="academy-card-body">
+          <div class="academy-card-meta"><span>Southland</span><em>03</em></div>
           <h3>Invercargill</h3>
           <p>Carlson Gracie jiu-jitsu for the deep south, carried home by people who trained in Queenstown.</p>
-          <span class="go">Visit the academy &rarr;</span>
+          <span class="academy-card-link">Visit the academy <b aria-hidden="true">&nearr;</b></span>
         </div>
       </a>
-      <a class="loc" href="../locations/south-canterbury/">
-        <figure class="ph ph-169" style="margin:0">Photo to add &middot; South Canterbury academy</figure>
-        <div class="loc-body">
+
+      <a class="academy-card" href="../locations/south-canterbury/">
+        <div class="academy-card-media" data-mark="SC" role="img" aria-label="Placeholder for a photo of the South Canterbury academy">
+          <span><b>Image 04</b><em>South Canterbury academy</em></span>
+        </div>
+        <div class="academy-card-body">
+          <div class="academy-card-meta"><span>Canterbury</span><em>04</em></div>
           <h3>South Canterbury</h3>
-          <p>The newest branch of the family tree, same lineage, same standard, same welcome.</p>
-          <span class="go">Visit the academy &rarr;</span>
+          <p>The newest branch of the family tree. The same lineage, the same standard and the same welcome.</p>
+          <span class="academy-card-link">Visit the academy <b aria-hidden="true">&nearr;</b></span>
         </div>
       </a>
+      </div>
     </div>
-    <p class="dir-note">Direction: a map with all four pinned would land the network story instantly. Embed on launch.</p>
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="method-quote locations-quote" data-quote-index="04">
   <div class="wrap">
-    <p class="eyebrow reveal">Onward</p>
-    <h2 class="display reveal" style="font-size:clamp(2rem,4.6vw,3.4rem)">Where next</h2>
-    <div class="onward-list reveal">
-      <a href="../membership/start-here/">
-        <span class="q">New to the whole thing?</span>
-        <span class="go">Start Here &rarr;</span>
-      </a>
-    </div>
+    <figure class="method-quote-copy reveal">
+      <p class="eyebrow">The family line</p>
+      <p>&ldquo;They all come from people who trained with me in Queenstown and wanted to carry on under the lineage. That means a lot to me.&rdquo;</p>
+      <cite><b>Jose Gomes</b><span>Head professor</span></cite>
+    </figure>
+    <figure class="method-quote-media reveal">
+      <img src="../assets/jose-coaching.jpg" alt="Jose Gomes coaching on the mats" loading="lazy">
+      <figcaption>One lineage, carried forward.</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="cta-final" id="trial-info">
   <div class="cta-inner">
    <div class="cta-copy">
-    <p class="eyebrow reveal">Join us</p>
-    <h2 class="display reveal">Come and find your people</h2>
-    <span class="serif-note reveal">Start with a free class. It just might change your life.</span>
+    <p class="eyebrow reveal">Your first step</p>
+    <h2 class="display reveal">We&rsquo;ll help you find your mat</h2>
+    <span class="serif-note reveal">Tell us where you are and we&rsquo;ll point you to the right academy.</span>
     <div class="cta-row reveal">
-      <a class="btn btn-red" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a>
+      <a class="btn btn-red" href="../contact/">Talk to us</a>
+      <a class="hero-link" href="#academies">Choose an academy &rarr;</a>
     </div>
-    <p class="cta-proof reveal"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp; 5.0 from 161 Google reviews</p>
    </div>
    <figure class="cta-media reveal">
      <img src="../assets/finding-your-people.jpg" alt="Members training together on the mats at Carlson Gracie New Zealand" loading="lazy">
@@ -214,15 +270,15 @@
         </div>
         <div>
           <b><a href="../locations/invercargill/" style="text-decoration:none">Invercargill</a></b>
-          <p><span class="tbc">Address to confirm</span><br>Invercargill<br><span class="tbc">Phone to confirm</span></p>
+          <p>Southland, New Zealand<br><a href="../locations/invercargill/">View academy details</a></p>
         </div>
         <div>
           <b><a href="../locations/wanaka/" style="text-decoration:none">W&#257;naka</a></b>
-          <p><span class="tbc">Address to confirm</span><br>W&#257;naka<br><span class="tbc">Phone to confirm</span></p>
+          <p>Southern Lakes, New Zealand<br><a href="../locations/wanaka/">View academy details</a></p>
         </div>
         <div>
           <b><a href="../locations/south-canterbury/" style="text-decoration:none">South Canterbury</a></b>
-          <p><span class="tbc">Address to confirm</span><br>South Canterbury<br><span class="tbc">Phone to confirm</span></p>
+          <p>South Canterbury, New Zealand<br><a href="../locations/south-canterbury/">View academy details</a></p>
         </div>
       </div>
     </div>
@@ -248,8 +304,8 @@
 
 <!-- Phones only: the offer follows you down the page. -->
 <div class="sticky-cta" id="stickyCta">
-  <span class="sticky-note">First class is free</span>
-  <a class="btn btn-red" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a>
+  <span class="sticky-note">4 academies across the South Island</span>
+  <a class="btn btn-red" href="#academies">Find your academy</a>
 </div>
 
 <script>
@@ -298,6 +354,92 @@
 
   // Hero copy rises on load
   document.querySelectorAll('.rise').forEach(function(el){ el.classList.add('go'); });
+
+  // Match the expanding film treatment used across the training, method and
+  // membership pages: the frame grows toward the viewport as it rises, then
+  // stays open, while the footage drifts gently inside its crop.
+  var locationsFilmFrame = document.querySelector('.locations-lineage-film');
+  if (locationsFilmFrame && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    var locationsFilmVideos = [].slice.call(locationsFilmFrame.querySelectorAll('video'));
+    var locationsFilmLift = [];
+    (function(){
+      var n = locationsFilmFrame.previousElementSibling;
+      while (n){ locationsFilmLift.push(n); n = n.previousElementSibling; }
+    })();
+    var locationsFilmLastY = -1;
+    var locationsFilmScale = 1;
+    var locationsFilmPeak = 0;
+    var locationsFilmEase = 0;
+    var LOCATIONS_FILM_PAD = 24;
+    var LOCATIONS_FILM_MAX = 1.3;
+    var LOCATIONS_FILM_MIN = 1.16;
+    var LOCATIONS_FILM_LAG = 0.1;
+    function locationsFilmFx(){
+      var r = locationsFilmFrame.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var vw = window.innerWidth;
+      var base = locationsFilmFrame.offsetWidth;
+      var h = locationsFilmFrame.offsetHeight;
+      var uTop = r.top + ((locationsFilmScale - 1) * h) / 2;
+      if (uTop > vh + 200 || uTop + h < -200){ locationsFilmEase = locationsFilmPeak; return; }
+      var availableScale = (vw - LOCATIONS_FILM_PAD * 2) / base;
+      var target = Math.min(Math.max(availableScale, LOCATIONS_FILM_MIN), LOCATIONS_FILM_MAX);
+      var end = Math.max((target - 1) * h / 2, vh * .28);
+      var start = Math.max(end + 1, vh * .98);
+      var p = Math.min(1, Math.max(0, (start - uTop) / (start - end)));
+      var e = 1 - Math.pow(1 - p, 3);
+      if (e > locationsFilmPeak) locationsFilmPeak = e;
+      locationsFilmEase += (locationsFilmPeak - locationsFilmEase) * LOCATIONS_FILM_LAG;
+      if (locationsFilmPeak - locationsFilmEase < .0004) locationsFilmEase = locationsFilmPeak;
+      locationsFilmScale = 1 + (target - 1) * locationsFilmEase;
+      locationsFilmFrame.style.transform = 'scale(' + locationsFilmScale.toFixed(4) + ')';
+      var lift = 'translateY(' + (-(locationsFilmEase * 68)).toFixed(1) + 'px)';
+      for (var i = 0; i < locationsFilmLift.length; i++) locationsFilmLift[i].style.transform = lift;
+      var pv = Math.min(1, Math.max(0, (vh - uTop) / (vh + h)));
+      var mediaTransform = 'translateY(' + ((pv - .5) * 10).toFixed(2) + '%) scale(1.12)';
+      for (var j = 0; j < locationsFilmVideos.length; j++) locationsFilmVideos[j].style.transform = mediaTransform;
+    }
+    function locationsFilmTick(){
+      var y = window.scrollY;
+      if (y !== locationsFilmLastY || locationsFilmEase !== locationsFilmPeak){
+        locationsFilmLastY = y;
+        locationsFilmFx();
+      }
+      requestAnimationFrame(locationsFilmTick);
+    }
+    window.addEventListener('resize', function(){ locationsFilmLastY = -1; }, {passive:true});
+    locationsFilmFx();
+    requestAnimationFrame(locationsFilmTick);
+  }
+
+  // Horizontal academy rail: buttons supplement trackpad, wheel-shift and
+  // touch scrolling; edge state keeps the fade only where more cards remain.
+  var academyRail = document.getElementById('academyRail');
+  if (academyRail) {
+    var academyRailShell = academyRail.closest('.academy-card-rail');
+    var academyPrev = document.querySelector('[data-academy-prev]');
+    var academyNext = document.querySelector('[data-academy-next]');
+    var academyMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    function academyRailState(){
+      var atStart = academyRail.scrollLeft <= 2;
+      var atEnd = academyRail.scrollLeft + academyRail.clientWidth >= academyRail.scrollWidth - 2;
+      academyRailShell.classList.toggle('is-at-start', atStart);
+      academyRailShell.classList.toggle('is-at-end', atEnd);
+      if (academyPrev) academyPrev.disabled = atStart;
+      if (academyNext) academyNext.disabled = atEnd;
+    }
+    function academyRailStep(direction){
+      var card = academyRail.querySelector('.academy-card');
+      var gap = parseFloat(getComputedStyle(academyRail).gap) || 0;
+      var distance = card ? card.getBoundingClientRect().width + gap : academyRail.clientWidth * .82;
+      academyRail.scrollBy({left:direction * distance,behavior:academyMotion});
+    }
+    if (academyPrev) academyPrev.addEventListener('click', function(){ academyRailStep(-1); });
+    if (academyNext) academyNext.addEventListener('click', function(){ academyRailStep(1); });
+    academyRail.addEventListener('scroll', academyRailState, {passive:true});
+    window.addEventListener('resize', academyRailState, {passive:true});
+    academyRailState();
+  }
 
   // Film hero choreography: the heading travels bottom->top across the pin,
   // then the lead and CTAs rise in at the lower right. Mirrors the homepage.
@@ -384,14 +526,21 @@
   var PROG_MAX_TILT = 4; // deg at the row's far edges, 0 at center
   var progActive = null, progActiveRow = null;
   var pTx = 0, pTy = 0, pCx = 0, pCy = 0, pW = 1;
-  var mouseX = -1, mouseY = -1, hasMouse = false;
-  function progPoint(e){ mouseX = e.clientX; mouseY = e.clientY; hasMouse = true; }
+  var mouseX = -1, mouseY = -1, hasMouse = false, progLeft = false;
+  function progPoint(e){ mouseX = e.clientX; mouseY = e.clientY; hasMouse = true; progLeft = false; }
   document.addEventListener('mousemove', progPoint, {passive:true});
   /* a wheel or trackpad scroll reports the cursor position too, so the rows light
      up even when the pointer itself has not moved since the page loaded */
   document.addEventListener('wheel', progPoint, {passive:true});
   document.addEventListener('mouseover', progPoint, {passive:true});
-  document.addEventListener('mouseout', function(e){ if (!e.relatedTarget) hasMouse = false; });
+  document.addEventListener('mouseout', function(e){ if (!e.relatedTarget) progClear(); });
+  /* The pointer leaving the window, or the tab being hidden, stops the rAF loop
+     below and freezes whatever was showing. Drop the active row so no image is
+     ever left stranded on the page. */
+  function progClear(){ progLeft = true; hasMouse = false; progSetActive(null); }
+  window.addEventListener('blur', progClear);
+  document.documentElement.addEventListener('mouseleave', progClear);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) progClear(); });
   function progSetActive(row){
     if (progActiveRow) progActiveRow.classList.remove('is-hot');
     progActiveRow = row;
@@ -408,10 +557,11 @@
       if (hasMouse){
         var el = document.elementFromPoint(mouseX, mouseY);
         row = el ? el.closest('.prog a') : null;
-      } else {
-        // No pointer position yet - the page just loaded, or the cursor came back
-        // from outside the window. The browser still knows what is hovered, so
-        // trust that and start the image from the middle of the row.
+      } else if (!progLeft) {
+        // No pointer position yet - the page has just loaded. The browser still
+        // knows what is hovered, so trust that and start the image from the
+        // middle of the row. Skipped once the pointer has actually left the
+        // window, where a stale :hover would strand an image on screen.
         row = document.querySelector('.prog a:hover');
         if (row){
           var rr = row.getBoundingClientRect();

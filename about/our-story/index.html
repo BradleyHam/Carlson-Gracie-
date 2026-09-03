@@ -415,14 +415,21 @@
   var PROG_MAX_TILT = 4; // deg at the row's far edges, 0 at center
   var progActive = null, progActiveRow = null;
   var pTx = 0, pTy = 0, pCx = 0, pCy = 0, pW = 1;
-  var mouseX = -1, mouseY = -1, hasMouse = false;
-  function progPoint(e){ mouseX = e.clientX; mouseY = e.clientY; hasMouse = true; }
+  var mouseX = -1, mouseY = -1, hasMouse = false, progLeft = false;
+  function progPoint(e){ mouseX = e.clientX; mouseY = e.clientY; hasMouse = true; progLeft = false; }
   document.addEventListener('mousemove', progPoint, {passive:true});
   /* a wheel or trackpad scroll reports the cursor position too, so the rows light
      up even when the pointer itself has not moved since the page loaded */
   document.addEventListener('wheel', progPoint, {passive:true});
   document.addEventListener('mouseover', progPoint, {passive:true});
-  document.addEventListener('mouseout', function(e){ if (!e.relatedTarget) hasMouse = false; });
+  document.addEventListener('mouseout', function(e){ if (!e.relatedTarget) progClear(); });
+  /* The pointer leaving the window, or the tab being hidden, stops the rAF loop
+     below and freezes whatever was showing. Drop the active row so no image is
+     ever left stranded on the page. */
+  function progClear(){ progLeft = true; hasMouse = false; progSetActive(null); }
+  window.addEventListener('blur', progClear);
+  document.documentElement.addEventListener('mouseleave', progClear);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) progClear(); });
   function progSetActive(row){
     if (progActiveRow) progActiveRow.classList.remove('is-hot');
     progActiveRow = row;
@@ -439,10 +446,11 @@
       if (hasMouse){
         var el = document.elementFromPoint(mouseX, mouseY);
         row = el ? el.closest('.prog a') : null;
-      } else {
-        // No pointer position yet - the page just loaded, or the cursor came back
-        // from outside the window. The browser still knows what is hovered, so
-        // trust that and start the image from the middle of the row.
+      } else if (!progLeft) {
+        // No pointer position yet - the page has just loaded. The browser still
+        // knows what is hovered, so trust that and start the image from the
+        // middle of the row. Skipped once the pointer has actually left the
+        // window, where a stale :hover would strand an image on screen.
         row = document.querySelector('.prog a:hover');
         if (row){
           var rr = row.getBoundingClientRect();

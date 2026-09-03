@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles/site.css">
 </head>
-<body>
+<body class="seminar-journal-page seminar-technique-page">
 
 <!-- Belt scroll progress: the page is the journey, white belt to black -->
 <div class="belt" aria-hidden="true">
@@ -82,15 +82,17 @@
   </ul>
 </nav>
 
-<header class="page-hero" id="top">
+<header class="page-hero page-hero--journal" id="top">
   <div class="ph-stage">
+    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/seminars/Cole-abate-technique.jpg" alt=""></div>
     <div class="wrap">
       <div class="ph-copy">
         <p class="eyebrow rise r1">The blog</p>
         <h1 class="display rise r2">Technique</h1>
       </div>
       <div class="ph-side">
-      <p class="lead rise r3">Breakdowns from the blocks we’re teaching right now, plus the details that make them work.</p>
+        <p class="lead rise r3">Breakdowns from the blocks we’re teaching right now, plus the details that make them work.</p>
+        <div class="hero-stats rise r4"><span><b>Coach-led</b> &middot; filmed here</span><span><b>Members app</b> &middot; full library</span></div>
       </div>
     </div>
   </div>
@@ -106,7 +108,7 @@
   </div>
 </div>
 
-<section class="band band-paper">
+<section class="band band-paper technique-feature">
   <div class="wrap">
 
     <div class="tech-grid">
@@ -114,6 +116,7 @@
         <p class="eyebrow reveal">From the mats</p>
         <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem);max-width:14ch">Filmed by our coaches, on our mats</h2>
         <p class="lead reveal">Technique breakdowns from the blocks we’re teaching right now. The full library lives in the members’ app; a taste of it gets posted here.</p>
+        <div class="cta-row reveal"><a class="btn btn-ghost" href="../../membership/app/">Explore the members app</a></div>
       </div>
       <div class="tech-player reveal">
         <div class="tech-frame">
@@ -125,91 +128,92 @@
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="band band-mist journal-feed-section">
   <div class="wrap">
-    <p class="eyebrow reveal">Tagged Technique</p>
-    <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem)">From the blog</h2>
+    <div class="seminar-section-head journal-feed-head">
+      <div>
+        <p class="eyebrow reveal">Tagged Technique</p>
+        <h2 class="display reveal">The detail that makes it work</h2>
+      </div>
+      <p class="lead reveal">Short breakdowns from the current teaching blocks. The newest technique leads, followed by the full archive.</p>
+    </div>
 
-    <div class="post-grid reveal">
-      <article class="post">
-        <div class="post-img"><span>Post image</span></div>
-        <div class="post-body">
-          <span class="post-tag">Technique</span>
-          <span class="post-date">March 2026</span>
-          <h3>Post title pulls in from the blog</h3>
-          <p>A one or two line excerpt shows here automatically from the post tagged technique.</p>
+    <div class="journal-feed reveal">
+      <article class="journal-card journal-card--feature">
+        <figure><img src="../../assets/seminars/Cole-abate-technique.jpg" alt="A technique demonstration during a seminar" loading="lazy"></figure>
+        <div class="journal-card-body">
+          <div class="journal-meta"><span class="post-tag">Technique</span><span class="post-date">Latest breakdown</span></div>
+          <h3><span class="cms">[Newest technique post title]</span></h3>
+          <p><span class="cms">[The newest technique excerpt pulls through here automatically.]</span></p>
+          <span class="post-more">Watch the detail &rarr;</span>
+        </div>
+      </article>
+      <article class="journal-card">
+        <figure><img src="../../assets/technique-poster.jpg" alt="Technique filmed on the Carlson Gracie New Zealand mats" loading="lazy"></figure>
+        <div class="journal-card-body">
+          <div class="journal-meta"><span class="post-tag">Technique</span><span class="post-date">Archive</span></div>
+          <h3><span class="cms">[Technique post title]</span></h3>
+          <p><span class="cms">[One or two line excerpt from the post.]</span></p>
           <span class="post-more">Read more &rarr;</span>
         </div>
       </article>
-      <article class="post">
-        <div class="post-img"><span>Post image</span></div>
-        <div class="post-body">
-          <span class="post-tag">Technique</span>
-          <span class="post-date">February 2026</span>
-          <h3>Post title pulls in from the blog</h3>
-          <p>A one or two line excerpt shows here automatically from the post tagged technique.</p>
+      <article class="journal-card">
+        <figure><img src="../../assets/jose-technique-poster.jpg" alt="Jose Gomes demonstrating technique to the class" loading="lazy"></figure>
+        <div class="journal-card-body">
+          <div class="journal-meta"><span class="post-tag">Technique</span><span class="post-date">Archive</span></div>
+          <h3><span class="cms">[Technique post title]</span></h3>
+          <p><span class="cms">[One or two line excerpt from the post.]</span></p>
           <span class="post-more">Read more &rarr;</span>
         </div>
       </article>
-      <article class="post">
-        <div class="post-img"><span>Post image</span></div>
-        <div class="post-body">
-          <span class="post-tag">Technique</span>
-          <span class="post-date">December 2025</span>
-          <h3>Post title pulls in from the blog</h3>
-          <p>A one or two line excerpt shows here automatically from the post tagged technique.</p>
+      <article class="journal-card">
+        <figure><img src="../../assets/coaching.jpg" alt="A coach working through a detail with a student" loading="lazy"></figure>
+        <div class="journal-card-body">
+          <div class="journal-meta"><span class="post-tag">Technique</span><span class="post-date">Archive</span></div>
+          <h3><span class="cms">[Technique post title]</span></h3>
+          <p><span class="cms">[One or two line excerpt from the post.]</span></p>
           <span class="post-more">Read more &rarr;</span>
         </div>
       </article>
-      <article class="post">
-        <div class="post-img"><span>Post image</span></div>
-        <div class="post-body">
-          <span class="post-tag">Technique</span>
-          <span class="post-date">November 2025</span>
-          <h3>Post title pulls in from the blog</h3>
-          <p>A one or two line excerpt shows here automatically from the post tagged technique.</p>
-          <span class="post-more">Read more &rarr;</span>
-        </div>
-      </article>
-      <article class="post">
-        <div class="post-img"><span>Post image</span></div>
-        <div class="post-body">
-          <span class="post-tag">Technique</span>
-          <span class="post-date">October 2025</span>
-          <h3>Post title pulls in from the blog</h3>
-          <p>A one or two line excerpt shows here automatically from the post tagged technique.</p>
-          <span class="post-more">Read more &rarr;</span>
-        </div>
-      </article>
-      <article class="post">
-        <div class="post-img"><span>Post image</span></div>
-        <div class="post-body">
-          <span class="post-tag">Technique</span>
-          <span class="post-date">September 2025</span>
-          <h3>Post title pulls in from the blog</h3>
-          <p>A one or two line excerpt shows here automatically from the post tagged technique.</p>
+      <article class="journal-card">
+        <figure><img src="../../assets/training.jpg" alt="Carlson Gracie teammates training together" loading="lazy"></figure>
+        <div class="journal-card-body">
+          <div class="journal-meta"><span class="post-tag">Technique</span><span class="post-date">Archive</span></div>
+          <h3><span class="cms">[Technique post title]</span></h3>
+          <p><span class="cms">[One or two line excerpt from the post.]</span></p>
           <span class="post-more">Read more &rarr;</span>
         </div>
       </article>
     </div>
-    <p class="dir-note">CMS note: this page lists every post tagged Technique, newest first. The cards above show the pattern.</p>
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="band band-paper journal-onward">
   <div class="wrap">
     <p class="eyebrow reveal">Onward</p>
-    <h2 class="display reveal" style="font-size:clamp(2rem,4.6vw,3.4rem)">Where next</h2>
-    <div class="onward-list reveal">
+    <h2 class="display reveal journal-onward-title">Keep exploring</h2>
+    <div class="onward-cards reveal">
       <a href="../../seminars/">
-        <span class="q">Back to the seminars and events hub.</span>
-        <span class="go">Seminars &amp; Events &rarr;</span>
+        <figure><img src="../../assets/seminars/Cole-Abate-and-Jose.jpg" alt="Cole Abate with Jose Gomes after a seminar" loading="lazy"></figure>
+        <div class="oc-body"><span class="q">Meet the guests who have taught on our mats.</span><h3 class="display">Seminars<span class="arr">&nbsp;&rarr;</span></h3></div>
       </a>
-      <a href="../../membership/">
-        <span class="q">Come train with us.</span>
-        <span class="go">Membership &rarr;</span>
+      <a href="../../membership/app/">
+        <figure><img src="../../assets/app-content.png" alt="Technique library inside the Carlson Gracie members app" loading="lazy"></figure>
+        <div class="oc-body"><span class="q">Timetables, technique and updates in one place.</span><h3 class="display">Members app<span class="arr">&nbsp;&rarr;</span></h3></div>
       </a>
     </div>
+  </div>
+</section>
+
+<section class="cta-final journal-final" id="trial-info">
+  <div class="cta-inner">
+   <div class="cta-copy">
+    <p class="eyebrow reveal">Learn it on the mat</p>
+    <h2 class="display reveal">Watching is the start. Doing is where it lands.</h2>
+    <span class="serif-note reveal">Start with a free class and let a coach walk you through it.</span>
+    <div class="cta-row reveal"><a class="btn btn-red" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a></div>
+   </div>
+   <figure class="cta-media reveal"><img src="../../assets/seminars/Cole-abate-technique.jpg" alt="Athletes learning technique together on the mats" loading="lazy"></figure>
   </div>
 </section>
 
@@ -403,14 +407,21 @@
   var PROG_MAX_TILT = 4; // deg at the row's far edges, 0 at center
   var progActive = null, progActiveRow = null;
   var pTx = 0, pTy = 0, pCx = 0, pCy = 0, pW = 1;
-  var mouseX = -1, mouseY = -1, hasMouse = false;
-  function progPoint(e){ mouseX = e.clientX; mouseY = e.clientY; hasMouse = true; }
+  var mouseX = -1, mouseY = -1, hasMouse = false, progLeft = false;
+  function progPoint(e){ mouseX = e.clientX; mouseY = e.clientY; hasMouse = true; progLeft = false; }
   document.addEventListener('mousemove', progPoint, {passive:true});
   /* a wheel or trackpad scroll reports the cursor position too, so the rows light
      up even when the pointer itself has not moved since the page loaded */
   document.addEventListener('wheel', progPoint, {passive:true});
   document.addEventListener('mouseover', progPoint, {passive:true});
-  document.addEventListener('mouseout', function(e){ if (!e.relatedTarget) hasMouse = false; });
+  document.addEventListener('mouseout', function(e){ if (!e.relatedTarget) progClear(); });
+  /* The pointer leaving the window, or the tab being hidden, stops the rAF loop
+     below and freezes whatever was showing. Drop the active row so no image is
+     ever left stranded on the page. */
+  function progClear(){ progLeft = true; hasMouse = false; progSetActive(null); }
+  window.addEventListener('blur', progClear);
+  document.documentElement.addEventListener('mouseleave', progClear);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) progClear(); });
   function progSetActive(row){
     if (progActiveRow) progActiveRow.classList.remove('is-hot');
     progActiveRow = row;
@@ -427,10 +438,11 @@
       if (hasMouse){
         var el = document.elementFromPoint(mouseX, mouseY);
         row = el ? el.closest('.prog a') : null;
-      } else {
-        // No pointer position yet - the page just loaded, or the cursor came back
-        // from outside the window. The browser still knows what is hovered, so
-        // trust that and start the image from the middle of the row.
+      } else if (!progLeft) {
+        // No pointer position yet - the page has just loaded. The browser still
+        // knows what is hovered, so trust that and start the image from the
+        // middle of the row. Skipped once the pointer has actually left the
+        // window, where a stale :hover would strand an image on screen.
         row = document.querySelector('.prog a:hover');
         if (row){
           var rr = row.getBoundingClientRect();
