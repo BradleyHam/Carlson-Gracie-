@@ -1,0 +1,21 @@
+/* Show the supplied app screen at its native proportions. */
+.app-preview-stage{display:flex;align-items:center;justify-content:center;background:#eeeeef;position:relative;overflow:hidden}
+.app-device{display:block;position:relative;width:230px;aspect-ratio:520/1131;border:7px solid #27272a;border-radius:30px;background:#27272a;overflow:hidden;box-shadow:0 22px 42px rgba(23,23,27,.14),0 0 0 1px rgba(23,23,27,.2);flex:none}
+.app-device img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:none;opacity:1;transform:none}
+.seminar-technique-page .journal-onward .onward-cards a{background:transparent;aspect-ratio:auto;overflow:visible;color:var(--ink)}
+.seminar-technique-page .journal-onward .onward-cards figure{position:relative;inset:auto;aspect-ratio:1/1;overflow:hidden}
+.seminar-technique-page .journal-onward .onward-cards a::after{display:none}
+.seminar-technique-page .journal-onward .oc-body{position:relative;inset:auto;padding:26px 0 0;gap:24px}
+.seminar-technique-page .journal-onward .onward-cards .q,.seminar-technique-page .journal-onward .onward-cards a:hover .q{color:rgba(23,23,27,.65)}
+.seminar-technique-page .journal-onward .onward-cards h3{color:var(--ink);text-shadow:none}
+.seminar-technique-page .journal-onward .onward-cards .arr{color:rgba(23,23,27,.6)}
+.seminar-technique-page .journal-onward .onward-cards img{opacity:1}
+.seminar-technique-page .journal-onward .app-preview-stage .app-device{width:42%;transform:rotate(-4deg);transition:transform .5s ease}
+.seminar-technique-page .journal-onward a:hover .app-device{transform:rotate(0deg) translateY(-4px)}
+.seminar-technique-page .journal-onward .app-device img,.seminar-technique-page .journal-onward a:hover .app-device img{filter:none;transform:none;opacity:1}
+@media(max-width:760px){
+  .seminar-technique-page .journal-onward .onward-cards{gap:44px}
+  .seminar-technique-page .journal-onward .onward-cards figure{aspect-ratio:4/3}
+  .seminar-technique-page .journal-onward .app-preview-stage .app-device{width:29%;border-width:5px;border-radius:20px;transform:none}
+}
+@media(prefers-reduced-motion:reduce){.seminar-technique-page .journal-onward .app-preview-stage .app-device{transition:none;transform:none}}

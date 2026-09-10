@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles/site.css">
+<link rel="stylesheet" href="queenstown.css">
 </head>
 <body>
 
@@ -82,16 +83,18 @@
   </ul>
 </nav>
 
-<header class="page-hero page-hero--film" id="top" data-town="QUEENSTOWN">
+<header class="page-hero page-hero--film queenstown-hero" id="top" data-town="QUEENSTOWN">
   <div class="ph-stage">
-    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/hero-poster.jpg" alt="The Queenstown academy"></div>
+    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/community.jpg" alt="" fetchpriority="high"></div>
     <div class="wrap">
       <div class="ph-copy">
-        <p class="eyebrow rise r1">Our academies</p>
-        <h1 class="display rise r2">Carlson Gracie Queenstown</h1>
+        <p class="eyebrow rise r1">Queenstown headquarters</p>
+        <h1 class="display rise r2">Carlson Gracie<br>Queenstown</h1>
+        <p class="serif-note qt-tagline">The original dojo.</p>
       </div>
       <div class="ph-side">
-      <p class="lead rise r3">The original academy, and the home of Carlson Gracie New Zealand. Jose calls this room magical, and he’s not wrong. It’s a proper dojo, and people travel across town and across the world to train in it.</p>
+        <p class="lead">Good people. Serious jiu-jitsu. Find your place on the mats at our home in Remarkables Park.</p>
+        <div class="cta-row"><a class="btn btn-red" href="../../membership/trial/">Try a free class</a><a class="btn btn-ghost" href="#timetable">View timetable</a></div>
       </div>
     </div>
   </div>
@@ -173,14 +176,15 @@
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="band band-paper onward-nav" id="where-next" aria-labelledby="where-next-title">
   <div class="wrap">
-    <p class="eyebrow reveal">Onward</p>
-    <h2 class="display reveal" style="font-size:clamp(2rem,4.6vw,3.4rem)">Where next</h2>
-    <div class="onward-list reveal">
+    <h2 class="eyebrow reveal" id="where-next-title">Where next</h2>
+    <div class="onward-nav-list">
       <a href="../../locations/">
-        <span class="q">See the whole network.</span>
-        <span class="go">Locations &rarr;</span>
+        <span class="onward-nav-number" aria-hidden="true">01</span>
+        <h3 class="display">Locations</h3>
+        <p>See the whole network.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -526,5 +530,6 @@
     });
   }
 </script>
+<script type="module" src="../../mobile-nav.js"></script>
 </body>
 </html>

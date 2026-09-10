@@ -1,0 +1,57 @@
+/* A compact opening keeps the weekly schedule in the first view. */
+.timetable-page { background:var(--paper); color:var(--ink); }
+.timetable-intro { padding:148px clamp(20px,4vw,48px) 32px; }
+.timetable-intro .eyebrow { margin-bottom:22px; }
+.timetable-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; }
+.timetable-heading h1 { font-size:clamp(3.4rem,6vw,5.5rem); }
+.timetable-heading p { font:italic 500 clamp(1.2rem,1.8vw,1.5rem)/1.4 var(--serif); color:rgba(23,23,27,.65); padding-bottom:3px; }
+.timetable-page .section-index { background:var(--paper); border-color:var(--line-ink); border-bottom:1px solid var(--line-ink); }
+.timetable-page .section-index span { color:#717177; }
+.timetable-page .section-index a { color:#64646b; }
+.timetable-page .section-index a:hover,.timetable-page .section-index a.is-here { color:var(--ink); }
+.timetable-page .timetable-schedule { padding-top:28px; padding-bottom:64px; }
+.timetable-schedule .tt-legend { margin-top:0; gap:14px 24px; }
+.timetable-schedule .tt-grid { margin-top:24px; gap:12px; }
+.timetable-schedule .tt-col { opacity:1; padding:18px 12px; }
+.timetable-schedule .tt-col h3 { font-size:1.65rem; padding-bottom:10px; border-bottom:1px solid var(--line-ink); }
+.timetable-schedule .tt-class { padding:13px 9px; }
+.timetable-schedule .tt-class .n { font-size:1.25rem; }
+.timetable-schedule .tt-note { max-width:82ch; font:400 12px/1.7 var(--body); letter-spacing:0; text-transform:none; }
+.timetable-schedule .cta-row { margin-top:24px; }
+@media(max-width:700px) {
+  .timetable-intro { padding-top:124px; padding-bottom:24px; }
+  .timetable-intro .eyebrow { margin-bottom:18px; font-size:9px; }
+  .timetable-heading { display:block; }
+  .timetable-heading h1 { font-size:3.5rem; }
+  .timetable-heading p { margin-top:16px; font-size:1.2rem; }
+  .timetable-heading p br { display:none; }
+  .timetable-page .section-index span { display:none; }
+  .timetable-page .section-index .wrap { gap:20px; }
+  .timetable-page .section-index a { font-size:9px; letter-spacing:.12em; }
+  .timetable-page .timetable-schedule { padding-top:22px; }
+  .timetable-schedule .tt-legend { font-size:8px; gap:10px 16px; letter-spacing:.09em; }
+  .timetable-schedule .tt-grid { margin-top:20px; }
+  .timetable-schedule .tt-col { padding:16px; }
+  .timetable-schedule .tt-class { padding:12px; }
+}
+
+@media(max-width:700px) and (max-height:700px) {
+  .timetable-intro { padding-top:108px; padding-bottom:18px; }
+  .timetable-intro .eyebrow { margin-bottom:14px; }
+  .timetable-heading p { margin-top:12px; }
+  .timetable-page .timetable-schedule { padding-top:18px; }
+}
+
+/* The original introduction follows the schedule so classes stay visible first. */
+.timetable-context { display:grid; grid-template-columns:1fr 1.2fr; gap:clamp(32px,6vw,80px); margin-top:40px; padding-top:36px; border-top:1px solid var(--line-ink); }
+.timetable-context h2 { max-width:17ch; font-size:clamp(2.3rem,3.5vw,3.4rem); text-wrap:balance; }
+.timetable-context-copy p { font:400 15px/1.75 var(--body); color:rgba(23,23,27,.7); }
+.timetable-context-copy p+p { margin-top:18px; }
+@media(max-width:700px) { .timetable-context { grid-template-columns:1fr; gap:24px; margin-top:30px; padding-top:28px; } }
+
+/* A real class gives the transition to onward links a human moment. */
+.timetable-class-photo { margin:clamp(36px,5vw,60px) 0 0; }
+.timetable-class-photo img { display:block; width:100%; aspect-ratio:21/9; object-fit:cover; object-position:center 48%; filter:grayscale(1); }
+.timetable-class-photo figcaption { margin-top:14px; font:400 9px/1.6 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:rgba(23,23,27,.55); }
+.timetable-page .onward-nav { padding-top:clamp(32px,5vw,64px); }
+@media(max-width:700px) { .timetable-class-photo img { aspect-ratio:4/3; object-position:center; } }

@@ -141,18 +141,21 @@
   </div>
 </section>
 
-<section class="band band-paper trial-onward">
+<section class="band band-paper onward-nav" id="where-next" aria-labelledby="where-next-title">
   <div class="wrap">
-    <p class="eyebrow reveal">Onward</p>
-    <h2 class="display reveal">Where next</h2>
-    <div class="onward-cards reveal">
+    <h2 class="eyebrow reveal" id="where-next-title">Where next</h2>
+    <div class="onward-nav-list">
       <a href="../../membership/start-here/">
-        <figure><img src="../../assets/coaching.jpg" alt="A coach guiding students through a technique in a live class" loading="lazy"></figure>
-        <div class="oc-body"><span class="q">Want to know exactly what happens first?</span><h3>Start here <span class="arr">&rarr;</span></h3></div>
+        <span class="onward-nav-number" aria-hidden="true">01</span>
+        <h3 class="display">Start here</h3>
+        <p>Want to know exactly what happens first?</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
       <a href="../../training/timetable/">
-        <figure><img src="../../assets/training.jpg" alt="A full class training on the mats at the Queenstown academy" loading="lazy"></figure>
-        <div class="oc-body"><span class="q">Find a time that suits.</span><h3>View the timetable <span class="arr">&rarr;</span></h3></div>
+        <span class="onward-nav-number" aria-hidden="true">02</span>
+        <h3 class="display">View the timetable</h3>
+        <p>Find a time that suits.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -571,5 +574,6 @@
     });
   }
 </script>
+<script type="module" src="../../mobile-nav.js"></script>
 </body>
 </html>

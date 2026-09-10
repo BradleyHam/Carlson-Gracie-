@@ -1,0 +1,39 @@
+/* Shared mobile navigation, drawn from each page's existing site links. */
+.mobile-menu-trigger { display:none; }
+.mobile-menu { padding:0; border:0; margin:0; width:100%; max-width:none; height:100dvh; max-height:none; inset:0; background:var(--paper,#fff); color:var(--ink,#17171b); }
+.mobile-menu:not([open]) { display:none; }
+.mobile-menu[open] { display:flex; flex-direction:column; }
+.mobile-menu::backdrop { background:rgba(23,23,27,.25); }
+.mobile-menu-header { display:flex; flex-shrink:0; align-items:center; justify-content:space-between; padding:calc(16px + env(safe-area-inset-top)) 24px 16px; border-bottom:1px solid var(--line-ink); }
+.mobile-menu-header .wordmark { padding:0; }
+.mobile-menu-header .wordmark-badge { width:70px; height:70px; }
+.mobile-menu-close { display:flex; align-items:center; gap:18px; padding:10px 0 10px 14px; min-height:44px; background:none; color:inherit; border:0; cursor:pointer; font:10px/1.4 var(--mono); letter-spacing:.16em; text-transform:uppercase; }
+.mobile-menu-close span:last-child { font:300 30px/1 var(--body); }
+.mobile-menu-scroll { flex:1; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:12px 24px calc(28px + env(safe-area-inset-bottom)); }
+.mobile-menu-nav { max-width:680px; margin:auto; }
+.mobile-menu-group,.mobile-menu-direct { border-bottom:1px solid var(--line-ink); }
+.mobile-menu-group summary,.mobile-menu-direct { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:19px 0; color:inherit; font:600 clamp(2rem,5vw,2.6rem)/1 var(--display); text-decoration:none; cursor:pointer; list-style:none; }
+.mobile-menu-group summary::-webkit-details-marker { display:none; }
+.mobile-menu-group summary::after { content:'+'; font:300 24px/1 var(--body); color:#89898d; }
+.mobile-menu-group[open] summary::after { content:'−'; color:var(--carmine); }
+.mobile-menu-group summary.is-current,.mobile-menu [aria-current='page'] { color:var(--carmine); }
+.mobile-menu-direct::after { content:'→'; font:300 24px/1 var(--body); color:#89898d; }
+.mobile-menu-children { display:grid; padding:0 0 18px 18px; border-left:1px solid var(--line-ink); margin:0 0 18px 2px; }
+.mobile-menu-children a { display:block; padding:12px 0; min-height:44px; color:#5e5e65; text-decoration:none; font:400 15px/1.35 var(--body); }
+.mobile-menu a:hover,.mobile-menu summary:hover { color:var(--carmine); }
+.mobile-menu-actions { max-width:680px; margin:30px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.mobile-menu-actions a { display:flex; justify-content:center; align-items:center; text-align:center; min-height:50px; padding:14px 10px; text-decoration:none; font:10px/1.5 var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+.mobile-menu-timetable { color:var(--ink); border:1px solid var(--line-ink); }
+.mobile-menu-actions .mobile-menu-join { color:white; background:var(--carmine); }
+.mobile-menu-actions .mobile-menu-join:hover { background:var(--ink); color:white; }
+.mobile-menu :focus-visible { outline:2px solid var(--carmine); outline-offset:4px; }
+@media(max-width:1200px) {
+  body > nav .nav-links li:not(.keep),body > nav .nav-links li:has(.nav-cta) { display:none; }
+  body > nav .nav-links { margin-left:auto; margin-right:20px; }
+  body > nav .mobile-menu-trigger { display:flex; align-items:center; gap:12px; background:none; border:0; padding:12px 0 12px 4px; min-height:44px; color:white; text-shadow:none; cursor:pointer; font:10px/1.5 var(--mono); letter-spacing:.12em; text-transform:uppercase; }
+  body > nav.is-solid .mobile-menu-trigger { color:var(--ink); }
+  .mobile-menu-trigger:focus-visible { outline:2px solid currentColor; outline-offset:4px; }
+  .mobile-menu-icon { width:19px; height:10px; border-top:1px solid currentColor; border-bottom:1px solid currentColor; }
+}
+@media(max-width:380px) { .mobile-menu-header { padding-inline:20px; } .mobile-menu-scroll { padding-inline:20px; } .mobile-menu-actions { grid-template-columns:1fr; } body > nav .nav-links { margin-right:14px; } }
+@media(prefers-reduced-motion:no-preference) { .mobile-menu[open] .mobile-menu-nav { animation:mobile-menu-enter .22s ease-out both; } @keyframes mobile-menu-enter { from {opacity:0;transform:translateY(8px)} to {opacity:1;transform:none} } }

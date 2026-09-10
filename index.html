@@ -2069,71 +2069,7 @@
   heroMeasure(); heroFx();
   requestAnimationFrame(heroTick);
 
-  // Training rows: the row's image trails the cursor (desktop hover only).
-  // Instead of mouseenter/leave (which never fire when the page scrolls under a
-  // still cursor), we hit-test the last known pointer position every frame.
-  var progHoverOk = window.matchMedia('(hover:hover) and (min-width:641px)');
-  var PROG_MAX_TILT = 4; // deg at the row's far edges, 0 at center
-  var progActive = null, progActiveRow = null;
-  var pTx = 0, pTy = 0, pCx = 0, pCy = 0, pW = 1;
-  var mouseX = -1, mouseY = -1, hasMouse = false, progLeft = false;
-  function progPoint(e){ mouseX = e.clientX; mouseY = e.clientY; hasMouse = true; progLeft = false; }
-  document.addEventListener('mousemove', progPoint, {passive:true});
-  /* a wheel or trackpad scroll reports the cursor position too, so the rows light
-     up even when the pointer itself has not moved since the page loaded */
-  document.addEventListener('wheel', progPoint, {passive:true});
-  document.addEventListener('mouseover', progPoint, {passive:true});
-  document.addEventListener('mouseout', function(e){ if (!e.relatedTarget) progClear(); });
-  /* The pointer leaving the window, or the tab being hidden, stops the rAF loop
-     below and freezes whatever was showing. Drop the active row so no image is
-     ever left stranded on the page. */
-  function progClear(){ progLeft = true; hasMouse = false; progSetActive(null); }
-  window.addEventListener('blur', progClear);
-  document.documentElement.addEventListener('mouseleave', progClear);
-  document.addEventListener('visibilitychange', function(){ if (document.hidden) progClear(); });
-  function progSetActive(row){
-    if (progActiveRow) progActiveRow.classList.remove('is-hot');
-    progActiveRow = row;
-    progActive = row ? row.querySelector('.prog-img') : null;
-    if (row){
-      row.classList.add('is-hot');
-      var r = row.getBoundingClientRect();
-      pW = r.width; pTx = pCx = mouseX - r.left; pTy = pCy = mouseY - r.top;
-    }
-  }
-  (function progFollow(){
-    if (progHoverOk.matches){
-      var row = null;
-      if (hasMouse){
-        var el = document.elementFromPoint(mouseX, mouseY);
-        row = el ? el.closest('.prog a') : null;
-      } else if (!progLeft) {
-        // No pointer position yet - the page has just loaded. The browser still
-        // knows what is hovered, so trust that and start the image from the
-        // middle of the row. Skipped once the pointer has actually left the
-        // window, where a stale :hover would strand an image on screen.
-        row = document.querySelector('.prog a:hover');
-        if (row){
-          var rr = row.getBoundingClientRect();
-          mouseX = rr.left + rr.width / 2; mouseY = rr.top + rr.height / 2; hasMouse = true;
-        }
-      }
-      if (row !== progActiveRow) progSetActive(row);
-      else if (row){
-        var r = row.getBoundingClientRect();
-        pW = r.width; pTx = mouseX - r.left; pTy = mouseY - r.top;
-      }
-      if (progActive){
-        pCx += (pTx - pCx) * 0.16;
-        pCy += (pTy - pCy) * 0.16;
-        var tilt = ((pCx / pW) - 0.5) * 2 * PROG_MAX_TILT;
-        progActive.style.transform = 'translate(' + pCx.toFixed(1) + 'px,' + pCy.toFixed(1) + 'px) translate(-50%,-112%) rotate(' + tilt.toFixed(2) + 'deg)';
-      }
-    } else if (progActiveRow){
-      progSetActive(null);
-    }
-    requestAnimationFrame(progFollow);
-  })();
+  // Row previews are handled by the shared program-previews module.
 
   // Hero film: background loop stays muted; the play button opens it with sound
   var film = document.getElementById('film');
@@ -2252,5 +2188,7 @@
     });
   }
 </script>
+<script type="module" src="./program-previews.js"></script>
+<script type="module" src="./mobile-nav.js"></script>
 </body>
 </html>

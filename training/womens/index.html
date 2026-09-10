@@ -12,9 +12,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles/site.css">
 <style>
-  /* womens hero frame: subject rides the right third of the footage */
-  .page-hero-media img{object-position:center 24%}
-  @media (max-width:960px){ .page-hero-media img{object-position:74% 24%} }
+  /* Keep the team visible and retain some warmth in the photograph. */
+  .womens-hero .page-hero-media img{object-position:center 45%;filter:saturate(.65) contrast(1.03);opacity:.95}
+  .womens-hero .page-hero-media::after{background:linear-gradient(180deg,rgba(13,13,17,.65),rgba(13,13,17,.05) 35%,rgba(13,13,17,.12) 60%,rgba(13,13,17,.85))}
+  @media (max-width:960px){
+    .womens-hero.page-hero:has(.page-hero-media) .page-hero-media{height:auto;padding-top:110px}
+    .womens-hero .page-hero-media img{display:block;height:auto;object-fit:contain}
+    .womens-hero .page-hero-media::after{background:linear-gradient(180deg,rgba(13,13,17,.12) 65%,var(--ink))}
+  }
 </style>
 </head>
 <body>
@@ -87,9 +92,9 @@
   </ul>
 </nav>
 
-<header class="page-hero page-hero--film" id="top">
+<header class="page-hero page-hero--film womens-hero" id="top">
   <div class="ph-stage">
-    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/womens-hero.jpg" alt="A woman passing guard in the women’s class at the Queenstown academy"></div>
+    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/womens.jpg" alt="The women of Carlson Gracie together on the academy mats" width="1440" height="754" fetchpriority="high"></div>
     <div class="wrap">
       <div class="ph-copy">
         <p class="eyebrow rise r1">Women’s classes</p>
@@ -152,22 +157,21 @@
   </div>
 </section>
 
-<section class="band band-paper">
+<section class="band band-paper onward-nav" id="where-next" aria-labelledby="where-next-title">
   <div class="wrap">
-    <div class="onward-cards reveal">
+    <h2 class="eyebrow reveal" id="where-next-title">Where next</h2>
+    <div class="onward-nav-list">
       <a href="../../about/coaches/">
-        <figure><img src="../../assets/black-belts.jpg" alt="Carlson Gracie black belts lined up in front of the team banner" loading="lazy"></figure>
-        <div class="oc-body">
-          <span class="q">Meet the coaches who&rsquo;ll look after you.</span>
-          <h3 class="display">Our coaches<span class="arr">&nbsp;&rarr;</span></h3>
-        </div>
+        <span class="onward-nav-number" aria-hidden="true">01</span>
+        <h3 class="display">Our coaches</h3>
+        <p>Meet the coaches who&rsquo;ll look after you.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
       <a href="../../membership/start-here/">
-        <figure><img src="../../assets/fiinding-your-people.jpeg" alt="Members gathered on the mats at the academy" loading="lazy"></figure>
-        <div class="oc-body">
-          <span class="q">New to all of this? Here&rsquo;s where to begin.</span>
-          <h3 class="display">Start here<span class="arr">&nbsp;&rarr;</span></h3>
-        </div>
+        <span class="onward-nav-number" aria-hidden="true">02</span>
+        <h3 class="display">Start here</h3>
+        <p>New to all of this? Here&rsquo;s where to begin.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -586,5 +590,6 @@
     });
   }
 </script>
+<script type="module" src="../../mobile-nav.js"></script>
 </body>
 </html>

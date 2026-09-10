@@ -1,0 +1,33 @@
+/* A quiet hand-off after the training overview. */
+.training-onward { scroll-margin-top:100px; }
+.training-onward .eyebrow { font-weight:400; margin-bottom:clamp(30px,4vw,48px); }
+.training-onward-list { border-top:1px solid var(--line-ink); }
+.training-onward-list a {
+  display:grid; grid-template-columns:36px minmax(0,1.05fr) minmax(0,.85fr) 48px;
+  align-items:center; column-gap:clamp(20px,3vw,42px);
+  padding:clamp(30px,4vw,48px) 8px;
+  border-bottom:1px solid var(--line-ink); text-decoration:none;
+  transition:background-color .25s ease;
+}
+.training-onward-number { font:10px/1.5 var(--mono); color:rgba(23,23,27,.4); align-self:start; padding-top:10px; }
+.training-onward-list h3 { font-size:clamp(2.5rem,4.6vw,4.1rem); transition:transform .3s ease; }
+.training-onward-list p { font:italic 500 clamp(1.1rem,1.8vw,1.5rem)/1.45 var(--serif); color:rgba(23,23,27,.65); }
+.training-onward-arrow { justify-self:end; font:300 38px/1 var(--body); color:rgba(23,23,27,.42); transition:color .25s ease,transform .3s ease; }
+.training-onward-list a:hover,.training-onward-list a:focus-visible { background:rgba(23,23,27,.025); }
+.training-onward-list a:hover h3,.training-onward-list a:focus-visible h3 { transform:translateX(6px); }
+.training-onward-list a:hover .training-onward-arrow,.training-onward-list a:focus-visible .training-onward-arrow { color:var(--carmine); transform:translateX(6px); }
+.training-onward-list a:focus-visible { outline:2px solid var(--ink); outline-offset:5px; }
+@media(max-width:640px) {
+  .training-onward-list a { grid-template-columns:22px minmax(0,1fr) 30px; column-gap:16px; row-gap:16px; padding:28px 4px 30px; }
+  .training-onward-number { padding-top:7px; font-size:9px; }
+  .training-onward-list h3 { font-size:2.65rem; }
+  .training-onward-list p { grid-column:2; grid-row:2; font-size:1.15rem; }
+  .training-onward-arrow { grid-column:3; grid-row:1; font-size:30px; }
+  .training-onward-list a:hover h3,.training-onward-list a:focus-visible h3 { transform:none; }
+  .training-onward-list a:hover .training-onward-arrow,.training-onward-list a:focus-visible .training-onward-arrow { transform:translateX(3px); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .training-onward-list a,.training-onward-list h3,.training-onward-arrow { transition:none; }
+  .training-onward-list a:hover h3,.training-onward-list a:focus-visible h3,
+  .training-onward-list a:hover .training-onward-arrow,.training-onward-list a:focus-visible .training-onward-arrow { transform:none; }
+}

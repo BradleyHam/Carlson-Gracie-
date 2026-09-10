@@ -1354,7 +1354,7 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 
 .trial-intro{padding-top:clamp(82px,9vw,124px)!important}
 .trial-clip{margin-top:clamp(58px,7vw,92px)}
-.method-quote.start-quote{background:linear-gradient(90deg,#f7f7f8 0 66%,#eeeef0 66% 100%)}
+.method-quote.start-quote{background:linear-gradient(90deg,var(--paper) 0 66%,var(--mist) 66% 100%)}
 /* Start Here's practical beat. Twelve words of content, so it is deliberately
    the shortest section on the page: heading left, the list ruled on the right,
    no photograph. It is the breath between the Jose quote and the method block,
@@ -1387,7 +1387,7 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 
 /* Same spacing as the other "Where next" blocks. */
 .trial-onward h2,.start-onward h2{margin:28px 0 clamp(48px,6vw,72px);font-size:clamp(2rem,4.6vw,3.4rem)}
-.trial-review{background:linear-gradient(90deg,#f7f7f5 0 66%,#efefec 66% 100%)}
+.trial-review{background:linear-gradient(90deg,var(--paper) 0 66%,var(--mist) 66% 100%)}
 .trial-review .method-quote-copy{max-width:760px}
 .trial-review .method-quote-copy>p:not(.eyebrow){max-width:31ch}
 .trial-review .method-quote-media img{object-position:center 28%;transform:scale(1.04)}
@@ -2286,7 +2286,7 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 /* ---------- Editorial quote spread ---------- */
 .method-quote{
   position:relative;isolation:isolate;overflow:hidden;color:var(--ink);
-  background:linear-gradient(90deg,#f7f7f5 0 66%,#efefec 66% 100%);
+  background:linear-gradient(90deg,var(--paper) 0 66%,var(--mist) 66% 100%);
   padding:clamp(76px,8.5vw,116px) clamp(20px,4vw,48px);
   border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
 }
@@ -2349,7 +2349,7 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 .method-quote--wide-copy .method-quote-copy{max-width:720px}
 .method-quote--wide-copy .method-quote-copy > p:not(.eyebrow){max-width:30ch}
 .method-quote--reverse{
-  background:linear-gradient(90deg,#efefec 0 34%,#f7f7f5 34% 100%);
+  background:linear-gradient(90deg,var(--mist) 0 34%,var(--paper) 34% 100%);
 }
 .method-quote--reverse::before{left:-.015em;right:auto}
 .method-quote--reverse .wrap{
@@ -2360,7 +2360,7 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   grid-column:1;grid-row:1;transform:translateY(18px);
 }
 @media (max-width:800px){
-  .method-quote{background:#f7f7f5}
+  .method-quote{background:var(--paper)}
   .method-quote::before{right:-.04em;top:46%;font-size:clamp(13rem,52vw,22rem)}
   .method-quote .wrap{grid-template-columns:1fr;gap:clamp(44px,10vw,64px)}
   .method-quote-copy{max-width:580px}
@@ -3149,27 +3149,109 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 }
 .seminar-section-head>.lead{margin:0 0 .1em auto;max-width:55ch}
 
-/* The names are still the shared guest cards, but the borderless five-frame
-   composition feels like an archive wall instead of a generic card grid. */
-.seminars-hub-page .guest-grid{
-  grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(16px,2vw,26px);
+/* Guest rail: a horizontal scrolling carousel of hosted athletes, matching
+   the Locations academy rail (toolbar + arrows) instead of a static grid. */
+.guest-rail-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
   margin-top:clamp(58px,8vw,96px);
 }
-.seminars-hub-page .guest{grid-column:span 4;background:transparent;border:0;padding:0;box-shadow:none}
-.seminars-hub-page .guest:nth-child(n+4){grid-column:span 6}
-.seminars-hub-page .guest:hover{box-shadow:none}
-.seminars-hub-page .guest-photo{margin-bottom:20px;box-shadow:0 18px 48px rgba(23,23,27,.07)}
-.seminars-hub-page .guest h3{font-size:clamp(1.55rem,2.2vw,2.1rem)}
-.seminars-hub-page .guest-foot{align-items:end}
+.guest-rail-toolbar>span{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(23,23,27,.5);
+}
+.guest-rail-controls{display:flex;gap:8px}
+.guest-rail-controls button{
+  display:flex;align-items:center;justify-content:center;width:44px;height:44px;
+  border:1px solid var(--line-ink);background:var(--paper);font-size:1.1rem;font-family:inherit;
+  cursor:pointer;transition:background .25s ease,border-color .25s ease,color .25s ease;
+}
+.guest-rail-controls button:hover:not(:disabled){background:var(--ink);border-color:var(--ink);color:#fff}
+.guest-rail-controls button:disabled{opacity:.26;cursor:default}
+
+/* The rail breaks out of the text column and runs the full width of the
+   viewport, so the veil at each edge dissolves against the screen itself
+   rather than stopping short inside the content margin. */
+.guest-card-rail{
+  --rail-gutter:max(clamp(20px,4vw,48px),calc(50vw - 590px));
+  position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-top:22px;
+}
+.guest-card-rail::before,.guest-card-rail::after{
+  content:"";position:absolute;z-index:4;top:0;bottom:0;
+  width:clamp(78px,13vw,210px);pointer-events:none;opacity:1;
+  transition:opacity .45s ease;
+}
+/* Eased stops rather than a straight ramp: the falloff has no visible seam. */
+.guest-card-rail::before{
+  left:0;
+  background:linear-gradient(90deg,
+    var(--paper) 0%,rgba(255,255,255,.985) 14%,rgba(255,255,255,.93) 30%,
+    rgba(255,255,255,.76) 48%,rgba(255,255,255,.46) 66%,
+    rgba(255,255,255,.17) 84%,rgba(255,255,255,0) 100%);
+}
+.guest-card-rail::after{
+  right:0;
+  background:linear-gradient(270deg,
+    var(--paper) 0%,rgba(255,255,255,.985) 14%,rgba(255,255,255,.93) 30%,
+    rgba(255,255,255,.76) 48%,rgba(255,255,255,.46) 66%,
+    rgba(255,255,255,.17) 84%,rgba(255,255,255,0) 100%);
+}
+.guest-card-rail.is-at-start::before,.guest-card-rail.is-at-end::after{opacity:0}
+.guest-card-grid{
+  display:flex;gap:clamp(22px,2.4vw,34px);overflow-x:auto;overscroll-behavior-inline:contain;
+  padding:2px var(--rail-gutter) 24px;scroll-snap-type:x proximity;
+  scroll-padding-left:var(--rail-gutter);
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.guest-card-grid::-webkit-scrollbar{display:none}
+.guest-card{
+  position:relative;display:flex;flex:0 0 clamp(230px,19vw,290px);flex-direction:column;
+  min-width:0;scroll-snap-align:start;
+  transition:transform .55s cubic-bezier(.2,.6,.2,1);
+}
+.guest-card--feature{flex-basis:clamp(270px,23vw,350px)}
+.guest-card:hover{transform:translateY(-6px)}
+.guest-card-media{
+  position:relative;aspect-ratio:4/5;background:var(--mist);overflow:hidden;
+  box-shadow:0 14px 34px rgba(23,23,27,.06);
+  transition:box-shadow .55s cubic-bezier(.2,.6,.2,1);
+}
+.guest-card:hover .guest-card-media{box-shadow:0 26px 60px rgba(23,23,27,.13)}
+.guest-card-media img{
+  width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;
+  filter:grayscale(1) contrast(1.02);
+  transition:filter .7s ease,transform .9s cubic-bezier(.2,.6,.2,1);
+}
+.guest-card:hover .guest-card-media img{filter:grayscale(0) contrast(1);transform:scale(1.045)}
+/* A hairline that draws itself under the name as the card is hovered. */
+.guest-card-body{position:relative;padding-top:20px}
+.guest-card-meta{display:flex;justify-content:space-between;gap:16px}
+.guest-card-meta span,.guest-card-meta em{
+  font-family:var(--mono);font-size:8.5px;font-style:normal;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(23,23,27,.42);
+}
+.guest-card h3{
+  margin-top:12px;font-family:var(--display);font-weight:600;
+  font-size:clamp(1.4rem,1.8vw,1.75rem);line-height:1.02;
+}
+.guest-card h3::after{
+  content:"";display:block;width:0;height:1px;margin-top:12px;background:var(--carmine);
+  transition:width .55s cubic-bezier(.2,.6,.2,1);
+}
+.guest-card:hover h3::after{width:34px}
+.seminars-hub-page .guest-foot{align-items:end;margin-top:clamp(40px,5vw,60px)}
 .seminars-hub-page .guest-foot .serif-note{
   display:block;max-width:30ch;font-size:clamp(1.2rem,2vw,1.55rem);line-height:1.45;
   color:rgba(23,23,27,.7);
 }
 
 .seminar-host-quote .method-quote-media img{object-position:center 48%;transform:scale(1.03)}
-.seminar-competing .class-arc{margin-top:clamp(58px,7vw,88px)}
-.seminar-competing-photo{margin-top:clamp(64px,8vw,104px)}
-.seminar-competing-photo img{aspect-ratio:16/8.5;object-position:center 52%}
+.seminar-competing .class-arc{margin-top:clamp(28px,3.5vw,44px)}
+.seminar-competing-photo{margin-top:clamp(36px,5vw,64px)}
+.seminar-competing-copy{
+  width:calc((100% - clamp(18px,2.5vw,32px))/2);max-width:55ch;
+  margin:clamp(48px,6vw,80px) 0 0 auto;
+}
+.seminar-competing-photo img{aspect-ratio:3/2;height:auto;object-position:center}
 .seminar-hosting-title{
   margin-top:clamp(22px,3vw,34px);max-width:18ch;
   font-size:clamp(3rem,6vw,5.8rem);line-height:.9;
@@ -3178,8 +3260,16 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 .seminar-hosting-cards a:first-child img{object-position:center 44%}
 .seminar-hosting-cards a:last-child img{object-position:center 48%}
 
-.seminar-journal-links .seminar-section-head{margin-top:clamp(22px,3vw,34px)}
-.seminar-journal-links .seminar-section-head h2{max-width:16ch}
+.seminar-journal-links .seminar-section-head{
+  display:block;margin-top:clamp(22px,3vw,34px);
+}
+.seminar-journal-links .seminar-section-head h2{max-width:none}
+.seminar-journal-links .seminar-section-head>.lead{
+  margin:clamp(24px,3vw,36px) 0 0;max-width:55ch;
+}
+@media (max-width:760px){
+  .seminar-journal-break{display:none}
+}
 .seminar-topic-cards{
   grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,18px);
   margin-top:clamp(54px,7vw,86px);
@@ -3208,9 +3298,9 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
     radial-gradient(100% 90% at 68% 42%,rgba(13,13,17,0) 20%,rgba(13,13,17,.36) 70%,rgba(13,13,17,.66)),
     linear-gradient(180deg,rgba(13,13,17,.72),rgba(13,13,17,.18) 42%,rgba(13,13,17,.94));
 }
-.seminar-events-page .page-hero-media img{object-position:center 46%}
+.seminar-events-page .page-hero-media img{object-position:center 42%}
 .seminar-technique-page .page-hero-media img{object-position:center 58%}
-.seminar-news-page .page-hero-media img{object-position:center 26%}
+.seminar-news-page .page-hero-media img{object-position:center 50%}
 
 .technique-feature .tech-frame{box-shadow:24px 24px 0 rgba(23,23,27,.045)}
 .technique-feature .tech-frame video{aspect-ratio:3/4}
@@ -3266,9 +3356,10 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 @media (max-width:1000px){
   .seminar-section-head{grid-template-columns:1fr;gap:30px;align-items:start}
   .seminar-section-head>.lead{margin:0;max-width:62ch}
-  .seminars-hub-page .guest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .seminars-hub-page .guest,.seminars-hub-page .guest:nth-child(n+4){grid-column:auto}
-  .seminars-hub-page .guest:last-child{grid-column:1/-1;width:calc(50% - 10px)}
+  .guest-rail-toolbar{margin-top:46px}
+  .guest-card-rail{margin-top:14px}
+  .guest-card-grid{gap:16px}
+  .guest-card,.guest-card--feature{flex-basis:min(76vw,320px)}
   .seminar-topic-cards{grid-template-columns:1fr 1fr}
   .seminar-topic-cards a:last-child{grid-column:1/-1;aspect-ratio:16/8}
   .journal-feed{grid-template-columns:1fr}
@@ -3286,7 +3377,8 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   .seminar-hosting-title{font-size:clamp(2.6rem,11vw,4.1rem)}
   .seminar-topic-cards{grid-template-columns:1fr}
   .seminar-topic-cards a,.seminar-topic-cards a:last-child{grid-column:auto;aspect-ratio:4/3}
-  .seminar-competing-photo img{aspect-ratio:5/4}
+  .seminar-competing-photo img{aspect-ratio:3/2}
+  .seminar-competing-copy{width:100%;max-width:none;margin-top:44px}
 }
 
 @media (max-width:620px){
@@ -3295,14 +3387,11 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   .seminars-hub-page .section-index .wrap,.seminar-journal-page .section-index .wrap{gap:16px}
   .seminars-hub-page .section-index a,.seminar-journal-page .section-index a{font-size:8.5px;letter-spacing:.14em}
   .seminar-section-head h2{font-size:clamp(2.5rem,12vw,3.65rem)}
-  .seminars-hub-page .guest-grid{
-    display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;
-    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
-    padding:2px 20px 8px;margin:46px -20px 0;
-  }
-  .seminars-hub-page .guest-grid::-webkit-scrollbar{display:none}
-  .seminars-hub-page .guest,.seminars-hub-page .guest:last-child{flex:0 0 78%;width:auto;scroll-snap-align:center}
-  .seminars-hub-page .guest-photo{box-shadow:none}
+  .guest-rail-toolbar>span{max-width:16ch;line-height:1.6}
+  .guest-rail-controls button{width:38px;height:38px}
+  .guest-card,.guest-card--feature{flex-basis:78%}
+  .guest-card-media,.guest-card:hover .guest-card-media{box-shadow:none}
+  .guest-card-rail::before,.guest-card-rail::after{width:clamp(40px,14vw,80px)}
   .seminars-hub-page .guest-foot{grid-template-columns:1fr}
   .seminar-host-quote .method-quote-media img{object-position:center 54%}
   .journal-card,.journal-card--feature{display:block;padding:24px 0}
@@ -3311,4 +3400,71 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   .journal-card-body,.journal-card--feature .journal-card-body{padding-top:20px}
   .journal-meta{justify-content:flex-start}
   .journal-card--feature h3{font-size:clamp(2.15rem,10vw,3rem)}
+}
+
+/* Event portraits retain their headroom instead of using a centred landscape crop. */
+.seminar-events-page .journal-card img{object-position:center top}
+.seminar-events-page .journal-onward .onward-cards img{object-position:center top}
+@media(max-width:760px){
+  .seminar-events-page .journal-card figure{aspect-ratio:auto}
+  .seminar-events-page .journal-card img,
+  .seminar-events-page .journal-card:hover img{height:auto;transform:none}
+}
+
+/* Shared onward navigation: light, numbered editorial rows. */
+/* A quiet hand-off after the training overview. */
+.onward-nav { scroll-margin-top:100px; }
+.onward-nav .eyebrow { font-weight:400; margin-bottom:clamp(30px,4vw,48px); }
+.onward-nav-list { border-top:1px solid var(--line-ink); }
+.onward-nav-list a {
+  display:grid; grid-template-columns:36px minmax(0,1.05fr) minmax(0,.85fr) 48px;
+  align-items:center; column-gap:clamp(20px,3vw,42px);
+  padding:clamp(30px,4vw,48px) 8px;
+  border-bottom:1px solid var(--line-ink); text-decoration:none;
+  transition:background-color .25s ease;
+}
+.onward-nav-number { font:10px/1.5 var(--mono); color:rgba(23,23,27,.4); align-self:start; padding-top:10px; }
+.onward-nav-list h3 { font-size:clamp(2.5rem,4.6vw,4.1rem); transition:transform .3s ease; }
+.onward-nav-list p { font:italic 500 clamp(1.1rem,1.8vw,1.5rem)/1.45 var(--serif); color:rgba(23,23,27,.65); }
+.onward-nav-arrow { justify-self:end; font:300 38px/1 var(--body); color:rgba(23,23,27,.42); transition:color .25s ease,transform .3s ease; }
+.onward-nav-list a:hover,.onward-nav-list a:focus-visible { background:rgba(23,23,27,.025); }
+.onward-nav-list a:hover h3,.onward-nav-list a:focus-visible h3 { transform:translateX(6px); }
+.onward-nav-list a:hover .onward-nav-arrow,.onward-nav-list a:focus-visible .onward-nav-arrow { color:var(--carmine); transform:translateX(6px); }
+.onward-nav-list a:focus-visible { outline:2px solid var(--ink); outline-offset:5px; }
+@media(max-width:640px) {
+  .onward-nav-list a { grid-template-columns:22px minmax(0,1fr) 30px; column-gap:16px; row-gap:16px; padding:28px 4px 30px; }
+  .onward-nav-number { padding-top:7px; font-size:9px; }
+  .onward-nav-list h3 { font-size:2.65rem; }
+  .onward-nav-list p { grid-column:2; grid-row:2; font-size:1.15rem; }
+  .onward-nav-arrow { grid-column:3; grid-row:1; font-size:30px; }
+  .onward-nav-list a:hover h3,.onward-nav-list a:focus-visible h3 { transform:none; }
+  .onward-nav-list a:hover .onward-nav-arrow,.onward-nav-list a:focus-visible .onward-nav-arrow { transform:translateX(3px); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .onward-nav-list a,.onward-nav-list h3,.onward-nav-arrow { transition:none; }
+  .onward-nav-list a:hover h3,.onward-nav-list a:focus-visible h3,
+  .onward-nav-list a:hover .onward-nav-arrow,.onward-nav-list a:focus-visible .onward-nav-arrow { transform:none; }
+}
+
+.onward-nav-list h3,.onward-nav-list p{min-width:0;overflow-wrap:break-word}
+
+/* Jose's words close the membership value section. */
+.membership-value-quote { margin:clamp(36px,5vw,60px) 0 0; padding-top:clamp(28px,4vw,42px); border-top:1px solid var(--line-ink); }
+.membership-value-quote p { margin-left:auto; text-align:right; max-width:52ch; font:italic 500 clamp(1.5rem,2.5vw,2.2rem)/1.3 var(--serif); color:var(--ink); }
+.membership-value-quote cite { text-align:right; display:block; margin-top:22px; font:400 10px/1.7 var(--mono); letter-spacing:.14em; text-transform:uppercase; }
+.membership-value-quote cite span { color:rgba(23,23,27,.5); margin-left:18px; }
+@media(max-width:520px) { .membership-value-quote cite span { display:block; margin-left:0; margin-top:4px; } }
+
+/* A centred introduction connects the copy to the film below. */
+.membership-value > .wrap > .eyebrow { justify-content:flex-start; }
+.membership-value-intro { display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,7vw,100px); align-items:start; margin:32px 0 0; }
+.membership-value-intro h2 { text-align:left; font-size:clamp(2.7rem,4.6vw,4.3rem); text-wrap:balance; }
+.membership-value-copy { display:grid; grid-template-columns:1fr; gap:18px; max-width:52ch; margin:0; padding-top:4px; }
+.membership-value-copy p { font:400 clamp(15px,1.2vw,17px)/1.75 var(--body); color:rgba(23,23,27,.68); }
+.membership-value .membership-value-clip { margin-top:clamp(36px,5vw,60px); }
+@media(max-width:700px) {
+  .membership-value > .wrap > .eyebrow { font-size:8px; letter-spacing:.16em; gap:10px; }
+  .membership-value-intro { grid-template-columns:1fr; gap:24px; margin-top:24px; }
+  .membership-value-intro h2 { max-width:16ch; margin:0; font-size:3rem; }
+  .membership-value-copy { gap:18px; margin-top:0; max-width:48ch; }
 }

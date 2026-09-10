@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles/site.css">
+<link rel="stylesheet" href="./seminars.css">
 </head>
 <body class="seminars-hub-page">
 
@@ -118,32 +119,52 @@
       <p class="lead reveal">Every seminar is open to all our members. These athletes teach, they roll with the room, and half the time they’re out to dinner with the crew afterwards. Rolling with someone you’ve only ever watched compete, in your own town, is a rare thing. It comes with your membership.</p>
     </div>
 
-    <div class="guest-grid reveal">
-      <article class="guest">
-        <div class="guest-photo"><img src="../assets/seminars/Royce-Gracie.jpg" alt="Royce Gracie with Jose Gomes at the academy" loading="lazy"></div>
-        <h3>Royce Gracie</h3>
-        <p class="guest-cred">UFC Hall of Famer</p>
-      </article>
-      <article class="guest">
-        <div class="guest-photo"><img src="../assets/seminars/Carley-Gracie.jpg" alt="Carley Gracie with Jose Gomes and a Carlson Gracie teammate" loading="lazy"></div>
-        <h3>Carley Gracie</h3>
-        <p class="guest-cred">Gracie family red belt</p>
-      </article>
-      <article class="guest">
-        <div class="guest-photo"><img src="../assets/seminars/Craig-Jones.jpg" alt="Craig Jones with Jose Gomes and a Carlson Gracie teammate" loading="lazy"></div>
-        <h3>Craig Jones</h3>
-        <p class="guest-cred">ADCC medallist</p>
-      </article>
-      <article class="guest">
-        <div class="guest-photo"><img src="../assets/seminars/Clark-Gracie.jpg" alt="Clark Gracie with Jose Gomes and a Carlson Gracie teammate" loading="lazy"></div>
-        <h3>Clark Gracie</h3>
-        <p class="guest-cred">IBJJF world champion</p>
-      </article>
-      <article class="guest">
-        <div class="guest-photo"><img src="../assets/seminars/Cole-Abate-and-Jose.jpg" alt="Cole Abate with Jose Gomes at the academy" loading="lazy"></div>
-        <h3>Cole Abate</h3>
-        <p class="guest-cred">IBJJF world champion</p>
-      </article>
+    <div class="guest-rail-toolbar reveal">
+      <span>Scroll to meet them all</span>
+      <div class="guest-rail-controls" aria-label="Guest carousel controls">
+        <button type="button" data-guest-prev aria-label="Previous guest">&larr;</button>
+        <button type="button" data-guest-next aria-label="Next guest">&rarr;</button>
+      </div>
+    </div>
+
+    <div class="guest-card-rail is-at-start reveal">
+      <div class="guest-card-grid" id="guestRail" tabindex="0" aria-label="Browse the athletes who have taught at Carlson Gracie New Zealand">
+        <article class="guest-card guest-card--feature">
+          <div class="guest-card-media"><img src="../assets/seminars/Royce-Gracie.jpg" alt="Royce Gracie with Jose Gomes at the academy" loading="lazy"></div>
+          <div class="guest-card-body">
+            <div class="guest-card-meta"><span>UFC Hall of Famer</span><em>01</em></div>
+            <h3>Royce Gracie</h3>
+          </div>
+        </article>
+        <article class="guest-card">
+          <div class="guest-card-media"><img src="../assets/seminars/Carley-Gracie.jpg" alt="Carley Gracie with Jose Gomes and a Carlson Gracie teammate" loading="lazy"></div>
+          <div class="guest-card-body">
+            <div class="guest-card-meta"><span>Gracie family red belt</span><em>02</em></div>
+            <h3>Carley Gracie</h3>
+          </div>
+        </article>
+        <article class="guest-card">
+          <div class="guest-card-media"><img src="../assets/seminars/Craig-Jones.jpg" alt="Craig Jones with Jose Gomes and a Carlson Gracie teammate" loading="lazy"></div>
+          <div class="guest-card-body">
+            <div class="guest-card-meta"><span>ADCC medallist</span><em>03</em></div>
+            <h3>Craig Jones</h3>
+          </div>
+        </article>
+        <article class="guest-card">
+          <div class="guest-card-media"><img src="../assets/seminars/Clark-Gracie.jpg" alt="Clark Gracie with Jose Gomes and a Carlson Gracie teammate" loading="lazy"></div>
+          <div class="guest-card-body">
+            <div class="guest-card-meta"><span>IBJJF world champion</span><em>04</em></div>
+            <h3>Clark Gracie</h3>
+          </div>
+        </article>
+        <article class="guest-card">
+          <div class="guest-card-media"><img src="../assets/seminars/Cole-Abate-and-Jose.jpg" alt="Cole Abate with Jose Gomes at the academy" loading="lazy"></div>
+          <div class="guest-card-body">
+            <div class="guest-card-meta"><span>IBJJF world champion</span><em>05</em></div>
+            <h3>Cole Abate</h3>
+          </div>
+        </article>
+      </div>
     </div>
     <div class="guest-foot reveal">
       <p class="guest-note">A few of the athletes who have taught on our mats.</p>
@@ -160,8 +181,8 @@
       <cite class="reveal"><b>Jose Gomes</b><span>Head professor &middot; 3rd degree black belt</span></cite>
     </blockquote>
     <figure class="method-quote-media reveal">
-      <img src="../assets/seminars/Cole-abate-technique.jpg" alt="Cole Abate demonstrating technique during a seminar" loading="lazy">
-      <figcaption>World-class detail, shared on our mats.</figcaption>
+      <img src="../assets/coach-jose.jpg" alt="Jose Gomes in his gi and black belt at the academy" loading="lazy">
+      <figcaption>Jose Gomes · Carlson Gracie New Zealand</figcaption>
     </figure>
   </div>
 </section>
@@ -171,73 +192,73 @@
     <div class="seminar-section-head">
       <div>
         <p class="eyebrow reveal">Tournaments and competing</p>
-        <h2 class="display reveal">None of it feels strange</h2>
+        <h2 class="display reveal">Compete with a team behind you</h2>
       </div>
-      <p class="lead reveal">We’ve run comps to full IBJJF standard around the area for ten years. So when our members step onto a mat in Sydney, Tokyo or Vegas, they’ve seen the set-up and they know the drill. Want to compete? There’s a whole crew who travel and back each other. Don’t want to? No pressure at all.</p>
     </div>
+    <figure class="section-clip section-clip--still seminar-competing-photo reveal">
+      <img src="../assets/competition.jpg" alt="Two jiu-jitsu competitors in white and blue gis grappling in front of spectators" width="1500" height="1000" loading="lazy">
+      <figcaption class="clip-meta"><span>Competition day</span><span>Compete &middot; corner &middot; support</span></figcaption>
+    </figure>
     <div class="class-arc reveal" role="list" aria-label="Ways to be part of competition days">
       <div role="listitem"><span class="n">01</span><b>Compete</b><span class="t">Prepare with a team that knows the process.</span></div>
       <div role="listitem"><span class="n">02</span><b>Corner</b><span class="t">Help a teammate through every round.</span></div>
       <div role="listitem"><span class="n">03</span><b>Support</b><span class="t">Volunteer, learn to referee, or just be there.</span></div>
       <div role="listitem"><span class="n">04</span><b>Train</b><span class="t">Never compete at all. The choice is yours.</span></div>
     </div>
-    <figure class="section-clip section-clip--still seminar-competing-photo reveal">
-      <img src="../assets/seminars/Cole-abate-technique.jpg" alt="Two athletes drilling during a seminar at Carlson Gracie New Zealand" loading="lazy">
-      <figcaption class="clip-meta"><span>On the Queenstown mats</span><span>Learn &middot; drill &middot; compete</span></figcaption>
-    </figure>
+    <p class="lead seminar-competing-copy reveal">We’ve run comps to full IBJJF standard around the area for ten years. So when our members step onto a mat in Sydney, Tokyo or Vegas, they’ve seen the set-up and they know the drill. Want to compete? There’s a whole crew who travel and back each other. Don’t want to? No pressure at all.</p>
   </div>
 </section>
 
-<section class="band band-paper seminar-hosting">
+<section class="band band-paper seminar-hosting" id="hosting" aria-label="Host a seminar or invite Jose">
   <div class="wrap">
-    <p class="eyebrow reveal">Hire us to host</p>
-    <h2 class="display reveal seminar-hosting-title">Two different ways to bring world-class jiu-jitsu into the room</h2>
-    <div class="onward-cards onward-cards--split reveal seminar-hosting-cards">
-      <a href="../contact/">
-        <figure><img src="../assets/seminars/Craig-Jones.jpg" alt="Craig Jones visiting Carlson Gracie New Zealand" loading="lazy"></figure>
-        <div class="oc-body">
-          <span class="q">Bringing a touring athlete to New Zealand? We know how to look after the room and the guest.</span>
-          <h3 class="display">Host with us<span class="arr">&nbsp;&rarr;</span></h3>
+    <div class="seminar-invitations">
+      <a class="seminar-invitation" href="../contact/">
+        <figure><img src="../assets/gutemberg%20pereira%20seminar.jpg" alt="The group gathered on the mats after a guest seminar at the academy" loading="lazy"></figure>
+        <div class="seminar-invitation-copy">
+          <h2 class="display">Host with us <span aria-hidden="true">↗</span></h2>
+          <p>Bring your next seminar to Queenstown.</p>
         </div>
       </a>
-      <a href="../about/seminars-with-jose/">
-        <figure><img src="../assets/jose-coaching.jpg" alt="Jose Gomes teaching a seminar" loading="lazy"></figure>
-        <div class="oc-body">
-          <span class="q">Want thirty years of Carlson Gracie jiu-jitsu taught at your academy?</span>
-          <h3 class="display">Hire Jose<span class="arr">&nbsp;&rarr;</span></h3>
+      <a class="seminar-invitation" href="../about/seminars-with-jose/">
+        <figure><img src="../assets/jose-coaching.jpg" alt="Jose Gomes guiding students through a jiu-jitsu technique" loading="lazy"></figure>
+        <div class="seminar-invitation-copy">
+          <h2 class="display">Invite Jose <span aria-hidden="true">↗</span></h2>
+          <p>Carlson Gracie jiu-jitsu, at your academy.</p>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<section class="band band-mist seminar-journal-links">
+<section class="band band-paper seminar-journal-links" aria-labelledby="seminar-journal-title">
   <div class="wrap">
-    <p class="eyebrow reveal">The blog</p>
-    <div class="seminar-section-head">
-      <h2 class="display reveal">Everything we host, and everything we head off to</h2>
-      <p class="lead reveal">It all gets posted here, so it’s easy to keep up. Browse the journal by Events, Technique or News.</p>
+    <div class="seminar-journal-heading">
+      <div>
+        <p class="seminar-kicker">The journal</p>
+        <h2 class="display" id="seminar-journal-title">Life on the mats.</h2>
+      </div>
+      <p>What we’re learning, where we’re competing,<br> and the people behind it all.</p>
     </div>
-    <div class="onward-cards seminar-topic-cards reveal">
-      <a href="../seminars/events/">
-        <figure><img src="../assets/seminars/Royce-Gracie.jpg" alt="Royce Gracie with Jose Gomes at Carlson Gracie New Zealand" loading="lazy"></figure>
-        <div class="oc-body">
-          <span class="q">Seminars, tournaments, gradings and get-togethers.</span>
-          <h3 class="display">Events<span class="arr">&nbsp;&rarr;</span></h3>
+    <div class="seminar-journal-grid">
+      <a class="seminar-journal-entry" href="../seminars/events/">
+        <figure><img src="../assets/seminars/Royce-Gracie.jpg" alt="Royce Gracie with Jose Gomes at the academy" loading="lazy"></figure>
+        <div class="seminar-journal-caption">
+          <h3 class="display">Events <span aria-hidden="true">↗</span></h3>
+          <p>Seminars, tournaments and getting together.</p>
         </div>
       </a>
-      <a href="../seminars/technique/">
-        <figure><img src="../assets/seminars/Cole-abate-technique.jpg" alt="Technique being demonstrated during a guest seminar" loading="lazy"></figure>
-        <div class="oc-body">
-          <span class="q">Details from the blocks our coaches are teaching now.</span>
-          <h3 class="display">Technique<span class="arr">&nbsp;&rarr;</span></h3>
+      <a class="seminar-journal-entry" href="../seminars/technique/">
+        <figure><img src="../assets/seminars/Cole-abate-technique.jpg" alt="Cole Abate demonstrating a technique during a guest seminar" loading="lazy"></figure>
+        <div class="seminar-journal-caption">
+          <h3 class="display">Technique <span aria-hidden="true">↗</span></h3>
+          <p>The details that make the difference.</p>
         </div>
       </a>
-      <a href="../seminars/news/">
-        <figure><img src="../assets/seminars/Carley-Gracie.jpg" alt="Carlson Gracie teammates gathered after a guest seminar" loading="lazy"></figure>
-        <div class="oc-body">
-          <span class="q">Gradings, results and what is happening across the team.</span>
-          <h3 class="display">News<span class="arr">&nbsp;&rarr;</span></h3>
+      <a class="seminar-journal-entry" href="../seminars/news/">
+        <figure><img src="../assets/news%20hero.jpg" alt="Members lined up together on the academy mats" loading="lazy"></figure>
+        <div class="seminar-journal-caption">
+          <h3 class="display">News <span aria-hidden="true">↗</span></h3>
+          <p>Gradings, results and stories from the team.</p>
         </div>
       </a>
     </div>
@@ -510,6 +531,35 @@
     requestAnimationFrame(progFollow);
   })();
 
+  // Horizontal guest rail: buttons supplement trackpad, wheel-shift and
+  // touch scrolling; edge state keeps the fade only where more cards remain.
+  var guestRail = document.getElementById('guestRail');
+  if (guestRail) {
+    var guestRailShell = guestRail.closest('.guest-card-rail');
+    var guestPrev = document.querySelector('[data-guest-prev]');
+    var guestNext = document.querySelector('[data-guest-next]');
+    var guestMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    function guestRailState(){
+      var atStart = guestRail.scrollLeft <= 2;
+      var atEnd = guestRail.scrollLeft + guestRail.clientWidth >= guestRail.scrollWidth - 2;
+      guestRailShell.classList.toggle('is-at-start', atStart);
+      guestRailShell.classList.toggle('is-at-end', atEnd);
+      if (guestPrev) guestPrev.disabled = atStart;
+      if (guestNext) guestNext.disabled = atEnd;
+    }
+    function guestRailStep(direction){
+      var card = guestRail.querySelector('.guest-card');
+      var gap = parseFloat(getComputedStyle(guestRail).gap) || 0;
+      var distance = card ? card.getBoundingClientRect().width + gap : guestRail.clientWidth * .82;
+      guestRail.scrollBy({left:direction * distance,behavior:guestMotion});
+    }
+    if (guestPrev) guestPrev.addEventListener('click', function(){ guestRailStep(-1); });
+    if (guestNext) guestNext.addEventListener('click', function(){ guestRailStep(1); });
+    guestRail.addEventListener('scroll', guestRailState, {passive:true});
+    window.addEventListener('resize', guestRailState, {passive:true});
+    guestRailState();
+  }
+
   // Sticky offer bar rides along between the hero and the footer
   var stickyCta = document.getElementById('stickyCta');
   if (stickyCta && 'IntersectionObserver' in window) {
@@ -584,5 +634,6 @@
     });
   }
 </script>
+<script type="module" src="../mobile-nav.js"></script>
 </body>
 </html>

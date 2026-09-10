@@ -1,0 +1,6 @@
+/* The shared film hero provides the same scroll sequence as other pages. */
+.queenstown-hero .page-hero-media img{object-position:center 42%}
+.queenstown-hero .qt-tagline{font-size:clamp(25px,2.5vw,38px);color:rgba(255,255,255,.82);margin-top:18px}
+.queenstown-hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
+@media(min-width:961px){.queenstown-hero h1{font-size:clamp(64px,7vw,108px)}}
+@media(max-width:960px){.queenstown-hero .qt-tagline{font-size:25px;margin-top:12px}}

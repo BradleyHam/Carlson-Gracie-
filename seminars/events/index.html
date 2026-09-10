@@ -11,6 +11,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles/site.css">
+<link rel="stylesheet" href="./events.css">
+<script type="module" src="./events.js"></script>
 </head>
 <body class="seminar-journal-page seminar-events-page">
 
@@ -84,7 +86,7 @@
 
 <header class="page-hero page-hero--journal" id="top">
   <div class="ph-stage">
-    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/seminars/Royce-Gracie.jpg" alt=""></div>
+    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/competition.jpg" alt="" width="1500" height="1000"></div>
     <div class="wrap">
       <div class="ph-copy">
         <p class="eyebrow rise r1">The blog</p>
@@ -108,78 +110,147 @@
   </div>
 </div>
 
-<section class="band band-paper journal-feed-section">
+<div class="wrap event-jump-links" aria-label="Browse events">
+  <a href="#featured-event" data-featured-link hidden>Featured event</a>
+  <a href="#upcoming-events">Upcoming events</a>
+  <a href="#past-events">Past events</a>
+</div>
+
+<section class="band band-paper events-feature" id="featured-event" data-featured-event hidden aria-labelledby="featured-title">
   <div class="wrap">
-    <div class="seminar-section-head journal-feed-head">
-      <div>
-        <p class="eyebrow reveal">Tagged Events</p>
-        <h2 class="display reveal">From the mat, as it happens</h2>
+    <p class="eyebrow">Featured event</p>
+    <article class="event-feature-card">
+      <figure class="event-feature-photo"><img alt="" loading="lazy"></figure>
+      <div class="event-feature-copy">
+        <div class="event-feature-top"><span data-category></span><span class="event-example" data-mock>Example event</span></div>
+        <h2 class="display" id="featured-title" data-title></h2>
+        <p data-summary></p>
+        <dl class="event-feature-details">
+          <div><dt>When</dt><dd data-date></dd></div>
+          <div><dt>Where</dt><dd data-location></dd></div>
+          <div><dt>Who</dt><dd data-audience></dd></div>
+        </dl>
+        <div class="event-feature-action"><p data-action></p></div>
       </div>
-      <p class="lead reveal">New seminars, competition days, gradings and the gatherings around them. The newest event story leads, with the full archive below it.</p>
+    </article>
+  </div>
+</section>
+
+<section class="band band-mist events-upcoming" id="upcoming-events" aria-labelledby="upcoming-title">
+  <div class="wrap">
+    <div class="events-heading">
+      <div><p class="eyebrow">On the calendar</p><h2 class="display" id="upcoming-title">Upcoming events</h2></div>
+      <p class="lead">The next chances to learn, compete and get together.</p>
+    </div>
+    <div class="event-upcoming-list" data-upcoming-list></div>
+    <p class="events-empty" data-upcoming-empty>Event announcements will appear here once details are confirmed.</p>
+    <noscript><p>Enable JavaScript to view the event schedule.</p></noscript>
+  </div>
+</section>
+
+<template id="event-row-template">
+  <article class="event-row" tabindex="0">
+    <div class="event-row-date"><b data-date></b><span data-category></span></div>
+    <figure class="event-row-image"><img alt="" loading="lazy"></figure>
+    <div class="event-row-copy"><h3 data-title></h3><p data-summary></p></div>
+    <div class="event-row-location"><span data-location></span><p data-action></p></div>
+  </article>
+</template>
+<template id="past-event-template">
+  <article class="journal-card" data-dated-past>
+    <figure><img alt="" loading="lazy"></figure>
+    <div class="journal-card-body">
+      <div class="journal-meta"><span class="post-tag">Past event</span><span class="post-date" data-date></span></div>
+      <h3 data-title></h3><p data-summary></p><span data-action></span>
+    </div>
+  </article>
+</template>
+
+<section class="band band-paper events-past" id="past-events" aria-labelledby="past-title">
+  <div class="wrap">
+    <div class="events-heading">
+      <div>
+        <p class="eyebrow">From the archive</p>
+        <h2 class="display" id="past-title">Past events</h2>
+      </div>
+      <p class="lead reveal">A look back at the guests, gatherings and days on the mats.</p>
     </div>
 
-    <div class="journal-feed reveal">
-      <article class="journal-card journal-card--feature">
+    <div class="guest-rail-toolbar">
+      <span>Scroll through past events</span>
+      <div class="guest-rail-controls" aria-label="Past event controls">
+        <button type="button" data-past-prev aria-label="Previous past event" aria-controls="pastEventsRail">&larr;</button>
+        <button type="button" data-past-next aria-label="Next past event" aria-controls="pastEventsRail">&rarr;</button>
+      </div>
+    </div>
+    <div class="guest-card-rail events-past-rail is-at-start">
+    <div class="events-past-grid guest-card-grid" id="pastEventsRail" data-past-list tabindex="0" role="region" aria-label="Past events">
+      <article class="journal-card">
         <figure><img src="../../assets/seminars/Royce-Gracie.jpg" alt="Royce Gracie with Jose Gomes at Carlson Gracie New Zealand" loading="lazy"></figure>
         <div class="journal-card-body">
-          <div class="journal-meta"><span class="post-tag">Events</span><span class="post-date">Latest event</span></div>
+          <div class="journal-meta"><span class="post-tag">Events</span><span class="post-date">Archive preview</span></div>
           <h3><span class="cms cms-set">Royce Gracie Rolls Into Queenstown</span></h3>
           <p><span class="cms cms-set">An afternoon with a UFC Hall of Famer, and a queue for photos afterwards.</span></p>
-          <span class="post-more">Read the story &rarr;</span>
+
         </div>
       </article>
       <article class="journal-card">
         <figure><img src="../../assets/seminars/Craig-Jones.jpg" alt="Craig Jones visiting Carlson Gracie New Zealand" loading="lazy"></figure>
         <div class="journal-card-body">
-          <div class="journal-meta"><span class="post-tag">Events</span><span class="post-date">Archive</span></div>
+          <div class="journal-meta"><span class="post-tag">Events</span><span class="post-date">Archive preview</span></div>
           <h3><span class="cms cms-set">Craig Jones Runs a Seminar at the Queenstown Mats</span></h3>
           <p><span class="cms cms-set">A full house for a Saturday of leg locks, Q&amp;A and a lot of tapping.</span></p>
-          <span class="post-more">Read more &rarr;</span>
+
         </div>
       </article>
       <article class="journal-card">
         <figure><img src="../../assets/seminars/Cole-Abate-and-Jose.jpg" alt="Cole Abate with Jose Gomes at Carlson Gracie New Zealand" loading="lazy"></figure>
         <div class="journal-card-body">
-          <div class="journal-meta"><span class="post-tag">Events</span><span class="post-date">Archive</span></div>
+          <div class="journal-meta"><span class="post-tag">Events</span><span class="post-date">Archive preview</span></div>
           <h3><span class="cms cms-set">Cole Abate Drops By Ahead of the Open</span></h3>
           <p><span class="cms cms-set">A quick visit before competition season, and an open mat everyone turned up for.</span></p>
-          <span class="post-more">Read more &rarr;</span>
+
         </div>
       </article>
       <article class="journal-card">
         <figure><img src="../../assets/seminars/Clark-Gracie.jpg" alt="Clark Gracie with Carlson Gracie New Zealand teammates" loading="lazy"></figure>
         <div class="journal-card-body">
-          <div class="journal-meta"><span class="post-tag">Events</span><span class="post-date">Archive</span></div>
+          <div class="journal-meta"><span class="post-tag">Events</span><span class="post-date">Archive preview</span></div>
           <h3><span class="cms cms-set">Clark Gracie Seminar Highlights</span></h3>
           <p><span class="cms cms-set">Technique, questions and a few war stories from an IBJJF world champion.</span></p>
-          <span class="post-more">Read more &rarr;</span>
+
         </div>
       </article>
       <article class="journal-card">
         <figure><img src="../../assets/seminars/Carley-Gracie.jpg" alt="Carley Gracie with Carlson Gracie New Zealand teammates" loading="lazy"></figure>
         <div class="journal-card-body">
-          <div class="journal-meta"><span class="post-tag">Events</span><span class="post-date">Archive</span></div>
+          <div class="journal-meta"><span class="post-tag">Events</span><span class="post-date">Archive preview</span></div>
           <h3><span class="cms cms-set">Carley Gracie on the Family, the Belt and the Mats</span></h3>
           <p><span class="cms cms-set">A rare afternoon with one of the sport's own pioneers.</span></p>
-          <span class="post-more">Read more &rarr;</span>
+
         </div>
       </article>
     </div>
+    </div>
+    <p class="events-archive-note">Archive preview: these story summaries are draft examples awaiting confirmation.</p>
   </div>
 </section>
 
-<section class="band band-mist journal-onward">
+<section class="band band-paper onward-nav" id="where-next" aria-labelledby="where-next-title">
   <div class="wrap">
-    <p class="eyebrow reveal">Onward</p>
-    <h2 class="display reveal journal-onward-title">Keep exploring</h2>
-    <div class="onward-cards reveal">
+    <h2 class="eyebrow reveal" id="where-next-title">Where next</h2>
+    <div class="onward-nav-list">
       <a href="../../seminars/">
-        <figure><img src="../../assets/seminars/Cole-Abate-and-Jose.jpg" alt="Cole Abate with Jose Gomes after a seminar" loading="lazy"></figure>
-        <div class="oc-body"><span class="q">Meet the world-class guests who have taught here.</span><h3 class="display">Seminars<span class="arr">&nbsp;&rarr;</span></h3></div>
+        <span class="onward-nav-number" aria-hidden="true">01</span>
+        <h3 class="display">Seminars</h3>
+        <p>Meet the world-class guests who have taught here.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
       <a href="../../membership/">
-        <figure><img src="../../assets/finding-your-people.jpg" alt="Members training together at Carlson Gracie New Zealand" loading="lazy"></figure>
-        <div class="oc-body"><span class="q">Every member is welcome when a guest steps onto our mats.</span><h3 class="display">Membership<span class="arr">&nbsp;&rarr;</span></h3></div>
+        <span class="onward-nav-number" aria-hidden="true">02</span>
+        <h3 class="display">Membership</h3>
+        <p>Every member is welcome when a guest steps onto our mats.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -522,5 +593,6 @@
     });
   }
 </script>
+<script type="module" src="../../mobile-nav.js"></script>
 </body>
 </html>

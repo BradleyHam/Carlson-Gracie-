@@ -117,14 +117,15 @@
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="band band-paper onward-nav" id="where-next" aria-labelledby="where-next-title">
   <div class="wrap">
-    <p class="eyebrow reveal">Onward</p>
-    <h2 class="display reveal" style="font-size:clamp(2rem,4.6vw,3.4rem)">Where next</h2>
-    <div class="onward-list reveal">
+    <h2 class="eyebrow reveal" id="where-next-title">Where next</h2>
+    <div class="onward-nav-list">
       <a href="../training/">
-        <span class="q">Back to the mats.</span>
-        <span class="go">Training &rarr;</span>
+        <span class="onward-nav-number" aria-hidden="true">01</span>
+        <h3 class="display">Training</h3>
+        <p>Back to the mats.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -453,5 +454,6 @@
     });
   }
 </script>
+<script type="module" src="../mobile-nav.js"></script>
 </body>
 </html>

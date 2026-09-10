@@ -6,13 +6,14 @@
 <title>Class Timetable | Carlson Gracie BJJ Queenstown</title>
 <meta name="description" content="The weekly class schedule at Carlson Gracie New Zealand. Morning, midday and evening jiu-jitsu classes, seven days a week in Queenstown.">
 <link rel="icon" type="image/png" href="../../assets/cg-webclip.png">
-<meta name="theme-color" content="#17171b">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles/site.css">
+<link rel="stylesheet" href="./timetable.css">
 </head>
-<body>
+<body class="timetable-page">
 
 <!-- Belt scroll progress: the page is the journey, white belt to black -->
 <div class="belt" aria-hidden="true">
@@ -21,7 +22,7 @@
 <div class="belt-cover" id="beltCover" aria-hidden="true"></div>
 <div class="belt-label" id="beltLabel" aria-hidden="true">White belt</div>
 
-<nav>
+<nav class="is-solid">
   <a class="wordmark" href="../../" aria-label="Carlson Gracie NZ home"><img class="wordmark-badge" src="../../assets/cg-logo.png" alt="Carlson Gracie Jiu Jitsu New Zealand"></a>
   <ul class="nav-links">
     <li class="has-sub"><a class="is-here" href="../../training/">Training</a>
@@ -82,16 +83,12 @@
   </ul>
 </nav>
 
-<header class="page-hero" id="top">
-  <div class="ph-stage">
-    <div class="wrap">
-      <div class="ph-copy">
-        <p class="eyebrow rise r1">Class timetable</p>
-        <h1 class="display rise r2">On the mats seven days a week</h1>
-      </div>
-      <div class="ph-side">
-      <p class="lead rise r3">A class before work, a quick one at lunch, or a session after the kids are down. Hospitality hours, shift work, working from home, we’ve built the week around a Queenstown life. Pick the times that suit you and just show up.</p>
-      </div>
+<header class="timetable-intro" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Queenstown HQ</p>
+    <div class="timetable-heading">
+      <h1 class="display">Class timetable</h1>
+      <p>Make room for the mats.<br> Find a class that fits your week.</p>
     </div>
   </div>
 </header>
@@ -109,20 +106,16 @@
   </div>
 </div>
 
-<section class="band band-mist">
+<section class="band band-paper timetable-schedule" aria-label="Weekly class schedule at Queenstown HQ">
   <div class="wrap">
-    <p class="eyebrow reveal">The live schedule</p>
-    <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem);max-width:18ch">The app always holds the real version</h2>
-    <p class="lead reveal" style="margin-top:26px">Times shift a little around holidays and gradings, so the app always holds the real version. Grab it, set your reminders, and you’ll never miss a roll.</p>
-
-    <div class="tt-legend reveal">
+    <div class="tt-legend">
       <span><i style="background:var(--belt-white)"></i>Fundamentals</span>
       <span><i style="background:var(--belt-blue)"></i>All levels</span>
       <span><i style="background:var(--belt-black)"></i>No-Gi</span>
       <span><i style="background:var(--belt-purple)"></i>Kids</span>
       <span><i style="background:var(--belt-brown)"></i>Open mat</span>
     </div>
-    <div class="tt-grid reveal">
+    <div class="tt-grid">
       <div class="tt-col" data-day="1">
         <h3>Mon <span class="today-tag">Today</span></h3>
         <div class="tt-class c-kids"><span class="t">4:30 pm</span><span class="n">Kids</span><span class="l">Ages 5&ndash;12</span></div>
@@ -154,32 +147,43 @@
         <div class="tt-class c-open"><span class="t">10:00 am</span><span class="n">Open mat</span><span class="l">Everyone welcome</span></div>
       </div>
     </div>
-    <p class="tt-note">Queenstown HQ times shown. Times can shift around holidays and gradings, so the app always holds the real version.</p>
-    <p class="dir-note">CMS note: embed the live timetable from the booking app here, filterable by class type and location.</p>
+    <p class="tt-note">Queenstown HQ times shown.</p>
+
+    <div class="timetable-context">
+      <h2 class="display">On the mats seven days a week</h2>
+      <div class="timetable-context-copy">
+        <p>A class before work, a quick one at lunch, or a session after the kids are down. Hospitality hours, shift work, working from home, we’ve built the week around a Queenstown life. Pick the times that suit you and just show up.</p>
+        <p>Times shift a little around holidays and gradings, so the app always holds the real version. Grab it, set your reminders, and you’ll never miss a roll.</p>
+      </div>
+    </div>
 
     <div class="cta-row reveal">
-      <a class="btn btn-solid" href="#" title="Link the booking app here">Live timetable in the app <span class="cms">[app link]</span></a>
+      <a class="btn btn-ghost" href="../../membership/app/">Explore the members app <span aria-hidden="true">→</span></a>
       <a class="btn btn-ghost" href="../../membership/trial/">Book a free trial</a>
     </div>
+
+    <figure class="timetable-class-photo">
+      <img src="../../assets/community.jpg" alt="Members watching a jiu-jitsu demonstration together on the Queenstown academy mats" loading="lazy">
+      <figcaption>On the mats at Queenstown HQ</figcaption>
+    </figure>
   </div>
 </section>
 
-<section class="band band-paper">
+<section class="band band-paper onward-nav" id="where-next" aria-labelledby="where-next-title">
   <div class="wrap">
-    <div class="onward-cards onward-cards--split reveal">
+    <h2 class="eyebrow reveal" id="where-next-title">Where next</h2>
+    <div class="onward-nav-list">
       <a href="../../training/beginners/">
-        <figure><img src="../../assets/fundamentals.jpg" alt="Two students drilling takedowns in a fundamentals class under the Carlson Gracie New Zealand banner" style="object-position:center 24%" loading="lazy"></figure>
-        <div class="oc-body">
-          <span class="q">Brand new, look for the beginners and fundamentals classes. That’s your front door, and you’ll never be thrown in the deep end.</span>
-          <h3 class="display">Beginners classes<span class="arr">&nbsp;&rarr;</span></h3>
-        </div>
+        <span class="onward-nav-number" aria-hidden="true">01</span>
+        <h3 class="display">Beginners classes</h3>
+        <p>Brand new, look for the beginners and fundamentals classes. That’s your front door, and you’ll never be thrown in the deep end.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
       <a href="../../membership/start-here/">
-        <figure><img src="../../assets/community.jpg" alt="Jose laughing mid-roll while the whole class watches from the edge of the mats" loading="lazy"></figure>
-        <div class="oc-body">
-          <span class="q">Not sure what to expect on day one?</span>
-          <h3 class="display">Start here<span class="arr">&nbsp;&rarr;</span></h3>
-        </div>
+        <span class="onward-nav-number" aria-hidden="true">02</span>
+        <h3 class="display">Start here</h3>
+        <p>Not sure what to expect on day one?</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -276,13 +280,10 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 
-  // Nav condenses once the hero is behind you
+  // Keep the navigation light above the schedule
   var navEl = document.querySelector('nav');
-  var heroForNav = document.getElementById('top');
   function navState(){
-    var y = window.scrollY;
-    var edge = heroForNav ? Math.max(60, heroForNav.offsetHeight - 90) : 60;
-    var solid = y > edge;
+    var solid = true; // This page uses the light navigation from the first frame.
     navEl.classList.toggle('is-solid', solid);
     document.body.classList.toggle('is-scrolled', solid);
   }
@@ -525,5 +526,6 @@
     });
   }
 </script>
+<script type="module" src="../../mobile-nav.js"></script>
 </body>
 </html>

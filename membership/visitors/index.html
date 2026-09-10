@@ -173,18 +173,21 @@
   </div>
 </section>
 
-<section class="band band-paper band--close-top visitor-onward">
+<section class="band band-paper onward-nav band--close-top" id="where-next" aria-labelledby="where-next-title">
   <div class="wrap">
-    <p class="eyebrow reveal">Onward</p>
-    <h2 class="display reveal">Where next</h2>
-    <div class="onward-cards onward-cards--split reveal">
+    <h2 class="eyebrow reveal" id="where-next-title">Where next</h2>
+    <div class="onward-nav-list">
       <a href="../../training/timetable/">
-        <figure><img src="../../assets/training.jpg" alt="A live class training on the Queenstown mats" loading="lazy"></figure>
-        <div class="oc-body"><span class="q">Choose the sessions that fit your time in town.</span><h3 class="display">Timetable<span class="arr">&nbsp;&rarr;</span></h3></div>
+        <span class="onward-nav-number" aria-hidden="true">01</span>
+        <h3 class="display">Timetable</h3>
+        <p>Choose the sessions that fit your time in town.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
       <a href="../../membership/">
-        <figure><img src="../../assets/culture.jpg" alt="Carlson Gracie members and their families together beside the mats" loading="lazy"></figure>
-        <div class="oc-body"><span class="q">Staying longer? A membership may work out better.</span><h3 class="display">Membership<span class="arr">&nbsp;&rarr;</span></h3></div>
+        <span class="onward-nav-number" aria-hidden="true">02</span>
+        <h3 class="display">Membership</h3>
+        <p>Staying longer? A membership may work out better.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -530,5 +533,6 @@
     });
   }
 </script>
+<script type="module" src="../../mobile-nav.js"></script>
 </body>
 </html>

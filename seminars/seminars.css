@@ -1,0 +1,51 @@
+/* Seminars hub: invitations and journal. */
+.seminars-hub-page .seminar-hosting { padding-block:clamp(56px,7vw,100px) 0; }
+.seminar-invitations { display:grid; grid-template-columns:1.35fr 1fr; gap:24px; }
+.seminar-invitation { position:relative; display:block; min-width:0; height:clamp(340px,32vw,460px); overflow:hidden; background:var(--ink); color:white; text-decoration:none; }
+.seminar-invitation figure { position:absolute; inset:0; margin:0; }
+.seminar-invitation img { width:100%; height:100%; object-fit:cover; object-position:center 45%; filter:saturate(.55); transition:transform .7s ease,filter .5s ease; }
+.seminar-invitation:last-child img { object-position:48% center; }
+.seminar-invitation::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 35%,rgba(10,10,14,.12) 50%,rgba(10,10,14,.87) 100%); }
+.seminar-invitation-copy { position:absolute; z-index:1; inset:auto 0 0; padding:clamp(24px,3vw,40px); }
+.seminar-invitation h2 { display:flex; justify-content:space-between; align-items:center; gap:20px; font-size:clamp(2.6rem,4vw,4rem); line-height:1; }
+.seminar-invitation h2 span { font-family:var(--body); font-size:.55em; font-weight:300; }
+.seminar-invitation p { margin-top:14px; font-size:14px; color:rgba(255,255,255,.85); line-height:1.5; }
+.seminar-invitation:hover img,.seminar-invitation:focus-visible img { transform:scale(1.025); filter:saturate(1); }
+.seminar-invitation:focus-visible { outline:3px solid var(--carmine); outline-offset:5px; }
+.seminars-hub-page .seminar-journal-links { padding-block:clamp(60px,7vw,100px) clamp(70px,8vw,120px); }
+.seminar-journal-heading { display:flex; justify-content:space-between; align-items:end; gap:32px; padding-top:32px; border-top:1px solid var(--line-ink); margin-bottom:36px; }
+.seminar-kicker { font:10px/1.4 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:#68686d; margin-bottom:18px; }
+.seminar-journal-heading h2 { font-size:clamp(3rem,5vw,4.5rem); line-height:1; }
+.seminar-journal-heading>p { font-size:15px; line-height:1.7; color:#626269; max-width:38ch; padding-bottom:3px; }
+.seminar-journal-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; }
+.seminar-journal-entry { display:block; text-decoration:none; min-width:0; }
+.seminar-journal-entry figure { margin:0; aspect-ratio:4/3; overflow:hidden; background:var(--mist); }
+.seminar-journal-entry img { width:100%; height:100%; object-fit:cover; filter:grayscale(1); transition:transform .7s ease,filter .5s ease; }
+.seminar-journal-entry:first-child img { object-position:center 30%; }
+.seminar-journal-entry:nth-child(2) img { object-position:center 58%; }
+.seminar-journal-entry:last-child img { object-position:center 45%; }
+.seminar-journal-caption { padding:22px 0 24px; border-bottom:1px solid var(--line-ink); }
+.seminar-journal-caption h3 { display:flex; align-items:center; justify-content:space-between; gap:16px; font-size:clamp(2rem,2.8vw,2.8rem); line-height:1; }
+.seminar-journal-caption h3 span { color:var(--carmine); font:300 24px/1 var(--body); transition:transform .25s ease; }
+.seminar-journal-caption p { margin-top:12px; color:#626269; font-size:13px; line-height:1.6; }
+.seminar-journal-entry:hover img,.seminar-journal-entry:focus-visible img { filter:grayscale(0); transform:scale(1.025); }
+.seminar-journal-entry:hover h3 span,.seminar-journal-entry:focus-visible h3 span { transform:translate(2px,-2px); }
+@media (max-width:900px) {
+  .seminar-invitations { grid-template-columns:1fr 1fr; gap:18px; }
+  .seminar-journal-grid { gap:20px; }
+  .seminar-invitation-copy { padding:24px; }
+}
+@media (max-width:620px) {
+  .seminar-invitations { grid-template-columns:1fr; gap:20px; }
+  .seminar-invitation { height:auto; aspect-ratio:1.1; }
+  .seminar-invitation:first-child img { object-position:58% center; }
+  .seminar-journal-heading { display:block; padding-top:26px; margin-bottom:28px; }
+  .seminar-journal-heading>p { margin-top:22px; }
+  .seminar-journal-heading br { display:none; }
+  .seminar-journal-grid { grid-template-columns:1fr; gap:32px; }
+  .seminar-journal-entry figure { aspect-ratio:4/3; }
+  .seminar-journal-caption { padding-top:18px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .seminar-invitation img,.seminar-journal-entry img,.seminar-journal-caption h3 span { transition:none; }
+}

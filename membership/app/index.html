@@ -11,8 +11,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles/site.css">
+<link rel="stylesheet" href="../../styles/app-preview.css">
+<link rel="stylesheet" href="./app.css">
 </head>
-<body>
+<body class="members-app-page">
 
 <!-- Belt scroll progress: the page is the journey, white belt to black -->
 <div class="belt" aria-hidden="true">
@@ -82,18 +84,20 @@
   </ul>
 </nav>
 
-<header class="page-hero page-hero--film" id="top">
-  <div class="ph-stage">
-    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/all-levels.jpg" alt="Training at the academy, continued in the app"></div>
-    <div class="wrap">
-      <div class="ph-copy">
-        <p class="eyebrow rise r1">Members app</p>
-        <h1 class="display rise r2">Every day is a school day</h1>
-      </div>
-      <div class="ph-side">
-      <p class="lead rise r3">Your membership comes with our online tutorial library, and it’s not just a pile of random videos. It’s the exact stuff we’re drilling in the gym right now, filmed by our own coaches.</p>
-      </div>
+<header class="app-hero" id="top">
+  <div class="wrap">
+    <div class="app-hero-copy">
+      <p class="eyebrow">Members app</p>
+      <h1 class="display">Your academy. <span>Anywhere.</span></h1>
+      <p class="lead app-hero-lead">The details from class, ready when you are.<br> Keep learning with the coaches who know your game.</p>
+      <a class="btn btn-red app-hero-link" href="#library">Explore the library <span aria-hidden="true">→</span></a>
     </div>
+    <figure class="app-product" id="app-preview">
+      <div class="app-product-note app-product-note--left"><span class="app-kicker">Your coaches</span><p>Taught on our mats.<br>Made to revisit.</p></div>
+      <div class="app-device" data-scroll-device><img src="../../assets/app-content.png" width="520" height="1131" alt="The Carlson Gracie members app showing the technique library" fetchpriority="high"></div>
+      <div class="app-product-note app-product-note--right"><span class="app-kicker">Your membership</span><p>The library comes<br> with being part of the team.</p><a class="app-text-link" href="#app-access">Get app access <span aria-hidden="true">↗</span></a></div>
+      <figcaption>The techniques. The timetable. The team.</figcaption>
+    </figure>
   </div>
 </header>
 
@@ -108,54 +112,57 @@
   </div>
 </div>
 
-<section class="band band-paper">
+<section class="band band-paper app-library" id="library">
   <div class="wrap">
 
     <div class="tech-grid">
-      <div class="tech-copy">
-        <p class="eyebrow reveal">Why that matters</p>
-        <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem);max-width:14ch">Only what we teach, the way we teach it</h2>
-        <p class="lead reveal">Go looking on YouTube and you’ll find five people teaching the same move five different ways, and end up more confused than when you started. Our library only shows you what we teach, the way we teach it. Get a head start on next week’s block. Turn ten spare minutes into better jiu-jitsu.</p>
-      </div>
       <div class="tech-player reveal">
         <div class="tech-frame">
-          <video src="../../assets/technique.mp4" poster="../../assets/technique-poster.jpg" controls muted loop playsinline preload="metadata"></video>
-          <img class="tech-app" src="../../assets/app-content.png" alt="The members’ content library in the app" loading="lazy">
+          <div class="app-video-surface">
+            <video id="app-lesson" src="../../assets/technique.mp4" poster="../../assets/technique-poster.jpg" controls autoplay muted loop playsinline preload="metadata" aria-label="Berimbolo technique demonstration"></video>
+            <div class="app-video-controls" hidden>
+              <button type="button" data-video-play aria-label="Pause lesson">Pause <span aria-hidden="true">Ⅱ</span></button>
+              <button type="button" data-video-sound aria-label="Turn sound on">Sound off <span aria-hidden="true">♪</span></button>
+            </div>
+          </div>
           <div class="tech-meta"><span>Sample from the members’ library</span><span>Berimbolo &middot; 0:15</span></div>
         </div>
       </div>
+      <div class="tech-copy">
+        <p class="eyebrow reveal">The members’ library</p>
+        <h2 class="display reveal">Same coaches.<br>Your own pace.</h2>
+        <p class="lead reveal">Missed a detail in class? Watch it again. Our own coaches film the techniques we’re working on, so everything connects to your training.<br><br>Revisit a tricky transition or get a head start on the next block. Ten spare minutes, well spent.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="band band-mist">
+<section class="band band-mist app-overview" aria-labelledby="app-features-title">
   <div class="wrap">
-    <p class="eyebrow reveal">All in your pocket</p>
-    <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem);max-width:18ch">Everything you need to keep improving</h2>
-    <p class="lead reveal" style="margin-top:26px">Techniques, the timetable, updates, the lot. Everything you need to keep improving between sessions.</p>
-
-    <figure class="trial-quote reveal">
+    <div class="app-overview-head">
+      <p class="eyebrow">Between sessions</p>
+      <h2 class="display" id="app-features-title">A little closer<br>to your training.</h2>
+      <p class="lead">Everything you need to stay connected, until you’re back on the mats.</p>
+    </div>
+    <div class="app-benefits">
+      <article><span class="n">01</span><h3>The detail, on demand</h3><p>Revisit the techniques we’re drilling in the gym, filmed by your own coaches.</p></article>
+      <article><span class="n">02</span><h3>Your next session</h3><p>Keep the timetable close and make room for your next class.</p></article>
+      <article><span class="n">03</span><h3>Stay in the loop</h3><p>Team updates, alongside the training you’re working on.</p></article>
+    </div>
+    <div class="app-access" id="app-access"><div><h3>Already part of the team?</h3><p>Ask us for the app link and a hand getting set up.</p></div><a class="btn btn-ghost" href="../../contact/">Get app access <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+<section class="method-quote app-professor-quote" data-quote-index="04">
+  <div class="wrap">
+    <blockquote class="method-quote-copy">
+      <p class="eyebrow reveal">In Jose’s words</p>
       <p>&ldquo;It’s the stuff we actually do in the gym. Focus on that and get good at it. You don’t need to study everything out there.&rdquo;</p>
-      <cite>Jose Gomes, head professor</cite>
+      <cite class="reveal"><b>Jose Gomes</b><span>Head professor &middot; 3rd degree black belt</span></cite>
+    </blockquote>
+    <figure class="method-quote-media reveal">
+      <img src="../../assets/coach-jose.jpg" alt="Jose Gomes, head professor at Carlson Gracie New Zealand" loading="lazy">
+      <figcaption>From our mats to yours.</figcaption>
     </figure>
-
-    <div class="cta-row reveal">
-      <a class="btn btn-solid" href="#" title="Link the App Store listing here">App Store <span class="cms">[link]</span></a>
-      <a class="btn btn-ghost" href="#" title="Link the Google Play listing here">Google Play <span class="cms">[link]</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="band band-mist">
-  <div class="wrap">
-    <p class="eyebrow reveal">Onward</p>
-    <h2 class="display reveal" style="font-size:clamp(2rem,4.6vw,3.4rem)">Where next</h2>
-    <div class="onward-list reveal">
-      <a href="../../membership/">
-        <span class="q">Not a member yet? Here’s how it works.</span>
-        <span class="go">Membership &rarr;</span>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -167,12 +174,10 @@
     <span class="serif-note reveal">Start with a free class. It just might change your life.</span>
     <div class="cta-row reveal">
       <a class="btn btn-red" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a>
+      <a class="app-membership-link" href="../../membership/">Explore memberships <span aria-hidden="true">→</span></a>
     </div>
     <p class="cta-proof reveal"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp; 5.0 from 161 Google reviews</p>
    </div>
-   <figure class="cta-media reveal">
-     <img src="../../assets/finding-your-people.jpg" alt="Members training together on the mats at Carlson Gracie New Zealand" loading="lazy">
-   </figure>
   </div>
 </section>
 
@@ -493,11 +498,15 @@
         const id = a.getAttribute('href');
         if (id.length > 1 && document.querySelector(id)) {
           e.preventDefault();
-          lenis.scrollTo(id, {offset:-40});
+          const target = document.querySelector(id);
+          const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+          lenis.scrollTo(window.scrollY + target.getBoundingClientRect().top - margin);
         }
       });
     });
   }
 </script>
+<script type="module" src="./app.js"></script>
+<script type="module" src="../../mobile-nav.js"></script>
 </body>
 </html>

@@ -11,6 +11,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles/site.css">
+<link rel="stylesheet" href="../../styles/app-preview.css">
+<script type="module" src="./video.js"></script>
 </head>
 <body class="seminar-journal-page seminar-technique-page">
 
@@ -84,7 +86,7 @@
 
 <header class="page-hero page-hero--journal" id="top">
   <div class="ph-stage">
-    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/seminars/Cole-abate-technique.jpg" alt=""></div>
+    <div class="page-hero-media" aria-hidden="true"><img src="../../assets/about-hero.jpeg" alt=""></div>
     <div class="wrap">
       <div class="ph-copy">
         <p class="eyebrow rise r1">The blog</p>
@@ -188,18 +190,21 @@
   </div>
 </section>
 
-<section class="band band-paper journal-onward">
+<section class="band band-paper onward-nav" id="where-next" aria-labelledby="where-next-title">
   <div class="wrap">
-    <p class="eyebrow reveal">Onward</p>
-    <h2 class="display reveal journal-onward-title">Keep exploring</h2>
-    <div class="onward-cards reveal">
+    <h2 class="eyebrow reveal" id="where-next-title">Where next</h2>
+    <div class="onward-nav-list">
       <a href="../../seminars/">
-        <figure><img src="../../assets/seminars/Cole-Abate-and-Jose.jpg" alt="Cole Abate with Jose Gomes after a seminar" loading="lazy"></figure>
-        <div class="oc-body"><span class="q">Meet the guests who have taught on our mats.</span><h3 class="display">Seminars<span class="arr">&nbsp;&rarr;</span></h3></div>
+        <span class="onward-nav-number" aria-hidden="true">01</span>
+        <h3 class="display">Seminars</h3>
+        <p>Meet the guests who have taught on our mats.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
       <a href="../../membership/app/">
-        <figure><img src="../../assets/app-content.png" alt="Technique library inside the Carlson Gracie members app" loading="lazy"></figure>
-        <div class="oc-body"><span class="q">Timetables, technique and updates in one place.</span><h3 class="display">Members app<span class="arr">&nbsp;&rarr;</span></h3></div>
+        <span class="onward-nav-number" aria-hidden="true">02</span>
+        <h3 class="display">Members app</h3>
+        <p>Timetables, technique and updates in one place.</p>
+        <span class="onward-nav-arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -540,5 +545,6 @@
     });
   }
 </script>
+<script type="module" src="../../mobile-nav.js"></script>
 </body>
 </html>
