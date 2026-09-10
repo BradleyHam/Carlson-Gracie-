@@ -1194,6 +1194,10 @@
     .nav-drop a:nth-of-type(7){--d:.28s}
   }
 
+@media(max-width:640px){
+  .legacy-family{display:none}
+  .hero .cta-row{margin-top:4px}
+}
 </style>
 </head>
 <body>
@@ -2190,5 +2194,16 @@
 </script>
 <script type="module" src="./program-previews.js"></script>
 <script type="module" src="./mobile-nav.js"></script>
+<script>
+(() => {
+  const note = document.querySelector('.faq-aside');
+  const head = document.querySelector('.faq-head');
+  const wrap = document.querySelector('.faq-wrap');
+  const mobile = matchMedia('(max-width:900px)');
+  function placeNote(){ (mobile.matches ? wrap : head).append(note); }
+  mobile.addEventListener('change', placeNote);
+  placeNote();
+})();
+</script>
 </body>
 </html>

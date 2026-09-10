@@ -37,3 +37,8 @@
 }
 @media(max-width:380px) { .mobile-menu-header { padding-inline:20px; } .mobile-menu-scroll { padding-inline:20px; } .mobile-menu-actions { grid-template-columns:1fr; } body > nav .nav-links { margin-right:14px; } }
 @media(prefers-reduced-motion:no-preference) { .mobile-menu[open] .mobile-menu-nav { animation:mobile-menu-enter .22s ease-out both; } @keyframes mobile-menu-enter { from {opacity:0;transform:translateY(8px)} to {opacity:1;transform:none} } }
+
+/* Touch focus stays quiet; keyboard users retain a clear neutral indicator. */
+.mobile-menu .mobile-menu-close:focus{outline:none}
+.mobile-menu .mobile-menu-close:focus-visible{outline:1px solid var(--ink);outline-offset:4px}
+@media(hover:none){.mobile-menu .mobile-menu-close:focus-visible{outline:none}}

@@ -34,6 +34,29 @@ if (header && links) {
     if (isCurrent(source)) a.setAttribute('aria-current', 'page');
     return a;
   };
+  const groupStates = new Map();
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  function animateGroup(group, expand) {
+    const state = groupStates.get(group);
+    const start = group.getBoundingClientRect().height;
+    state.animation?.cancel();
+    state.expanded = expand;
+    group.style.height = '';
+    group.style.overflow = 'hidden';
+    group.open = true;
+    const end = expand ? group.getBoundingClientRect().height : group.querySelector('summary').getBoundingClientRect().height + 1;
+    const finish = () => {
+      group.open = expand;
+      group.style.height = '';
+      group.style.overflow = '';
+      state.animation = null;
+    };
+    if (reduceMotion.matches) { finish(); return; }
+    state.animation = group.animate([{height:start + 'px'}, {height:end + 'px'}], {
+      duration:420, easing:'cubic-bezier(.22,1,.36,1)', fill:'both'
+    });
+    state.animation.onfinish = () => { state.animation.cancel(); finish(); };
+  }
   for (const item of links.children) {
     if (item.classList.contains('keep')) continue;
     const top = item.querySelector(':scope > a');
@@ -49,8 +72,14 @@ if (header && links) {
       children.className = 'mobile-menu-children';
       sublinks.forEach(a => children.append(cleanLink(a)));
       group.append(summary, children);
-      group.addEventListener('toggle', () => {
-        if (group.open) navigation.querySelectorAll('details').forEach(other => { if (other !== group) other.open = false; });
+      groupStates.set(group, { expanded:false, animation:null });
+      summary.addEventListener('click', event => {
+        event.preventDefault();
+        const expand = !groupStates.get(group).expanded;
+        if (expand) groupStates.forEach((state, other) => {
+          if (other !== group && state.expanded) animateGroup(other, false);
+        });
+        animateGroup(group, expand);
       });
       navigation.append(group);
     } else {
