@@ -3515,3 +3515,18 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   .legacy-opening .legacy-thesis{display:block;margin-bottom:14px;font-size:24px;line-height:1.25;font-weight:600;letter-spacing:-.02em}
   .legacy-opening .voice-statement .w{opacity:1}
 }
+
+.roster-controls{display:none}
+@media(max-width:640px){
+  .roster-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:28px}
+  .roster-controls>span{font:12px/1.5 var(--body);color:#626269}
+  .roster-controls>div{display:flex;gap:8px}
+  .roster-controls button{width:44px;height:44px;border:1px solid var(--line-ink);background:transparent;color:var(--ink);font:24px/1 var(--body);cursor:pointer}
+  .roster-controls button:disabled{opacity:.3;cursor:default}
+  .roster-grid{display:flex;gap:16px;margin-top:16px;margin-right:-20px;padding:0 20px 8px 0;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent)}
+  .roster-grid::-webkit-scrollbar{display:none}
+  .roster-grid.at-end{mask-image:none}
+  .roster-grid .coach{flex:0 0 84%;min-width:0;scroll-snap-align:start;opacity:1;transition:none}
+  .roster-grid .coach-photo{aspect-ratio:4/5}
+  .roster-grid:focus-visible,.roster-controls button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+}

@@ -142,9 +142,10 @@
   <div class="wrap">
     <p class="eyebrow reveal">The roster</p>
     <h2 class="display reveal" style="font-size:clamp(2.2rem,5.4vw,4rem)">Your coaches</h2>
-    <p class="lead reveal" style="margin-top:26px">Bios are finalised in the CMS. Add and remove coaches freely, same format.</p>
+    <p class="lead reveal" style="margin-top:26px">Meet the people who will guide you on the mats.</p>
 
-    <div class="roster-grid reveal">
+    <div class="roster-controls"><span>Swipe to meet the team</span><div><button type="button" data-roster-prev aria-label="Previous coach" aria-controls="coach-roster">←</button><button type="button" data-roster-next aria-label="Next coach" aria-controls="coach-roster">→</button></div></div>
+    <div class="roster-grid reveal" id="coach-roster" role="region" aria-label="Coaches">
     <article class="coach">
       <div class="coach-photo"><img src="../../assets/coach-jose.jpg" alt="Jose Gomes, coach at Carlson Gracie New Zealand" loading="lazy"></div>
       <div class="coach-belt" role="img" aria-label="Third degree black belt"><span class="tip"><i></i><i></i><i></i></span></div>
@@ -564,5 +565,6 @@
   }
 </script>
 <script type="module" src="../../mobile-nav.js"></script>
+<script type="module" src="../../coach-roster.js"></script>
 </body>
 </html>
