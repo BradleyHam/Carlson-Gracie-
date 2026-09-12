@@ -920,7 +920,7 @@
   .foot{margin-top:28px}
   /* staggered arrival for grid children: opacity only, so hover transforms stay untouched */
   @media (prefers-reduced-motion:no-preference){
-    .coach-grid .coach,.tt-grid .tt-col,.proof-strip>div,.kit article,.review-wall>*{
+    .coach-grid .coach,.tt-grid.reveal .tt-col,.proof-strip>div,.kit article,.review-wall>*{
       opacity:0;transition:opacity .65s ease;
     }
     .coach-grid.in .coach,.tt-grid.in .tt-col,.proof-strip.in>div,.kit.in article,.review-wall.in>*{opacity:1}
