@@ -95,6 +95,78 @@ if (header && links) {
   if (join) { const a = cleanLink(join); a.textContent = 'Become a member'; a.className = 'mobile-menu-join'; actions.append(a); }
   document.body.append(panel);
 
+  const schedule = document.createElement('dialog');
+  schedule.id = 'mobile-timetable';
+  schedule.className = 'mobile-timetable';
+  schedule.setAttribute('aria-labelledby', 'mobile-timetable-title');
+  schedule.innerHTML = `<div class="mobile-timetable-header"><div><p>Queenstown HQ</p><h2 id="mobile-timetable-title">Class timetable</h2></div><button type="button" class="mobile-menu-close" aria-label="Close timetable" autofocus><span>Close</span><span aria-hidden="true">×</span></button></div><div class="mobile-timetable-content" data-lenis-prevent aria-live="polite"></div>`;
+  document.body.append(schedule);
+  const scheduleContent = schedule.querySelector('.mobile-timetable-content');
+  let scheduleLoaded = false;
+  let scheduleLoading = false;
+  let scheduleTrigger = null;
+  const isTimetableLink = a => a && (a.classList.contains('mobile-menu-timetable') || new URL(a.href).pathname.replace(/index\.html$/, '').replace(/\/$/, '') === '/training/timetable');
+  panel.querySelectorAll('a').forEach(a => {
+    if (isTimetableLink(a)) {
+      a.setAttribute('aria-haspopup', 'dialog');
+      a.setAttribute('aria-controls', schedule.id);
+    }
+  });
+  async function openTimetable(a) {
+    scheduleTrigger = a;
+    schedule.showModal();
+    scheduleContent.scrollTop = 0;
+    if (scheduleLoaded || scheduleLoading) return;
+    scheduleLoading = true;
+    scheduleContent.textContent = 'Loading timetable…';
+    try {
+      const response = await fetch('/training/timetable/');
+      if (!response.ok) throw new Error('Timetable unavailable');
+      const source = new DOMParser().parseFromString(await response.text(), 'text/html');
+      const grid = source.querySelector('.tt-grid');
+      if (!grid) throw new Error('Timetable missing');
+      scheduleContent.replaceChildren();
+      for (const column of grid.querySelectorAll('.tt-col')) {
+        const day = document.createElement('section');
+        day.className = 'mobile-timetable-day';
+        const heading = document.createElement('h3');
+        const names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        heading.textContent = names[Number(column.dataset.day)];
+        if (Number(column.dataset.day) === new Date().getDay()) {
+          day.classList.add('is-today');
+          const today = document.createElement('span');
+          today.textContent = 'Today';
+          heading.append(today);
+        }
+        day.append(heading);
+        column.querySelectorAll('.tt-class').forEach(item => {
+          const row = document.createElement('div');
+          row.className = 'mobile-timetable-class';
+          for (const field of ['t', 'n', 'l']) {
+            const text = document.createElement('span');
+            text.className = `schedule-${field}`;
+            text.textContent = item.querySelector(`.${field}`)?.textContent || '';
+            row.append(text);
+          }
+          day.append(row);
+        });
+        scheduleContent.append(day);
+      }
+      const note = document.createElement('p');
+      note.className = 'mobile-timetable-note';
+      note.textContent = 'Queenstown HQ times shown. Times can shift around holidays and gradings. Check before your first visit.';
+      scheduleContent.append(note);
+      scheduleLoaded = true;
+    } catch {
+      scheduleContent.innerHTML = '<p>Unable to load the timetable. Please try again or <a href="/training/timetable/">open the timetable page</a>.</p>';
+    } finally {
+      scheduleLoading = false;
+    }
+  }
+  schedule.querySelector('button').addEventListener('click', () => schedule.close());
+  schedule.addEventListener('click', e => { if (e.target === schedule) schedule.close(); });
+  schedule.addEventListener('close', () => { if (panel.open) scheduleTrigger?.focus({ preventScroll:true }); });
+
   let savedY = 0;
   let previousBodyStyle = null;
   let lenisWasStopped = false;
@@ -112,7 +184,7 @@ if (header && links) {
     trigger.setAttribute('aria-expanded', 'true');
     panel.querySelector('.mobile-menu-scroll').scrollTop = 0;
   }
-  function closeMenu() { if (panel.open) panel.close(); }
+  function closeMenu() { if (schedule.open) schedule.close(); if (panel.open) panel.close(); }
   panel.addEventListener('close', () => {
     if (previousBodyStyle === null) document.body.removeAttribute('style');
     else document.body.setAttribute('style', previousBodyStyle);
@@ -134,7 +206,13 @@ if (header && links) {
   });
   trigger.addEventListener('click', openMenu);
   panel.querySelector('.mobile-menu-close').addEventListener('click', closeMenu);
-  panel.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
+  panel.addEventListener('click', e => {
+    const a = e.target.closest('a');
+    if (isTimetableLink(a)) {
+      e.preventDefault();
+      openTimetable(a);
+    } else if (a) closeMenu();
+  });
   breakpoint.addEventListener('change', e => { if (!e.matches) closeMenu(); });
   window.addEventListener('pagehide', closeMenu);
 }
