@@ -359,7 +359,8 @@
   // membership pages: the frame grows toward the viewport as it rises, then
   // stays open, while the footage drifts gently inside its crop.
   var locationsFilmFrame = document.querySelector('.locations-lineage-film');
-  if (locationsFilmFrame && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  var locationsFilmMotion = window.matchMedia('(min-width:961px) and (prefers-reduced-motion: no-preference)');
+  if (locationsFilmFrame){
     var locationsFilmVideos = [].slice.call(locationsFilmFrame.querySelectorAll('video'));
     var locationsFilmLift = [];
     (function(){
@@ -375,6 +376,13 @@
     var LOCATIONS_FILM_MIN = 1.16;
     var LOCATIONS_FILM_LAG = 0.1;
     function locationsFilmFx(){
+      if (!locationsFilmMotion.matches) {
+        locationsFilmFrame.style.removeProperty('transform');
+        locationsFilmVideos.forEach(function(el){ el.style.removeProperty('transform'); });
+        locationsFilmLift.forEach(function(el){ el.style.removeProperty('transform'); });
+        locationsFilmScale = 1; locationsFilmPeak = 0; locationsFilmEase = 0;
+        return;
+      }
       var r = locationsFilmFrame.getBoundingClientRect();
       var vh = window.innerHeight;
       var vw = window.innerWidth;
@@ -407,6 +415,7 @@
       }
       requestAnimationFrame(locationsFilmTick);
     }
+    locationsFilmMotion.addEventListener('change', function(){ locationsFilmLastY = -1; locationsFilmFx(); });
     window.addEventListener('resize', function(){ locationsFilmLastY = -1; }, {passive:true});
     locationsFilmFx();
     requestAnimationFrame(locationsFilmTick);

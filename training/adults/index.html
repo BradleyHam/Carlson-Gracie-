@@ -524,54 +524,6 @@
     });
   });
 
-  // Keep a usable play control when the browser declines muted autoplay.
-  document.querySelectorAll('.section-clip video').forEach(function(v){
-    var motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    var visible = false;
-    var userStarted = false;
-    var button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'clip-play';
-    button.textContent = 'Play video';
-    v.parentElement.append(button);
-    v.muted = true;
-    v.defaultMuted = true;
-    v.playsInline = true;
-    function update(){
-      button.textContent = v.paused ? 'Play video' : 'Pause video';
-      button.classList.toggle('is-playing', !v.paused);
-    }
-    function play(){
-      v.play().catch(function(){ update(); });
-    }
-    button.addEventListener('click', function(){
-      if (v.paused) { userStarted = true; if (v.error) v.load(); play(); }
-      else { userStarted = false; v.pause(); }
-    });
-    v.addEventListener('playing', update);
-    v.addEventListener('pause', update);
-    v.addEventListener('error', function(){
-      button.textContent = 'Retry video';
-      button.classList.remove('is-playing');
-    });
-    if (motion.matches) { v.removeAttribute('autoplay'); v.pause(); }
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function(entries){
-        visible = entries[0].isIntersecting;
-        if (visible && (!motion.matches || userStarted)) play();
-        else if (!visible) v.pause();
-      }, {threshold:.2}).observe(v);
-    }
-    document.addEventListener('visibilitychange', function(){
-      if (document.hidden) v.pause();
-      else if (visible && (!motion.matches || userStarted)) play();
-    });
-    motion.addEventListener('change', function(){
-      if (motion.matches) { userStarted = false; v.pause(); }
-      else if (visible) play();
-    });
-  });
-
   // Live-class clip choreography: the frame opens at column width and grows
   // to near-fullscreen as it rides up the viewport; the footage drifts inside.
   var clipFrame = document.querySelector('.section-clip');

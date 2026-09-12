@@ -360,24 +360,13 @@
       }
     });
     if (url){ methodFilm.src = url; methodFilm.load(); }
-    if (reduced){
-      methodFilm.removeAttribute('autoplay');
-      methodFilm.pause();
-    } else if ('IntersectionObserver' in window){
-      var methodFilmObs = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting) e.target.play().catch(function(){});
-          else e.target.pause();
-        });
-      }, {threshold:.2});
-      methodFilmObs.observe(methodFilm);
-    }
   })();
 
   // The frame begins at the content width, then grows toward the viewport as
   // it rises. This mirrors the live-film movement on the kids page.
   var methodFilmFrame = document.querySelector('.method-film');
-  if (methodFilmFrame && window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+  var methodFilmMotion = window.matchMedia('(min-width:961px) and (prefers-reduced-motion: no-preference)');
+  if (methodFilmFrame){
     var methodFilmVideo = methodFilmFrame.querySelector('video');
     var methodFilmLift = [];
     (function(){
@@ -394,6 +383,13 @@
     var METHOD_FILM_MIN = 1.16;
     var METHOD_FILM_LAG = 0.11;
     function methodFilmFx(){
+      if (!methodFilmMotion.matches) {
+        methodFilmFrame.style.removeProperty('transform');
+        methodFilmVideo.style.removeProperty('transform');
+        methodFilmLift.forEach(function(el){ el.style.removeProperty('transform'); });
+        methodFilmScale = 1; methodFilmPeak = 0; methodFilmEase = 0;
+        return;
+      }
       var r = methodFilmFrame.getBoundingClientRect();
       var vh = window.innerHeight;
       var vw = window.innerWidth;
@@ -425,6 +421,7 @@
       if (y !== methodFilmLastY || methodFilmEase !== methodFilmPeak){ methodFilmLastY = y; methodFilmFx(); }
       requestAnimationFrame(methodFilmTick);
     }
+    methodFilmMotion.addEventListener('change', function(){ methodFilmLastY = -1; methodFilmFx(); });
     window.addEventListener('resize', function(){ methodFilmLastY = -1; }, {passive:true});
     methodFilmFx();
     requestAnimationFrame(methodFilmTick);

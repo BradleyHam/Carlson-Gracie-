@@ -362,7 +362,8 @@
   // Training-page image choreography: the lineage frame opens towards the
   // edges of the viewport while the copy above lifts to preserve its space.
   var clipFrame = document.querySelector('.section-clip');
-  if (clipFrame && window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+  var clipMotion = window.matchMedia('(min-width:961px) and (prefers-reduced-motion: no-preference)');
+  if (clipFrame){
     var clipMedia = clipFrame.querySelector('video, img');
     var clipLift = [];
     (function(){ var n = clipFrame.previousElementSibling;
@@ -375,6 +376,13 @@
     var CLIP_MAX = 1.3;
     var CLIP_LAG = 0.085;
     function clipFx(){
+      if (!clipMotion.matches) {
+        clipFrame.style.removeProperty('transform');
+        clipMedia.style.removeProperty('transform');
+        clipLift.forEach(function(el){ el.style.removeProperty('transform'); });
+        clipScale = 1; clipPeak = 0; clipEase = 0;
+        return;
+      }
       var r = clipFrame.getBoundingClientRect();
       var vh = window.innerHeight, vw = window.innerWidth;
       var base = clipFrame.offsetWidth, h = clipFrame.offsetHeight;
@@ -400,6 +408,7 @@
       if (y !== clipLastY || clipEase !== clipPeak){ clipLastY = y; clipFx(); }
       requestAnimationFrame(clipTick);
     }
+    clipMotion.addEventListener('change', function(){ clipLastY = -1; clipFx(); });
     window.addEventListener('resize', function(){ clipLastY = -1; }, {passive:true});
     clipFx();
     requestAnimationFrame(clipTick);

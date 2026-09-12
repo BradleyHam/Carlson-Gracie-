@@ -4,7 +4,7 @@ dist/
 .vercel
 
 # Video is ignored everywhere by default, so stray source footage can never be
-# committed by accident. Only the three files the site actually serves are allowed.
+# committed by accident. Only the files the site actually serves are allowed.
 *.mp4
 *.mov
 *.MP4
@@ -21,3 +21,11 @@ assets/images to add/
 
 # pre-optimisation originals: kept locally so any asset can be re-encoded
 assets/_original/
+
+# Published inline films
+!assets/live-class.mp4
+!assets/kids-rolling.mp4
+!assets/womens-rolling.mp4
+!assets/locations-train.mp4
+!assets/locations-teach.mp4
+!assets/locations-belong.mp4

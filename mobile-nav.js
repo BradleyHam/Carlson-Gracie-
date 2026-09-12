@@ -1,3 +1,4 @@
+import './inline-video.js';
 import './styles/mobile-nav.css';
 
 const header = document.querySelector('body > nav');
