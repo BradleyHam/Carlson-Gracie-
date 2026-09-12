@@ -2072,11 +2072,11 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   .page-hero:has(.page-hero-media) .wrap{position:relative;padding:0 clamp(20px,5vw,32px) clamp(42px,8vw,60px)}
   .page-hero:has(.page-hero-media) .ph-copy{
     position:absolute;z-index:2;top:0;left:clamp(20px,5vw,32px);right:clamp(20px,5vw,32px);
-    transform:translateY(-100%);padding-bottom:18px;
+    transform:translateY(-100%);padding-bottom:0;
   }
   .page-hero:has(.page-hero-media) .ph-copy .eyebrow{margin-bottom:12px}
   .page-hero:has(.page-hero-media) h1{font-size:clamp(2.15rem,8.6vw,3.2rem)}
-  .page-hero:has(.page-hero-media) .ph-side{max-width:none;padding-top:26px}
+  .page-hero:has(.page-hero-media) .ph-side{max-width:none;padding-top:18px}
   .page-hero:has(.page-hero-media) .ph-side .lead{margin-top:0;font-size:15.5px;line-height:1.75;color:rgba(255,255,255,.82)}
   .page-hero:has(.page-hero-media) .cta-row{margin-top:26px}
 }
@@ -3487,8 +3487,6 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 
 /* Keep the women's mobile hero title close to its introduction and legible. */
 @media(max-width:960px){
-  .womens-hero:has(.page-hero-media) .ph-copy{padding-bottom:0}
-  .womens-hero:has(.page-hero-media) .ph-side{padding-top:18px}
   .womens-hero:has(.page-hero-media) .ph-copy .eyebrow{color:#fff;text-shadow:0 1px 5px #000}
   .womens-hero:has(.page-hero-media) .page-hero-media::after{background:linear-gradient(180deg,rgba(13,13,17,.6) 0%,rgba(13,13,17,.1) 40%,rgba(13,13,17,.8) 72%,#17171b 100%)}
 }
