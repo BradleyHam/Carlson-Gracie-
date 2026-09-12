@@ -3469,15 +3469,15 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   .membership-value-copy { gap:18px; margin-top:0; max-width:48ch; }
 }
 
-/* Training portrait attribution becomes a caption on phones and tablets. */
-.training-coach-caption{display:none}
+/* Quote portraits share one mobile reading order across the site. */
+.quote-portrait-caption{display:none}
 @media(max-width:800px){
-  .training-coach-quote .method-quote-copy cite{display:none}
-  .training-coach-quote .wrap{row-gap:0}
-  .training-coach-quote .method-quote-media{margin-top:36px}
-  .training-coach-caption{display:grid;gap:8px;position:relative;z-index:2;margin-top:48px;max-width:520px}
-  .training-coach-caption b{font:600 1.2rem/1.2 var(--display);letter-spacing:.06em;text-transform:uppercase}
-  .training-coach-caption span{font:10px/1.7 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(23,23,27,.55)}
+  .quote-portrait .method-quote-copy cite{display:none}
+  .quote-portrait .wrap{row-gap:0}
+  .quote-portrait .method-quote-media{margin-top:36px;transform:none}
+  .quote-portrait-caption{display:grid;gap:8px;position:relative;z-index:2;margin-top:36px;max-width:520px}
+  .quote-portrait-caption b{font:600 1.2rem/1.2 var(--display);letter-spacing:.06em;text-transform:uppercase}
+  .quote-portrait-caption span{font:10px/1.7 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(23,23,27,.55)}
 }
 
 /* A direct playback control remains available when autoplay is declined. */
