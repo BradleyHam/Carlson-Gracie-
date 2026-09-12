@@ -3479,3 +3479,8 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   .training-coach-caption b{font:600 1.2rem/1.2 var(--display);letter-spacing:.06em;text-transform:uppercase}
   .training-coach-caption span{font:10px/1.7 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(23,23,27,.55)}
 }
+
+/* A direct playback control remains available when autoplay is declined. */
+.clip-play{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);min-height:48px;padding:16px 22px;border:1px solid rgba(255,255,255,.8);background:rgba(23,23,27,.8);color:#fff;font:11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.clip-play.is-playing{left:auto;top:auto;right:16px;bottom:16px;transform:none;min-height:44px;padding:12px 16px;font-size:9px}
+.clip-play:focus-visible{outline:2px solid white;outline-offset:4px}
