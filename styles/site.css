@@ -3507,3 +3507,11 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 @media(max-width:640px){
   .class-arc--belts{grid-template-columns:minmax(0,1fr);gap:28px}
 }
+
+/* Give the legacy introduction a clear reading hierarchy on phones. */
+@media(max-width:640px){
+  .legacy-opening{margin-top:24px}
+  .legacy-opening .legacy-statement{max-width:none;font-size:17px;line-height:1.65;letter-spacing:0}
+  .legacy-opening .legacy-thesis{display:block;margin-bottom:14px;font-size:24px;line-height:1.25;font-weight:600;letter-spacing:-.02em}
+  .legacy-opening .voice-statement .w{opacity:1}
+}
