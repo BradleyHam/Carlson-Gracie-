@@ -3484,3 +3484,11 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 .clip-play{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);min-height:48px;padding:16px 22px;border:1px solid rgba(255,255,255,.8);background:rgba(23,23,27,.8);color:#fff;font:11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
 .clip-play.is-playing{left:auto;top:auto;right:16px;bottom:16px;transform:none;min-height:44px;padding:12px 16px;font-size:9px}
 .clip-play:focus-visible{outline:2px solid white;outline-offset:4px}
+
+/* Keep the women's mobile hero title close to its introduction and legible. */
+@media(max-width:960px){
+  .womens-hero:has(.page-hero-media) .ph-copy{padding-bottom:0}
+  .womens-hero:has(.page-hero-media) .ph-side{padding-top:18px}
+  .womens-hero:has(.page-hero-media) .ph-copy .eyebrow{color:#fff;text-shadow:0 1px 5px #000}
+  .womens-hero:has(.page-hero-media) .page-hero-media::after{background:linear-gradient(180deg,rgba(13,13,17,.6) 0%,rgba(13,13,17,.1) 40%,rgba(13,13,17,.8) 72%,#17171b 100%)}
+}
