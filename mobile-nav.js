@@ -105,7 +105,7 @@ if (header && links) {
   let scheduleLoaded = false;
   let scheduleLoading = false;
   let scheduleTrigger = null;
-  const isTimetableLink = a => a && (a.classList.contains('mobile-menu-timetable') || a.classList.contains('nav-ghost') || new URL(a.href).pathname.replace(/index\.html$/, '').replace(/\/$/, '') === '/training/timetable');
+  const isTimetableLink = a => a && (a.classList.contains('mobile-menu-timetable') || a.classList.contains('nav-ghost'));
   [...panel.querySelectorAll('a'), ...links.querySelectorAll('a')].forEach(a => {
     if (isTimetableLink(a)) {
       a.setAttribute('aria-haspopup', 'dialog');
