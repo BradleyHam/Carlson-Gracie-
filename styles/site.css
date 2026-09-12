@@ -3505,3 +3505,7 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   .section-breadcrumb [aria-current]{color:#fff}
   .mobile-section-nav :focus-visible{outline:2px solid white;outline-offset:3px}
 }
+
+@media(max-width:640px){
+  .class-arc--belts{grid-template-columns:minmax(0,1fr);gap:28px}
+}
