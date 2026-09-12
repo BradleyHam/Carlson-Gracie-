@@ -868,7 +868,7 @@
 
   .legacy-figure{margin:clamp(40px,5.5vw,64px) 0 0;position:relative;overflow:hidden;background:var(--ink)}
   .legacy-figure img{
-    display:block;width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 24%;
+    display:block;width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;object-position:center 24%;
     filter:grayscale(1) contrast(1.04);
   }
   .legacy-figure::after{
@@ -1859,7 +1859,7 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 .legacy .wrap{position:relative;z-index:1}
 .legacy-figure{margin:clamp(40px,5.5vw,64px) 0 0;position:relative;overflow:hidden;background:var(--ink)}
 .legacy-figure img{
-  display:block;width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 24%;
+  display:block;width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;object-position:center 24%;
   filter:grayscale(1) contrast(1.04);
 }
 .legacy-figure::after{
