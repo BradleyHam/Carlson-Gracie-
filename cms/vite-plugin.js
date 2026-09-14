@@ -1,0 +1,66 @@
+import path from 'node:path';
+import {load} from 'cheerio';
+import {sanityConfig} from './config.js';
+import {fetchContent, imageURL, isConfigured, eventsQuery} from './shared.js';
+import manifest from './manifest.json' with {type:'json'};
+
+export function sanityContentPlugin() {
+  let root;
+  let documents = new Map();
+  let eventSnapshot = null;
+  return {
+    name: 'carlson-sanity-content',
+    configResolved(config) { root = config.root; },
+    async buildStart() {
+      if (!isConfigured(sanityConfig)) return;
+      // A configured production build must not silently publish stale content.
+      const [docs, events] = await Promise.all([
+        fetchContent(sanityConfig, '*[_type == "sitePage"]', {}, {cdn:false}),
+        fetchContent(sanityConfig, eventsQuery, {}, {cdn:false}),
+      ]);
+      if (!Array.isArray(events)) throw new Error('Invalid Sanity events response');
+      eventSnapshot = events;
+      if (!Array.isArray(docs)) throw new Error('Invalid Sanity pages response');
+      documents = new Map(docs.map(doc => [doc._id, doc]));
+    },
+    resolveId(id) { if (id === 'virtual:sanity-events') return '\0sanity-events'; },
+    load(id) { if (id === '\0sanity-events') return 'export default ' + JSON.stringify(eventSnapshot) + ';'; },
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html, context) {
+        const file = path.relative(root, context.filename).split(path.sep).join('/');
+        const page = manifest.find(page => page.file === file);
+        if (!page) return html; // Includes the entire timetable route.
+        const $ = load(html);
+        const published = documents.get(page._id);
+        const texts = new Map((published?.sections || []).flatMap(s => s.texts || []).map(t => [t._key, t.value]));
+        const images = new Map((published?.sections || []).flatMap(s => s.images || []).map(i => [i._key, i]));
+        $('html').attr('data-sanity-page', page._id);
+        if (published?.seoTitle) $('title').text(published.seoTitle);
+        if (typeof published?.seoDescription === 'string') $('meta[name="description"]').attr('content', published.seoDescription);
+        for (const section of page.sections) {
+          for (const item of section.texts) {
+            const el = $(item.selector);
+            if (el.length !== 1) throw new Error('CMS binding no longer matches: ' + file + ': ' + item.label);
+            el.attr('data-sanity-text', item._key);
+            const value = texts.get(item._key);
+            if (typeof value === 'string' && value !== item.value) {
+              el.empty();
+              value.split('\n').forEach((line, i) => { if (i) el.append('<br>'); el.append($('<span>').text(line).contents()); });
+            }
+          }
+          for (const item of section.images) {
+            const el = $(item.selector);
+            if (el.length !== 1) throw new Error('CMS image binding no longer matches: ' + file + ': ' + item.label);
+            el.attr('data-sanity-image', item._key);
+            const image = images.get(item._key);
+            const url = imageURL(image?.image, sanityConfig);
+            if (url) el.attr('src', url).removeAttr('srcset').removeAttr('sizes');
+            if (typeof image?.alt === 'string') el.attr('alt', image.alt);
+          }
+        }
+        return {html: $.html(), tags:[{tag:'script',attrs:{type:'module',src:'/cms/browser.js'},injectTo:'head'}]};
+      },
+    },
+  };
+}

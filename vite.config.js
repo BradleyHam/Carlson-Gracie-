@@ -1,6 +1,8 @@
+import {sanityContentPlugin} from './cms/vite-plugin.js';
 import { resolve } from 'path';
 
 export default {
+  plugins: [sanityContentPlugin()],
   server: {
     port: Number(process.env.PORT) || 5173,
   },

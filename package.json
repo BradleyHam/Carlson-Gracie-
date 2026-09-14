@@ -5,9 +5,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "studio:dev": "npm --prefix studio run dev",
+    "studio:build": "npm --prefix studio run build",
+    "studio:deploy": "npm --prefix studio run deploy",
+    "cms:import": "node cms/import-content.mjs",
+    "test:cms": "node --test cms/*.test.mjs"
   },
   "devDependencies": {
+    "cheerio": "^1.2.0",
     "vite": "^8.2.1"
   },
   "dependencies": {

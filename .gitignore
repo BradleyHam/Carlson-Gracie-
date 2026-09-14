@@ -29,3 +29,10 @@ assets/_original/
 !assets/locations-train.mp4
 !assets/locations-teach.mp4
 !assets/locations-belong.mp4
+
+# Local CMS credentials and generated Studio files
+.env
+.env.*
+!.env.example
+studio/.sanity/
+studio/dist/

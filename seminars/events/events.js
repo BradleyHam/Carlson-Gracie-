@@ -1,3 +1,4 @@
+import {getPublishedEvents, getInitialEvents} from '../../cms/events.js';
 import { events, featuredEventId } from './events-data.js';
 
 export function splitEvents(items, now = Date.now()) {
@@ -75,7 +76,12 @@ export function renderEvents(items = events, featuredId = featuredEventId, now =
   }
   archive.prepend(fragment);
 }
-renderEvents();
+const initialEvents = getInitialEvents();
+if (initialEvents === null) renderEvents();
+else renderEvents(initialEvents, splitEvents(initialEvents).upcoming.find(item => item.featured)?.id || null);
+getPublishedEvents().then(items => {
+  if (items !== null) renderEvents(items, splitEvents(items).upcoming.find(item => item.featured)?.id || null);
+}).catch(error => console.warn('Showing built-in events; Sanity is unavailable.', error.message));
 
 
 const rail = document.querySelector('[data-past-list]');
