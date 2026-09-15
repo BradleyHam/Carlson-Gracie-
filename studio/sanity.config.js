@@ -4,16 +4,25 @@ import {sanityConfig} from '../cms/config.js';
 import manifest from '../cms/manifest.json';
 
 const fixed = {disableActions:['add','remove','duplicate','copy','sort']};
-const label = defineField({name:'label',type:'string',readOnly:true,hidden:true});
+const label = defineField({name:'label',title:'On the website',type:'string',readOnly:true,description:'The part of this page that this content belongs to.'});
 const required = rule => rule.required();
 const schemaTypes = [
+  defineType({name:'coach',title:'Coach',type:'object',fields:[
+    defineField({name:'name',title:'Name',type:'string',validation:required}),
+    defineField({name:'photo',title:'Photo',type:'image',validation:required}),
+    defineField({name:'alt',title:'Photo description',type:'string',description:'Describe the coach photo for visitors who cannot see it.'}),
+    defineField({name:'role',title:'Role / rank',type:'string',description:'The short line below their name.'}),
+    defineField({name:'bio',title:'Short bio',type:'text',rows:4}),
+    defineField({name:'belt',title:'Belt colour',type:'string',initialValue:'unconfirmed',options:{list:[{title:'Not confirmed',value:'unconfirmed'},...['white','blue','purple','brown','black'].map(value=>({title:value[0].toUpperCase()+value.slice(1),value}))]},description:'Controls the belt shown on their card.'}),
+    defineField({name:'stripes',title:'Stripes / degrees',type:'number',initialValue:0,validation:rule=>rule.integer().min(0).max(10)}),
+  ],preview:{select:{title:'name',subtitle:'role',media:'photo'}}}),
   defineType({name:'pageText',title:'Copy',type:'object',fields:[label,defineField({name:'value',title:'Text',type:'text',rows:3,validation:required})],preview:{select:{title:'label',subtitle:'value'}}}),
-  defineType({name:'pageImage',title:'Photo',type:'object',fields:[label,defineField({name:'image',title:'Replacement photo',type:'image',description:'Upload a replacement. Leave empty to keep the existing site photo.'}),defineField({name:'alt',title:'Photo description',type:'string',description:'Describe the photo for visitors who cannot see it.'}),defineField({name:'originalSrc',type:'string',hidden:true,readOnly:true})],preview:{select:{title:'label',media:'image'}}}),
-  defineType({name:'pageSection',title:'Page section',type:'object',fields:[label,defineField({name:'texts',title:'Copy',type:'array',of:[{type:'pageText'}],options:fixed}),defineField({name:'images',title:'Photos',type:'array',of:[{type:'pageImage'}],options:fixed})],preview:{select:{title:'label'}}}),
+  defineType({name:'pageImage',title:'Photo',type:'object',fields:[label,defineField({name:'image',title:'Website photo',type:'image',description:'This is the photo used in this position on the website. Choose Upload or Select to replace it. Removing it restores the original website photo.'}),defineField({name:'alt',title:'Photo description',type:'string',description:'Describe the photo for visitors who cannot see it.'}),defineField({name:'originalSrc',type:'string',hidden:true,readOnly:true})],preview:{select:{title:'label',subtitle:'alt',media:'image'}}}),
+  defineType({name:'pageSection',title:'Page section',type:'object',fields:[label,defineField({name:'coaches',title:'Coaches',type:'array',of:[{type:'coach'}],hidden:({parent})=>!Object.hasOwn(parent || {},'coaches'),description:'One entry per coach, in website order. Add a coach, open one to edit their details, or use its menu to remove it. Drag entries to reorder. This list belongs to this page.'}),defineField({name:'texts',title:'Text on the website',type:'array',of:[{type:'pageText'}],options:fixed,hidden:({value})=>!value?.length,description:'Names match the cards and headings on the page. The second line shows the current text.'}),defineField({name:'images',title:'Photos on the website',type:'array',of:[{type:'pageImage'}],options:fixed,hidden:({value})=>!value?.length,description:'Match the name to the text above, for example Kids description and Kids photo.'})],preview:{select:{title:'label',texts:'texts',images:'images',coaches:'coaches'},prepare({title,texts,images,coaches}){return {title,subtitle:[coaches ? coaches.length+' coaches' : '',texts?.length ? texts.length+(texts.length===1?' text field':' text fields') : '',images?.length ? images.length+(images.length===1?' photo':' photos') : ''].filter(Boolean).join(' · '),media:coaches?.[0]?.photo || images?.[0]?.image};}}}),
   defineType({name:'sitePage',title:'Website page',type:'document',groups:[{name:'content',title:'Page content',default:true},{name:'seo',title:'Search listing'}],fields:[
     defineField({name:'title',type:'string',title:'Page',readOnly:true}),
     defineField({name:'route',type:'string',title:'Website address',readOnly:true,description:'Page addresses and layouts are managed in the website.'}),
-    defineField({name:'sections',title:'Page sections',type:'array',group:'content',of:[{type:'pageSection'}],options:fixed,description:'Open a section to edit its copy and photos. Class timetables are managed separately and are deliberately excluded.'}),
+    defineField({name:'sections',title:'Page sections',type:'array',group:'content',of:[{type:'pageSection'}],options:fixed,description:'Sections follow the website from top to bottom and use its visible headings. Open a section, then choose the named text or photo. The class timetable is managed separately.'}),
     defineField({name:'seoTitle',title:'Search title',type:'string',group:'seo',validation:rule=>rule.required().max(100).warning('Keep this concise for search results.')}),
     defineField({name:'seoDescription',title:'Search description',type:'text',rows:3,group:'seo',validation:rule=>rule.max(180).warning('A shorter description is usually easier to read in search results.')}),
   ],preview:{select:{title:'title',subtitle:'route'}}}),

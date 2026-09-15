@@ -23,7 +23,7 @@ For events, open Events and create a document. Enter its name, summary, location
 
 Existing copy and photos across 31 pages are grouped into fixed sections. This includes supported coach biographies, existing FAQ text, membership copy and academy pages. Search titles/descriptions are also editable.
 
-Layouts, navigation, forms, link destinations, video, decorative/animated text and paragraphs with embedded formatting or links remain in source. New coach cards, FAQ rows and full news articles are not created by this initial integration. Repeated copy on separate pages is edited separately.
+Layouts, navigation, forms, link destinations, video, decorative/animated text and paragraphs with embedded formatting or links remain in source. The homepage and Coaches page support adding, removing and reordering coach cards. New FAQ rows and full news articles remain source-managed. Repeated copy on separate pages is edited separately.
 
 The timetable page, timetable sections and timetable modal are excluded. Gymdesk remains a separate future integration. Event dates do not control the weekly class timetable.
 
@@ -59,3 +59,13 @@ Website and Studio builds pass. Schema validation reports zero errors and warnin
 Compatible dependency patches removed high-severity Studio audit findings. Five moderate upstream CLI/UUID findings remain; no forced major dependency changes were applied.
 
 Official references: [Studio setup](https://www.sanity.io/docs/studio/installation), [hosting](https://www.sanity.io/docs/studio/deployment), [webhooks](https://www.sanity.io/docs/http-reference/webhooks).
+
+## Editor clarity update
+
+Sections follow page order and visible website headings. Text and photo entries use the same card or person name (for example, Kids — description and Kids — photo). Photo descriptions describe the actual image, separately from its position on the page. Section previews show a thumbnail and field counts. Existing IDs, selectors, image references and page copy are retained.
+
+## Coach lists
+
+Open Home or About / Coaches, then its coaches section. Each entry contains name, photo, photo description, role, bio and belt display. Add, remove or drag entries to reorder, then Publish. Each page keeps its own list and wording. An empty list removes every coach card on that page.
+
+The browser and production build render coach arrays. Missing arrays retain the existing cards during migration or an outage. `cms/migrate-coaches.mjs` moves the current flat fields into objects with revision checks and a required backup; it also preserves drafts and skips lists that have already migrated.

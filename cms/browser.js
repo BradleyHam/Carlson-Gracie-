@@ -1,3 +1,4 @@
+import {renderCoaches} from './coaches.js';
 import {sanityConfig} from './config.js';
 import {fetchContent, imageURL, pageQuery} from './shared.js';
 
@@ -24,6 +25,13 @@ export function applyPage(doc, root = document) {
     const src = imageURL(item.image, sanityConfig);
     if (src) { el.src = src; el.removeAttribute('srcset'); el.removeAttribute('sizes'); }
     if (typeof item.alt === 'string') el.alt = item.alt;
+  }
+  for (const rail of root.querySelectorAll('[data-sanity-coaches]')) {
+    const section = doc.sections?.find(s => s._key === rail.dataset.sanityCoaches);
+    const markup = renderCoaches(section?.coaches, sanityConfig);
+    if (markup === null) continue;
+    rail.innerHTML = markup;
+    rail.dispatchEvent(new Event('sanity:coaches-updated'));
   }
 }
 const id = document.documentElement.dataset.sanityPage;

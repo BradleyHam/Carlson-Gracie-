@@ -19,6 +19,7 @@ test('all page bindings target one safe element and preserve the existing design
     assert.equal(after('[data-sanity-text], [data-sanity-image]').closest('#timetable,nav,footer,form,template').length,0,page.file);
     after('[data-sanity-text]').removeAttr('data-sanity-text');
     after('[data-sanity-image]').removeAttr('data-sanity-image');
+    after('[data-sanity-coaches]').removeAttr('data-sanity-coaches');
     after('html').removeAttr('data-sanity-page');
     assert.equal(after.html(),before.html(),page.file);
   }

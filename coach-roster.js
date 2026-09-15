@@ -2,7 +2,6 @@ const rail = document.querySelector('#coach-roster');
 if (rail) {
   const mobile = matchMedia('(max-width:640px)');
   const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)');
-  const cards = [...rail.children];
   const previous = document.querySelector('[data-roster-prev]');
   const next = document.querySelector('[data-roster-next]');
   function update() {
@@ -13,6 +12,8 @@ if (rail) {
     else rail.removeAttribute('tabindex');
   }
   function move(direction) {
+    const cards = [...rail.children];
+    if (cards.length < 2) return;
     const step = cards[1].offsetLeft - cards[0].offsetLeft;
     rail.scrollTo({left: Math.round(rail.scrollLeft / step) * step + direction * step, behavior: reduceMotion.matches ? 'instant' : 'smooth'});
   }
@@ -24,6 +25,7 @@ if (rail) {
     if (e.key === 'Home' || e.key === 'End') rail.scrollTo({left:e.key === 'Home' ? 0 : rail.scrollWidth,behavior:'instant'});
     else move(e.key === 'ArrowRight' ? 1 : -1);
   });
+  rail.addEventListener('sanity:coaches-updated', update);
   rail.addEventListener('scroll', update, {passive:true});
   window.addEventListener('resize', update);
   mobile.addEventListener('change', update);

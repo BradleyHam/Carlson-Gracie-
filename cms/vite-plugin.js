@@ -1,4 +1,5 @@
 import path from 'node:path';
+import {renderCoaches} from './coaches.js';
 import {load} from 'cheerio';
 import {sanityConfig} from './config.js';
 import {fetchContent, imageURL, isConfigured, eventsQuery} from './shared.js';
@@ -58,6 +59,13 @@ export function sanityContentPlugin() {
             if (url) el.attr('src', url).removeAttr('srcset').removeAttr('sizes');
             if (typeof image?.alt === 'string') el.attr('alt', image.alt);
           }
+        }
+        for (const section of page.sections.filter(s => s.coachSelector)) {
+          const rail = $(section.coachSelector);
+          rail.attr('data-sanity-coaches', section._key);
+          const coaches = published?.sections?.find(s => s._key === section._key)?.coaches;
+          const markup = renderCoaches(coaches, sanityConfig);
+          if (markup !== null) rail.html(markup);
         }
         return {html: $.html(), tags:[{tag:'script',attrs:{type:'module',src:'/cms/browser.js'},injectTo:'head'}]};
       },
