@@ -1942,6 +1942,7 @@
     }
     function tick(){ if (!queued){ queued = true; requestAnimationFrame(sync); } }
     rail.addEventListener('sanity:coaches-updated', tick);
+    rail.addEventListener('sanity:seminars-updated', tick);
     rail.addEventListener('scroll', tick, {passive:true});
     window.addEventListener('resize', tick);
     sync();
@@ -1984,6 +1985,7 @@
       btns[1].disabled = rail.scrollLeft >= max - 2 || max < 8;
     }
     rail.addEventListener('sanity:coaches-updated', ends);
+    rail.addEventListener('sanity:seminars-updated', ends);
     rail.addEventListener('scroll', ends, {passive:true});
     window.addEventListener('resize', ends);
     ends();

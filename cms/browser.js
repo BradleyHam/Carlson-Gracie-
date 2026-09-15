@@ -1,3 +1,4 @@
+import {renderSeminars} from './seminars.js';
 import {renderCoaches} from './coaches.js';
 import {sanityConfig} from './config.js';
 import {fetchContent, imageURL, pageQuery} from './shared.js';
@@ -32,6 +33,13 @@ export function applyPage(doc, root = document) {
     if (markup === null) continue;
     rail.innerHTML = markup;
     rail.dispatchEvent(new Event('sanity:coaches-updated'));
+  }
+  for (const rail of root.querySelectorAll('[data-sanity-seminars]')) {
+    const section = doc.sections?.find(s => s._key === rail.dataset.sanitySeminars);
+    const markup = renderSeminars(section?.seminars, sanityConfig, rail.dataset.seminarLayout);
+    if (markup === null) continue;
+    rail.innerHTML = markup;
+    rail.dispatchEvent(new Event('sanity:seminars-updated'));
   }
 }
 const id = document.documentElement.dataset.sanityPage;

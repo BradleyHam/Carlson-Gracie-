@@ -69,3 +69,7 @@ Sections follow page order and visible website headings. Text and photo entries 
 Open Home or About / Coaches, then its coaches section. Each entry contains name, photo, photo description, role, bio and belt display. Add, remove or drag entries to reorder, then Publish. Each page keeps its own list and wording. An empty list removes every coach card on that page.
 
 The browser and production build render coach arrays. Missing arrays retain the existing cards during migration or an outage. `cms/migrate-coaches.mjs` moves the current flat fields into objects with revision checks and a required backup; it also preserves drafts and skips lists that have already migrated.
+
+## Seminar guest lists
+
+On Home and Seminars, each guest entry groups their name, seminar photo, photo description and credentials. Add, remove or drag entries to reorder, then Publish. Each page keeps its own guest list and existing photo crop. Dated upcoming seminars remain in Events. The migration script `cms/migrate-seminars.mjs` preserves current names and photo references, requires a backup and revision checks, and skips already migrated lists.

@@ -1,4 +1,5 @@
 import path from 'node:path';
+import {renderSeminars} from './seminars.js';
 import {renderCoaches} from './coaches.js';
 import {load} from 'cheerio';
 import {sanityConfig} from './config.js';
@@ -65,6 +66,13 @@ export function sanityContentPlugin() {
           rail.attr('data-sanity-coaches', section._key);
           const coaches = published?.sections?.find(s => s._key === section._key)?.coaches;
           const markup = renderCoaches(coaches, sanityConfig);
+          if (markup !== null) rail.html(markup);
+        }
+        for (const section of page.sections.filter(s => s.seminarSelector)) {
+          const rail = $(section.seminarSelector);
+          rail.attr('data-sanity-seminars', section._key).attr('data-seminar-layout',section.seminarLayout);
+          const entries = published?.sections?.find(s => s._key === section._key)?.seminars;
+          const markup = renderSeminars(entries, sanityConfig, section.seminarLayout);
           if (markup !== null) rail.html(markup);
         }
         return {html: $.html(), tags:[{tag:'script',attrs:{type:'module',src:'/cms/browser.js'},injectTo:'head'}]};

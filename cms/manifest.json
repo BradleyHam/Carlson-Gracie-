@@ -736,7 +736,46 @@
             "originalSrc": "assets/guest-cole.jpg",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)"
           }
-        ]
+        ],
+        "seminarSelector": ".guest-grid",
+        "seminarBindings": [
+          {
+            "_key": "399949e5e33dd559",
+            "name": "399949e5e33dd559",
+            "description": "2412afee25ac7e6e",
+            "descriptionFallback": "UFC Hall of Famer",
+            "photo": "c40ab1097cae4bde"
+          },
+          {
+            "_key": "2d1fb794250e9b13",
+            "name": "2d1fb794250e9b13",
+            "description": "0782bb463ff9efe3",
+            "descriptionFallback": "Gracie family red belt",
+            "photo": "a9666c1ba05754ac"
+          },
+          {
+            "_key": "e76e27680fa20612",
+            "name": "e76e27680fa20612",
+            "description": "ddb390febc569627",
+            "descriptionFallback": "IBJJF world champion",
+            "photo": "b90f879792d53d0b"
+          },
+          {
+            "_key": "75242dd5d89d392b",
+            "name": "75242dd5d89d392b",
+            "description": "32e91e74b257f599",
+            "descriptionFallback": "ADCC medallist",
+            "photo": "fa1038d047f20fcd"
+          },
+          {
+            "_key": "9d37a8ad38b11f25",
+            "name": "9d37a8ad38b11f25",
+            "description": "85114285530ff172",
+            "descriptionFallback": "IBJJF world champion",
+            "photo": "f9548abb0735c36e"
+          }
+        ],
+        "seminarLayout": "home"
       },
       {
         "_key": "c56b6c17f4ddd742",
@@ -5802,7 +5841,41 @@
             "originalSrc": "../assets/seminars/Cole-Abate-and-Jose.jpg",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)"
           }
-        ]
+        ],
+        "seminarSelector": "#guestRail",
+        "seminarBindings": [
+          {
+            "_key": "ec835b85a4b36659",
+            "name": "ec835b85a4b36659",
+            "descriptionFallback": "UFC Hall of Famer",
+            "photo": "0b8f670466ef5c0c"
+          },
+          {
+            "_key": "29c55907683fead3",
+            "name": "29c55907683fead3",
+            "descriptionFallback": "Gracie family red belt",
+            "photo": "3819db922e63fd81"
+          },
+          {
+            "_key": "877e5415918cc7ae",
+            "name": "877e5415918cc7ae",
+            "descriptionFallback": "ADCC medallist",
+            "photo": "b2e1a7b49a8a7ad4"
+          },
+          {
+            "_key": "00f7db7e61542232",
+            "name": "00f7db7e61542232",
+            "descriptionFallback": "IBJJF world champion",
+            "photo": "dbcd96e60fc56fa0"
+          },
+          {
+            "_key": "602ed73f4c803340",
+            "name": "602ed73f4c803340",
+            "descriptionFallback": "IBJJF world champion",
+            "photo": "106f9b468a9644ce"
+          }
+        ],
+        "seminarLayout": "cards"
       },
       {
         "_key": "1628a4a355aa0d23",

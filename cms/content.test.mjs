@@ -20,6 +20,7 @@ test('all page bindings target one safe element and preserve the existing design
     after('[data-sanity-text]').removeAttr('data-sanity-text');
     after('[data-sanity-image]').removeAttr('data-sanity-image');
     after('[data-sanity-coaches]').removeAttr('data-sanity-coaches');
+    after('[data-sanity-seminars]').removeAttr('data-sanity-seminars').removeAttr('data-seminar-layout');
     after('html').removeAttr('data-sanity-page');
     assert.equal(after.html(),before.html(),page.file);
   }

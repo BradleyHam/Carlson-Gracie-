@@ -562,6 +562,7 @@
     }
     if (guestPrev) guestPrev.addEventListener('click', function(){ guestRailStep(-1); });
     if (guestNext) guestNext.addEventListener('click', function(){ guestRailStep(1); });
+    guestRail.addEventListener('sanity:seminars-updated', guestRailState);
     guestRail.addEventListener('scroll', guestRailState, {passive:true});
     window.addEventListener('resize', guestRailState, {passive:true});
     guestRailState();
