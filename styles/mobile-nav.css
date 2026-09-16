@@ -31,7 +31,9 @@
   body > nav .nav-links li:not(.keep),body > nav .nav-links li:has(.nav-cta) { display:none; }
   body > nav .nav-links { margin-left:auto; margin-right:20px; }
   body > nav .mobile-menu-trigger { display:flex; align-items:center; gap:12px; background:none; border:0; padding:12px 0 12px 4px; min-height:44px; color:white; text-shadow:none; cursor:pointer; font:10px/1.5 var(--mono); letter-spacing:.12em; text-transform:uppercase; }
-  body > nav.is-solid .mobile-menu-trigger { color:var(--ink); }
+  body > nav.is-solid .mobile-menu-trigger,
+  body.contact-page > nav .mobile-menu-trigger,
+  body.members-app-page > nav .mobile-menu-trigger { color:var(--ink); }
   .mobile-menu-trigger:focus-visible { outline:2px solid currentColor; outline-offset:4px; }
   .mobile-menu-icon { width:19px; height:10px; border-top:1px solid currentColor; border-bottom:1px solid currentColor; }
 }
