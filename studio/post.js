@@ -1,0 +1,12 @@
+import {defineType,defineField} from 'sanity';
+const required=r=>r.required();
+const imageFields=[{name:'alt',title:'Image description',type:'string',description:'Describe the image for visitors who cannot see it.',validation:required}];
+export const postType=defineType({name:'post',title:'Blog post',type:'document',initialValue:()=>({category:'News',publishedAt:new Date().toISOString()}),fields:[
+ defineField({name:'title',title:'Title',type:'string',validation:required}),
+ defineField({name:'slug',title:'Article address',type:'slug',options:{source:'title',maxLength:96},description:'Click Generate after entering the title. Keep this unchanged after sharing the article.',validation:r=>r.required().custom(v=>!v?.current||/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(v.current)||'Use lowercase letters, numbers and hyphens.')}),
+ defineField({name:'category',title:'Category',type:'string',options:{list:['News','Technique'],layout:'radio'},validation:required,description:'News includes academy updates and event reports. Technique is for training articles.'}),
+ defineField({name:'publishedAt',title:'Article date',type:'datetime',validation:r=>r.required().custom(v=>!v||Date.parse(v)<=Date.now()||'Choose today or an earlier date. Keep future articles as drafts until ready.'),description:'Controls the displayed date and order. Publish makes the article public immediately; this is not a scheduling control.'}),
+ defineField({name:'excerpt',title:'Short introduction',type:'text',rows:3,validation:r=>r.required().max(280),description:'Shown on the homepage, article lists and at the top of the article.'}),
+ defineField({name:'cover',title:'Cover image',type:'image',fields:imageFields,validation:required}),
+ defineField({name:'body',title:'Article',type:'array',validation:r=>r.required().min(1),of:[{type:'block',styles:[{title:'Paragraph',value:'normal'},{title:'Heading',value:'h2'},{title:'Small heading',value:'h3'},{title:'Quote',value:'blockquote'}],lists:[{title:'Bullets',value:'bullet'},{title:'Numbered',value:'number'}],marks:{decorators:[{title:'Bold',value:'strong'},{title:'Italic',value:'em'}],annotations:[{name:'link',title:'Link',type:'object',fields:[{name:'href',title:'URL',type:'url',validation:r=>r.required().uri({scheme:['http','https','mailto']})}]}]}},{type:'image',fields:[...imageFields,{name:'caption',title:'Caption (optional)',type:'string'}]}]})
+],preview:{select:{title:'title',subtitle:'category',media:'cover'}},orderings:[{title:'Newest first',name:'newest',by:[{field:'publishedAt',direction:'desc'}]}]});

@@ -13,7 +13,7 @@ Project `i27dttcu`, dataset `production`. Content and assets are public. No owne
 - `siteSettings` is a singleton for the existing main phone/social/signup links on supported pages.
 - `event` documents remain dated events; a guest reference is optional. Published events move to the archive after their end date.
 
-The timetable is excluded. Layouts, navigation structure, video, embedded maps and full article publishing remain source-managed. FAQs, pricing and other page-specific copy stay with their pages. Local unpublished layout changes remain separate from production.
+The timetable is excluded. Layouts, navigation structure, video, embedded maps remain source-managed. FAQs, pricing and other page-specific copy stay with their pages. Local unpublished layout changes remain separate from production.
 
 ## Rendering and publishing
 
@@ -36,3 +36,6 @@ The existing Sanity rebuild webhook must include `sitePage`, `event`, `coachProf
 `seed.ndjson` contains page seeds; `shared-seed.ndjson` contains shared records. Legacy fixtures exist only for migration tests. The initial coach/seminar migration scripts skip pages already using references.
 
 `migrate-owner-model.mjs` applies a reviewed migration plan from `OWNER_MIGRATION_PLAN`, requires `OWNER_MIGRATION_BACKUP`, and reads `SANITY_API_TOKEN` only from the process environment. It aborts on changed page revisions or unreviewed drafts, creates shared profiles and page references atomically, then verifies the saved state. Keep tokens and backup credentials out of source and browser variables.
+
+## Blog publishing
+`post` documents contain a title, unique slug, category (News/Technique), article date, excerpt, cover and Portable Text body. `cms/posts-plugin.js` reads only published documents during the build, replaces the category/home placeholder feeds and generates static `/blog/{slug}/index.html` articles. Publishing, unpublishing and deleting trigger the existing rebuild webhook. No client token or draft content is shipped. Article dates are display/order metadata, not scheduled publication. Development serves article routes from the published API. Empty lists show an honest empty state; old placeholder fields were removed in a revision-guarded migration.

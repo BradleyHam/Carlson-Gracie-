@@ -32,4 +32,11 @@ Changes stay in drafts until you Publish. Open the website to check them after p
 
 ## Editing boundaries
 
-The design and page order are fixed. Video, navigation structure, embedded maps, full article publishing and the class timetable remain managed separately. Pricing and page-specific FAQs remain with their pages; not every phrase is a shared record. Contact forms and booking links use their existing services.
+The design and page order are fixed. Video, navigation structure, embedded maps and the class timetable remain managed separately. Pricing and page-specific FAQs remain with their pages; not every phrase is a shared record. Contact forms and booking links use their existing services.
+
+## Blog posts
+Open **Blog posts → Create**. Enter a title, click **Generate** for the article address, choose **News** or **Technique**, and add the introduction, cover image and article. The article editor supports headings, bold, italic, links, lists, quotes and additional images with captions. Add an image description for each photo.
+
+**Publish** makes the article public after the website rebuild finishes (usually a few minutes). Its category determines the News or Technique listing; the latest three articles appear on Home automatically. The article date controls order, not scheduled publishing. Keep unfinished/future articles as drafts. Use **Unpublish** to remove a published article; allow the same rebuild time. Keep the article address unchanged after sharing its link.
+
+Blog posts are stories and training articles. Continue to use **Events** for dated seminars, booking links and competitions. Existing placeholder cards are not articles and have not been published as content.

@@ -1,3 +1,4 @@
+import {postType} from './post.js';
 import {TextListInput, PageLinkInput, UsageInput, OwnerGuide} from './OwnerInputs.jsx';
 import {defineConfig, defineType, defineField} from 'sanity';
 import {structureTool} from 'sanity/structure';
@@ -7,7 +8,7 @@ import manifest from '../cms/manifest.json';
 const fixed = {disableActions:['add','remove','duplicate','copy','sort']};
 const label = defineField({name:'label',title:'On the website',type:'string',readOnly:true,hidden:true});
 const required = rule => rule.required();
-const schemaTypes = [
+const schemaTypes = [postType,
   defineType({name:'seminarGuest',title:'Seminar guest',type:'object',fields:[
     defineField({name:'name',title:'Guest name',type:'string',validation:required}),
     defineField({name:'photo',title:'Seminar photo',type:'image',validation:required}),
@@ -83,6 +84,7 @@ function ownerStructure(S){
  return S.list().title('Manage your website').items([
   S.listItem().title('Start here — editing guide').child(S.component().id('owner-guide').title('Editing guide').component(OwnerGuide)),
   profileList('Coaches','coachProfile'),profileList('Seminar guests','seminarProfile'),
+  S.documentTypeListItem('post').title('Blog posts'),
   S.listItem().title('Events').child(S.list().title('Events').items([events('Upcoming & current','endsAt >= now()'),events('Past events','endsAt < now()'),events('All events & drafts','true')])),
   pageGroup('Academies',manifest.filter(p=>p.route.startsWith('/locations/'))),
   S.listItem().title('Pages').child(S.list().title('Pages').items([
