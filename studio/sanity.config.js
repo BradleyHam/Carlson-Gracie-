@@ -48,7 +48,7 @@ const schemaTypes = [postType,
   ],preview:{select:{title:'title',subtitle:'location',media:'image'}},orderings:[{title:'Start date',name:'startsAtAsc',by:[{field:'startsAt',direction:'asc'}]}]}),
 ];
 
-const sharedGroups=[{name:'profile',title:'Profile',default:true},{name:'variations',title:'Page-specific details'},{name:'review',title:'Review notes'}];
+const sharedGroups=[{name:'profile',title:'Profile',default:true},{name:'variations',title:'Page-specific details'}];
 const copyFields = ['name','role','bio','description','photo','alt','belt','stripes','placeholder'];
 const baseFields = [...schemaTypes.find(t=>t.name==='coach').fields,...schemaTypes.find(t=>t.name==='seminarGuest').fields].filter((f,i,a)=>a.findIndex(x=>x.name===f.name)===i);
 schemaTypes.push(defineType({name:'profilePageCopy',title:'Existing page version',type:'object',fields:[
@@ -61,10 +61,10 @@ for(const [name,source,title] of [['coachProfile','coach','Coach'],['seminarProf
   defineField({name:'usage',title:'Used on',type:'string',readOnly:true,components:{input:UsageInput},group:'profile'}),
   defineField({name:'active',title:'Show on website',type:'boolean',initialValue:true,group:'profile',description:'Turn off to hide this profile from every page. The saved profile and page selections are kept.'}),
   ...fields,
-  ...(name==='coachProfile'?[defineField({name:'academy',title:'Academy',type:'string',group:'profile',options:{list:[{title:'Queenstown',value:'queenstown'},{title:'Wānaka',value:'wanaka'},{title:'Invercargill',value:'invercargill'},{title:'South Canterbury',value:'south-canterbury'}]}}),defineField({name:'placeholder',title:'Missing portrait label',type:'string',group:'review'})]:[]),
+  ...(name==='coachProfile'?[defineField({name:'academy',title:'Academy',type:'string',group:'profile',options:{list:[{title:'Queenstown',value:'queenstown'},{title:'Wānaka',value:'wanaka'},{title:'Invercargill',value:'invercargill'},{title:'South Canterbury',value:'south-canterbury'}]}}),defineField({name:'placeholder',title:'Missing portrait label',type:'string',group:'profile'})]:[]),
   defineField({name:'pageCopy',title:'Preserved page-specific details',type:'array',group:'variations',of:[{type:'profilePageCopy'}],options:{disableActions:['add','duplicate','copy','sort']},description:'These pages previously used different wording, photos or rank details. The main profile is the default. Edit a variation here, clear an individual override, or remove the variation to use the main profile everywhere on that page. Review differences before standardising.'}),
-  defineField({name:'reviewNotes',title:'Information to confirm',type:'text',rows:4,group:'review',description:'Notes for the owner; never shown on the website. Clear them once the details have been checked.'}),
- ],preview:{select:{title:'name',role:name==='coachProfile'?'role':'description',media:'photo',active:'active',review:'reviewNotes'},prepare({title,role,media,active,review}){return {title,subtitle:[active===false?'Hidden':null,review?'Needs review':null,role].filter(Boolean).join(' · '),media}}},orderings:[{title:'Name',name:'nameAsc',by:[{field:'name',direction:'asc'}]}]}));
+  defineField({name:'reviewNotes',type:'text',hidden:true}),
+ ],preview:{select:{title:'name',role:name==='coachProfile'?'role':'description',media:'photo',active:'active'},prepare({title,role,media,active}){return {title,subtitle:[active===false?'Hidden':null,role].filter(Boolean).join(' · '),media}}},orderings:[{title:'Name',name:'nameAsc',by:[{field:'name',direction:'asc'}]}]}));
 }
 const eventType=schemaTypes.find(t=>t.name==='event');
 eventType.fields.push(defineField({name:'guest',title:'Seminar guest (optional)',type:'reference',to:[{type:'seminarProfile'}],description:'Link this dated event to an existing guest profile. Keep this event’s own photo and booking details above.'}));
@@ -94,7 +94,6 @@ function ownerStructure(S){
    pageGroup('Legal',manifest.filter(p=>['/privacy/','/terms/'].includes(p.route))),
   ])),
   S.listItem().title('Website details').child(S.document().schemaType('siteSettings').documentId('site-settings')),
-  S.listItem().title('Needs review').child(S.list().title('Needs review').items([profileList('Coach details to confirm','coachProfile','_type == "coachProfile" && length(reviewNotes) > 0'),profileList('Guest details to confirm','seminarProfile','_type == "seminarProfile" && length(reviewNotes) > 0')])),
  ]);
 }
 

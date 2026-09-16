@@ -8,8 +8,8 @@ Project `i27dttcu`, dataset `production`. Content and assets are public. No owne
 
 - 31 fixed-layout `sitePage` documents, grouped in the Studio by owner task.
 - `coachProfile` and `seminarProfile` documents contain shared details. Page sections hold ordered strong references in `coachRefs` and `seminarRefs`.
-- Profile `pageCopy` entries preserve deliberate or unresolved differences from the original pages. Clear an override to inherit the main value. Notes identify missing details and differences; they are not rendered on the website.
-- Academy coach lists use the same shared records. Existing placeholder people and missing portraits are retained and marked for review.
+- Profile `pageCopy` entries preserve deliberate or unresolved differences from the original pages. Clear an override to inherit the main value. Legacy migration notes remain hidden in the dataset.
+- Academy coach lists use the same shared records. Existing placeholder people and missing portraits are retained.
 - `siteSettings` is a singleton for the existing main phone/social/signup links on supported pages.
 - `event` documents remain dated events; a guest reference is optional. Published events move to the archive after their end date.
 

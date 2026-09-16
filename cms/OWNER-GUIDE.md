@@ -10,7 +10,6 @@ Studio: https://carlson-gracie-nz.sanity.studio/
 - **Academies:** edit the relevant academy page and select its coaches.
 - **Pages:** choose Home, Training, Membership, About, Seminars, Contact or Legal. Sections follow the website order. Edit text directly and open a photo to replace it.
 - **Website details:** update the main Queenstown phone number, social links and joining/trial link.
-- **Needs review:** check unconfirmed details and differing information carried over from the existing site.
 
 ## Show a coach or guest on a page
 
@@ -20,7 +19,7 @@ Open the page’s relevant section. Add a reference to the existing profile; cre
 
 Open Coaches or Seminar guests, select the person, edit and Publish. The profile shows which published pages use it. Each page normally uses the shared values.
 
-Some existing pages used different wording, photos or rank information. These were preserved under **Page-specific details** inside the profile rather than silently standardised. An override takes priority on its named page. Clear an individual override to use the main value, or remove the variation to use all shared values. Confirm rank/name differences before doing this. Existing placeholder names and missing portraits are marked for review.
+Some existing pages used different wording, photos or rank information. These were preserved under **Page-specific details** inside the profile rather than silently standardised. An override takes priority on its named page. Clear an individual override to use the main value, or remove the variation to use all shared values. Confirm rank/name differences before doing this.
 
 ## Hide a person
 
