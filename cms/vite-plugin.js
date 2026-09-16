@@ -1,4 +1,4 @@
-import {settingLinkKey, settingHref} from './settings.js';
+import {settingLinkKey, settingHref, originalPhonePattern} from './settings.js';
 import {resolvePageProfiles, allPagesQuery} from './profiles.js';
 import path from 'node:path';
 import {renderSeminars} from './seminars.js';
@@ -77,6 +77,12 @@ export function sanityContentPlugin() {
           const markup = renderSeminars(entries, sanityConfig, section.seminarLayout);
           if (markup !== null) rail.html(markup);
         }
+        $('body *').not('script,style').each((_,node)=>{
+          const el=$(node);const phoneNodes=el.contents().filter((_,n)=>n.type==='text' && /\+64 21 0230 4516|021 0230 4516/.test(n.data));
+          if(!phoneNodes.length||el.closest('#timetable').length)return;
+          el.attr('data-sanity-phone',published?.settings?.phone||'');
+          if(published?.settings?.phone)phoneNodes.each((_,n)=>{n.data=n.data.replace(originalPhonePattern,published.settings.phone);});
+        });
         $('a[href]').each((_,node)=>{
           const el=$(node);const key=settingLinkKey(el.attr('href'));if(!key)return;
           el.attr('data-sanity-setting',key);const href=settingHref(published?.settings,key);if(href)el.attr('href',href);
