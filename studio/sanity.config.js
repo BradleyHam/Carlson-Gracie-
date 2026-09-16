@@ -74,10 +74,10 @@ schemaTypes.push(defineType({name:'siteSettings',title:'Website details',type:'d
  ...[['facebook','Facebook'],['instagram','Instagram'],['bookingUrl','Book a free trial / join link']].map(([name,title])=>defineField({name,title,type:'url',validation:rule=>rule.required().uri({scheme:['https']})})),
 ],preview:{select:{title:'title'}}}));
 
-const niceTitle=page=>page._id==='page-home'?'Home':page.route.split('/').filter(Boolean).at(-1).split('-').map(w=>w[0].toUpperCase()+w.slice(1)).join(' ').replace('Wanaka','Wānaka').replace('Faq','Frequently asked questions');
+const niceTitle=page=>page._id==='page-home'?'Home':page._id==='page-locations'?'All academies':page._id==='page-about-coaches'?'Coaches page':page.route.split('/').filter(Boolean).at(-1).split('-').map(w=>w[0].toUpperCase()+w.slice(1)).join(' ').replace('Wanaka','Wānaka').replace('Faq','Frequently asked questions');
 function ownerStructure(S){
  const pageItem=p=>S.listItem().id(p._id).title(niceTitle(p)).child(S.document().schemaType('sitePage').documentId(p._id));
- const pageGroup=(title,pages)=>S.listItem().title(title).child(S.list().title(title).items(pages.map(pageItem)));
+ const pageGroup=(title,pages)=>S.listItem().title(title).child(S.list().title(title).items([...pages].sort((a,b)=>a.route.split('/').length-b.route.split('/').length).map(pageItem)));
  const profileList=(title,type,filter)=>S.listItem().title(title).child(S.documentList().title(title).schemaType(type).filter(filter||'_type == $type').params({type}).defaultOrdering([{field:'name',direction:'asc'}]));
  const events=(title,filter)=>S.listItem().title(title).child(S.documentList().title(title).schemaType('event').filter('_type == "event" && '+filter).defaultOrdering([{field:'startsAt',direction:'asc'}]));
  return S.list().title('Manage your website').items([

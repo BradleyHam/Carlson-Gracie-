@@ -9,3 +9,5 @@ export function settingHref(settings,key) {
  const value=settings?.[key];if(typeof value!=='string')return null;
  try {const u=new URL(value);return u.protocol==='https:'?u.href:null;}catch{return null;}
 }
+
+export const originalPhonePattern = /\+64 21 0230 4516|021 0230 4516/g;

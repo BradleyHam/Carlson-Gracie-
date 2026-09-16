@@ -1,4 +1,4 @@
-import {settingHref} from './settings.js';
+import {settingHref, originalPhonePattern} from './settings.js';
 import {resolvePageProfiles} from './profiles.js';
 import {renderSeminars} from './seminars.js';
 import {renderCoaches} from './coaches.js';
@@ -43,6 +43,11 @@ export function applyPage(doc, root = document) {
     if (markup === null) continue;
     rail.innerHTML = markup;
     rail.dispatchEvent(new Event('sanity:seminars-updated'));
+  }
+  if(settingHref(doc.settings,'phone'))for(const el of root.querySelectorAll('[data-sanity-phone]')){
+    const previous=el.dataset.sanityPhone;
+    for(const node of el.childNodes)if(node.nodeType===3)node.textContent=(previous?node.textContent.split(previous).join(doc.settings.phone):node.textContent).replace(originalPhonePattern,doc.settings.phone);
+    el.dataset.sanityPhone=doc.settings.phone;
   }
   for(const el of root.querySelectorAll('[data-sanity-setting]')){
     const key=el.dataset.sanitySetting;const href=settingHref(doc.settings,key);if(!href)continue;
