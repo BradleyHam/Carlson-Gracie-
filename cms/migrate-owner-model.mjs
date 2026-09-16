@@ -1,0 +1,12 @@
+// Run only with a reviewed plan and backup path. Revision checks abort on concurrent edits.
+import fs from 'node:fs';import assert from 'node:assert/strict';import {sanityConfig} from './config.js';
+const planPath=process.env.OWNER_MIGRATION_PLAN;const backupPath=process.env.OWNER_MIGRATION_BACKUP;const token=process.env.SANITY_API_TOKEN;
+if(!planPath||!backupPath||!token)throw new Error('Set OWNER_MIGRATION_PLAN, OWNER_MIGRATION_BACKUP and SANITY_API_TOKEN.');
+const plan=JSON.parse(fs.readFileSync(planPath));const base=`https://${sanityConfig.projectId}.api.sanity.io/v${sanityConfig.apiVersion}/data/`;const headers={Authorization:'Bearer '+token,'Content-Type':'application/json'};
+async function read(){const response=await fetch(base+'query/'+sanityConfig.dataset+'?perspective=raw&query='+encodeURIComponent('*[_type in ["sitePage","coachProfile","seminarProfile","siteSettings"]]'),{headers});if(!response.ok)throw Error('Read '+response.status);return (await response.json()).result;}
+const docs=await read();fs.writeFileSync(backupPath,JSON.stringify(docs,null,2));const mutations=[];
+for(const profile of plan.profiles){const existing=docs.find(d=>d._id===profile._id);if(!existing)mutations.push({create:profile});else {const strip=d=>Object.fromEntries(Object.entries(d).filter(([k])=>!['_rev','_createdAt','_updatedAt'].includes(k)));assert.deepEqual(strip(existing),profile,'Existing profile differs: '+profile._id);}}
+for(const p of plan.pages){const current=docs.find(d=>d._id===p._id);assert.ok(current,'Missing page');if(JSON.stringify(current.sections)===JSON.stringify(p.sections))continue;assert.equal(current._rev,p._rev,'Page changed since review: '+p._id);assert.ok(!docs.some(d=>d._id==='drafts.'+p._id),'Unpublished edits require a separate review: '+p._id);mutations.push({patch:{id:p._id,ifRevisionID:p._rev,set:{sections:p.sections}}});}
+if(!process.argv.includes('--apply')){console.log('Reviewed migration ready:',mutations.length,'operations.');process.exit();}
+if(mutations.length){const r=await fetch(base+'mutate/'+sanityConfig.dataset,{method:'POST',headers,body:JSON.stringify({mutations})});if(!r.ok)throw Error('Migration '+r.status+' '+await r.text());}
+const saved=await read();for(const p of plan.pages)assert.deepEqual(saved.find(d=>d._id===p._id).sections,p.sections);for(const p of plan.profiles)assert.ok(saved.find(d=>d._id===p._id));console.log('Verified shared profiles and page references.');

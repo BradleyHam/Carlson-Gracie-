@@ -1,3 +1,5 @@
+import {settingHref} from './settings.js';
+import {resolvePageProfiles} from './profiles.js';
 import {renderSeminars} from './seminars.js';
 import {renderCoaches} from './coaches.js';
 import {sanityConfig} from './config.js';
@@ -5,6 +7,7 @@ import {fetchContent, imageURL, pageQuery} from './shared.js';
 
 export function applyPage(doc, root = document) {
   if (!doc || doc._type !== 'sitePage') return;
+  doc = resolvePageProfiles(doc);
   if (typeof doc.seoTitle === 'string' && doc.seoTitle.trim()) root.title = doc.seoTitle;
   if (typeof doc.seoDescription === 'string') root.querySelector('meta[name="description"]')?.setAttribute('content', doc.seoDescription);
   const texts = new Map();
@@ -40,6 +43,11 @@ export function applyPage(doc, root = document) {
     if (markup === null) continue;
     rail.innerHTML = markup;
     rail.dispatchEvent(new Event('sanity:seminars-updated'));
+  }
+  for(const el of root.querySelectorAll('[data-sanity-setting]')){
+    const key=el.dataset.sanitySetting;const href=settingHref(doc.settings,key);if(!href)continue;
+    if(key==='phone')for(const node of el.childNodes)if(node.nodeType===3)node.textContent=node.textContent.replace(/\+64 21 0230 4516|021 0230 4516/g,doc.settings.phone);
+    el.setAttribute('href',href);
   }
 }
 const id = document.documentElement.dataset.sanityPage;

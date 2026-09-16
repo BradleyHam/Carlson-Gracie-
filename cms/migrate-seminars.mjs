@@ -7,7 +7,7 @@ export function migrateSeminarPage(doc) {
   const result=structuredClone(doc);
   for(const section of result.sections||[]) {
     const config=page?.sections.find(s=>s._key===section._key&&s.seminarBindings);
-    if(!config||Object.hasOwn(section,'seminars'))continue;
+    if(!config||Object.hasOwn(section,'seminars')||Object.hasOwn(section,'seminarRefs'))continue;
     const texts=new Map(section.texts.map(t=>[t._key,t.value]));const images=new Map(section.images.map(i=>[i._key,i]));
     section.seminars=config.seminarBindings.map(b=>{const image=images.get(b.photo);assert.ok(texts.has(b.name)&&image?.image?.asset?._ref,'Missing existing seminar content');return {_key:b._key,_type:'seminarGuest',name:texts.get(b.name),description:texts.get(b.description) ?? b.descriptionFallback ?? '',photo:image.image,alt:image.alt||''};});
     const usedTexts=new Set(config.seminarBindings.flatMap(b=>[b.name,b.description]));const usedImages=new Set(config.seminarBindings.map(b=>b.photo));

@@ -1,75 +1,38 @@
 # Carlson Gracie content editing
 
-## Links and access
+[Owner guide](./OWNER-GUIDE.md) · Studio: https://carlson-gracie-nz.sanity.studio/ · Website: https://carlson-gracie-eight.vercel.app/
 
-- Editor: https://carlson-gracie-nz.sanity.studio/
-- Website: https://carlson-gracie-eight.vercel.app/
-- Project: i27dttcu, dataset: production
-- Owner invitation is deliberately deferred until Bradley confirms the email address. No invitation has been sent.
+Project `i27dttcu`, dataset `production`. Content and assets are public. No owner invitation has been sent; the owner’s email must be confirmed first.
 
-The dataset contains public website content and photos. Editing requires project membership. It is not a place for member records or private information.
+## Content model
 
-## Using the editor
+- 31 fixed-layout `sitePage` documents, grouped in the Studio by owner task.
+- `coachProfile` and `seminarProfile` documents contain shared details. Page sections hold ordered strong references in `coachRefs` and `seminarRefs`.
+- Profile `pageCopy` entries preserve deliberate or unresolved differences from the original pages. Clear an override to inherit the main value. Notes identify missing details and differences; they are not rendered on the website.
+- Academy coach lists use the same shared records. Existing placeholder people and missing portraits are retained and marked for review.
+- `siteSettings` is a singleton for the existing main phone/social/signup links on supported pages.
+- `event` documents remain dated events; a guest reference is optional. Published events move to the archive after their end date.
 
-1. Sign in with an account that has access to this Sanity project.
-2. Open Pages, choose a page, and expand the relevant section.
-3. Edit the text or replace a photo. Add a useful photo description.
-4. Click Publish. Draft changes stay off the website.
-5. Reload the website after publishing. CDN caching can cause a short delay; the automatic rebuild also updates the saved HTML.
+The timetable is excluded. Layouts, navigation structure, video, embedded maps and full article publishing remain source-managed. FAQs, pricing and other page-specific copy stay with their pages. Local unpublished layout changes remain separate from production.
 
-For events, open Events and create a document. Enter its name, summary, location, start/end dates and photo. Check the displayed timezone when entering New Zealand dates. Publish to show it on the site; unpublish to remove it. Completed events move into Past Events. If multiple upcoming events are featured, the earliest appears at the top.
+## Rendering and publishing
 
-## Editing boundaries
+`cms/manifest.json` contains stable HTML bindings and list selectors. Never regenerate it without a migration. `cms/profiles.js` expands published references and applies optional page-specific values. Hidden, missing and empty reference lists do not resurrect fallback cards. Missing unmigrated reference fields retain existing content for backward compatibility.
 
-Existing copy and photos across 31 pages are grouped into fixed sections. This includes supported coach biographies, existing FAQ text, membership copy and academy pages. Search titles/descriptions are also editable.
+Build and browser queries read published content. Production builds embed the current content; the browser refreshes it. On an outage the last built content remains available. A configured build fails if content fetching fails. Text is escaped; image and settings URLs are constrained.
 
-Layouts, navigation, forms, link destinations, video, decorative/animated text and paragraphs with embedded formatting or links remain in source. The homepage and Coaches page support adding, removing and reordering coach cards. New FAQ rows and full news articles remain source-managed. Repeated copy on separate pages is edited separately.
+The existing Sanity rebuild webhook must include `sitePage`, `event`, `coachProfile`, `seminarProfile` and `siteSettings`, excluding drafts and version documents. Website releases use GitHub main. The webhook target is stored in the services, never in this repository.
 
-The timetable page, timetable sections and timetable modal are excluded. Gymdesk remains a separate future integration. Event dates do not control the weekly class timetable.
+## Development and validation
 
-The release uses the existing live layout. Sixteen fields belonging to unpublished local layout edits were excluded; those edits remain in the working tree and can be connected when that layout is published.
+- `npm run dev`: website preview.
+- `npm run studio:dev`: local editor.
+- `npm run test:cms`: bindings, safe rendering, lists, shared updates and empty/archive behaviour.
+- `npm run build` / `npm run studio:build`: production builds.
+- `npm --prefix studio run check`: schema validation.
+- `npm run studio:deploy`: deploy Studio.
+- `npm run cms:import`: seed missing shared records and pages; existing documents are never overwritten.
 
-## Content and publishing
+`seed.ndjson` contains page seeds; `shared-seed.ndjson` contains shared records. Legacy fixtures exist only for migration tests. The initial coach/seminar migration scripts skip pages already using references.
 
-The initial import includes 31 page documents and 56 existing photos, referenced in 145 image fields. Example events were not imported. Existing hand-authored historical event cards remain in the site.
-
-The browser fetches published content from Sanity's CDN. Production builds also embed published page copy/photos and a real event snapshot. If requests fail, the last built content remains visible; configured builds fail on a Sanity fetch error instead of silently deploying stale content. Empty event collections remain empty during an outage, without reverting to demo events.
-
-The Vercel deploy hook named Sanity content publish targets main. The Sanity webhook named Rebuild Carlson Gracie website handles published page/event creation, updates and deletion; drafts and version documents are excluded. The webhook URL is stored in the services, not in source. Website releases use GitHub main.
-
-## Development
-
-Run npm ci for website dependencies and npm ci --prefix studio for editor dependencies.
-
-- npm run dev: website preview.
-- npm run studio:dev: local editor.
-- npm run test:cms: binding integrity, design preservation, timetable exclusion and safe rendering checks.
-- npm run build / npm run studio:build: production builds.
-- npm run studio:deploy: deploy the editing application.
-- npm run cms:import: seed missing documents, with SANITY_API_TOKEN supplied only to the shell. Existing documents are never overwritten.
-
-cms/config.js contains public identifiers only. Never put an API token in website code or VITE_ variables. The Studio has its own dependency manifest/lockfile and is hosted separately.
-
-cms/manifest.json contains stable bindings to the HTML. cms/seed.ndjson contains initial content and imported photo references. Do not regenerate the manifest after import without a migration: replacing keys can disconnect edits. When source structure changes, update affected bindings and run the checks. Keep document IDs stable.
-
-## Validation
-
-Website and Studio builds pass. Schema validation reports zero errors and warnings. CMS checks cover all connected pages, escaped content, published queries and timetable exclusion. Browser checks cover mobile/desktop layouts, published copy, images, empty events, outage fallback and the timetable modal. Invitations and owner-specific sign-in remain deferred.
-
-Compatible dependency patches removed high-severity Studio audit findings. Five moderate upstream CLI/UUID findings remain; no forced major dependency changes were applied.
-
-Official references: [Studio setup](https://www.sanity.io/docs/studio/installation), [hosting](https://www.sanity.io/docs/studio/deployment), [webhooks](https://www.sanity.io/docs/http-reference/webhooks).
-
-## Editor clarity update
-
-Sections follow page order and visible website headings. Text and photo entries use the same card or person name (for example, Kids — description and Kids — photo). Photo descriptions describe the actual image, separately from its position on the page. Section previews show a thumbnail and field counts. Existing IDs, selectors, image references and page copy are retained.
-
-## Coach lists
-
-Open Home or About / Coaches, then its coaches section. Each entry contains name, photo, photo description, role, bio and belt display. Add, remove or drag entries to reorder, then Publish. Each page keeps its own list and wording. An empty list removes every coach card on that page.
-
-The browser and production build render coach arrays. Missing arrays retain the existing cards during migration or an outage. `cms/migrate-coaches.mjs` moves the current flat fields into objects with revision checks and a required backup; it also preserves drafts and skips lists that have already migrated.
-
-## Seminar guest lists
-
-On Home and Seminars, each guest entry groups their name, seminar photo, photo description and credentials. Add, remove or drag entries to reorder, then Publish. Each page keeps its own guest list and existing photo crop. Dated upcoming seminars remain in Events. The migration script `cms/migrate-seminars.mjs` preserves current names and photo references, requires a backup and revision checks, and skips already migrated lists.
+`migrate-owner-model.mjs` applies a reviewed migration plan from `OWNER_MIGRATION_PLAN`, requires `OWNER_MIGRATION_BACKUP`, and reads `SANITY_API_TOKEN` only from the process environment. It aborts on changed page revisions or unreviewed drafts, creates shared profiles and page references atomically, then verifies the saved state. Keep tokens and backup credentials out of source and browser variables.

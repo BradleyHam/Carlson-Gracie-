@@ -1,3 +1,5 @@
+import {settingLinkKey, settingHref} from './settings.js';
+import {resolvePageProfiles, allPagesQuery} from './profiles.js';
 import path from 'node:path';
 import {renderSeminars} from './seminars.js';
 import {renderCoaches} from './coaches.js';
@@ -17,13 +19,13 @@ export function sanityContentPlugin() {
       if (!isConfigured(sanityConfig)) return;
       // A configured production build must not silently publish stale content.
       const [docs, events] = await Promise.all([
-        fetchContent(sanityConfig, '*[_type == "sitePage"]', {}, {cdn:false}),
+        fetchContent(sanityConfig, allPagesQuery, {}, {cdn:false}),
         fetchContent(sanityConfig, eventsQuery, {}, {cdn:false}),
       ]);
       if (!Array.isArray(events)) throw new Error('Invalid Sanity events response');
       eventSnapshot = events;
       if (!Array.isArray(docs)) throw new Error('Invalid Sanity pages response');
-      documents = new Map(docs.map(doc => [doc._id, doc]));
+      documents = new Map(docs.map(doc => [doc._id, resolvePageProfiles(doc)]));
     },
     resolveId(id) { if (id === 'virtual:sanity-events') return '\0sanity-events'; },
     load(id) { if (id === '\0sanity-events') return 'export default ' + JSON.stringify(eventSnapshot) + ';'; },
@@ -75,6 +77,11 @@ export function sanityContentPlugin() {
           const markup = renderSeminars(entries, sanityConfig, section.seminarLayout);
           if (markup !== null) rail.html(markup);
         }
+        $('a[href]').each((_,node)=>{
+          const el=$(node);const key=settingLinkKey(el.attr('href'));if(!key)return;
+          el.attr('data-sanity-setting',key);const href=settingHref(published?.settings,key);if(href)el.attr('href',href);
+          if(key==='phone'&&published?.settings?.phone){el.contents().filter((_,n)=>n.type==='text').each((_,n)=>{n.data=n.data.replace(/\+64 21 0230 4516|021 0230 4516/g,published.settings.phone);});}
+        });
         return {html: $.html(), tags:[{tag:'script',attrs:{type:'module',src:'/cms/browser.js'},injectTo:'head'}]};
       },
     },

@@ -1,0 +1,1511 @@
+[
+  {
+    "_id": "page-home",
+    "_type": "sitePage",
+    "title": "Home",
+    "route": "/",
+    "seoTitle": "Brazilian Jiu-Jitsu Queenstown | Carlson Gracie BJJ New Zealand",
+    "seoDescription": "Learn Brazilian jiu-jitsu in Queenstown with Carlson Gracie Team New Zealand. Beginner fundamentals, no-gi and kids classes. Your first class is free.",
+    "sections": [
+      {
+        "_key": "f7bd5d03e0ecf39f",
+        "_type": "pageSection",
+        "label": "Top of page — Brazilian Jiu-Jitsu Academy in Queenstown",
+        "texts": [
+          {
+            "_key": "2aa9c8421d4059a4",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "Come as you are. Leave as one of us."
+          },
+          {
+            "_key": "27872b2c23fef9ee",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Brazilian Jiu-Jitsu Academy"
+          },
+          {
+            "_key": "9ba5a4ea021642ab",
+            "_type": "pageText",
+            "label": "Heading 2",
+            "value": "in Queenstown"
+          }
+        ],
+        "images": []
+      },
+      {
+        "_key": "8a5b03aedb364e96",
+        "_type": "pageSection",
+        "label": "Training — Start where you are",
+        "texts": [
+          {
+            "_key": "cc8bfadde2627fcd",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Training"
+          },
+          {
+            "_key": "7dc0fdce5f429c7d",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Start where you are"
+          },
+          {
+            "_key": "91ca28d85c63d494",
+            "_type": "pageText",
+            "label": "Fundamentals — description",
+            "value": "This is where you start if you’ve never tried Jiu Jitsu before. Basic positions, submissions and escapes, and the habits that keep you safe before you join the regular classes."
+          },
+          {
+            "_key": "edbf88dc148c71a1",
+            "_type": "pageText",
+            "label": "All levels — description",
+            "value": "Technique, drilling, and live rolling. Where fundamentals get pressure tested, at whatever pace your rank calls for."
+          },
+          {
+            "_key": "888872f097cc70f5",
+            "_type": "pageText",
+            "label": "No-Gi — description",
+            "value": "No collars, no sleeves, faster scrambles. Wrestling, leg attacks and modern grappling for sport and self defence."
+          },
+          {
+            "_key": "14b23397b2050b06",
+            "_type": "pageText",
+            "label": "Kids — description",
+            "value": "Falling safely, focus, and confidence. Games first, technique always, and no striking, ever."
+          }
+        ],
+        "images": [
+          {
+            "_key": "dafac6bd46c718e1",
+            "_type": "pageImage",
+            "label": "Fundamentals — photo",
+            "alt": "Two members practising a standing no-gi drill",
+            "originalSrc": "assets/prog-fundamentals.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-f5a2316a93cf925a75022870a61c33d9eb535bb8-640x427-jpg",
+                "_type": "reference"
+              }
+            }
+          },
+          {
+            "_key": "44d7e198904d70cc",
+            "_type": "pageImage",
+            "label": "All levels — photo",
+            "alt": "Gi class training at the Queenstown academy",
+            "originalSrc": "assets/prog-gi.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-837785cb7a7aa65141c362eb2a5c5e784639cc8e-800x533-jpg",
+                "_type": "reference"
+              }
+            }
+          },
+          {
+            "_key": "933f79119ba0e908",
+            "_type": "pageImage",
+            "label": "No-Gi — photo",
+            "alt": "No-gi grappling on the mats in Queenstown",
+            "originalSrc": "assets/prog-no-gi.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-f818b58daf2414e6e776dfc64165b0d1bc3cfc1d-800x533-jpg",
+                "_type": "reference"
+              }
+            }
+          },
+          {
+            "_key": "58e901ef85f4923b",
+            "_type": "pageImage",
+            "label": "Kids — photo",
+            "alt": "Two children practising jiu-jitsu together on the mats",
+            "originalSrc": "assets/prog-kids.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-7a04ec6f030127ee6662226d7aea9bfa74adcfd0-640x427-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "acd1f5f5052fd15f",
+        "_type": "pageSection",
+        "label": "The legacy — Why Carlson Gracie",
+        "texts": [
+          {
+            "_key": "c044caa7772b5915",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "The legacy"
+          },
+          {
+            "_key": "00dd4affbbd5b210",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Why Carlson Gracie"
+          },
+          {
+            "_key": "85ec143c804e95c6",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "Carlson Gracie is one of the most important names in the history of Brazilian Jiu-Jitsu. We brought it to the Southern Lakes, and training here puts you in a direct line to the family that founded the sport."
+          },
+          {
+            "_key": "fc057fb76c3c3650",
+            "_type": "pageText",
+            "label": "Photo caption",
+            "value": "Everyone has a hand in someone else’s journey."
+          },
+          {
+            "_key": "bde92e35064168a6",
+            "_type": "pageText",
+            "label": "The lineage — heading",
+            "value": "The lineage"
+          },
+          {
+            "_key": "03389a17053f3db3",
+            "_type": "pageText",
+            "label": "The lineage — description",
+            "value": "The art passed from Mitsuyo Maeda to Carlos Gracie, and from Carlos to his son Carlson. Carlson defended the family name for two decades without losing, then became one of the finest coaches the sport has produced. Our head professor, Jose Gomes, earned his black belt under Carlson Gracie Jr, so that line runs unbroken onto our mats."
+          },
+          {
+            "_key": "dde1ab7614181a79",
+            "_type": "pageText",
+            "label": "The standard — heading",
+            "value": "The standard"
+          },
+          {
+            "_key": "4dc15f153aa7683e",
+            "_type": "pageText",
+            "label": "The standard — description",
+            "value": "Plenty of gyms teach jiu-jitsu. Few carry this much rank. With more than 11 black belts training regularly at our dojo, alongside a deep bench of high belts, you’ll be hard pressed to find deeper skill and knowledge anywhere in the country."
+          },
+          {
+            "_key": "c92a33b214ded614",
+            "_type": "pageText",
+            "label": "The culture — heading",
+            "value": "The culture"
+          },
+          {
+            "_key": "083723ba441eec9b",
+            "_type": "pageText",
+            "label": "The culture — description",
+            "value": "Carlson opened his mats to everyone and built teams instead of guarding secrets. That is the culture we keep: higher belts lift the newer ones, and everyone has a hand in someone else’s journey. Family-first and everyone-welcome, every single day."
+          }
+        ],
+        "images": [
+          {
+            "_key": "a33e7d57c3495a46",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "Coaches, senior belts and their kids sitting along the wall watching a class",
+            "originalSrc": "assets/culture.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-8054336856f36cb3242f363a7cb02c4d9b49f3e3-1700x1133-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "101e300e6c9b0fed",
+        "_type": "pageSection",
+        "label": "After kids class",
+        "texts": [
+          {
+            "_key": "28af4d526c827048",
+            "_type": "pageText",
+            "label": "Photo caption",
+            "value": "After kids class"
+          }
+        ],
+        "images": [
+          {
+            "_key": "0b8218bc2d59bb3e",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "A coach on the mats surrounded by laughing children after class",
+            "originalSrc": "assets/family.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-18a0546e23838aea2019df77d655493cdfe8c710-1700x1135-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "92a3a5033505a87d",
+        "_type": "pageSection",
+        "label": "Your coaches — No matter your level, someone here has your back",
+        "texts": [
+          {
+            "_key": "6c7894872f99bad2",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Your coaches"
+          },
+          {
+            "_key": "bb1129f42760c95a",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "A deep roster of black belts and high belts with decades of combined mat time, guiding everyone from day-one white belts to competition regulars, with dedicated women’s and kids’ classes."
+          }
+        ],
+        "images": [
+          {
+            "_key": "8cbb04baa2479855",
+            "_type": "pageImage",
+            "label": "black belts — photo",
+            "alt": "The Carlson Gracie New Zealand coaching team in front of the club banner",
+            "originalSrc": "assets/black-belts.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-ce6ba26f7be06e4f82aa52e4aac54d32f752c4b4-1700x1134-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ],
+        "coaches": [
+          {
+            "_key": "a55452d613172b77",
+            "_type": "coach",
+            "name": "Jose Gomes",
+            "role": "Head professor · Black belt under Carlson Gracie Jr",
+            "bio": "Training since 1996 and a black belt under Carlson Gracie Jr. Opened Carlson Gracie NZ in 2014 and grew it from 15 to over 200 members, going on to seed academies in Wānaka, Invercargill and South Canterbury.",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-9a78d073e3260d0c9790572acfbae2d071c9cef9-680x1018-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Jose Gomes, head professor",
+            "belt": "black",
+            "stripes": 3
+          },
+          {
+            "_key": "96b703f9778590ea",
+            "_type": "coach",
+            "name": "Fabio De Carvalho",
+            "role": "Fundamentals, women’s & kids’ · Black belt",
+            "bio": "Coaches fundamentals, beginners, advanced, women’s and kids’ classes. Walked in years ago and never left.",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-f023ef799913ae419e63ecd8d0dfd99956d800ff-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Fabio De Carvalho, black belt instructor",
+            "belt": "black",
+            "stripes": 0
+          },
+          {
+            "_key": "dc9b5837365299e9",
+            "_type": "coach",
+            "name": "Renan Secco",
+            "role": "Advanced gi & no-gi · 1st degree black belt",
+            "bio": "Training since 2004. A key instructor at the academy, teaching the advanced adult classes.",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-24b75bb536853a803c538909166ee9357f85342a-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Renan Secco, first degree black belt",
+            "belt": "black",
+            "stripes": 1
+          },
+          {
+            "_key": "e856cdcf0ca7c6bc",
+            "_type": "coach",
+            "name": "Ashley Smith",
+            "role": "Adults · Black belt",
+            "bio": "Traded boxing gloves for a gi in 2010 and has trained under Jose since 2011.",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-4f5bc7c449e2a2a671ad8a26276feebed8cb7927-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Ashley Smith, black belt instructor",
+            "belt": "black",
+            "stripes": 0
+          },
+          {
+            "_key": "bd780d81f4afb0a5",
+            "_type": "coach",
+            "name": "Kadu",
+            "role": "Black belt",
+            "bio": "Bio to confirm",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-171e4a6cc404eb4bb223854e45a429297b9abf79-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Kadu, coach at Carlson Gracie New Zealand",
+            "belt": "black",
+            "stripes": 0
+          },
+          {
+            "_key": "52fbe38796c3cf5e",
+            "_type": "coach",
+            "name": "Maranda Mitchell",
+            "role": "Bio to confirm",
+            "bio": "",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-cbd0c614bdb38ac42f55d3376caa08f7abe58808-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Maranda Mitchell, fundamentals coach",
+            "belt": "unconfirmed",
+            "stripes": 0
+          },
+          {
+            "_key": "69ea12bb04d6e4d9",
+            "_type": "coach",
+            "name": "Patricia",
+            "role": "Bio to confirm",
+            "bio": "",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-8817b140a0b336aa09289ed4ac72064dcb0fab96-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Patricia, coach at Carlson Gracie New Zealand",
+            "belt": "unconfirmed",
+            "stripes": 0
+          },
+          {
+            "_key": "aef44453cd532a82",
+            "_type": "coach",
+            "name": "Thiago",
+            "role": "Black belt",
+            "bio": "Bio to confirm",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-c469500821c9651af9729135e96d2357f0770998-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Thiago, coach at Carlson Gracie New Zealand",
+            "belt": "black",
+            "stripes": 0
+          }
+        ]
+      },
+      {
+        "_key": "c582a69ac5f540c5",
+        "_type": "pageSection",
+        "label": "On and off the mats — Every day is a school day",
+        "texts": [
+          {
+            "_key": "cf915852700cfe6b",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "On and off the mats"
+          },
+          {
+            "_key": "07941dcf5c893ab3",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Every day is a school day"
+          },
+          {
+            "_key": "7eb03dbfaaf3c3b8",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "Training is only half of it. Every membership comes with our full tutorial library in the app, so the learning carries on after class. Review what you drilled tonight, get ahead of the next move before you arrive, and pick something up whenever you have ten minutes. Filmed by our coaches, on our mats."
+          }
+        ],
+        "images": [
+          {
+            "_key": "242f9211bec1df15",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "The members’ content library in the app",
+            "originalSrc": "assets/app-content.png",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-c1659522414931b119798735a0a641ed7db7e13b-520x1131-png",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "2a25e107e9306a60",
+        "_type": "pageSection",
+        "label": "Seminars & events — World-class jiu-jitsu, on our mats",
+        "texts": [
+          {
+            "_key": "146f7f0fbed64b6b",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Seminars & events"
+          },
+          {
+            "_key": "52b085f1a6bcfcb0",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "World-class jiu-jitsu, on our mats"
+          },
+          {
+            "_key": "fb784ea0d21a8da2",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "A few of the athletes who have taught on our mats."
+          },
+          {
+            "_key": "f79f51f0f235a93e",
+            "_type": "pageText",
+            "label": "Body text 2",
+            "value": "We’re lucky to have hosted some of the best grapplers on the planet right here in Queenstown. As a member, you’re in the room for it. You learn their techniques first-hand, drill under their eye, and roll with athletes you have only ever watched compete. That kind of access is rare, and it comes with the mat."
+          }
+        ],
+        "images": [],
+        "seminars": [
+          {
+            "_key": "399949e5e33dd559",
+            "_type": "seminarGuest",
+            "name": "Royce Gracie",
+            "description": "UFC Hall of Famer",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-9b472e9b65b3b1c3cd026bf999daf667d61ecabd-560x698-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Royce Gracie with Jose Gomes at the academy"
+          },
+          {
+            "_key": "2d1fb794250e9b13",
+            "_type": "seminarGuest",
+            "name": "Carley Gracie",
+            "description": "Gracie family red belt",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-424f07ae748f924b7a09880c5c83ddb5ec9fc6ad-560x691-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Carley Gracie in his red belt at the academy"
+          },
+          {
+            "_key": "e76e27680fa20612",
+            "_type": "seminarGuest",
+            "name": "Clark Gracie",
+            "description": "IBJJF world champion",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-50843aa5ce8312b72beb31069b669a7f006c3b3a-640x798-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Clark Gracie at the academy"
+          },
+          {
+            "_key": "75242dd5d89d392b",
+            "_type": "seminarGuest",
+            "name": "Craig Jones",
+            "description": "ADCC medallist",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-36ff0d944415c9fa6c197ed3946aaacfd42b5e03-640x800-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Craig Jones at the academy"
+          },
+          {
+            "_key": "9d37a8ad38b11f25",
+            "_type": "seminarGuest",
+            "name": "Cole Abate",
+            "description": "IBJJF world champion",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-72f0f018cc744f32698da37804050f60c714bb63-640x800-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Cole Abate with Jose Gomes at the academy"
+          }
+        ]
+      },
+      {
+        "_key": "c56b6c17f4ddd742",
+        "_type": "pageSection",
+        "label": "From the blog — Events, all year round",
+        "texts": [
+          {
+            "_key": "546f7eaeaa51942c",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "From the blog"
+          },
+          {
+            "_key": "7255b8c5ca4bdb57",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Events, all year round"
+          },
+          {
+            "_key": "5f217ec83d9c4346",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "Alongside the seminars, we regularly run tournaments in Queenstown and further afield. As part of the team you get the chance to compete, corner your teammates, volunteer, and learn to referee. Every one of those is another way in, and another thread in the community we build on and off the mat."
+          },
+          {
+            "_key": "2fab9a2644f0a395",
+            "_type": "pageText",
+            "label": "Post title pulls in from the blog — heading",
+            "value": "Post title pulls in from the blog"
+          },
+          {
+            "_key": "7ccc6f96fb15be9b",
+            "_type": "pageText",
+            "label": "Post title pulls in from the blog — description",
+            "value": "A one or two line excerpt shows here automatically from the post tagged events."
+          },
+          {
+            "_key": "570a2a8a01db2389",
+            "_type": "pageText",
+            "label": "Post title pulls in from the blog — heading 2",
+            "value": "Post title pulls in from the blog"
+          },
+          {
+            "_key": "a78fd9442bb79677",
+            "_type": "pageText",
+            "label": "Post title pulls in from the blog — description 2",
+            "value": "A one or two line excerpt shows here automatically from the post tagged events."
+          },
+          {
+            "_key": "3008d34ef2c95d87",
+            "_type": "pageText",
+            "label": "Post title pulls in from the blog — heading 3",
+            "value": "Post title pulls in from the blog"
+          },
+          {
+            "_key": "950d710fb84759bd",
+            "_type": "pageText",
+            "label": "Post title pulls in from the blog — description 3",
+            "value": "A one or two line excerpt shows here automatically from the post tagged events."
+          }
+        ],
+        "images": []
+      },
+      {
+        "_key": "32491791c16efd89",
+        "_type": "pageSection",
+        "label": "Good to know — Questions, answered",
+        "texts": [
+          {
+            "_key": "99e64bffa6f4e057",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Good to know"
+          },
+          {
+            "_key": "0093149a1ff42e35",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Questions, answered"
+          },
+          {
+            "_key": "56f31f443c2fcfff",
+            "_type": "pageText",
+            "label": "What should I bring to my first class? — question",
+            "value": "What should I bring to my first class?"
+          },
+          {
+            "_key": "ed19f208eaaba53f",
+            "_type": "pageText",
+            "label": "What should I bring to my first class? — answer",
+            "value": "Shorts and a t-shirt are fine. We have clean gis to borrow, so there is nothing to buy before you know you love it. Bring water, a towel, and no ego."
+          },
+          {
+            "_key": "0c77c7af042733a5",
+            "_type": "pageText",
+            "label": "What makes Carlson Gracie different? — question",
+            "value": "What makes Carlson Gracie different?"
+          },
+          {
+            "_key": "9ec8456ceb2c6b47",
+            "_type": "pageText",
+            "label": "What makes Carlson Gracie different? — answer",
+            "value": "A few things you won’t find together anywhere else in the region. A direct line to the founding Gracie family, through our head professor’s black belt under Carlson Gracie Jr. A deep roster of black belts on the mat, more than 11 in all. And a family of academies across the South Island, in Queenstown, Wānaka, Invercargill and South Canterbury. We were the first to bring the sport to the Southern Lakes, and we have grown it ever since."
+          },
+          {
+            "_key": "ca607b06091ee124",
+            "_type": "pageText",
+            "label": "Do I need to be fit to start? — question",
+            "value": "Do I need to be fit to start?"
+          },
+          {
+            "_key": "152db5308600194e",
+            "_type": "pageText",
+            "label": "Do I need to be fit to start? — answer",
+            "value": "No. You get fit by training, not before it. Every class runs at the pace your body sets, and nobody in the room is watching you."
+          },
+          {
+            "_key": "78e8783f15f05d3e",
+            "_type": "pageText",
+            "label": "I have never done a martial art. Is that ok? — question",
+            "value": "I have never done a martial art. Is that ok?"
+          },
+          {
+            "_key": "76bc4135a83a6769",
+            "_type": "pageText",
+            "label": "I have never done a martial art. Is that ok? — answer",
+            "value": "That describes most people’s first class here. Fundamentals exists for exactly this: basic positions, submissions and escapes, and the habits that keep you safe before you join the regular classes."
+          },
+          {
+            "_key": "5ca427dca52170ac",
+            "_type": "pageText",
+            "label": "How do I become a member? — question",
+            "value": "How do I become a member?"
+          },
+          {
+            "_key": "350c7c24db468129",
+            "_type": "pageText",
+            "label": "How do I become a member? — answer",
+            "value": "Start with a free class, then have a chat with us on the mat. Membership covers your classes, the seminars we host, and the full tutorial library in the app."
+          },
+          {
+            "_key": "9c37396e6cb912ab",
+            "_type": "pageText",
+            "label": "What ages are the kids’ classes? — question",
+            "value": "What ages are the kids’ classes?"
+          },
+          {
+            "_key": "38e9b4a2f02e04fd",
+            "_type": "pageText",
+            "label": "What ages are the kids’ classes? — answer",
+            "value": "Ages 5 to 12, in gi and no-gi. Games first, technique always, and no striking, ever."
+          },
+          {
+            "_key": "c25871168ab6f483",
+            "_type": "pageText",
+            "label": "Gi or no-gi, which should I pick? — question",
+            "value": "Gi or no-gi, which should I pick?"
+          },
+          {
+            "_key": "92a888cc8f29f057",
+            "_type": "pageText",
+            "label": "Gi or no-gi, which should I pick? — answer",
+            "value": "Either, and most members end up doing both. Gi is the traditional kimono and rewards patience and grips. No-gi is faster, closer to wrestling, and a little less to learn on day one."
+          }
+        ],
+        "images": []
+      },
+      {
+        "_key": "f6bbd46d85d60259",
+        "_type": "pageSection",
+        "label": "Join us — Come and find your people",
+        "texts": [
+          {
+            "_key": "b3217cf1749f9705",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Join us"
+          },
+          {
+            "_key": "d8f1c4d86fca0733",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Come and find your people"
+          },
+          {
+            "_key": "fcb75cbdce1fb642",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "Or just turn up. Times above, mats waiting."
+          }
+        ],
+        "images": [
+          {
+            "_key": "84ba139c00ba6d60",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "Three members standing together on the academy mats",
+            "originalSrc": "assets/finding-your-people.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-50e231c1d1e7e6e4db88accb7fe2a019888f0c3a-1700x1134-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "page-about-coaches",
+    "_type": "sitePage",
+    "title": "about / coaches",
+    "route": "/about/coaches/",
+    "seoTitle": "Our Coaches | Carlson Gracie New Zealand",
+    "seoDescription": "A deep bench of black belts and high belts, with more coming through every year. Meet the coaching team at Carlson Gracie New Zealand.",
+    "sections": [
+      {
+        "_key": "58f8f5d4bf69de43",
+        "_type": "pageSection",
+        "label": "Top of page — Your coaches — No matter your level, someone here has your back",
+        "texts": [
+          {
+            "_key": "812bafbeea340475",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Your coaches"
+          },
+          {
+            "_key": "5c8e2374908af1ed",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "No matter your level, someone here has your back"
+          },
+          {
+            "_key": "ddb10aae52e8904e",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "We’ve got a deep bench of black belts and high belts, with more coming through every year. For a beginner, that’s the best news going. The higher the belt, the safer and more helpful the roll, and the more you’ve got to aim at."
+          }
+        ],
+        "images": [
+          {
+            "_key": "3a857cad5b8a843a",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "The coaching team at Carlson Gracie New Zealand",
+            "originalSrc": "../../assets/black-belts.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-ce6ba26f7be06e4f82aa52e4aac54d32f752c4b4-1700x1134-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "cc4f4579d1443151",
+        "_type": "pageSection",
+        "label": "The coaching standard",
+        "texts": [
+          {
+            "_key": "33d6737b5ba3c002",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "The coaching standard"
+          },
+          {
+            "_key": "da23abb0725d211e",
+            "_type": "pageText",
+            "label": "Know what works — heading",
+            "value": "Know what works"
+          },
+          {
+            "_key": "a9e172dab21d3fc2",
+            "_type": "pageText",
+            "label": "Know what works — description",
+            "value": "Real knowledge, taught from the things you actually use."
+          },
+          {
+            "_key": "d3dfa81b8fcfea85",
+            "_type": "pageText",
+            "label": "Welcome every level — heading",
+            "value": "Welcome every level"
+          },
+          {
+            "_key": "8bbd97eb85e4554f",
+            "_type": "pageText",
+            "label": "Welcome every level — description",
+            "value": "Every new face gets a proper welcome and a safe place to learn."
+          },
+          {
+            "_key": "3e911729c03fe28a",
+            "_type": "pageText",
+            "label": "Hold the culture — heading",
+            "value": "Hold the culture"
+          },
+          {
+            "_key": "960667c00269c5b5",
+            "_type": "pageText",
+            "label": "Hold the culture — description",
+            "value": "Keep the mats safe and the room stays the room."
+          },
+          {
+            "_key": "c5bfb6f5ae9fc9cc",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "“Part of the jiu-jitsu journey is helping the people underneath you. That’s the sharing.”"
+          }
+        ],
+        "images": [
+          {
+            "_key": "0d08404f134fdc64",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "A coach demonstrating a gi technique with students on the mats",
+            "originalSrc": "../../assets/jose-coaching.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-7a5c330d68e8ec0665939ee7aa3fc610c2679288-1600x686-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "6e7b4d8a194c7e6e",
+        "_type": "pageSection",
+        "label": "The roster — Your coaches",
+        "texts": [
+          {
+            "_key": "a25a75306bf0c0b3",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "The roster"
+          },
+          {
+            "_key": "035b2abf466c3023",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Your coaches"
+          },
+          {
+            "_key": "1b1a121f85238f23",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "Meet the people who will guide you on the mats."
+          }
+        ],
+        "images": [],
+        "coaches": [
+          {
+            "_key": "ac23093f2ab1735d",
+            "_type": "coach",
+            "name": "Jose Gomes",
+            "role": "Head professor",
+            "bio": "Found jiu-jitsu at sixteen in Brazil, brought it to Queenstown, and built the academy from fifteen members to over two hundred.",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-9a78d073e3260d0c9790572acfbae2d071c9cef9-680x1018-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Jose Gomes, coach at Carlson Gracie New Zealand",
+            "belt": "black",
+            "stripes": 3
+          },
+          {
+            "_key": "1f955694b80a9477",
+            "_type": "coach",
+            "name": "Fabio De Carvalho",
+            "role": "Fundamentals, women’s & kids’ · Black belt",
+            "bio": "The beginners’ go-to. White or blue, ask Fabio. He makes sure the newest members never get left behind.",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-f023ef799913ae419e63ecd8d0dfd99956d800ff-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Fabio De Carvalho, coach at Carlson Gracie New Zealand",
+            "belt": "black",
+            "stripes": 0
+          },
+          {
+            "_key": "52f45b560670bf15",
+            "_type": "coach",
+            "name": "Renan Secco",
+            "role": "Advanced gi & no-gi · 1st degree black belt",
+            "bio": "Training since 2004. Teaches the advanced adult classes.",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-24b75bb536853a803c538909166ee9357f85342a-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Renan Secco, coach at Carlson Gracie New Zealand",
+            "belt": "black",
+            "stripes": 1
+          },
+          {
+            "_key": "d291f8d84016375b",
+            "_type": "coach",
+            "name": "Kadu",
+            "role": "No-gi & advanced · Black belt",
+            "bio": "Teaches the no-gi and advanced classes.",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-171e4a6cc404eb4bb223854e45a429297b9abf79-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Kadu, coach at Carlson Gracie New Zealand",
+            "belt": "black",
+            "stripes": 0
+          },
+          {
+            "_key": "68de8c8d789e2082",
+            "_type": "coach",
+            "name": "Ashley Smith",
+            "role": "Adults · Black belt",
+            "bio": "Traded boxing gloves for a gi in 2010 and has trained under Jose since 2011.",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-4f5bc7c449e2a2a671ad8a26276feebed8cb7927-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Ashley Smith, coach at Carlson Gracie New Zealand",
+            "belt": "black",
+            "stripes": 0
+          },
+          {
+            "_key": "9ce1528923a1c343",
+            "_type": "coach",
+            "name": "Maranda Mitchell",
+            "role": "Bio to confirm",
+            "bio": "",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-cbd0c614bdb38ac42f55d3376caa08f7abe58808-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Maranda Mitchell, coach at Carlson Gracie New Zealand",
+            "belt": "unconfirmed",
+            "stripes": 0
+          },
+          {
+            "_key": "4ade9ea26a3506b0",
+            "_type": "coach",
+            "name": "Patricia",
+            "role": "Bio to confirm",
+            "bio": "",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-8817b140a0b336aa09289ed4ac72064dcb0fab96-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Patricia, coach at Carlson Gracie New Zealand",
+            "belt": "unconfirmed",
+            "stripes": 0
+          },
+          {
+            "_key": "442c03ab95aa42d6",
+            "_type": "coach",
+            "name": "Thiago",
+            "role": "Black belt",
+            "bio": "Bio to confirm",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-c469500821c9651af9729135e96d2357f0770998-680x1020-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Thiago, coach at Carlson Gracie New Zealand",
+            "belt": "black",
+            "stripes": 0
+          }
+        ]
+      },
+      {
+        "_key": "efe849e24a5b8d15",
+        "_type": "pageSection",
+        "label": "Join us — Come and find your people",
+        "texts": [
+          {
+            "_key": "298beb79c6840156",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Join us"
+          },
+          {
+            "_key": "de65938b966e979d",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Come and find your people"
+          }
+        ],
+        "images": [
+          {
+            "_key": "aa3563429dc12038",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "Three members standing together on the academy mats",
+            "originalSrc": "../../assets/finding-your-people.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-50e231c1d1e7e6e4db88accb7fe2a019888f0c3a-1700x1134-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "page-seminars",
+    "_type": "sitePage",
+    "title": "seminars",
+    "route": "/seminars/",
+    "seoTitle": "Seminars & Events | Carlson Gracie New Zealand",
+    "seoDescription": "Some of the best grapplers on the planet have taught on our mats in Queenstown. Seminars, tournaments and the academy blog.",
+    "sections": [
+      {
+        "_key": "65e99cecb0b9649e",
+        "_type": "pageSection",
+        "label": "Top of page — Seminars & events — World-class jiu-jitsu, on our mats",
+        "texts": [
+          {
+            "_key": "42e9ed554be594ed",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Seminars & events"
+          },
+          {
+            "_key": "8366af345dd72956",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "World-class jiu-jitsu, on our mats"
+          },
+          {
+            "_key": "b7e7e7dcfbf50a0c",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "Some of the best grapplers on the planet have taught on our mats, right here in Queenstown. When a big name tours New Zealand, the call tends to come to Jose, because people know he takes this seriously and looks after his guests."
+          }
+        ],
+        "images": [
+          {
+            "_key": "d1cc4f1e1debf1df",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "",
+            "originalSrc": "../assets/seminars/Cole-Abate-and-Jose.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-133323311a955c0034d5f967406c848aff2e9d05-1440x1800-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "3348ad6809f78990",
+        "_type": "pageSection",
+        "label": "Open to everyone — We don’t lock the doors",
+        "texts": [
+          {
+            "_key": "ed43db3470180dd0",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Open to everyone"
+          },
+          {
+            "_key": "63863dbf1f757358",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "We don’t lock the doors"
+          },
+          {
+            "_key": "5e7291a30ce77ad1",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "Every seminar is open to all our members. These athletes teach, they roll with the room, and half the time they’re out to dinner with the crew afterwards. Rolling with someone you’ve only ever watched compete, in your own town, is a rare thing. It comes with your membership."
+          },
+          {
+            "_key": "2750bf5ac367fe77",
+            "_type": "pageText",
+            "label": "Body text 2",
+            "value": "A few of the athletes who have taught on our mats."
+          },
+          {
+            "_key": "3e818a75033958c6",
+            "_type": "pageText",
+            "label": "Body text 3",
+            "value": "Big names, close enough to ask a question, drill the detail, and roll."
+          }
+        ],
+        "images": [],
+        "seminars": [
+          {
+            "_key": "ec835b85a4b36659",
+            "_type": "seminarGuest",
+            "name": "Royce Gracie",
+            "description": "UFC Hall of Famer",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-8035158d418ff7e3313a2fd4c35ec6648da7cd8b-1440x759-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Royce Gracie with Jose Gomes at the academy"
+          },
+          {
+            "_key": "29c55907683fead3",
+            "_type": "seminarGuest",
+            "name": "Carley Gracie",
+            "description": "Gracie family red belt",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-9edf411934e27960a5e620ca24ac105e3f745a62-777x960-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Carley Gracie with Jose Gomes and a Carlson Gracie teammate"
+          },
+          {
+            "_key": "877e5415918cc7ae",
+            "_type": "seminarGuest",
+            "name": "Craig Jones",
+            "description": "ADCC medallist",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-07a7dbc8a5cf04848d4cf49f1f0e4be7607434f7-1423x1390-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Craig Jones with Jose Gomes and a Carlson Gracie teammate"
+          },
+          {
+            "_key": "00f7db7e61542232",
+            "_type": "seminarGuest",
+            "name": "Clark Gracie",
+            "description": "IBJJF world champion",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-e220d7e1e0115fa8f9b356617de80f279912af10-662x727-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Clark Gracie with Jose Gomes and a Carlson Gracie teammate"
+          },
+          {
+            "_key": "602ed73f4c803340",
+            "_type": "seminarGuest",
+            "name": "Cole Abate",
+            "description": "IBJJF world champion",
+            "photo": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-133323311a955c0034d5f967406c848aff2e9d05-1440x1800-jpg",
+                "_type": "reference"
+              }
+            },
+            "alt": "Cole Abate with Jose Gomes at the academy"
+          }
+        ]
+      },
+      {
+        "_key": "1628a4a355aa0d23",
+        "_type": "pageSection",
+        "label": "In Jose’s words",
+        "texts": [
+          {
+            "_key": "893ff37579e2bbbe",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "In Jose’s words"
+          },
+          {
+            "_key": "25df09d0beea07a4",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "“When I came here I was jealous of people who’d trained with the big names. Being able to give that to my team now is unreal for me.”"
+          },
+          {
+            "_key": "32a9f311da5535f8",
+            "_type": "pageText",
+            "label": "Photo caption",
+            "value": "Jose Gomes · Carlson Gracie New Zealand"
+          }
+        ],
+        "images": [
+          {
+            "_key": "fc068206372c9806",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "Jose Gomes in his gi and black belt at the academy",
+            "originalSrc": "../assets/coach-jose.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-9a78d073e3260d0c9790572acfbae2d071c9cef9-680x1018-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "538c02f6826f5902",
+        "_type": "pageSection",
+        "label": "Tournaments and competing — Compete with a team behind you",
+        "texts": [
+          {
+            "_key": "76b8e375f1084a2e",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Tournaments and competing"
+          },
+          {
+            "_key": "f13239df2fe1efcb",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Compete with a team behind you"
+          },
+          {
+            "_key": "e2354addda68a5b1",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "We’ve run comps to full IBJJF standard around the area for ten years. So when our members step onto a mat in Sydney, Tokyo or Vegas, they’ve seen the set-up and they know the drill. Want to compete? There’s a whole crew who travel and back each other. Don’t want to? No pressure at all."
+          }
+        ],
+        "images": [
+          {
+            "_key": "11dc770aa481412c",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "Two jiu-jitsu competitors in white and blue gis grappling in front of spectators",
+            "originalSrc": "../assets/competition.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-785cd0291e8bae2e1f55fe1b271b103997d94680-1500x1000-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "a20f7688f3f1cf4d",
+        "_type": "pageSection",
+        "label": "Host with us ↗",
+        "texts": [
+          {
+            "_key": "ebd922cc1d090d97",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "Bring your next seminar to Queenstown."
+          },
+          {
+            "_key": "1c02d22b3190d80f",
+            "_type": "pageText",
+            "label": "Body text 2",
+            "value": "Carlson Gracie jiu-jitsu, at your academy."
+          }
+        ],
+        "images": [
+          {
+            "_key": "16e8448fb22e4677",
+            "_type": "pageImage",
+            "label": "gutemberg%20pereira%20seminar — photo",
+            "alt": "The group gathered on the mats after a guest seminar at the academy",
+            "originalSrc": "../assets/gutemberg%20pereira%20seminar.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-bddc10414179cfc8e329fba0f7a18ed58495568e-2169x1149-jpg",
+                "_type": "reference"
+              }
+            }
+          },
+          {
+            "_key": "89b233aa7386ae6e",
+            "_type": "pageImage",
+            "label": "jose coaching — photo",
+            "alt": "A coach demonstrating a gi technique with students on the mats",
+            "originalSrc": "../assets/jose-coaching.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-7a5c330d68e8ec0665939ee7aa3fc610c2679288-1600x686-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "399d73a4a1cd130f",
+        "_type": "pageSection",
+        "label": "Life on the mats.",
+        "texts": [
+          {
+            "_key": "c3a9dd6b7fa660eb",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "The journal"
+          },
+          {
+            "_key": "11877d15863f2201",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Life on the mats."
+          },
+          {
+            "_key": "48dbb44a9f70a869",
+            "_type": "pageText",
+            "label": "Body text 2",
+            "value": "What we’re learning, where we’re competing, and the people behind it all."
+          },
+          {
+            "_key": "807b932826a778a7",
+            "_type": "pageText",
+            "label": "Events ↗ — description",
+            "value": "Seminars, tournaments and getting together."
+          },
+          {
+            "_key": "3b0c86b601ff23b9",
+            "_type": "pageText",
+            "label": "Technique ↗ — description",
+            "value": "The details that make the difference."
+          },
+          {
+            "_key": "cc3ed0c8b8a667d1",
+            "_type": "pageText",
+            "label": "News ↗ — description",
+            "value": "Gradings, results and stories from the team."
+          }
+        ],
+        "images": [
+          {
+            "_key": "33fecdd1bb431299",
+            "_type": "pageImage",
+            "label": "Events ↗ — photo",
+            "alt": "Royce Gracie with Jose Gomes at the academy",
+            "originalSrc": "../assets/seminars/Royce-Gracie.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-8035158d418ff7e3313a2fd4c35ec6648da7cd8b-1440x759-jpg",
+                "_type": "reference"
+              }
+            }
+          },
+          {
+            "_key": "2f12789f91532bd2",
+            "_type": "pageImage",
+            "label": "Technique ↗ — photo",
+            "alt": "Cole Abate demonstrating a technique during a guest seminar",
+            "originalSrc": "../assets/seminars/Cole-abate-technique.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-7d9836306d2cab7c5340078cf6a5946fc36153d0-1080x1350-jpg",
+                "_type": "reference"
+              }
+            }
+          },
+          {
+            "_key": "cd3121d65c5331d7",
+            "_type": "pageImage",
+            "label": "News ↗ — photo",
+            "alt": "Members lined up together on the academy mats",
+            "originalSrc": "../assets/news%20hero.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-41b7b43f87b86f3e5eb5f6c4aa9b30f280252614-1440x960-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "_key": "1f885c8fc30ed8dd",
+        "_type": "pageSection",
+        "label": "Join us — Come and find your people",
+        "texts": [
+          {
+            "_key": "d8b6e464bdcaaed2",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Join us"
+          },
+          {
+            "_key": "41f14c2b6335e0f6",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Come and find your people"
+          }
+        ],
+        "images": [
+          {
+            "_key": "56c7d90fa1632174",
+            "_type": "pageImage",
+            "label": "Photo",
+            "alt": "Three members standing together on the academy mats",
+            "originalSrc": "../assets/finding-your-people.jpg",
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-50e231c1d1e7e6e4db88accb7fe2a019888f0c3a-1700x1134-jpg",
+                "_type": "reference"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -3387,7 +3387,34 @@
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > figure:nth-of-type(1) > p:nth-of-type(1)"
           }
         ],
-        "images": []
+        "images": [],
+        "coachSelector": "#coaches .roster-grid",
+        "coachBindings": [
+          {
+            "_key": "ae6983c5a883f088",
+            "name": "ae6983c5a883f088",
+            "role": "f37d290369e0f23b",
+            "belt": "unconfirmed",
+            "stripes": 0,
+            "placeholder": "Name and portrait to add"
+          },
+          {
+            "_key": "a939393479fd8fa1",
+            "name": "a939393479fd8fa1",
+            "role": "a19ea1ec24cf4f83",
+            "belt": "unconfirmed",
+            "stripes": 0,
+            "placeholder": "Name and portrait to add"
+          },
+          {
+            "_key": "83d4c5fd1c5995ff",
+            "name": "83d4c5fd1c5995ff",
+            "role": "b4b53252dc1c32bb",
+            "belt": "unconfirmed",
+            "stripes": 0,
+            "placeholder": "Name and portrait to add"
+          }
+        ]
       },
       {
         "_key": "5ae513df805e21b6",
@@ -3679,6 +3706,39 @@
             "originalSrc": "../../assets/coach-kadu.jpg",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)"
           }
+        ],
+        "coachSelector": "#coaches .roster-grid",
+        "coachBindings": [
+          {
+            "_key": "10b72c5f3cf6a299",
+            "name": "10b72c5f3cf6a299",
+            "role": "e26c4add98be2c63",
+            "bio": "54b64b32367050f7",
+            "photo": "b950b75b670d490b",
+            "belt": "black",
+            "stripes": 3,
+            "placeholder": ""
+          },
+          {
+            "_key": "f16f74706501fd23",
+            "name": "f16f74706501fd23",
+            "role": "5c2c8e1c98e21ee0",
+            "bio": "834e3a12187dbab9",
+            "photo": "ce3a04abeb536971",
+            "belt": "black",
+            "stripes": 0,
+            "placeholder": ""
+          },
+          {
+            "_key": "e92ef56f918eac8b",
+            "name": "e92ef56f918eac8b",
+            "role": "289b7a55270409a9",
+            "bio": "a293f04915c2b7e6",
+            "photo": "b25e252a5fc2d547",
+            "belt": "black",
+            "stripes": 0,
+            "placeholder": ""
+          }
         ]
       },
       {
@@ -3893,7 +3953,34 @@
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > figure:nth-of-type(1) > p:nth-of-type(1)"
           }
         ],
-        "images": []
+        "images": [],
+        "coachSelector": "#coaches .roster-grid",
+        "coachBindings": [
+          {
+            "_key": "f8d85d8e8de8db1f",
+            "name": "f8d85d8e8de8db1f",
+            "role": "274a3f4d3e309680",
+            "belt": "unconfirmed",
+            "stripes": 0,
+            "placeholder": "Portrait to add"
+          },
+          {
+            "_key": "8966c2f7625ab371",
+            "name": "8966c2f7625ab371",
+            "role": "b9fc0247618148da",
+            "belt": "unconfirmed",
+            "stripes": 0,
+            "placeholder": "Portrait to add"
+          },
+          {
+            "_key": "d9fa90fb478657f9",
+            "name": "d9fa90fb478657f9",
+            "role": "221849be26a9097f",
+            "belt": "unconfirmed",
+            "stripes": 0,
+            "placeholder": "Portrait to add"
+          }
+        ]
       },
       {
         "_key": "de1bbfabd08d9f35",
@@ -4107,7 +4194,34 @@
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > figure:nth-of-type(1) > p:nth-of-type(1)"
           }
         ],
-        "images": []
+        "images": [],
+        "coachSelector": "#coaches .roster-grid",
+        "coachBindings": [
+          {
+            "_key": "b92f0630f25b34e4",
+            "name": "b92f0630f25b34e4",
+            "role": "12a52eb453a4a8ea",
+            "belt": "black",
+            "stripes": 0,
+            "placeholder": "Portrait to add"
+          },
+          {
+            "_key": "7292548d09682183",
+            "name": "7292548d09682183",
+            "role": "5cc1c53bf6c01b99",
+            "belt": "black",
+            "stripes": 0,
+            "placeholder": "Portrait to add"
+          },
+          {
+            "_key": "8dd41c1dfd78524a",
+            "name": "8dd41c1dfd78524a",
+            "role": "4623052d02e39812",
+            "belt": "unconfirmed",
+            "stripes": 0,
+            "placeholder": "Portrait to add"
+          }
+        ]
       },
       {
         "_key": "14ea341ca21a0a7e",

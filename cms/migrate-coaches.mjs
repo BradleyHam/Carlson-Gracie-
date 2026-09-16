@@ -7,7 +7,7 @@ export function migrateCoachPage(doc) {
   const result=structuredClone(doc);
   for(const section of result.sections||[]) {
     const config=page?.sections.find(s=>s._key===section._key&&s.coachBindings);
-    if(!config||Object.hasOwn(section,'coaches'))continue;
+    if(!config||Object.hasOwn(section,'coaches')||Object.hasOwn(section,'coachRefs'))continue;
     const texts=new Map(section.texts.map(t=>[t._key,t.value]));const images=new Map(section.images.map(i=>[i._key,i]));
     section.coaches=config.coachBindings.map(b=>{const image=images.get(b.photo);assert.ok(texts.has(b.name)&&image?.image?.asset?._ref,'Missing existing coach content');return {_key:b._key,_type:'coach',name:texts.get(b.name),role:texts.get(b.role)||'',bio:texts.get(b.bio)||'',photo:image.image,alt:image.alt||'',belt:b.belt,stripes:b.stripes};});
     const usedTexts=new Set(config.coachBindings.flatMap(b=>[b.name,b.role,b.bio]));const usedImages=new Set(config.coachBindings.map(b=>b.photo));

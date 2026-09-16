@@ -1,3 +1,4 @@
+import {pageProjection} from './profiles.js';
 export function isConfigured(config) {
   return /^[a-z0-9-]+$/.test(config.projectId || '') && /^[a-z0-9_-]+$/.test(config.dataset || '');
 }
@@ -22,5 +23,5 @@ export function imageURL(image, config) {
   if (!match || !isConfigured(config)) return null;
   return 'https://cdn.sanity.io/images/' + config.projectId + '/' + config.dataset + '/' + match[1] + '-' + match[2] + '.' + match[3] + '?auto=format&w=2000&fit=max';
 }
-export const pageQuery = '*[_type == "sitePage" && _id == $id][0]';
+export const pageQuery = '*[_type == "sitePage" && _id == $id][0]'+pageProjection;
 export const eventsQuery = '*[_type == "event"] | order(startsAt asc){"id":_id,title,category,summary,location,audience,startsAt,endsAt,"image":image.asset->url,"imageAlt":image.alt,url,featured}';
