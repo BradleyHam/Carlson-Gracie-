@@ -15,6 +15,18 @@ function applyFilter(){
  if(empty)empty.hidden=selected==='All'||cards.some(card=>!card.hidden);
  const generic=document.querySelector('#blog-posts .blog-empty');if(generic)generic.hidden=selected!=='All';
 }
+// Filter in place while keeping category links shareable and Back/Forward usable.
+document.querySelector('.blog-filter')?.addEventListener('click',event=>{
+ const link=event.target.closest('a[data-blog-filter]');
+ if(!link||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+ if(link.target&&link.target!=='_self'||link.hasAttribute('download'))return;
+ const url=new URL(link.href,location.href);
+ if(url.origin!==location.origin||url.pathname!==location.pathname)return;
+ event.preventDefault();
+ if(url.href!==location.href)history.pushState(null,'',url.href);
+ applyFilter();
+});
+window.addEventListener('popstate',applyFilter);
 applyFilter();
 // Refresh published content without requiring another site deployment.
 Promise.all([fetchContent(sanityConfig,postsQuery,{}, {cdn:false}),fetchContent(sanityConfig,eventsQuery,{}, {cdn:false})]).then(([posts,events])=>{
