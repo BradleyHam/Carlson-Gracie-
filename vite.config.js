@@ -11,6 +11,7 @@ export default {
     rollupOptions: {
       input: {
         'main': resolve(__dirname, 'index.html'),
+        'blog': resolve(__dirname, 'blog/index.html'),
         'about_coaches': resolve(__dirname, 'about/coaches/index.html'),
         'about_gear': resolve(__dirname, 'about/gear/index.html'),
         'about_our-method': resolve(__dirname, 'about/our-method/index.html'),
