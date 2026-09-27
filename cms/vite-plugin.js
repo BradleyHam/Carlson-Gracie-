@@ -63,6 +63,16 @@ export function sanityContentPlugin() {
             if (typeof image?.alt === 'string') el.attr('alt', image.alt);
           }
         }
+        if (page._id === 'page-locations') {
+          const photo = published?.queenstownCardPhoto;
+          const url = imageURL(photo, sanityConfig);
+          if (url) {
+            const card = $('.academy-card--hq .academy-card-media');
+            card.addClass('has-photo');
+            card.find('img').attr('src', url).attr('data-sanity-image', 'queenstownCardPhoto');
+            if (typeof photo.alt === 'string' && photo.alt.trim()) card.find('img').attr('alt', photo.alt);
+          }
+        }
         for (const section of page.sections.filter(s => s.coachSelector)) {
           const rail = $(section.coachSelector);
           rail.attr('data-sanity-coaches', section._key);

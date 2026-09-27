@@ -3543,8 +3543,8 @@
             "_key": "d21ae27f015c7142",
             "_type": "pageImage",
             "label": "Photo",
-            "alt": "The Queenstown academy community gathered beside the mats",
-            "originalSrc": "../../assets/community.jpg",
+            "alt": "Carlson Gracie Queenstown members gathered on the academy mats",
+            "originalSrc": "../../assets/big class.jpg",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)"
           }
         ]
