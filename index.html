@@ -616,6 +616,9 @@
   }
 
   /* ---------- Blog / events feed ---------- */
+  /* Keep the seminar introduction and latest news close together. */
+  #seminars{padding-bottom:clamp(28px,4vw,56px)}
+  #seminars + #events{padding-top:clamp(28px,4vw,56px)}
   #events{background:var(--paper)}
   #events .lead{max-width:680px;font-size:clamp(16px,1.4vw,18px);line-height:1.75;color:#66666d}
   .post-grid{display:grid;gap:0;margin-top:48px}
