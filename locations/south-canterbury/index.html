@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="../../styles/site.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Locations", "item": "/locations/"}, {"@type": "ListItem", "position": 3, "name": "South Canterbury", "item": "/locations/south-canterbury/"}]}</script>
 </head>
-<body>
+<body class="location-page">
 
 <!-- Belt scroll progress: the page is the journey, white belt to black -->
 <div class="belt" aria-hidden="true">
@@ -30,7 +30,7 @@
       <span class="dh">The classes we run and who each one suits.</span>
       <a href="../../training/"><span class="dn">01</span><span class="dt">Overview<em>Find your class</em></span></a>
       <a href="../../training/timetable/"><span class="dn">02</span><span class="dt">Timetable<em>Seven days a week</em></span></a>
-      <a href="../../training/adults/"><span class="dn">03</span><span class="dt">Adults, all levels<em>Gi &amp; no-gi, the main program</em></span></a>
+      <a href="../../training/adults/"><span class="dn">03</span><span class="dt">All-levels &amp; Advanced<em>Gi &amp; no-gi, every level</em></span></a>
       <a href="../../training/beginners/"><span class="dn">04</span><span class="dt">Beginners<em>The front door</em></span></a>
       <a href="../../training/kids/"><span class="dn">05</span><span class="dt">Kids<em>Ages 5 to 12</em></span></a>
       <a href="../../training/womens/"><span class="dn">06</span><span class="dt">Women&rsquo;s<em>The easiest place to start</em></span></a>
@@ -64,19 +64,12 @@
       <a href="../../locations/"><span class="dn">01</span><span class="dt">All academies<em>One standard, wherever you roll</em></span></a>
       <a href="../../locations/queenstown/"><span class="dn">02</span><span class="dt">Queenstown &middot; HQ<em>The original dojo</em></span></a>
       <a href="../../locations/wanaka/"><span class="dn">03</span><span class="dt">W&#257;naka</span></a>
-      <a href="../../locations/invercargill/"><span class="dn">04</span><span class="dt">Invercargill</span></a>
-      <a class="is-here" href="../../locations/south-canterbury/"><span class="dn">05</span><span class="dt">South Canterbury</span></a>
+      <a href="../../locations/cromwell/"><span class="dn">04</span><span class="dt">Cromwell</span></a>
+      <a href="../../locations/invercargill/"><span class="dn">05</span><span class="dt">Invercargill</span></a>
+      <a class="is-here" href="../../locations/south-canterbury/"><span class="dn">06</span><span class="dt">South Canterbury</span></a>
     </div>
     </li>
-    <li class="has-sub"><a href="../../seminars/">Seminars</a>
-    <div class="nav-drop">
-      <span class="dh">World-class guests, events and the blog.</span>
-      <a href="../../seminars/"><span class="dn">01</span><span class="dt">Seminars &amp; events<em>World-class names on our mats</em></span></a>
-      <a href="../../seminars/events/"><span class="dn">02</span><span class="dt">Events<em>What&rsquo;s on and what&rsquo;s coming</em></span></a>
-      <a href="../../seminars/technique/"><span class="dn">03</span><span class="dt">Technique<em>From our own coaches</em></span></a>
-      <a href="../../seminars/news/"><span class="dn">04</span><span class="dt">News<em>Around the academies</em></span></a>
-    </div>
-    </li>
+    <li><a href="../../blog/">Blog</a></li>
     <li><a href="../../contact/">Contact</a></li>
     <li class="keep"><a class="nav-ghost" href="../../training/timetable/">Timetable</a></li>
     <li class="keep"><a class="nav-cta" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener"><span class="cta-full">Become a member</span><span class="cta-short">Join</span></a></li>
@@ -103,6 +96,7 @@
     <a href="../../locations/">All academies</a>
     <a href="../../locations/queenstown/">Queenstown</a>
     <a href="../../locations/wanaka/">Wānaka</a>
+    <a href="../../locations/cromwell/">Cromwell</a>
     <a href="../../locations/invercargill/">Invercargill</a>
     <a class="is-here" href="../../locations/south-canterbury/">South Canterbury</a>
   </div>
@@ -118,7 +112,7 @@
   <div class="wrap">
     <p class="eyebrow reveal">Timaru &middot; South Canterbury</p>
     <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">Built to help people progress</h2>
-    <figure class="ph ph-219 reveal">South Canterbury academy image to add</figure>
+    <figure class="academy-photo reveal"><img id="south-canterbury-academy-photo" src="../../assets/south-canterbury-academy.jpeg" alt="Carlson Gracie South Canterbury team together on the academy mats" width="1439" height="884" loading="lazy"></figure>
     <div class="method-beats reveal">
       <article><span class="n">01</span><h3>53 Rothwell Street</h3></article>
       <article><span class="n">02</span><h3>Call +64 21 258 8555</h3></article>
@@ -128,16 +122,19 @@
   </div>
 </section>
 
-<section class="band band-mist" id="timetable">
+<section class="band band-mist" id="timetable" data-academy-timetable="south-canterbury">
   <div class="wrap">
-    <p class="eyebrow reveal">Local timetable</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem);max-width:14ch">Train around real life</h2>
-    <p class="lead reveal" style="margin-top:26px">Adults, youth and combat-sport sessions run through the local team. Their social page carries the latest weekly times and event changes.</p>
-    <div class="num-blocks">
-      <div class="num-block reveal"><span class="n">01</span><div><h3>Check the current week</h3><p>Class times are not published in a reliable embeddable calendar yet, so the academy confirms the latest BJJ, youth and MMA sessions directly.</p></div></div>
-      <div class="num-block reveal"><span class="n">02</span><div><h3>Choose the right first class</h3><p>Message the local team before your first visit. They will confirm the current venue details and point you toward the right session.</p></div></div>
+    <p class="eyebrow reveal">South Canterbury timetable</p>
+    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">Weekly classes</h2>
+    <p class="lead reveal" style="margin-top:26px">Fundamentals, adult gi and no-gi, competition training and open mat. This temporary timetable comes from the academy’s 2 February 2025 post; confirm current sessions with the team before visiting.</p>
+    <div class="tt-grid location-tt-grid--four reveal">
+      <div class="tt-col" data-day="2"><h3>Tue <span class="today-tag">Today</span></h3><div class="tt-class c-fund"><span class="t">5:30 pm</span><span class="n">No-Gi Fundamentals</span></div><div class="tt-class c-open"><span class="t">6:20 pm</span><span class="n">Fundamentals rolls</span></div><div class="tt-class c-nogi"><span class="t">6:35 pm</span><span class="n">No-Gi adults</span></div><div class="tt-class c-open"><span class="t">7:30 pm</span><span class="n">Live rounds</span></div></div>
+      <div class="tt-col" data-day="4"><h3>Thu <span class="today-tag">Today</span></h3><div class="tt-class c-fund"><span class="t">5:30 pm</span><span class="n">Gi Fundamentals</span></div><div class="tt-class c-open"><span class="t">6:20 pm</span><span class="n">Fundamentals rolls</span></div><div class="tt-class c-all"><span class="t">6:35 pm</span><span class="n">Gi adults</span></div><div class="tt-class c-open"><span class="t">7:30 pm</span><span class="n">Live rounds</span></div></div>
+      <div class="tt-col" data-day="5"><h3>Fri <span class="today-tag">Today</span></h3><div class="tt-class c-all"><span class="t">5:45 pm</span><span class="n">Wrestling</span></div><div class="tt-class c-all"><span class="t">6:35 pm</span><span class="n">Competition class</span></div><div class="tt-class c-open"><span class="t">7:30 pm</span><span class="n">Live rounds</span></div></div>
+      <div class="tt-col" data-day="7"><h3>Sun <span class="today-tag">Today</span></h3><div class="tt-class c-open"><span class="t">10:00 am</span><span class="n">Open mat</span></div></div>
     </div>
-    <div class="cta-row reveal"><a class="btn btn-solid" href="https://www.facebook.com/CarlsonGracieSC/" target="_blank" rel="noopener">View latest timetable</a></div>
+    <p class="tt-note">Temporary timetable from the academy’s 2 February 2025 post. Times and classes may have changed.</p>
+    <div class="cta-row reveal"><a class="btn btn-solid" href="https://www.facebook.com/CarlsonGracieSC/" target="_blank" rel="noopener">Check with the academy</a></div>
   </div>
 </section>
 
@@ -145,11 +142,11 @@
   <div class="wrap">
     <p class="eyebrow reveal">Your coaches</p>
     <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">South Canterbury&rsquo;s team</h2>
-    <p class="lead reveal" style="margin-top:26px">The people are confirmed. Local portraits can replace these placeholders without changing the layout.</p>
+    <p class="lead reveal" style="margin-top:26px">Meet the people behind Carlson Gracie South Canterbury.</p>
     <div class="roster-grid reveal">
-      <article class="coach"><div class="coach-photo ph">Portrait to add</div><div class="coach-belt coach-belt-tbc" aria-hidden="true"></div><h3>Nick Scott</h3><p class="coach-rank">Head trainer</p></article>
-      <article class="coach"><div class="coach-photo ph">Portrait to add</div><div class="coach-belt coach-belt-tbc" aria-hidden="true"></div><h3>Kurt Mori</h3><p class="coach-rank">Head trainer</p></article>
-      <article class="coach"><div class="coach-photo ph">Portrait to add</div><div class="coach-belt coach-belt-tbc" aria-hidden="true"></div><h3>Rikki Swete</h3><p class="coach-rank">Academy manager</p></article>
+      <article class="coach coach--text"><div class="coach-belt coach-belt-tbc" aria-hidden="true"></div><h3>Nick Scott</h3><p class="coach-rank">Head trainer</p></article>
+      <article class="coach coach--text"><div class="coach-belt coach-belt-tbc" aria-hidden="true"></div><h3>Kurt Mori</h3><p class="coach-rank">Head trainer</p></article>
+      <article class="coach coach--text"><div class="coach-belt coach-belt-tbc" aria-hidden="true"></div><h3>Rikki Swete</h3><p class="coach-rank">Academy manager</p></article>
     </div>
     <figure class="trial-quote reveal"><p>&ldquo;They all come from people who trained with me in Queenstown, and wanted to carry on under the lineage. That means a lot to me.&rdquo;</p><cite>Jose Gomes, head professor</cite></figure>
   </div>
@@ -188,7 +185,7 @@
     <p class="cta-proof reveal"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp; 5.0 from 161 Google reviews</p>
    </div>
    <figure class="cta-media reveal">
-     <img src="../../assets/finding-your-people.jpg" alt="Members training together on the mats at Carlson Gracie New Zealand" loading="lazy">
+     <img src="../../assets/finding-your-people.jpg" alt="Three members standing together on the academy mats" loading="lazy">
    </figure>
   </div>
 </section>
@@ -220,6 +217,10 @@
           <p>18 Gordon Road<br>W&#257;naka 9305<br><a href="tel:+642102304516">+64 21 0230 4516</a></p>
         </div>
         <div>
+          <b><a href="../../locations/cromwell/" style="text-decoration:none">Cromwell</a></b>
+          <p>Central Otago, New Zealand<br><a href="../../locations/cromwell/">View academy details</a></p>
+        </div>
+        <div>
           <b><a href="../../locations/south-canterbury/" style="text-decoration:none">South Canterbury</a></b>
           <p>53 Rothwell Street<br>Timaru<br><a href="tel:+64212588555">+64 21 258 8555</a></p>
         </div>
@@ -232,7 +233,7 @@
         <li><a href="../../about/coaches/">Our Coaches</a></li>
         <li><a href="../../training/timetable/">Class Timetable</a></li>
         <li><a href="../../locations/">Locations</a></li>
-        <li><a href="../../seminars/">Seminars &amp; Events</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="../../faq/">FAQs</a></li>
         <li><a href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a></li>
       </ul>
@@ -493,8 +494,9 @@
     });
   });
 
-  // Timetable: highlight today's column (Sunday matches nothing)
-  var todayCol = document.querySelector('.tt-col[data-day="' + new Date().getDay() + '"]');
+  // Timetable: highlight today’s column, including Sunday.
+  var day = new Date().getDay() || 7;
+  var todayCol = document.querySelector('.tt-col[data-day="' + day + '"]');
   if (todayCol) todayCol.classList.add('is-today');
 </script>
 <script type="module">
@@ -516,6 +518,7 @@
     });
   }
 </script>
+<script src="../../location-fallbacks.js" defer></script>
 <script type="module" src="../../mobile-nav.js"></script>
 </body>
 </html>

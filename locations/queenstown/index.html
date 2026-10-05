@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="queenstown.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Locations", "item": "/locations/"}, {"@type": "ListItem", "position": 3, "name": "Queenstown", "item": "/locations/queenstown/"}]}</script>
 </head>
-<body>
+<body class="location-page">
 
 <!-- Belt scroll progress: the page is the journey, white belt to black -->
 <div class="belt" aria-hidden="true">
@@ -31,7 +31,7 @@
       <span class="dh">The classes we run and who each one suits.</span>
       <a href="../../training/"><span class="dn">01</span><span class="dt">Overview<em>Find your class</em></span></a>
       <a href="../../training/timetable/"><span class="dn">02</span><span class="dt">Timetable<em>Seven days a week</em></span></a>
-      <a href="../../training/adults/"><span class="dn">03</span><span class="dt">Adults, all levels<em>Gi &amp; no-gi, the main program</em></span></a>
+      <a href="../../training/adults/"><span class="dn">03</span><span class="dt">All-levels &amp; Advanced<em>Gi &amp; no-gi, every level</em></span></a>
       <a href="../../training/beginners/"><span class="dn">04</span><span class="dt">Beginners<em>The front door</em></span></a>
       <a href="../../training/kids/"><span class="dn">05</span><span class="dt">Kids<em>Ages 5 to 12</em></span></a>
       <a href="../../training/womens/"><span class="dn">06</span><span class="dt">Women&rsquo;s<em>The easiest place to start</em></span></a>
@@ -65,19 +65,12 @@
       <a href="../../locations/"><span class="dn">01</span><span class="dt">All academies<em>One standard, wherever you roll</em></span></a>
       <a class="is-here" href="../../locations/queenstown/"><span class="dn">02</span><span class="dt">Queenstown &middot; HQ<em>The original dojo</em></span></a>
       <a href="../../locations/wanaka/"><span class="dn">03</span><span class="dt">W&#257;naka</span></a>
-      <a href="../../locations/invercargill/"><span class="dn">04</span><span class="dt">Invercargill</span></a>
-      <a href="../../locations/south-canterbury/"><span class="dn">05</span><span class="dt">South Canterbury</span></a>
+      <a href="../../locations/cromwell/"><span class="dn">04</span><span class="dt">Cromwell</span></a>
+      <a href="../../locations/invercargill/"><span class="dn">05</span><span class="dt">Invercargill</span></a>
+      <a href="../../locations/south-canterbury/"><span class="dn">06</span><span class="dt">South Canterbury</span></a>
     </div>
     </li>
-    <li class="has-sub"><a href="../../seminars/">Seminars</a>
-    <div class="nav-drop">
-      <span class="dh">World-class guests, events and the blog.</span>
-      <a href="../../seminars/"><span class="dn">01</span><span class="dt">Seminars &amp; events<em>World-class names on our mats</em></span></a>
-      <a href="../../seminars/events/"><span class="dn">02</span><span class="dt">Events<em>What&rsquo;s on and what&rsquo;s coming</em></span></a>
-      <a href="../../seminars/technique/"><span class="dn">03</span><span class="dt">Technique<em>From our own coaches</em></span></a>
-      <a href="../../seminars/news/"><span class="dn">04</span><span class="dt">News<em>Around the academies</em></span></a>
-    </div>
-    </li>
+    <li><a href="../../blog/">Blog</a></li>
     <li><a href="../../contact/">Contact</a></li>
     <li class="keep"><a class="nav-ghost" href="../../training/timetable/">Timetable</a></li>
     <li class="keep"><a class="nav-cta" href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener"><span class="cta-full">Become a member</span><span class="cta-short">Join</span></a></li>
@@ -107,6 +100,7 @@
     <a href="../../locations/">All academies</a>
     <a class="is-here" href="../../locations/queenstown/">Queenstown</a>
     <a href="../../locations/wanaka/">Wānaka</a>
+    <a href="../../locations/cromwell/">Cromwell</a>
     <a href="../../locations/invercargill/">Invercargill</a>
     <a href="../../locations/south-canterbury/">South Canterbury</a>
   </div>
@@ -123,7 +117,7 @@
     <p class="eyebrow reveal">Queenstown headquarters</p>
     <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">The room that started it</h2>
     <figure class="method-figure reveal">
-      <img src="../../assets/community.jpg" alt="The Queenstown academy community gathered beside the mats" loading="lazy">
+      <img src="../../assets/big class.jpg" alt="Carlson Gracie Queenstown members gathered on the academy mats" loading="lazy">
       <figcaption>One room in Queenstown. The source of every Carlson Gracie NZ academy.</figcaption>
     </figure>
     <div class="method-beats reveal">
@@ -138,7 +132,7 @@
   </div>
 </section>
 
-<section class="band band-mist" id="timetable">
+<section class="band band-mist" id="timetable" data-academy-timetable="queenstown">
   <div class="wrap">
     <p class="eyebrow reveal">Queenstown timetable</p>
     <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">On the mats six days a week</h2>
@@ -152,7 +146,7 @@
       <div class="tt-col" data-day="5"><h3>Fri <span class="today-tag">Today</span></h3><div class="tt-class c-all"><span class="t">6:00 pm</span><span class="n">All levels</span><span class="l">Gi</span></div></div>
       <div class="tt-col" data-day="6"><h3>Sat <span class="today-tag">Today</span></h3><div class="tt-class c-open"><span class="t">10:00 am</span><span class="n">Open mat</span><span class="l">Everyone welcome</span></div></div>
     </div>
-    <p class="tt-note">Times can shift around holidays, events and gradings. Check before your first visit.</p>
+    <aside class="tt-live-callout"><p>Times are subject to change. Check the live Gymdesk timetable before attending.</p><div data-live-schedule-link><a class="btn btn-solid" href="https://app.gymdesk.com/widgets/schedule/render/gym/DoKNw" target="_blank" rel="noopener">View live timetable ↗</a></div></aside>
   </div>
 </section>
 
@@ -162,8 +156,8 @@
     <h2 class="display reveal split-lines" style="font-size:clamp(2.4rem,6vw,4.6rem)"><span>Good people.</span><span>Serious jiu-jitsu.</span></h2>
     <p class="lead reveal" style="margin-top:26px">A deep coaching bench led by Jose Gomes, with experienced black belts on the mats through the week.</p>
     <div class="roster-grid reveal">
-      <article class="coach"><div class="coach-photo"><img src="../../assets/coach-jose.jpg" alt="Jose Gomes, head professor" loading="lazy"></div><div class="coach-belt" role="img" aria-label="Third degree black belt"><span class="tip"><i></i><i></i><i></i></span></div><h3>Jose Gomes</h3><p class="coach-rank">Head professor &middot; 3rd degree black belt</p><p class="coach-bio">Built the Queenstown academy from its first room and leads the Carlson Gracie New Zealand family.</p></article>
-      <article class="coach"><div class="coach-photo"><img src="../../assets/coach-renan.jpg" alt="Renan Secco" loading="lazy"></div><div class="coach-belt" role="img" aria-label="Black belt"><span class="tip"></span></div><h3>Renan Secco</h3><p class="coach-rank">Coach &middot; Black belt</p><p class="coach-bio">An experienced instructor and a familiar face in Queenstown&rsquo;s adult classes.</p></article>
+      <article class="coach" data-coach-full-bio="Jose began training Brazilian jiu-jitsu in Curitiba, Brazil, in 1996 under Rodrigo Zanon. He moved to New Zealand in 2005 and began teaching in Queenstown, first at Queenstown Gym and later at Fight Science. He received his black belt under Carlson Gracie Curitiba in 2012 and founded Carlson Gracie New Zealand in Queenstown in 2014. The academy grew from 15 to more than 200 members, followed by affiliates in Wānaka, Invercargill and South Canterbury. In 2017, Jose competed at the Hyperfly Black Belt Invitational and won bronze in the advanced 73.5 kg division at the New Zealand No-Gi Nationals."><div class="coach-photo"><img src="../../assets/coach-jose.jpg" alt="Jose Gomes, head professor" loading="lazy"></div><div class="coach-belt" role="img" aria-label="Third degree black belt"><span class="tip"><i></i><i></i><i></i></span></div><h3>Jose Gomes</h3><p class="coach-rank">Head professor &middot; 3rd degree black belt</p><p class="coach-bio">Built the Queenstown academy from its first room and leads the Carlson Gracie New Zealand family.</p></article>
+      <article class="coach" data-coach-full-bio="Renan began training Brazilian jiu-jitsu in Caxias do Sul, Brazil, in 2004. He joined Carlson Gracie New Zealand as a purple belt in 2012, received his brown belt from Jose Gomes in 2013, and earned his black belt in 2015. His competition history includes gold in both the weight and open classes at the 2019 NAGA West Coast Grappling Championship, silver at the 2017 IBJJF Asian Championship, and bronze at the 2015 IBJJF No-Gi Worlds. He has taught advanced gi and no-gi classes in Queenstown."><div class="coach-photo"><img src="../../assets/coach-renan.jpg" alt="Renan Secco" loading="lazy"></div><div class="coach-belt" role="img" aria-label="Black belt"><span class="tip"></span></div><h3>Renan Secco</h3><p class="coach-rank">Coach &middot; Black belt</p><p class="coach-bio">An experienced instructor and a familiar face in Queenstown&rsquo;s adult classes.</p></article>
       <article class="coach"><div class="coach-photo"><img src="../../assets/coach-kadu.jpg" alt="Kadu Moura" loading="lazy"></div><div class="coach-belt" role="img" aria-label="Black belt"><span class="tip"></span></div><h3>Kadu Moura</h3><p class="coach-rank">Coach &middot; Black belt</p><p class="coach-bio">Part of the senior coaching team carrying the room&rsquo;s standard into every class.</p></article>
     </div>
     <figure class="trial-quote reveal"><p>&ldquo;I love our space. I think it&rsquo;s magical. It&rsquo;s a dojo. It&rsquo;s beautiful.&rdquo;</p><cite>Jose Gomes, head professor</cite></figure>
@@ -178,7 +172,7 @@
       <cite class="reveal"><b>6A/15 Red Oaks Drive</b><span>Frankton, Queenstown 9300</span></cite>
       <div class="cta-row reveal"><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Carlson+Gracie+Jiu+Jitsu+Queenstown+6A%2F15+Red+Oaks+Drive" target="_blank" rel="noopener">Open in Google Maps</a></div>
     </blockquote>
-    <figure class="method-quote-media reveal"><iframe class="location-map-embed" title="Map showing Carlson Gracie Queenstown" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Carlson+Gracie+Jiu+Jitsu+Queenstown+6A%2F15+Red+Oaks+Drive&amp;output=embed"></iframe><figcaption>Open the map for live directions and travel time.</figcaption></figure>
+    <figure class="method-quote-media reveal"><iframe class="location-map-embed" title="Map showing Carlson Gracie Queenstown" loading="eager" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m2!2m1!1sCarlson+Gracie+Jiu+Jitsu+Queenstown+6A/15+Red+Oaks+Drive"></iframe><figcaption><a href="https://www.google.com/maps/search/?api=1&amp;query=Carlson+Gracie+Jiu+Jitsu+Queenstown+6A%2F15+Red+Oaks+Drive" target="_blank" rel="noopener">Get directions in Google Maps ↗</a></figcaption></figure>
   </div>
 </section>
 
@@ -208,7 +202,7 @@
     <p class="cta-proof reveal"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp; 5.0 from 161 Google reviews</p>
    </div>
    <figure class="cta-media reveal">
-     <img src="../../assets/finding-your-people.jpg" alt="Members training together on the mats at Carlson Gracie New Zealand" loading="lazy">
+     <img src="../../assets/finding-your-people.jpg" alt="Three members standing together on the academy mats" loading="lazy">
    </figure>
   </div>
 </section>
@@ -240,6 +234,10 @@
           <p>18 Gordon Road<br>W&#257;naka 9305<br><a href="tel:+642102304516">+64 21 0230 4516</a></p>
         </div>
         <div>
+          <b><a href="../../locations/cromwell/" style="text-decoration:none">Cromwell</a></b>
+          <p>Central Otago, New Zealand<br><a href="../../locations/cromwell/">View academy details</a></p>
+        </div>
+        <div>
           <b><a href="../../locations/south-canterbury/" style="text-decoration:none">South Canterbury</a></b>
           <p>53 Rothwell Street<br>Timaru<br><a href="tel:+64212588555">+64 21 258 8555</a></p>
         </div>
@@ -252,7 +250,7 @@
         <li><a href="../../about/coaches/">Our Coaches</a></li>
         <li><a href="../../training/timetable/">Class Timetable</a></li>
         <li><a href="../../locations/">Locations</a></li>
-        <li><a href="../../seminars/">Seminars &amp; Events</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="../../faq/">FAQs</a></li>
         <li><a href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a></li>
       </ul>
@@ -536,6 +534,7 @@
     });
   }
 </script>
+<script src="../../location-fallbacks.js" defer></script>
 <script type="module" src="../../mobile-nav.js"></script>
 </body>
 </html>

@@ -1354,6 +1354,24 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 
 .trial-intro{padding-top:clamp(82px,9vw,124px)!important}
 .trial-clip{margin-top:clamp(58px,7vw,92px)}
+.trial-welcome{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,7vw,100px);margin-top:28px;align-items:start}
+.trial-welcome h2{font-family:var(--display);font-size:clamp(2.5rem,4.5vw,4.75rem);font-weight:600;line-height:1.08;letter-spacing:-.025em}
+.trial-welcome h2 em{font-style:normal;color:rgba(23,23,27,.48)}
+.trial-essentials dl{border-top:1px solid var(--line-ink)}
+.trial-essentials dl>div{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-ink);align-items:baseline}
+.trial-essentials dt{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.18em;color:rgba(23,23,27,.55)}
+.trial-essentials dd{font-size:16px;color:var(--ink)}
+.trial-essentials>p{margin-top:22px;max-width:37ch;font-size:15px;line-height:1.8;color:rgba(23,23,27,.65)}
+@media(max-width:960px){
+  .trial-welcome{grid-template-columns:1fr;gap:30px}
+}
+@media(max-width:620px){
+  .trial-welcome{margin-top:24px}
+  .trial-welcome h2{font-size:clamp(2rem,8.5vw,3.1rem);line-height:1.12}
+  .trial-essentials dd{font-size:15px}
+  .trial-intro .trial-clip{margin-top:40px}
+}
+
 .method-quote.start-quote{background:linear-gradient(90deg,var(--paper) 0 66%,var(--mist) 66% 100%)}
 /* Start Here's practical beat. Twelve words of content, so it is deliberately
    the shortest section on the page: heading left, the list ruled on the right,
@@ -1565,7 +1583,10 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   position:relative;isolation:isolate;overflow:hidden;aspect-ratio:16/10;
   display:flex;align-items:flex-end;padding:clamp(18px,2.6vw,30px);background:#e5e5e7;
   border:1px solid rgba(23,23,27,.07);
-}
+}.academy-card-media>img{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.academy-card-media.has-photo>img{display:block}
+.academy-card-media.has-photo::before,.academy-card-media.has-photo::after,.academy-card-media.has-photo>span{display:none}
+
 .academy-card-media::before{
   content:attr(data-mark);position:absolute;z-index:-1;right:-.02em;top:-.08em;
   font-family:var(--display);font-size:clamp(9rem,19vw,17rem);font-weight:600;line-height:.9;
@@ -2709,10 +2730,18 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   margin-left:18px;color:rgba(23,23,27,.34);
 }
 .gear-origin{overflow:hidden}
-.gear-voice{display:block;margin-top:0}
-.gear-voice .voice-statement{
-  max-width:52ch;font-size:clamp(1.35rem,2.15vw,2rem);line-height:1.48;
-  letter-spacing:-.015em;
+.gear-voice{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(36px,7vw,100px);align-items:end}
+.gear-origin-heading .eyebrow{margin-bottom:22px;color:rgba(23,23,27,.55)}
+.gear-origin-heading h2{
+  font-family:var(--display);font-size:clamp(2.5rem,4.5vw,4.75rem);
+  font-weight:600;line-height:1.08;letter-spacing:-.025em;
+}
+.gear-origin-heading h2 em{font-style:normal;color:rgba(23,23,27,.48)}
+.gear-origin-copy{max-width:43ch;border-top:1px solid var(--line-ink);padding-top:24px}
+.gear-origin-copy p{font-size:1rem;line-height:1.8;color:rgba(23,23,27,.68)}
+.gear-origin-copy p+p{margin-top:18px}
+@media(max-width:960px){
+  .gear-voice{grid-template-columns:1fr;gap:30px}
 }
 .gear-detail{
   position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);
@@ -2868,7 +2897,11 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
 }
 @media (max-width:620px){
   .gear-page .page-hero-media img{object-position:center 22%}
-  .gear-voice .voice-statement{font-size:clamp(1.3rem,5.9vw,1.6rem);line-height:1.45}
+  .gear-origin{padding-top:64px}
+  .gear-origin-heading .eyebrow{font-size:9px;letter-spacing:.2em;margin-bottom:20px}
+  .gear-origin-heading h2{font-size:clamp(2rem,8.5vw,3.1rem);line-height:1.12}
+  .gear-origin-copy{padding-top:24px;max-width:38ch}
+  .gear-origin-copy p{font-size:15px;line-height:1.8}
   .gear-detail{margin-top:64px}
   .gear-detail>img{aspect-ratio:3/4}
   .gear-detail figcaption{padding:28px 22px}
@@ -3530,3 +3563,87 @@ figure.ph{margin:clamp(36px,5vw,56px) 0 0}
   .roster-grid .coach-photo{aspect-ratio:4/5}
   .roster-grid:focus-visible,.roster-controls button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 }
+
+/* First-class introduction */
+.start-class-flow{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,7vw,100px);margin-top:28px;align-items:start}
+.start-class-heading h2{font-family:var(--display);font-size:clamp(2.5rem,4.5vw,4.75rem);font-weight:600;line-height:1.08;letter-spacing:-.025em}
+.start-class-heading h2 em{font-style:normal;color:rgba(23,23,27,.48)}
+.start-class-heading>p{max-width:33ch;margin-top:22px;font-size:15px;line-height:1.8;color:rgba(23,23,27,.65)}
+.start-class-steps{list-style:none;border-top:1px solid var(--line-ink)}
+.start-class-steps li{display:grid;grid-template-columns:28px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-ink)}
+.start-class-steps li>span{padding-top:4px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:rgba(23,23,27,.48)}
+.start-class-steps h3{font-family:var(--body);font-size:16px;font-weight:500;line-height:1.5}
+.start-class-steps p{margin-top:4px;font-size:14px;line-height:1.7;color:rgba(23,23,27,.65)}
+@media(max-width:960px){
+  .start-class-flow{grid-template-columns:1fr;gap:30px}
+}
+@media(max-width:620px){
+  .start-class-flow{margin-top:24px}
+  .start-class-heading h2{font-size:clamp(2rem,8.5vw,3.1rem);line-height:1.12}
+  .start-class-flow+.section-clip{margin-top:40px}
+}
+
+/* Keep the first-month story and its onward links together. */
+.band.start-first-month{padding-bottom:40px}
+.start-first-month+.onward-nav{padding-top:40px}
+@media(max-width:620px){
+  .band.start-first-month{padding-bottom:28px}
+  .start-first-month+.onward-nav{padding-top:28px}
+}
+
+/* Visitors: a short welcome with a clear reading hierarchy. */
+.visitor-welcome{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,7vw,100px);margin-top:28px;align-items:end}
+.visitor-welcome h2{font-family:var(--display);font-size:clamp(2.5rem,4.5vw,4.75rem);font-weight:600;line-height:1.08;letter-spacing:-.025em}
+.visitor-welcome h2 em{font-style:normal;color:rgba(23,23,27,.48)}
+.visitor-welcome-copy{max-width:40ch;border-top:1px solid var(--line-ink);padding-top:24px}
+.visitor-welcome-copy p{font-size:16px;line-height:1.8;color:rgba(23,23,27,.68)}
+.visitor-welcome-copy p+p{margin-top:18px}
+@media(max-width:960px){
+  .visitor-welcome{grid-template-columns:1fr;gap:30px}
+}
+@media(max-width:620px){
+  .visitor-welcome{margin-top:24px}
+  .visitor-welcome h2{font-size:clamp(2rem,8.5vw,3.1rem);line-height:1.12}
+  .visitor-welcome-copy p{font-size:15px}
+  .visitor-welcome+.visitor-intro-clip{margin-top:40px}
+}
+
+.tt-live-callout{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:28px;padding:24px 0 0;background:transparent;border:0;border-top:1px solid var(--line-ink)}
+.tt-live-callout p{max-width:55ch;font-size:14px;line-height:1.75;color:rgba(23,23,27,.65);margin:0}
+.tt-live-callout .btn{background:var(--carmine);color:#fff;padding:14px 22px;font-size:10px;letter-spacing:.12em;white-space:nowrap;min-height:46px}
+.tt-live-callout .btn:hover{background:#941d28}
+.tt-live-callout .btn:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.tt-live-callout [data-live-schedule-link]{flex:none}
+.tt-grid[data-sanity-timetable-content]{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.timetable-fallback{margin-top:30px;padding:22px 24px;border:1px solid var(--line-ink);background:var(--paper)}
+.timetable-fallback p{font-size:14px;line-height:1.6}
+@media(max-width:680px){.tt-live-callout{align-items:flex-start;flex-direction:column}.tt-live-callout [data-live-schedule-link]{width:100%}.tt-live-callout .btn{width:100%;text-align:center}}
+
+/* Academy teams: calm headings and real profiles, with or without portraits. */
+.location-page #coaches h2.display{font-size:clamp(36px,4.2vw,58px)!important;line-height:1.06;max-width:22ch;color:var(--ink)}
+.location-page #coaches .lead{font-size:16px;line-height:1.75;max-width:56ch;color:#65656b;margin-top:22px!important}
+.location-page #coaches .roster-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:36px}
+.location-page #coaches .roster-grid:empty{display:none}
+.location-page #coaches .coach--text{border-top:1px solid var(--line-ink);padding-top:24px}
+.location-page #coaches .coach--text .coach-belt{display:none}
+.location-page #coaches .coach--text h3{margin-top:0;font-size:30px}
+.location-page #coaches .coach-photo + h3{margin-top:20px}
+.location-page #coaches .trial-quote{max-width:70ch;border-left:0;border-top:1px solid var(--line-ink);padding:26px 0 0;margin-top:42px}
+.location-page #coaches:has(.roster-grid:empty) .wrap{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(40px,7vw,100px)}
+.location-page #coaches:has(.roster-grid:empty) .eyebrow{grid-column:1/-1}
+.location-page #coaches:has(.roster-grid:empty) h2{grid-column:1;grid-row:2}
+.location-page #coaches:has(.roster-grid:empty) .lead{grid-column:1;grid-row:3}
+.location-page #coaches:has(.roster-grid:empty) .trial-quote{grid-column:2;grid-row:2/4;margin-top:4px}
+@media(max-width:700px){
+ .location-page #coaches:has(.roster-grid:empty) .wrap{display:block}
+ .location-page #coaches:has(.roster-grid:empty) .trial-quote{margin-top:30px}
+ .location-page #coaches .roster-grid:has(.coach--text):not(:has(.coach-photo)){display:grid;grid-template-columns:1fr;margin-right:0;padding:0;overflow:visible;mask-image:none}
+ .location-page #coaches .roster-grid:has(.coach-photo){align-items:flex-start}
+}
+
+/* Empty coach sections stay out of the layout until profiles are added. */
+section[hidden]{display:none!important}
+[hidden].academy-photo,[hidden].method-quote-media,[hidden].location-photo{display:none!important}
+.location-page .location-media-missing .wrap{grid-template-columns:1fr}
+.academy-photo{margin:clamp(36px,5vw,56px) 0 0;overflow:hidden}
+.academy-photo img{display:block;width:100%;height:auto}

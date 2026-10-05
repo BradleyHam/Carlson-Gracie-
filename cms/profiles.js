@@ -1,3 +1,4 @@
+import {academyPhotoProjection} from './academy-photos.js';
 /** Published records are expanded in the query; drafts never enter website rendering. */
 export function resolvePageProfiles(page) {
  if(!page)return page;
@@ -14,5 +15,5 @@ export function resolvePageProfiles(page) {
   return result;
  })};
 }
-export const pageProjection = '{...,"settings":*[_id == "site-settings"][0],sections[]{...,"coachProfiles":coachRefs[]->,"seminarProfiles":seminarRefs[]->}}';
+export const pageProjection = '{...,'+academyPhotoProjection+',"settings":*[_id == "site-settings"][0],sections[]{...,"coachProfiles":coachRefs[]->,"seminarProfiles":seminarRefs[]->}}';
 export const allPagesQuery = '*[_type == "sitePage"]'+pageProjection;

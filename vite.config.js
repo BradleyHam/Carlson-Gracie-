@@ -1,9 +1,10 @@
 import {blogPlugin} from './cms/posts-plugin.js';
 import {sanityContentPlugin} from './cms/vite-plugin.js';
+import {timetablePlugin} from './cms/timetable-plugin.js';
 import { resolve } from 'path';
 
 export default {
-  plugins: [sanityContentPlugin(), blogPlugin()],
+  plugins: [sanityContentPlugin(), timetablePlugin(), blogPlugin()],
   server: {
     port: Number(process.env.PORT) || 5173,
   },
@@ -11,6 +12,7 @@ export default {
     rollupOptions: {
       input: {
         'main': resolve(__dirname, 'index.html'),
+        'blog': resolve(__dirname, 'blog/index.html'),
         'about_coaches': resolve(__dirname, 'about/coaches/index.html'),
         'about_gear': resolve(__dirname, 'about/gear/index.html'),
         'about_our-method': resolve(__dirname, 'about/our-method/index.html'),
@@ -20,6 +22,7 @@ export default {
         'contact': resolve(__dirname, 'contact/index.html'),
         'faq': resolve(__dirname, 'faq/index.html'),
         'locations': resolve(__dirname, 'locations/index.html'),
+        'locations_cromwell': resolve(__dirname, 'locations/cromwell/index.html'),
         'locations_invercargill': resolve(__dirname, 'locations/invercargill/index.html'),
         'locations_queenstown': resolve(__dirname, 'locations/queenstown/index.html'),
         'locations_south-canterbury': resolve(__dirname, 'locations/south-canterbury/index.html'),

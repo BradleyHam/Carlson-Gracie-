@@ -55,70 +55,9 @@
             "label": "Heading",
             "value": "Start where you are",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)"
-          },
-          {
-            "_key": "91ca28d85c63d494",
-            "_type": "pageText",
-            "label": "Fundamentals — description",
-            "value": "This is where you start if you’ve never tried Jiu Jitsu before. Basic positions, submissions and escapes, and the habits that keep you safe before you join the regular classes.",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > p:nth-of-type(1)"
-          },
-          {
-            "_key": "edbf88dc148c71a1",
-            "_type": "pageText",
-            "label": "All levels — description",
-            "value": "Technique, drilling, and live rolling. Where fundamentals get pressure tested, at whatever pace your rank calls for.",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > p:nth-of-type(1)"
-          },
-          {
-            "_key": "888872f097cc70f5",
-            "_type": "pageText",
-            "label": "No-Gi — description",
-            "value": "No collars, no sleeves, faster scrambles. Wrestling, leg attacks and modern grappling for sport and self defence.",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > p:nth-of-type(1)"
-          },
-          {
-            "_key": "14b23397b2050b06",
-            "_type": "pageText",
-            "label": "Kids — description",
-            "value": "Falling safely, focus, and confidence. Games first, technique always, and no striking, ever.",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > p:nth-of-type(1)"
           }
         ],
-        "images": [
-          {
-            "_key": "dafac6bd46c718e1",
-            "_type": "pageImage",
-            "label": "Fundamentals — photo",
-            "alt": "Two members practising a standing no-gi drill",
-            "originalSrc": "assets/prog-fundamentals.jpg",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)"
-          },
-          {
-            "_key": "44d7e198904d70cc",
-            "_type": "pageImage",
-            "label": "All levels — photo",
-            "alt": "Gi class training at the Queenstown academy",
-            "originalSrc": "assets/prog-gi.jpg",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > img:nth-of-type(1)"
-          },
-          {
-            "_key": "933f79119ba0e908",
-            "_type": "pageImage",
-            "label": "No-Gi — photo",
-            "alt": "No-gi grappling on the mats in Queenstown",
-            "originalSrc": "assets/prog-no-gi.jpg",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > img:nth-of-type(1)"
-          },
-          {
-            "_key": "58e901ef85f4923b",
-            "_type": "pageImage",
-            "label": "Kids — photo",
-            "alt": "Two children practising jiu-jitsu together on the mats",
-            "originalSrc": "assets/prog-kids.jpg",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > img:nth-of-type(1)"
-          }
-        ]
+        "images": []
       },
       {
         "_key": "acd1f5f5052fd15f",
@@ -3028,13 +2967,6 @@
             "label": "The teaching carried south — heading",
             "value": "The teaching carried south",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > h3:nth-of-type(1)"
-          },
-          {
-            "_key": "154e96a2e8663026",
-            "_type": "pageText",
-            "label": "Four academies, one lineage — heading",
-            "value": "Four academies, one lineage",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)"
           }
         ],
         "images": []
@@ -3050,13 +2982,6 @@
             "label": "Section label",
             "value": "Find your mat",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)"
-          },
-          {
-            "_key": "977131d990b3ad42",
-            "_type": "pageText",
-            "label": "Heading",
-            "value": "Four academies.One family.",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)"
           },
           {
             "_key": "2ea2c73d220dfb32",
@@ -3091,28 +3016,21 @@
             "_type": "pageText",
             "label": "Invercargill — heading",
             "value": "Invercargill",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > a:nth-of-type(3) > div:nth-of-type(2) > h3:nth-of-type(1)"
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > a:nth-of-type(4) > div:nth-of-type(2) > h3:nth-of-type(1)"
           },
           {
             "_key": "9e8ee79fe8d72dc1",
             "_type": "pageText",
             "label": "Invercargill — description",
             "value": "Carlson Gracie jiu-jitsu for the deep south, carried home by people who trained in Queenstown.",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > a:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)"
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > a:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)"
           },
           {
             "_key": "4b9ea5c44ca852a5",
             "_type": "pageText",
             "label": "South Canterbury — heading",
             "value": "South Canterbury",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > a:nth-of-type(4) > div:nth-of-type(2) > h3:nth-of-type(1)"
-          },
-          {
-            "_key": "a3d3ec978e730bc4",
-            "_type": "pageText",
-            "label": "South Canterbury — description",
-            "value": "The newest branch of the family tree. The same lineage, the same standard and the same welcome.",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > a:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)"
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > a:nth-of-type(5) > div:nth-of-type(2) > h3:nth-of-type(1)"
           }
         ],
         "images": []
@@ -3183,6 +3101,210 @@
             "alt": "Three members standing together on the academy mats",
             "originalSrc": "../assets/finding-your-people.jpg",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "page-locations-cromwell",
+    "_type": "sitePage",
+    "title": "locations / cromwell",
+    "route": "/locations/cromwell/",
+    "file": "locations/cromwell/index.html",
+    "seoTitle": "Carlson Gracie Cromwell | BJJ Cromwell",
+    "seoDescription": "Train Brazilian jiu-jitsu at Carlson Gracie Cromwell, 1B McNulty Road. Contact the academy for current class times.",
+    "sections": [
+      {
+        "_key": "a9186dfb7b26de89",
+        "_type": "pageSection",
+        "label": "Carlson Gracie Cromwell",
+        "texts": [
+          {
+            "_key": "de93b96a5a184d4b",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Our academies",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)"
+          },
+          {
+            "_key": "9f1a246b64dbc75f",
+            "_type": "pageText",
+            "label": "Heading",
+            "value": "Carlson Gracie Cromwell",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)"
+          },
+          {
+            "_key": "21d4d07a2d174b15",
+            "_type": "pageText",
+            "label": "Introduction",
+            "value": "A place to train in Central Otago, part of the Carlson Gracie New Zealand academy family. Find us at 1B McNulty Road and call the local team for current classes.",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)"
+          }
+        ],
+        "images": []
+      },
+      {
+        "_key": "f0bd95ffcac0f0c6",
+        "_type": "pageSection",
+        "label": "Cromwell’s home for the gentle art",
+        "texts": [
+          {
+            "_key": "7b85b97cf3ffe7da",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Central Otago",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)"
+          },
+          {
+            "_key": "7630cd72d21321a1",
+            "_type": "pageText",
+            "label": "Cromwell’s home for the gentle art — heading",
+            "value": "Cromwell’s home for the gentle art",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)"
+          },
+          {
+            "_key": "bec366e4dbca6e08",
+            "_type": "pageText",
+            "label": "1B McNulty Road — heading",
+            "value": "1B McNulty Road",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > h3:nth-of-type(1)"
+          },
+          {
+            "_key": "c167c5338f6ad5f1",
+            "_type": "pageText",
+            "label": "Call the local team — heading",
+            "value": "Call the local team",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > h3:nth-of-type(1)"
+          },
+          {
+            "_key": "00a47f021c6c440d",
+            "_type": "pageText",
+            "label": "Find your first class — heading",
+            "value": "Find your first class",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)"
+          },
+          {
+            "_key": "4ed7157c5d576ccd",
+            "_type": "pageText",
+            "label": "Body text",
+            "value": "Brazilian jiu-jitsu in a local training room. Ask the team which classes are running this week and which session suits your first visit.",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)"
+          }
+        ],
+        "images": [
+          {
+            "_key": "1f83349dbd02775b",
+            "_type": "pageImage",
+            "label": "Cromwell academy photo",
+            "alt": "Carlson Gracie Cromwell team together on the academy mats",
+            "originalSrc": "../../assets/cromwell-academy.jpg",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)"
+          }
+        ]
+      },
+      {
+        "_key": "62393435871267bd",
+        "_type": "pageSection",
+        "label": "Your coaches — Local coaches. One lineage.",
+        "texts": [
+          {
+            "_key": "e246e57cb79598fc",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Your coaches",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)"
+          },
+          {
+            "_key": "51827a182164e0c4",
+            "_type": "pageText",
+            "label": "Heading line",
+            "value": "Local coaches.",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1) > span:nth-of-type(1)"
+          },
+          {
+            "_key": "80480040b5533f6f",
+            "_type": "pageText",
+            "label": "Heading line",
+            "value": "One lineage.",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1) > span:nth-of-type(2)"
+          },
+          {
+            "_key": "7a627378b065c0d5",
+            "_type": "pageText",
+            "label": "Coach introduction",
+            "value": "The Cromwell team is confirming coach names, ranks and portraits. Their details can go straight into these cards when they arrive.",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(2)"
+          },
+          {
+            "_key": "ee7d3c79dd99cedb",
+            "_type": "pageText",
+            "label": "Jose quote",
+            "value": "“They all come from people who trained with me in Queenstown, and wanted to carry on under the lineage. That means a lot to me.”",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > figure:nth-of-type(1) > p:nth-of-type(1)"
+          }
+        ],
+        "images": [],
+        "coachSelector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "coachRefs": []
+      },
+      {
+        "_key": "08815997ceffab9b",
+        "_type": "pageSection",
+        "label": "Find the room",
+        "texts": [
+          {
+            "_key": "8e686674679de6fe",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Find the room",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > blockquote:nth-of-type(1) > p:nth-of-type(1)"
+          },
+          {
+            "_key": "05dfbffaae7a447e",
+            "_type": "pageText",
+            "label": "Directions text",
+            "value": "Right in Cromwell, on McNulty Road.",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > blockquote:nth-of-type(1) > p:nth-of-type(2)"
+          },
+          {
+            "_key": "5f3562877828d302",
+            "_type": "pageText",
+            "label": "Map caption",
+            "value": "Open the map for live directions and travel time.",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > figure:nth-of-type(1) > figcaption:nth-of-type(1)"
+          }
+        ],
+        "images": []
+      },
+      {
+        "_key": "17dd21e33b21b4b8",
+        "_type": "pageSection",
+        "label": "Come and find your mat",
+        "texts": [
+          {
+            "_key": "4201eec1d5e9cbbf",
+            "_type": "pageText",
+            "label": "Section label",
+            "value": "Visit Cromwell",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)"
+          },
+          {
+            "_key": "5b95f8ce0423abd6",
+            "_type": "pageText",
+            "label": "Come and find your mat — heading",
+            "value": "Come and find your mat",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)"
+          }
+        ],
+        "images": [
+          {
+            "_key": "34cfcf449a6760ec",
+            "_type": "pageImage",
+            "label": "Closing photo",
+            "alt": "Members training at a Carlson Gracie academy",
+            "originalSrc": "../../assets/class-in-session.jpg",
+            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)"
           }
         ]
       }
@@ -3267,7 +3389,16 @@
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)"
           }
         ],
-        "images": []
+        "images": [
+          {
+            "_key": "invercargill-academy-photo",
+            "_type": "pageImage",
+            "label": "Invercargill academy photo",
+            "alt": "Carlson Gracie Invercargill team together on the academy mats",
+            "originalSrc": "../../assets/invercargill-academy.jpg",
+            "selector": "#invercargill-academy-photo"
+          }
+        ]
       },
       {
         "_key": "4172174d5c67fe3b",
@@ -3296,48 +3427,6 @@
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(2)"
           },
           {
-            "_key": "ae6983c5a883f088",
-            "_type": "pageText",
-            "label": "Head coach — heading",
-            "value": "Head coach",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > h3:nth-of-type(1)"
-          },
-          {
-            "_key": "f37d290369e0f23b",
-            "_type": "pageText",
-            "label": "Head coach — role / detail",
-            "value": "To confirm",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(1)"
-          },
-          {
-            "_key": "a939393479fd8fa1",
-            "_type": "pageText",
-            "label": "Adults coach — heading",
-            "value": "Adults coach",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > h3:nth-of-type(1)"
-          },
-          {
-            "_key": "a19ea1ec24cf4f83",
-            "_type": "pageText",
-            "label": "Adults coach — role / detail",
-            "value": "To confirm",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > p:nth-of-type(1)"
-          },
-          {
-            "_key": "83d4c5fd1c5995ff",
-            "_type": "pageText",
-            "label": "Kids coach — heading",
-            "value": "Kids coach",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)"
-          },
-          {
-            "_key": "b4b53252dc1c32bb",
-            "_type": "pageText",
-            "label": "Kids coach — role / detail",
-            "value": "To confirm",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > p:nth-of-type(1)"
-          },
-          {
             "_key": "9de628cbeea2cce2",
             "_type": "pageText",
             "label": "Body text 2",
@@ -3346,33 +3435,7 @@
           }
         ],
         "images": [],
-        "coachSelector": "#coaches .roster-grid",
-        "coachBindings": [
-          {
-            "_key": "ae6983c5a883f088",
-            "name": "ae6983c5a883f088",
-            "role": "f37d290369e0f23b",
-            "belt": "unconfirmed",
-            "stripes": 0,
-            "placeholder": "Name and portrait to add"
-          },
-          {
-            "_key": "a939393479fd8fa1",
-            "name": "a939393479fd8fa1",
-            "role": "a19ea1ec24cf4f83",
-            "belt": "unconfirmed",
-            "stripes": 0,
-            "placeholder": "Name and portrait to add"
-          },
-          {
-            "_key": "83d4c5fd1c5995ff",
-            "name": "83d4c5fd1c5995ff",
-            "role": "b4b53252dc1c32bb",
-            "belt": "unconfirmed",
-            "stripes": 0,
-            "placeholder": "Name and portrait to add"
-          }
-        ]
+        "coachSelector": "#coaches .roster-grid"
       },
       {
         "_key": "5ae513df805e21b6",
@@ -3543,8 +3606,8 @@
             "_key": "d21ae27f015c7142",
             "_type": "pageImage",
             "label": "Photo",
-            "alt": "The Queenstown academy community gathered beside the mats",
-            "originalSrc": "../../assets/community.jpg",
+            "alt": "Carlson Gracie Queenstown members gathered on the academy mats",
+            "originalSrc": "../../assets/big class.jpg",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)"
           }
         ]
@@ -3833,7 +3896,16 @@
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)"
           }
         ],
-        "images": []
+        "images": [
+          {
+            "_key": "south-canterbury-academy-photo",
+            "_type": "pageImage",
+            "label": "South Canterbury academy photo",
+            "alt": "Carlson Gracie South Canterbury team together on the academy mats",
+            "originalSrc": "../../assets/south-canterbury-academy.jpeg",
+            "selector": "#south-canterbury-academy-photo"
+          }
+        ]
       },
       {
         "_key": "007716ddd19b2481",
@@ -4081,7 +4153,16 @@
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)"
           }
         ],
-        "images": []
+        "images": [
+          {
+            "_key": "wanaka-academy-photo",
+            "_type": "pageImage",
+            "label": "Wānaka academy photo",
+            "alt": "Wānaka Martial Arts jiu-jitsu team together on the academy mats",
+            "originalSrc": "../../assets/wanaka-academy.jpg",
+            "selector": "#wanaka-academy-photo"
+          }
+        ]
       },
       {
         "_key": "3844735dbc2c23db",

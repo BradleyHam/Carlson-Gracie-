@@ -1,0 +1,51 @@
+.coach.coach-has-profile{cursor:pointer}
+.coach-details-button{appearance:none;border:0;border-top:1px solid rgba(23,23,27,.18);background:none;color:var(--carmine);font:500 10px var(--mono);letter-spacing:.14em;text-align:left;text-transform:uppercase;margin-top:18px;padding:15px 0 0;cursor:pointer;width:100%}
+.coach-details-button:hover,.coach-details-button:focus-visible{text-decoration:underline;text-underline-offset:4px}
+.coach-details-dialog{border:1px solid rgba(255,255,255,.14);padding:0;margin:auto;background:#f5f3ef;color:var(--ink);width:min(960px,calc(100% - 48px));max-width:none;max-height:90dvh;overflow:auto;box-shadow:0 32px 100px rgba(0,0,0,.35)}
+.coach-details-dialog::backdrop{background:rgba(13,14,16,.72);backdrop-filter:blur(8px)}
+.coach-details-panel{position:relative}
+.coach-details-close{position:absolute;right:18px;top:18px;z-index:2;display:grid;place-items:center;width:40px;height:40px;padding:0;border:1px solid rgba(23,23,27,.14);border-radius:50%;background:rgba(250,249,246,.96);color:var(--ink);cursor:pointer;transition:background .2s,transform .2s}
+.coach-details-close:hover{background:#fff;transform:rotate(90deg)}
+.coach-details-close:focus-visible{outline:2px solid var(--carmine);outline-offset:4px}
+.coach-details-content{display:grid;grid-template-columns:40% minmax(0,1fr);min-height:580px}
+.coach-details-content--text-only{grid-template-columns:1fr;min-height:0}
+.coach-details-portrait{position:relative;align-self:stretch;min-height:100%;margin:0;overflow:hidden;background:#232323}
+.coach-details-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:grayscale(100%)}
+.coach-details-portrait::after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.7));pointer-events:none}
+.coach-details-portrait figcaption{position:absolute;z-index:1;bottom:28px;left:28px;right:24px;margin:0;color:rgba(255,255,255,.8);font:400 9px/1.7 var(--mono);letter-spacing:.17em;text-transform:uppercase}
+.coach-details-copy{padding:76px clamp(30px,4.4vw,56px) 48px;align-self:center}
+.coach-details-kicker{margin:0 0 24px;font:400 9px/1.6 var(--mono);letter-spacing:.17em;text-transform:uppercase;color:#73716d}
+.coach-details-kicker::before{content:"";display:block;width:30px;height:2px;margin-bottom:24px;background:#a6a29c}
+.coach-details-copy h2{font-size:clamp(2.8rem,4.5vw,4.4rem);font-weight:500;line-height:1.02;letter-spacing:-.025em;margin:0 0 20px;outline:none;text-wrap:balance}
+.coach-details-rank{font:400 10px/1.8 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:#69635d;margin:0;padding-bottom:26px;border-bottom:1px solid rgba(23,23,27,.13)}
+.coach-details-bio{margin-top:26px;font-size:15px;line-height:1.85;color:#484641;max-width:49ch}
+.coach-details-bio p{margin:0 0 18px}
+.coach-details-bio p:last-child{margin-bottom:0}
+.coach-details-dialog[open]{animation:coach-profile-enter .25s ease-out}
+@keyframes coach-profile-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:680px){
+  .coach-details-dialog{width:calc(100% - 28px);max-height:calc(100dvh - 28px)}
+  .coach-details-content{display:block;min-height:0}
+  .coach-details-portrait{height:clamp(220px,32dvh,340px);min-height:0}
+  .coach-details-portrait img{object-position:50% 26%}
+  .coach-details-portrait figcaption{bottom:20px;left:26px;font-size:8px}
+  .coach-details-copy{padding:32px 28px 36px}
+  .coach-details-kicker{font-size:8px;margin-bottom:20px}
+  .coach-details-kicker::before{display:none}
+  .coach-details-copy h2{font-size:clamp(2.7rem,9vw,3.8rem);margin-bottom:16px}
+  .coach-details-rank{font-size:9px;padding-bottom:22px}
+  .coach-details-bio{font-size:14px;line-height:1.85;margin-top:22px}
+  .coach-details-close{top:12px;right:12px}
+  .coach-details-content--text-only .coach-details-copy{padding-top:72px}
+}
+@media(prefers-reduced-motion:reduce){.coach-details-dialog[open]{animation:none}.coach-details-close{transition:none}}
+
+.coach-details-pending{margin:26px 0 0;color:#73716d;font:italic 18px/1.5 var(--serif)}
+
+.coach-details-achievements{margin-top:30px;padding-top:26px;border-top:1px solid rgba(23,23,27,.13)}
+.coach-details-achievements h3{font:500 11px/1.5 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:#69635d;margin:0 0 16px}
+.coach-details-achievements ul{list-style:none;padding:0;margin:0}
+.coach-details-achievements li{position:relative;padding:12px 0 12px 20px;font:400 14px/1.65 var(--body);color:#484641;overflow-wrap:anywhere}
+.coach-details-achievements li+li{border-top:1px solid rgba(23,23,27,.07)}
+.coach-details-achievements li:before{content:"";position:absolute;left:0;top:21px;width:4px;height:4px;border-radius:50%;background:#89837a}
+@media(max-width:680px){.coach-details-achievements{margin-top:24px;padding-top:22px}}

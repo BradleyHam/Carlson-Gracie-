@@ -1,8 +1,11 @@
+import {academyPhotoSources} from './academy-photos.js';
 import {settingLinkKey, settingHref, originalPhonePattern} from './settings.js';
 import {resolvePageProfiles, allPagesQuery} from './profiles.js';
 import path from 'node:path';
+import fs from 'node:fs';
 import {renderSeminars} from './seminars.js';
 import {renderCoaches} from './coaches.js';
+import {renderFeaturedClasses} from './classes.js';
 import {load} from 'cheerio';
 import {sanityConfig} from './config.js';
 import {fetchContent, imageURL, isConfigured, eventsQuery} from './shared.js';
@@ -15,6 +18,9 @@ export function sanityContentPlugin() {
   return {
     name: 'carlson-sanity-content',
     configResolved(config) { root = config.root; },
+    generateBundle() {
+      this.emitFile({type:'asset',fileName:'location-fallbacks.js',source:fs.readFileSync(path.join(root,'location-fallbacks.js'),'utf8')});
+    },
     async buildStart() {
       if (!isConfigured(sanityConfig)) return;
       // A configured production build must not silently publish stale content.
@@ -40,15 +46,16 @@ export function sanityContentPlugin() {
         const texts = new Map((published?.sections || []).flatMap(s => s.texts || []).map(t => [t._key, t.value]));
         const images = new Map((published?.sections || []).flatMap(s => s.images || []).map(i => [i._key, i]));
         $('html').attr('data-sanity-page', page._id);
-        if (published?.seoTitle) $('title').text(published.seoTitle);
-        if (typeof published?.seoDescription === 'string') $('meta[name="description"]').attr('content', published.seoDescription);
+        if (typeof published?.seoTitle === 'string' && published.seoTitle.trim()) $('title').text(published.seoTitle);
+        const locationPage = file.startsWith('locations/');
+        if (typeof published?.seoDescription === 'string' && (!locationPage || published.seoDescription.trim())) $('meta[name="description"]').attr('content', published.seoDescription);
         for (const section of page.sections) {
           for (const item of section.texts) {
             const el = $(item.selector);
             if (el.length !== 1) throw new Error('CMS binding no longer matches: ' + file + ': ' + item.label);
             el.attr('data-sanity-text', item._key);
             const value = texts.get(item._key);
-            if (typeof value === 'string' && value !== item.value) {
+            if (typeof value === 'string' && value !== item.value && (!locationPage || value.trim())) {
               el.empty();
               value.split('\n').forEach((line, i) => { if (i) el.append('<br>'); el.append($('<span>').text(line).contents()); });
             }
@@ -63,12 +70,39 @@ export function sanityContentPlugin() {
             if (typeof image?.alt === 'string') el.attr('alt', image.alt);
           }
         }
+        if (page._id === 'page-locations') {
+          for (const slug of Object.keys(academyPhotoSources)) {
+            const photo = published?.academyPhotos?.[slug];
+            const url = imageURL(photo?.image, sanityConfig);
+            if (!url) continue;
+            const image = $('[data-academy-photo="'+slug+'"]');
+            image.attr('src', url).removeAttr('srcset').removeAttr('sizes');
+            if (typeof photo.alt === 'string' && photo.alt.trim()) image.attr('alt', photo.alt);
+          }
+          const photo = published?.queenstownCardPhoto;
+          const url = imageURL(photo, sanityConfig);
+          if (url) {
+            const card = $('.academy-card--hq .academy-card-media');
+            card.addClass('has-photo');
+            card.find('img').attr('src', url).attr('data-sanity-image', 'queenstownCardPhoto');
+            if (typeof photo.alt === 'string' && photo.alt.trim()) card.find('img').attr('alt', photo.alt);
+          }
+        }
+        if (page._id === 'page-home') {
+          const classMarkup = renderFeaturedClasses(published?.featuredClasses);
+          if (classMarkup !== null) $('[data-sanity-classes]').html(classMarkup);
+        }
         for (const section of page.sections.filter(s => s.coachSelector)) {
           const rail = $(section.coachSelector);
           rail.attr('data-sanity-coaches', section._key);
           const coaches = published?.sections?.find(s => s._key === section._key)?.coaches;
           const markup = renderCoaches(coaches, sanityConfig);
-          if (markup !== null) rail.html(markup);
+          if (markup !== null) {
+            rail.html(markup);
+            const container = rail.closest('section');
+            if (markup.trim()) container.removeAttr('hidden');
+            else container.attr('hidden', '');
+          }
         }
         for (const section of page.sections.filter(s => s.seminarSelector)) {
           const rail = $(section.seminarSelector);

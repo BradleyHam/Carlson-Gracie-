@@ -138,3 +138,16 @@
 @media(max-width:640px) {
  .app-hero-copy .eyebrow { font-size:9px; letter-spacing:.25em; }
 }
+
+/* A quiet breadcrumb transition for the white app page. */
+@media(max-width:960px) {
+ .members-app-page .mobile-section-nav { background:var(--paper); color:var(--ink); }
+ .members-app-page .mobile-section-inner { padding:8px 0; border-top:1px solid var(--line-ink); }
+ .members-app-page .section-breadcrumb ol { font-size:12px; }
+ .members-app-page .section-breadcrumb a { color:#717177; }
+ .members-app-page .section-breadcrumb a:hover { color:var(--ink); }
+ .members-app-page .section-breadcrumb li+li::before { color:#b0b0b5; }
+ .members-app-page .section-breadcrumb [aria-current] { color:var(--ink); }
+ .members-app-page .mobile-section-nav :focus-visible { outline:2px solid var(--ink); outline-offset:3px; }
+ .members-app-page .app-library { padding-top:48px; }
+}

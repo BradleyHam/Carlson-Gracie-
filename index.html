@@ -616,24 +616,38 @@
   }
 
   /* ---------- Blog / events feed ---------- */
-  .post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:clamp(40px,6vw,64px)}
-  .post{background:var(--paper);border:1px solid var(--line-ink);display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
-  .post:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(23,23,27,.08)}
-  .post-img{
-    aspect-ratio:16/10;background:var(--mist);display:grid;place-items:center;
-    font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(23,23,27,.3);
+  /* Keep the seminar introduction and latest news close together. */
+  #seminars{padding-bottom:clamp(28px,4vw,56px)}
+  #seminars + #events{padding-top:clamp(28px,4vw,56px)}
+  #events{background:var(--paper)}
+  #events .lead{max-width:680px;font-size:clamp(16px,1.4vw,18px);line-height:1.75;color:#66666d}
+  .post-grid{display:grid;gap:0;margin-top:48px}
+  .home-upcoming{display:grid;gap:0;margin-top:0}
+  #events .post,#events .home-event{display:grid;grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr);gap:clamp(32px,6vw,88px);padding:36px 0;border:0;border-top:1px solid var(--line-ink);background:transparent;color:var(--ink);align-items:center}
+  #events .post{position:relative;cursor:pointer}
+  #events .post h3 a::after{content:"";position:absolute;inset:0}
+  #events .post:focus-within{outline:2px solid var(--ink);outline-offset:3px}
+  #events .home-upcoming{border-bottom:1px solid var(--line-ink)}
+  #events .post-img,#events .home-event-image{height:330px;min-width:0;display:flex;align-items:center;justify-content:center;background:#f4f3f1;padding:20px;overflow:hidden}
+  #events .post-img img,#events .home-event-image img{display:block;width:100%;height:100%!important;object-fit:contain!important;filter:none}
+  #events .post-body,#events .home-event-content{padding:0;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+  #events .journal-meta,#events .home-event-date{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:0;font-family:var(--mono);font-size:10px;line-height:1.6;letter-spacing:.1em;text-transform:uppercase;color:#707077}
+  #events .post-tag,#events .home-event-date span{font:inherit;color:inherit;border:0;padding:0;margin:0}
+  #events .post-date,#events .home-event-date strong{font:inherit;color:inherit;border-left:1px solid #cccbd0;padding-left:16px}
+  #events .post h3,#events .home-event h3{font-family:var(--display);font-weight:600;font-size:clamp(30px,3vw,44px);line-height:1.12;max-width:26ch;margin:0}
+  #events h3 a{text-decoration:none}
+  #events h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+  #events .post p,#events .home-event p{font-size:15px;line-height:1.8;color:#626269;max-width:58ch;margin:0}
+  #events .post-more{display:inline-flex;align-items:center;padding:10px 0 7px;margin:0;border-bottom:1px solid #b8b8bd;font-family:var(--mono);font-size:10px;line-height:1.5;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  #events .post-more:hover{border-bottom-color:var(--ink)}
+  #events .post-more:focus-visible{outline:2px solid var(--ink);outline-offset:5px}
+  @media(max-width:700px){
+    #events .post,#events .home-event{grid-template-columns:1fr;gap:26px;padding:28px 0}
+    #events .post-img,#events .home-event-image{height:300px;padding:18px}
+    #events .post-body,#events .home-event-content{gap:16px;padding:0 2px}
+    #events .post h3,#events .home-event h3{font-size:32px;max-width:none}
+    .post-grid{margin-top:32px}
   }
-  .post-body{padding:20px 20px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
-  .post-tag{
-    align-self:flex-start;font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--ink);border:1px solid var(--line-ink);padding:4px 8px;
-  }
-  .post-date{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,27,.45)}
-  .post h3{font-family:var(--display);font-weight:600;font-size:1.3rem;line-height:1.15}
-  .post p{font-size:13.5px;line-height:1.6;color:rgba(23,23,27,.7)}
-  .post-more{margin-top:auto;padding-top:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
-  .post:hover .post-more{text-decoration:underline;text-underline-offset:4px}
-  @media (max-width:900px){ .post-grid{grid-template-columns:1fr;max-width:560px} }
   @media (prefers-reduced-motion:no-preference){
     .post-grid .post{opacity:0;transition:opacity .65s ease}
     .post-grid.in .post{opacity:1}
@@ -1217,7 +1231,7 @@
       <span class="dh">The classes we run and who each one suits.</span>
       <a href="training/"><span class="dn">01</span><span class="dt">Overview<em>Find your class</em></span></a>
       <a href="training/timetable/"><span class="dn">02</span><span class="dt">Timetable<em>Seven days a week</em></span></a>
-      <a href="training/adults/"><span class="dn">03</span><span class="dt">Adults, all levels<em>Gi &amp; no-gi, the main program</em></span></a>
+      <a href="training/adults/"><span class="dn">03</span><span class="dt">All-levels &amp; Advanced<em>Gi &amp; no-gi, every level</em></span></a>
       <a href="training/beginners/"><span class="dn">04</span><span class="dt">Beginners<em>The front door</em></span></a>
       <a href="training/kids/"><span class="dn">05</span><span class="dt">Kids<em>Ages 5 to 12</em></span></a>
       <a href="training/womens/"><span class="dn">06</span><span class="dt">Women&rsquo;s<em>The easiest place to start</em></span></a>
@@ -1251,21 +1265,14 @@
       <a href="locations/"><span class="dn">01</span><span class="dt">All academies<em>One standard, wherever you roll</em></span></a>
       <a href="locations/queenstown/"><span class="dn">02</span><span class="dt">Queenstown &middot; HQ<em>The original dojo</em></span></a>
       <a href="locations/wanaka/"><span class="dn">03</span><span class="dt">W&#257;naka</span></a>
-      <a href="locations/invercargill/"><span class="dn">04</span><span class="dt">Invercargill</span></a>
-      <a href="locations/south-canterbury/"><span class="dn">05</span><span class="dt">South Canterbury</span></a>
+      <a href="locations/cromwell/"><span class="dn">04</span><span class="dt">Cromwell</span></a>
+      <a href="locations/invercargill/"><span class="dn">05</span><span class="dt">Invercargill</span></a>
+      <a href="locations/south-canterbury/"><span class="dn">06</span><span class="dt">South Canterbury</span></a>
     </div>
     </li>
-    <li class="has-sub"><a href="seminars/">Seminars</a>
-    <div class="nav-drop">
-      <span class="dh">World-class guests, events and the blog.</span>
-      <a href="seminars/"><span class="dn">01</span><span class="dt">Seminars &amp; events<em>World-class names on our mats</em></span></a>
-      <a href="seminars/events/"><span class="dn">02</span><span class="dt">Events<em>What&rsquo;s on and what&rsquo;s coming</em></span></a>
-      <a href="seminars/technique/"><span class="dn">03</span><span class="dt">Technique<em>From our own coaches</em></span></a>
-      <a href="seminars/news/"><span class="dn">04</span><span class="dt">News<em>Around the academies</em></span></a>
-    </div>
-    </li>
+    <li><a href="blog/">Blog</a></li>
     <li><a href="contact/">Contact</a></li>
-    <li class="keep"><a class="nav-ghost" href="#timetable">Timetable</a></li>
+    <li class="keep"><a class="nav-ghost" href="/training/timetable/">Timetable</a></li>
     <li class="keep"><a class="nav-cta" href="#trial-info"><span class="cta-full">Become a member</span><span class="cta-short">Join</span></a></li>
   </ul>
 </nav>
@@ -1399,46 +1406,14 @@
   </div>
 </section>
 
-<section class="band band-mist" id="training">
-  <div class="wrap">
-    <p class="eyebrow reveal">Training</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">Start where you are</h2>
-    <div style="margin-top:clamp(40px,6vw,64px)">
-      <div class="prog reveal">
-        <a href="#trial-info">
-          <h3>Fundamentals<span class="pt">a base</span></h3>
-          <span class="tag">No-Gi &middot; Beginners</span>
-          <img class="prog-img" src="assets/prog-fundamentals.jpg" alt="Two members practising a standing no-gi drill" loading="lazy">
-          <p>This is where you start if you&rsquo;ve never tried Jiu Jitsu before. Basic positions, submissions and escapes, and the habits that keep you safe before you join the regular classes.</p>
-        </a>
-      </div>
-      <div class="prog reveal">
-        <a href="#trial-info">
-          <h3>All levels<span class="pt">o jogo</span></h3>
-          <span class="tag">Gi &middot; All levels</span>
-          <img class="prog-img" src="assets/prog-gi.jpg" alt="Gi class training at the Queenstown academy" loading="lazy">
-          <p>Technique, drilling, and live rolling. Where fundamentals get pressure tested, at whatever pace your rank calls for.</p>
-        </a>
-      </div>
-      <div class="prog reveal">
-        <a href="#trial-info">
-          <h3>No-Gi<span class="pt">sem kimono</span></h3>
-          <span class="tag">No-Gi &middot; All levels</span>
-          <img class="prog-img" src="assets/prog-no-gi.jpg" alt="No-gi grappling on the mats in Queenstown" loading="lazy">
-          <p>No collars, no sleeves, faster scrambles. Wrestling, leg attacks and modern grappling for sport and self defence.</p>
-        </a>
-      </div>
-      <div class="prog reveal">
-        <a href="#trial-info">
-          <h3>Kids<span class="pt">os pequenos</span></h3>
-          <span class="tag">Gi and No-Gi &middot; Ages 5&ndash;12</span>
-          <img class="prog-img" src="assets/prog-kids.jpg" alt="Two children practising jiu-jitsu together on the mats" loading="lazy">
-          <p>Falling safely, focus, and confidence. Games first, technique always, and no striking, ever.</p>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="band band-mist" id="training"><div class="wrap"><p class="eyebrow reveal">Training</p><h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">Start where you are</h2><div data-sanity-classes style="margin-top:clamp(40px,6vw,64px)">
+      <div class="prog reveal"><a href="training/beginners/"><h3>Fundamentals Course<span class="pt">6-week introduction</span></h3><span class="tag">6-week introduction</span><img class="prog-img" src="assets/prog-fundamentals.jpg" alt="Two members practising a standing no-gi drill" loading="lazy"><p>A structured introduction to the basics of jiu-jitsu, with time to build confidence before joining regular classes.</p></a></div>
+      <div class="prog reveal"><a href="training/beginners/"><h3>Beginners<span class="pt">white belts &amp; new starters</span></h3><span class="tag">white belts &amp; new starters</span><img class="prog-img" src="assets/private-coaching.jpg" alt="A coach guiding a student through a jiu-jitsu drill" loading="lazy"><p>Learn the core positions and movements at a pace made for people starting out.</p></a></div>
+      <div class="prog reveal"><a href="training/adults/"><h3>All-levels<span class="pt">all belts welcome</span></h3><span class="tag">all belts welcome</span><img class="prog-img" src="assets/prog-gi.jpg" alt="Gi class training at the Queenstown academy" loading="lazy"><p>Technique, drilling and live training with room for every level of experience.</p></a></div>
+      <div class="prog reveal"><a href="training/adults/"><h3>Advanced<span class="pt">higher-level technique</span></h3><span class="tag">higher-level technique</span><img class="prog-img" src="assets/competition.jpg" alt="Experienced members training jiu-jitsu" loading="lazy"><p>Build on your foundations with more detailed technique and live training.</p></a></div>
+      <div class="prog reveal"><a href="training/womens/"><h3>Women’s<span class="pt">dedicated women’s class</span></h3><span class="tag">dedicated women’s class</span><img class="prog-img" src="assets/women-rolling-2.jpeg" alt="Two women practising jiu-jitsu on the mats" loading="lazy"><p>A dedicated space for women to learn, train and find their place on the mats.</p></a></div>
+      <div class="prog reveal"><a href="training/kids/"><h3>Kids<span class="pt">ages 5–12</span></h3><span class="tag">ages 5–12</span><img class="prog-img" src="assets/prog-kids.jpg" alt="Two children practising jiu-jitsu together on the mats" loading="lazy"><p>Games, movement and technique that build focus and confidence in a safe class.</p></a></div>
+</div></div></section>
 
 <!-- POSITIONING BLOCK. Copy is placeholder for Miranda to replace.
      Sourced figures: "over eleven black belts" (Miranda); "grew from 15 people to
@@ -1473,7 +1448,7 @@
     <figure class="legacy-note reveal">
       <p>Opened in Queenstown in 2014. From 15 people to over 200 members, one of the largest jiu-jitsu academies in <em>New Zealand</em>.</p>
     </figure>
-    <p class="legacy-family reveal">A family of academies across the South Island &nbsp;<b>Queenstown</b> &middot; <b>W&#257;naka</b> &middot; <b>Invercargill</b> &middot; <b>South Canterbury</b></p>
+    <p class="legacy-family reveal">A family of academies across the South Island &nbsp;<b>Queenstown</b> &middot; <b>W&#257;naka</b> &middot; <b>Cromwell</b> &middot; <b>Invercargill</b> &middot; <b>South Canterbury</b></p>
   </div>
 </section>
 
@@ -1497,28 +1472,28 @@
          "to confirm" line rather than invented detail. -->
     <div class="coach-rail">
     <div class="coach-grid reveal">
-    <article class="coach">
+    <article class="coach" data-coach-full-bio="Jose began training Brazilian jiu-jitsu in Curitiba, Brazil, in 1996 under Rodrigo Zanon. He moved to New Zealand in 2005 and began teaching in Queenstown, first at Queenstown Gym and later at Fight Science. He received his black belt under Carlson Gracie Curitiba in 2012 and founded Carlson Gracie New Zealand in Queenstown in 2014. The academy grew from 15 to more than 200 members, followed by affiliates in Wānaka, Invercargill and South Canterbury. In 2017, Jose competed at the Hyperfly Black Belt Invitational and won bronze in the advanced 73.5 kg division at the New Zealand No-Gi Nationals.">
       <div class="coach-photo"><img src="assets/coach-jose.jpg" alt="Jose Gomes, head professor" loading="lazy"></div>
       <div class="coach-belt" role="img" aria-label="Third degree black belt"><span class="tip"><i></i><i></i><i></i></span></div>
       <h3>Jose Gomes</h3>
       <p class="coach-rank">Head professor &middot; Black belt under Carlson Gracie Jr</p>
       <p class="coach-bio">Training since 1996 and a black belt under Carlson Gracie Jr. Opened Carlson Gracie NZ in 2014 and grew it from 15 to over 200 members, going on to seed academies in W&#257;naka, Invercargill and South Canterbury.</p>
     </article>
-    <article class="coach">
+    <article class="coach" data-coach-full-bio="Fabio is from Espírito Santo, Brazil, and began training Brazilian jiu-jitsu in 1996. He won at Copa Sudeste as a white belt and again as a blue belt. He received his purple belt at Nova União in 2012 and moved to Queenstown in 2014. Jose Gomes promoted him to brown belt in 2016, and he received his black belt in 2019. At Carlson Gracie New Zealand he has coached fundamentals, beginners, advanced, women’s and kids’ classes.">
       <div class="coach-photo"><img src="assets/coach-fabio.jpg" alt="Fabio De Carvalho, black belt instructor" loading="lazy"></div>
       <div class="coach-belt" role="img" aria-label="Black belt"><span class="tip"></span></div>
       <h3>Fabio De Carvalho</h3>
       <p class="coach-rank">Fundamentals, women&rsquo;s &amp; kids&rsquo; &middot; Black belt</p>
       <p class="coach-bio">Coaches fundamentals, beginners, advanced, women&rsquo;s and kids&rsquo; classes. Walked in years ago and never left.</p>
     </article>
-    <article class="coach">
+    <article class="coach" data-coach-full-bio="Renan began training Brazilian jiu-jitsu in Caxias do Sul, Brazil, in 2004. He joined Carlson Gracie New Zealand as a purple belt in 2012, received his brown belt from Jose Gomes in 2013, and earned his black belt in 2015. His competition history includes gold in both the weight and open classes at the 2019 NAGA West Coast Grappling Championship, silver at the 2017 IBJJF Asian Championship, and bronze at the 2015 IBJJF No-Gi Worlds. He has taught advanced gi and no-gi classes in Queenstown.">
       <div class="coach-photo"><img src="assets/coach-renan.jpg" alt="Renan Secco, first degree black belt" loading="lazy"></div>
       <div class="coach-belt" role="img" aria-label="First degree black belt"><span class="tip"><i></i></span></div>
       <h3>Renan Secco</h3>
       <p class="coach-rank">Advanced gi &amp; no-gi &middot; 1st degree black belt</p>
       <p class="coach-bio">Training since 2004. A key instructor at the academy, teaching the advanced adult classes.</p>
     </article>
-    <article class="coach">
+    <article class="coach" data-coach-full-bio="Ashley began Brazilian jiu-jitsu in 2010 after two years of boxing. He trained at Somerset Jiu Jitsu Alliance in the United Kingdom with Gary Davies and Matt Male, and competed in an MMA fight in November 2011. He moved to New Zealand later that year and has trained with Jose Gomes at Carlson Gracie New Zealand since then.">
       <div class="coach-photo"><img src="assets/coach-ashley.jpg" alt="Ashley Smith, black belt instructor" loading="lazy"></div>
       <div class="coach-belt" role="img" aria-label="Black belt"><span class="tip"></span></div>
       <h3>Ashley Smith</h3>
@@ -1694,42 +1669,10 @@
 <section class="band band-mist" id="events">
   <div class="wrap">
     <p class="eyebrow reveal">From the blog</p>
-    <h2 class="display reveal" style="font-size:clamp(2rem,5.4vw,4.6rem);max-width:none;white-space:nowrap">Events, all year round</h2>
-    <p class="lead reveal" style="margin-top:26px">Alongside the seminars, we regularly run tournaments in Queenstown and further afield. As part of the team you get the chance to compete, corner your teammates, volunteer, and learn to referee. Every one of those is another way in, and another thread in the community we build on and off the mat.</p>
-    <!-- CMS FEED: these three cards pull the latest posts tagged "events" from the blog.
-         Titles, dates, images and excerpts below are placeholders showing the pattern. -->
-    <div class="post-grid reveal">
-      <article class="post">
-        <div class="post-img"><span>Post image</span></div>
-        <div class="post-body">
-          <span class="post-tag">Events</span>
-          <span class="post-date">March 2026</span>
-          <h3>Post title pulls in from the blog</h3>
-          <p>A one or two line excerpt shows here automatically from the post tagged events.</p>
-          <span class="post-more">Read more &rarr;</span>
-        </div>
-      </article>
-      <article class="post">
-        <div class="post-img"><span>Post image</span></div>
-        <div class="post-body">
-          <span class="post-tag">Events</span>
-          <span class="post-date">February 2026</span>
-          <h3>Post title pulls in from the blog</h3>
-          <p>A one or two line excerpt shows here automatically from the post tagged events.</p>
-          <span class="post-more">Read more &rarr;</span>
-        </div>
-      </article>
-      <article class="post">
-        <div class="post-img"><span>Post image</span></div>
-        <div class="post-body">
-          <span class="post-tag">Events</span>
-          <span class="post-date">December 2025</span>
-          <h3>Post title pulls in from the blog</h3>
-          <p>A one or two line excerpt shows here automatically from the post tagged events.</p>
-          <span class="post-more">Read more &rarr;</span>
-        </div>
-      </article>
-    </div>
+    <h2 class="display reveal" style="font-size:clamp(2rem,5.4vw,4.6rem);max-width:none">News from the mats</h2>
+    <p class="lead reveal" style="margin-top:26px">Upcoming seminars, competition highlights and stories from our academies. Find out what’s on, learn from the team and stay connected with the Carlson Gracie community.</p>
+    <div class="post-grid reveal"><p class="blog-empty">Stories from the academy will appear here soon.</p></div>
+    <p class="reveal" style="margin-top:32px"><a class="btn btn-red" href="/blog/">See all stories &rarr;</a></p>
   </div>
 </section>
 
@@ -1757,7 +1700,7 @@
       </details>
       <details>
         <summary>I have never done a martial art. Is that ok?</summary>
-        <div class="faq-a"><div class="faq-inner"><p>That describes most people&rsquo;s first class here. Fundamentals exists for exactly this: basic positions, submissions and escapes, and the habits that keep you safe before you join the regular classes.</p></div></div>
+        <div class="faq-a"><div class="faq-inner"><p>That describes most people&rsquo;s first class here. The Fundamentals Course exists for exactly this: basic positions, submissions and escapes, and the habits that keep you safe before you join the regular classes.</p></div></div>
       </details>
       <details>
         <summary>How do I become a member?</summary>
@@ -1824,6 +1767,10 @@
           <p><span class="tbc">Address to confirm</span><br>W&#257;naka<br><span class="tbc">Phone to confirm</span></p>
         </div>
         <div>
+          <b><a href="locations/cromwell/" style="text-decoration:none">Cromwell</a></b>
+          <p>Central Otago, New Zealand<br><a href="locations/cromwell/">View academy details</a></p>
+        </div>
+        <div>
           <b><a href="locations/south-canterbury/" style="text-decoration:none">South Canterbury</a></b>
           <p><span class="tbc">Address to confirm</span><br>South Canterbury<br><span class="tbc">Phone to confirm</span></p>
         </div>
@@ -1836,7 +1783,7 @@
         <li><a href="about/coaches/">Our Coaches</a></li>
         <li><a href="training/timetable/">Class Timetable</a></li>
         <li><a href="locations/">Locations</a></li>
-        <li><a href="seminars/">Seminars &amp; Events</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="faq/">FAQs</a></li>
         <li><a href="https://carlson-gracie-jiu-jitsu-new-zealand-queenstown.gymdesk.com/signup/v/6V5yQ" target="_blank" rel="noopener">Become a member</a></li>
       </ul>

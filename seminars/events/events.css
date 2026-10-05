@@ -1,7 +1,4 @@
 /* Events: one optional feature, a dated schedule, then the archive. */
-.event-jump-links{display:flex;flex-wrap:wrap;gap:24px;padding-top:32px;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase}
-.event-jump-links a{padding-bottom:8px;border-bottom:1px solid var(--line-ink)}
-.event-jump-links a:hover{border-color:var(--red)}
 .seminar-events-page [hidden]{display:none!important}
 .events-feature,.events-upcoming,.events-past{scroll-margin-top:110px}
 .events-feature{padding-top:clamp(48px,6vw,76px)}
@@ -37,6 +34,9 @@
 .events-past-grid .journal-card-body{padding-top:20px}
 .events-past-grid .journal-card h3{max-width:none;font-size:clamp(1.7rem,2.4vw,2.3rem)}
 .events-archive-note{margin-top:30px;font-size:11px;line-height:1.6;color:rgba(23,23,27,.55)}
+/* Bring the archive and next-step links closer on this page. */
+.seminar-events-page .events-past{padding-bottom:clamp(40px,4vw,64px)}
+.seminar-events-page .events-past+.onward-nav{padding-top:clamp(40px,4vw,64px)}
 @media(max-width:1000px){
   .event-feature-card{grid-template-columns:1fr}
   .event-feature-photo{min-height:0;aspect-ratio:16/9}
@@ -45,7 +45,6 @@
   .events-past-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:640px){
-  .event-jump-links{gap:18px;font-size:9px}
   .event-feature-photo{aspect-ratio:4/3}
   .event-feature-copy{padding:0}
   .event-feature-copy h2{font-size:3.2rem}

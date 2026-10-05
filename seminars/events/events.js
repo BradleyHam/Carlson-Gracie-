@@ -9,7 +9,7 @@ export function splitEvents(items, now = Date.now()) {
     const end = Date.parse(item.endsAt || item.startsAt);
     if (item.isMock) upcoming.push(item);
     else if (Number.isFinite(start) && Number.isFinite(end) && end >= start) {
-      (end >= now ? upcoming : past).push(item);
+      (end > now ? upcoming : past).push(item);
     }
   }
   upcoming.sort((a, b) => (Date.parse(a.startsAt) || Infinity) - (Date.parse(b.startsAt) || Infinity));
@@ -36,7 +36,6 @@ export function renderEvents(items = events, featuredId = featuredEventId, now =
   const feature = document.querySelector('[data-featured-event]');
   const selected = upcoming.find(event => event.id === featuredId);
   feature.hidden = !selected;
-  document.querySelector('[data-featured-link]').hidden = !selected;
   if (selected) {
     fill(feature, '[data-title]', selected.title);
     fill(feature, '[data-summary]', selected.summary);
@@ -76,13 +75,12 @@ export function renderEvents(items = events, featuredId = featuredEventId, now =
   }
   archive.prepend(fragment);
 }
-const initialEvents = getInitialEvents();
-if (initialEvents === null) renderEvents();
-else renderEvents(initialEvents, splitEvents(initialEvents).upcoming.find(item => item.featured)?.id || null);
-getPublishedEvents().then(items => {
-  if (items !== null) renderEvents(items, splitEvents(items).upcoming.find(item => item.featured)?.id || null);
-}).catch(error => console.warn('Showing built-in events; Sanity is unavailable.', error.message));
-
+let currentEvents = getInitialEvents() ?? events;
+function refreshEvents(){renderEvents(currentEvents,splitEvents(currentEvents).upcoming.find(item=>item.featured)?.id || featuredEventId);}
+refreshEvents();
+getPublishedEvents().then(items=>{if(items!==null){currentEvents=items;refreshEvents();}}).catch(error=>console.warn('Showing built-in events; Sanity is unavailable.',error.message));
+setInterval(refreshEvents,60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshEvents();});
 
 const rail = document.querySelector('[data-past-list]');
 const shell = rail.closest('.events-past-rail');

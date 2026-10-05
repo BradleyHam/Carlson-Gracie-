@@ -4,3 +4,13 @@
 .queenstown-hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
 @media(min-width:961px){.queenstown-hero h1{font-size:clamp(64px,7vw,108px)}}
 @media(max-width:960px){.queenstown-hero .qt-tagline{font-size:25px;margin-top:12px}}
+
+/* Treat the interactive map as a map, rather than a portrait photograph. */
+.location-map-quote .method-quote-media{display:flex;flex-direction:column;aspect-ratio:auto;box-shadow:none;border:1px solid var(--line-ink);overflow:hidden}
+.location-map-quote .method-quote-media::after{display:none}
+.location-map-quote .location-map-embed{height:440px;flex:none;filter:none}
+.location-map-quote .method-quote-media:hover .location-map-embed{filter:none}
+.location-map-quote .method-quote-media figcaption{position:static;padding:16px 20px;background:var(--paper);color:var(--ink);font:12px/1.6 var(--body);text-shadow:none}
+.location-map-quote figcaption a{color:inherit;text-decoration:none}
+.location-map-quote figcaption a:hover{text-decoration:underline}
+@media(max-width:620px){.location-map-quote .location-map-embed{height:320px}}
