@@ -88,7 +88,8 @@ function enhance(root) {
     card.classList.add('coach-has-profile');
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'coach-details-button';
-    button.textContent = 'View profile'; button.setAttribute('aria-label', `View profile for ${name}`);
+    button.textContent = 'Read full bio'; button.setAttribute('aria-label', `Read full biography for ${name}`);
+    button.setAttribute('aria-haspopup', 'dialog');
     button.addEventListener('click', () => open(card, button));
     card.addEventListener('click', event => {
       if (!event.target.closest('a, button')) open(card, button);
