@@ -21,3 +21,16 @@ test('coach full profile text is escaped for the details dialog', () => {
   assert.equal($('.coach').attr('data-coach-full-bio'),'A <script>alert(1)</script> profile');
   assert.equal($('script').length,0);
 });
+
+// The browser refresh runs after Vite has renamed the files in the built HTML.
+test('CMS refresh preserves resolved image URLs for every featured class', async () => {
+  const {featuredClassImages} = await import('./class-images.js');
+  const {access} = await import('node:fs/promises');
+  const resolved = Object.fromEntries(featuredClassDefaults.map(item => [item.key, `/assets/${item.key}-buildhash.jpg`]));
+  const $ = load(renderFeaturedClasses(featuredClassDefaults, resolved));
+  for (const [index, item] of featuredClassDefaults.entries()) {
+    assert.equal($('.prog img').eq(index).attr('src'), resolved[item.key]);
+    assert.ok(featuredClassImages[item.key], `Missing browser asset for ${item.key}`);
+    await access(new URL(featuredClassImages[item.key]));
+  }
+});

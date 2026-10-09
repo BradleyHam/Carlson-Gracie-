@@ -4,10 +4,11 @@ export const featuredClassOptions = featuredClassDefaults.map(item => ({title:it
 const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 // CMS refreshes replace these rows after the scroll observer has registered.
 // Render them visible so delayed content never leaves invisible, clickable links.
-export function renderFeaturedClasses(items) {
+export function renderFeaturedClasses(items, imageSources = {}) {
   if (!Array.isArray(items) || !items.length) return null;
   return items.filter(item => meta[item?.key]).map(item => {
-    const {image,alt,href} = meta[item.key];
-    return `<div class="prog reveal in"><a href="${href}"><h3>${escape(item.name)}<span class="pt">${escape(item.subtitle)}</span></h3><span class="tag">${escape(item.subtitle)}</span><img class="prog-img" src="${image}" alt="${escape(alt)}" loading="lazy"><p>${escape(item.description)}</p></a></div>`;
+    const {alt,href} = meta[item.key];
+    const image = imageSources[item.key] || meta[item.key].image;
+    return `<div class="prog reveal in"><a href="${href}"><h3>${escape(item.name)}<span class="pt">${escape(item.subtitle)}</span></h3><span class="tag">${escape(item.subtitle)}</span><img class="prog-img" src="${escape(image)}" alt="${escape(alt)}" loading="lazy"><p>${escape(item.description)}</p></a></div>`;
   }).join('');
 }

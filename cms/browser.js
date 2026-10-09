@@ -4,6 +4,7 @@ import {resolvePageProfiles} from './profiles.js';
 import {renderSeminars} from './seminars.js';
 import {renderCoaches} from './coaches.js';
 import {renderFeaturedClasses} from './classes.js';
+import {featuredClassImages} from './class-images.js';
 import {sanityConfig} from './config.js';
 import {fetchContent, imageURL, pageQuery} from './shared.js';
 
@@ -45,7 +46,7 @@ export function applyPage(doc, root = document) {
     if (typeof photo.alt === 'string' && photo.alt.trim()) image.alt = photo.alt;
   }
   const classes = root.querySelector('[data-sanity-classes]');
-  const classMarkup = renderFeaturedClasses(doc.featuredClasses);
+  const classMarkup = renderFeaturedClasses(doc.featuredClasses, featuredClassImages);
   if (classes && classMarkup !== null) classes.innerHTML = classMarkup;
   for (const rail of root.querySelectorAll('[data-sanity-coaches]')) {
     const section = doc.sections?.find(s => s._key === rail.dataset.sanityCoaches);
