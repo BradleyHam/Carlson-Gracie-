@@ -100,10 +100,10 @@
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > h3:nth-of-type(1)"
           },
           {
-            "_key": "03389a17053f3db3",
+            "_key": "home-confirmed-lineage",
             "_type": "pageText",
             "label": "The lineage — description",
-            "value": "The art passed from Mitsuyo Maeda to Carlos Gracie, and from Carlos to his son Carlson. Carlson defended the family name for two decades without losing, then became one of the finest coaches the sport has produced. Our head professor, Jose Gomes, earned his black belt under Carlson Gracie Jr, so that line runs unbroken onto our mats.",
+            "value": "Our lineage runs from Carlos Gracie to Carlson Gracie, Alexandre Penão, Rogério Leite and José Gomes. That unbroken line of teachers continues on our mats, with you.",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(1)"
           },
           {
@@ -2404,25 +2404,39 @@
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)"
           },
           {
-            "_key": "08f11ad07ff900cd",
+            "_key": "lineage-name-carlos",
             "_type": "pageText",
-            "label": "Body text",
-            "value": "[Alexandre Penão]",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > b:nth-of-type(1) > span:nth-of-type(1)"
+            "label": "Carlos Gracie — name",
+            "value": "Carlos Gracie",
+            "selector": "[data-lineage=\"carlos\"] .cms"
           },
           {
-            "_key": "481d6b989ae5773d",
+            "_key": "lineage-name-carlson",
             "_type": "pageText",
-            "label": "Body text 2",
-            "value": "[Rodrigo Zanon]",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > b:nth-of-type(1) > span:nth-of-type(1)"
+            "label": "Carlson Gracie — name",
+            "value": "Carlson Gracie",
+            "selector": "[data-lineage=\"carlson\"] .cms"
           },
           {
-            "_key": "be20aede443f2378",
+            "_key": "lineage-name-alexandre",
             "_type": "pageText",
-            "label": "Body text 3",
-            "value": "[Roger Ulet]",
-            "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(4) > b:nth-of-type(1) > span:nth-of-type(1)"
+            "label": "Alexandre Penão — name",
+            "value": "Alexandre Penão",
+            "selector": "[data-lineage=\"alexandre\"] .cms"
+          },
+          {
+            "_key": "lineage-name-rogerio",
+            "_type": "pageText",
+            "label": "Rogério Leite — name",
+            "value": "Rogério Leite",
+            "selector": "[data-lineage=\"rogerio\"] .cms"
+          },
+          {
+            "_key": "lineage-name-jose",
+            "_type": "pageText",
+            "label": "José Gomes — name",
+            "value": "José Gomes",
+            "selector": "[data-lineage=\"jose\"] .cms"
           }
         ],
         "images": [
@@ -2433,6 +2447,46 @@
             "alt": "Carlson Gracie New Zealand students rolling together on the mats",
             "originalSrc": "../../assets/about-hero.jpeg",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)"
+          },
+          {
+            "_key": "lineage-photo-carlos",
+            "_type": "pageImage",
+            "label": "Carlos Gracie — portrait",
+            "alt": "Carlos Gracie",
+            "originalSrc": "../../assets/lineage/carlos-gracie.jpg",
+            "selector": "[data-lineage=\"carlos\"] .lineage-portrait img"
+          },
+          {
+            "_key": "lineage-photo-carlson",
+            "_type": "pageImage",
+            "label": "Carlson Gracie — portrait",
+            "alt": "Carlson Gracie",
+            "originalSrc": "../../assets/lineage/carlson-gracie.jpg",
+            "selector": "[data-lineage=\"carlson\"] .lineage-portrait img"
+          },
+          {
+            "_key": "lineage-photo-alexandre",
+            "_type": "pageImage",
+            "label": "Alexandre Penão — portrait",
+            "alt": "Alexandre Penão",
+            "originalSrc": "../../assets/lineage/alexandre-penao.jpg",
+            "selector": "[data-lineage=\"alexandre\"] .lineage-portrait img"
+          },
+          {
+            "_key": "lineage-photo-rogerio",
+            "_type": "pageImage",
+            "label": "Rogério Leite — portrait",
+            "alt": "Rogério Leite",
+            "originalSrc": "../../assets/lineage/rogerio-leite.jpg",
+            "selector": "[data-lineage=\"rogerio\"] .lineage-portrait img"
+          },
+          {
+            "_key": "lineage-photo-jose",
+            "_type": "pageImage",
+            "label": "José Gomes — portrait",
+            "alt": "José Gomes",
+            "originalSrc": "../../assets/lineage/jose-gomes.jpg",
+            "selector": "[data-lineage=\"jose\"] .lineage-portrait img"
           }
         ]
       },
