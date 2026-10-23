@@ -1213,6 +1213,8 @@
   .hero .cta-row{margin-top:4px}
 }
 </style>
+<link rel="stylesheet" href="training/timetable/timetable.css">
+<link rel="stylesheet" href="styles/timetables.css">
 </head>
 <body>
 
@@ -1574,50 +1576,15 @@
   </div>
 </section>
 
-<section class="band band-mist" id="timetable">
-  <div class="wrap">
+<section class="band band-mist timetable-page" id="timetable" aria-label="Class timetables by academy">
+  <div class="wrap timetable-schedule">
     <p class="eyebrow reveal">Timetable</p>
-    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">On the mats six days a week</h2>
-    <div class="tt-legend reveal">
-      <span><i style="background:var(--belt-white)"></i>Fundamentals</span>
-      <span><i style="background:var(--belt-blue)"></i>All levels</span>
-      <span><i style="background:var(--belt-black)"></i>No-Gi</span>
-      <span><i style="background:var(--belt-purple)"></i>Kids</span>
-      <span><i style="background:var(--belt-brown)"></i>Open mat</span>
-    </div>
-    <div class="tt-grid reveal">
-      <div class="tt-col" data-day="1">
-        <h3>Mon <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-kids"><span class="t">4:30 pm</span><span class="n">Kids</span><span class="l">Ages 5&ndash;12</span></div>
-        <div class="tt-class c-fund"><span class="t">6:00 pm</span><span class="n">Fundamentals</span><span class="l">Gi &middot; Beginners</span></div>
-        <div class="tt-class c-all"><span class="t">7:00 pm</span><span class="n">All levels</span><span class="l">Gi</span></div>
-      </div>
-      <div class="tt-col" data-day="2">
-        <h3>Tue <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-all"><span class="t">6:30 am</span><span class="n">All levels</span><span class="l">Gi</span></div>
-        <div class="tt-class c-nogi"><span class="t">6:00 pm</span><span class="n">No-Gi</span><span class="l">All levels</span></div>
-      </div>
-      <div class="tt-col" data-day="3">
-        <h3>Wed <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-kids"><span class="t">4:30 pm</span><span class="n">Kids</span><span class="l">Ages 5&ndash;12</span></div>
-        <div class="tt-class c-fund"><span class="t">6:00 pm</span><span class="n">Fundamentals</span><span class="l">Gi &middot; Beginners</span></div>
-        <div class="tt-class c-all"><span class="t">7:00 pm</span><span class="n">All levels</span><span class="l">Gi</span></div>
-      </div>
-      <div class="tt-col" data-day="4">
-        <h3>Thu <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-all"><span class="t">6:30 am</span><span class="n">All levels</span><span class="l">Gi</span></div>
-        <div class="tt-class c-nogi"><span class="t">6:00 pm</span><span class="n">No-Gi</span><span class="l">All levels</span></div>
-      </div>
-      <div class="tt-col" data-day="5">
-        <h3>Fri <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-all"><span class="t">6:00 pm</span><span class="n">All levels</span><span class="l">Gi</span></div>
-      </div>
-      <div class="tt-col" data-day="6">
-        <h3>Sat <span class="today-tag">Today</span></h3>
-        <div class="tt-class c-open"><span class="t">10:00 am</span><span class="n">Open mat</span><span class="l">Everyone welcome</span></div>
-      </div>
-    </div>
-    <p class="tt-note">Times can shift around holidays and gradings. Check before your first visit.</p>
+    <h2 class="display reveal" style="font-size:clamp(2.4rem,6vw,4.6rem)">Find your next class</h2>
+    <p class="lead timetable-lead">Choose your academy to see adult, kids and teens classes. Use the live Gymdesk timetable where available to check the latest changes.</p>
+    <div data-timetable-controls></div>
+    <div id="academy-schedules"></div>
+    <p id="timetable-empty" class="timetable-empty" hidden>No classes match those filters. Try another academy or class type.</p>
+    <div class="cta-row"><a class="btn btn-ghost" href="/training/timetable/">Open full timetable →</a></div>
   </div>
 </section>
 
@@ -2160,5 +2127,6 @@
   placeNote();
 })();
 </script>
+<script type="module" src="./training/timetable/filters.js"></script>
 </body>
 </html>

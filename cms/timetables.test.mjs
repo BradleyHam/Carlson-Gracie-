@@ -66,7 +66,7 @@ test('Foundations sessions appear under the beginner timetable filter',()=>{
   assert.equal(classType('BJJ Gi All-Levels Adult'),'adults');
 });
 
-test('academy and directory retain every session when adults, juniors and invitations are separated',async()=>{
+test('academy, directory and home retain every session when adults, juniors and invitations are separated',async()=>{
   const doc={_id:'timetable-queenstown',_rev:'split-1',published:true,sessions:[
     {day:'Monday',time:'12:00–1:00 pm',name:'Gi All Levels'},
     {day:'Monday',time:'3:30–4:15 pm',name:'Junior Gi'},
@@ -77,13 +77,21 @@ test('academy and directory retain every session when adults, juniors and invita
   globalThis.fetch=async()=>({ok:true,json:async()=>({result:[doc]})});
   try {
     const plugin=timetablePlugin();plugin.configResolved({root:process.cwd()});await plugin.buildStart();
-    for(const file of ['locations/queenstown/index.html','training/timetable/index.html']){
+    for(const file of ['locations/queenstown/index.html','training/timetable/index.html','index.html']){
       const $=load(plugin.transformIndexHtml.handler(fs.readFileSync(file,'utf8'),{filename:path.resolve(file)}));
       const schedule=file.startsWith('locations')?$('#timetable'):$('#schedule-queenstown');
       assert.equal(schedule.find('.tt-class').length,4);
       assert.equal(schedule.find('[data-timetable-audience="adults"] .tt-class').length,1);
       assert.equal(schedule.find('[data-timetable-audience="kids"] .tt-class[data-class-type="kids"]').length,2);
       assert.equal(schedule.find('[data-timetable-audience="invitation"] .n').text(),'Guerreiros (invitation only)');
+      if(file==='index.html'){
+        assert.equal($('#timetable .academy-schedule').length,5);
+        assert.equal($('#timetable [data-gym-filter]').length,6);
+        assert.equal($('#timetable #schedule-queenstown a[href*="DoKNw"]').length,1);
+        assert.equal($('#timetable #schedule-wanaka a[href*="Arq1m"]').length,1);
+        assert.equal($('#timetable #schedule-cromwell a[href*="gymdesk.com"]').length,0);
+        assert.equal($('#timetable .tt-legend').length,0);
+      }
     }
   }finally{globalThis.fetch=original;}
 });

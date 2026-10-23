@@ -21,8 +21,12 @@ export function timetablePlugin() {
       order: 'post',
       handler(html, context) {
         const file = path.relative(root, context.filename).split(path.sep).join('/');
-        if (file === 'training/timetable/index.html') {
+        if (file === 'training/timetable/index.html' || file === 'index.html') {
           const $ = load(html);
+          if (file === 'index.html') {
+            const directory = load(fs.readFileSync(path.join(root,'training/timetable/index.html'),'utf8'));
+            $('#timetable [data-timetable-controls]').replaceWith(directory('.timetable-filters').clone());
+          }
           const destination = $('#academy-schedules');
           if (destination.length !== 1) throw new Error('Timetable directory target missing');
           const names = {queenstown:'Queenstown',wanaka:'Wānaka',cromwell:'Cromwell',invercargill:'Invercargill','south-canterbury':'South Canterbury'};
@@ -30,7 +34,15 @@ export function timetablePlugin() {
             const source = load(fs.readFileSync(path.join(root,'locations',academy,'index.html'),'utf8'));
             const doc = timetables.get('timetable-'+academy);
             const published = renderWeeklyTimetable(doc);
-            const grid = published ? load(published)('[data-sanity-timetable-content]').first() : source('#timetable [data-sanity-timetable-content], #timetable .tt-grid').first();
+            // Give source-managed schedules the same age groups without
+            // changing their saved sessions or claiming CMS publication.
+            const localSessions = [];
+            source('#timetable .tt-col[data-day]').each((_,column) => {
+              const day = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'][Number(source(column).attr('data-day'))-1];
+              source(column).find('.tt-class').each((_,row) => localSessions.push({day,time:source(row).find('.t').text().trim(),name:source(row).find('.n').text().trim(),details:source(row).find('.l').text().trim()}));
+            });
+            const markup = published || renderWeeklyTimetable({published:true,sessions:localSessions});
+            const grid = markup ? load(markup)('[data-sanity-timetable-content]').first() : source('#timetable .tt-grid').first();
             if (!grid.length) throw new Error('No weekly classes for '+academy);
             if (grid.hasClass('tt-grid')) grid.addClass('location-tt-grid--four');
             grid.find('.tt-grid').addClass('location-tt-grid--four');
@@ -48,7 +60,12 @@ export function timetablePlugin() {
             const note = published ? timetableNote(doc) : source('#timetable .tt-note').first().text().trim();
             if (note) block.append($('<p class="tt-note"></p>').text(note));
             const live = renderLiveScheduleLink(liveScheduleUrl(doc,academy));
-            if (live) block.append($('<div class="academy-schedule-live"></div>').html(live));
+            if (file === 'index.html') {
+              const action = $('<div class="academy-schedule-live"></div>');
+              if (live) action.html(live);
+              else action.append($('<a class="btn btn-ghost"></a>').attr('href','/locations/'+academy+'/').text('Contact academy →'));
+              header.append(action);
+            } else if (live) block.append($('<div class="academy-schedule-live"></div>').html(live));
             destination.append(block);
           }
           return $.html();
