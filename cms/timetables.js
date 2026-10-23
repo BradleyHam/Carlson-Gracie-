@@ -8,7 +8,9 @@ const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sun
 export function classType(name, details = '') {
   const title = String(name || '').toLowerCase();
   const extra = String(details || '').toLowerCase();
-  if (/\b(kids?|teens?|ninjas?|youth)\b/.test(title + ' ' + extra)) return 'kids';
+  if (/\b(kids?|teens?|ninjas?|youth|juniors?)\b/.test(title + ' ' + extra)) return 'kids';
+  if (/pilates|muay thai/.test(title)) return 'other';
+  if (/invitation[ -]only/.test(title + ' ' + extra)) return 'other';
   if (/women|womens|women’s/.test(title)) return 'women';
   if (/no[ -]?gi/.test(title)) return 'nogi';
   if (/fundamental|foundation|beginner|basics/.test(title)) return 'fundamentals';
@@ -37,13 +39,19 @@ export function publishedSessions(doc) {
 export function renderWeeklyTimetable(doc) {
   const sessions = publishedSessions(doc);
   if (!sessions.length) return null;
-  const columns = days.map((day,index) => {
-    const entries = sessions.filter(item => item.day === day);
+  const audience = item => classType(item.name,item.details) === 'kids' ? 'kids' : /invitation[ -]only/i.test(item.name + ' ' + (item.details || '')) ? 'invitation' : 'adults';
+  const groups = [['adults','Adults & open classes'],['kids','Kids & teens'],['invitation','Invitation-only training']].map(([key,label]) => {
+    const group = sessions.filter(item => audience(item) === key);
+    if (!group.length) return '';
+    const columns = days.map((day,index) => {
+    const entries = group.filter(item => item.day === day);
     if (!entries.length) return '';
     const rows = entries.map(item => '<div class="tt-class c-all" data-class-type="'+classType(item.name,item.details)+'"><span class="t">'+escape(item.time.trim())+'</span><span class="n">'+escape(item.name.trim())+'</span>'+(item.details ? '<span class="l">'+escape(item.details.trim())+'</span>' : '')+'</div>').join('');
     return '<div class="tt-col" data-day="'+(index+1)+'"><h3>'+day.slice(0,3)+' <span class="today-tag">Today</span></h3>'+rows+'</div>';
+    }).join('');
+    return '<section class="tt-audience" data-timetable-audience="'+key+'" aria-label="'+escape(label)+'"><p class="tt-audience-title">'+escape(label)+'</p><div class="tt-grid reveal in" role="group" aria-label="'+escape(label)+' weekly timetable">'+columns+'</div></section>';
   }).join('');
-  return '<div class="tt-grid reveal in" data-sanity-timetable-content role="group" aria-label="Weekly class timetable">'+columns+'</div>';
+  return '<div class="tt-schedules" data-sanity-timetable-content>'+groups+'</div>';
 }
 export function timetableNote(doc) {
   return typeof doc?.note === 'string' && doc.note.trim() ? doc.note.trim() : 'Times may change for holidays, events and gradings. Check before your first visit.';

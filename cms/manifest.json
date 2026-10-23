@@ -2791,14 +2791,14 @@
             "_key": "1e9355badd994318",
             "_type": "pageText",
             "label": "How much is membership? — answer",
-            "value": "$40 a week",
+            "value": "$43 a week",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > details:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1) > span:nth-of-type(1)"
           },
           {
             "_key": "cbc012da609ec23a",
             "_type": "pageText",
             "label": "How much is membership? — answer 2",
-            "value": "$22 a week",
+            "value": "school term packages from $172.50",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > details:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1) > span:nth-of-type(2)"
           },
           {
@@ -4647,7 +4647,7 @@
             "_key": "eb4145d9cd24c12d",
             "_type": "pageText",
             "label": "Body text",
-            "value": "One membership, the whole academy. Every class, seven days a week, taught by people who’ve been part of this team for years. The same trusted coaches, every time you walk in.",
+            "value": "Queenstown memberships, school term packages and casual training. All prices are in NZD.",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)"
           }
         ],
@@ -4720,14 +4720,14 @@
             "_key": "6e9cf6676323766b",
             "_type": "pageText",
             "label": "Every class included — heading",
-            "value": "Every class included",
+            "value": "Adult training",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > h3:nth-of-type(1)"
           },
           {
             "_key": "62780b4759782029",
             "_type": "pageText",
             "label": "Every class included — description",
-            "value": "Gi, no-gi, fundamentals, women’s classes and open mat.",
+            "value": "All-levels, Advanced, Gi Basics, Women’s and open mat. Pilates is free for members. Fundamentals Course: $200.",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)"
           },
           {
@@ -4777,85 +4777,148 @@
             "_key": "9b382139e0bf09c7",
             "_type": "pageText",
             "label": "Body text",
-            "value": "The adult plan is the simple one: every class, every day. Kids, visitors and families have their own options. Final prices are confirmed when you sign up.",
+            "value": "Queenstown pricing. All prices are in NZD. Adult weekly, fortnightly and monthly payments are options for the same full membership.",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)"
           },
           {
             "_key": "c90957776861ef94",
             "_type": "pageText",
             "label": "Adult membership — heading",
-            "value": "Adult membership",
+            "value": "Adult full membership",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1) > h3:nth-of-type(1)"
           },
           {
             "_key": "c266aad54d6c4fe5",
             "_type": "pageText",
             "label": "Adult membership — description",
-            "value": "$40",
+            "value": "$43",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)"
           },
           {
             "_key": "b7c824b7c7ac45c1",
             "_type": "pageText",
             "label": "Adult membership — description 2",
-            "value": "Every adult class, seven days a week. Gi, no-gi, fundamentals, women’s classes and open mat, plus the full tutorial library in the members app. Cancel any time.",
+            "value": "Payment options for the same membership:\nWeekly: $43\nFortnightly: $86\nMonthly: $180.60",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1) > p:nth-of-type(1)"
           },
           {
             "_key": "45556d52624a96b7",
             "_type": "pageText",
             "label": "Kids membership — heading",
-            "value": "Kids membership",
+            "value": "Kids & teens school term packages",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(1) > h3:nth-of-type(1)"
           },
           {
             "_key": "fd64bdec576f9791",
             "_type": "pageText",
             "label": "Kids membership — description",
-            "value": "$22",
+            "value": "$172.50",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)"
           },
           {
             "_key": "c0c3d9f923e245f2",
             "_type": "pageText",
             "label": "Kids membership — description 2",
-            "value": "Games first, technique always, and no striking, ever.",
+            "value": "All prices are per school term:\n1 class per week: $172.50\n2 classes per week: $230\n3 classes per week: $250",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(1) > p:nth-of-type(1)"
           },
           {
             "_key": "e9548030ae25a903",
             "_type": "pageText",
             "label": "Casual & visitor — heading",
-            "value": "Casual & visitor",
+            "value": "Casual training & concession passes",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > a:nth-of-type(1) > h3:nth-of-type(1)"
           },
           {
             "_key": "51be01fabd4d2bd6",
             "_type": "pageText",
             "label": "Casual & visitor — description",
-            "value": "$30",
+            "value": "$28",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)"
           },
           {
             "_key": "641a95307bd2cbbb",
             "_type": "pageText",
             "label": "Casual & visitor — description 2",
-            "value": "Drop in once, or train for the whole time you’re in town.",
+            "value": "Day pass: $28\nWeek pass: $80\n10-session concession pass: $240",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > a:nth-of-type(1) > p:nth-of-type(1)"
           },
           {
             "_key": "f7685fc4f4d8f802",
             "_type": "pageText",
             "label": "Family & off-peak — heading",
-            "value": "Family & off-peak",
+            "value": "Teens weekly membership",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > a:nth-of-type(1) > h3:nth-of-type(1)"
           },
           {
             "_key": "deb2e541cff34106",
             "_type": "pageText",
             "label": "Family & off-peak — description",
-            "value": "Training as a family, or only free at quiet times? We’ll sort something fair.",
+            "value": "$30 per week. This weekly membership is separate from the kids and teens school term packages.",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > a:nth-of-type(1) > p:nth-of-type(1)"
+          },
+          {
+            "_key": "queenstown-teens-price",
+            "_type": "pageText",
+            "label": "Teens weekly membership price",
+            "value": "$30",
+            "selector": "#plans [data-price-field=\"queenstown-teens-price\"]"
+          },
+          {
+            "_key": "queenstown-fundamentals-heading",
+            "_type": "pageText",
+            "label": "Fundamentals course heading",
+            "value": "Fundamentals course",
+            "selector": "#plans [data-price-field=\"queenstown-fundamentals-heading\"]"
+          },
+          {
+            "_key": "queenstown-fundamentals-price",
+            "_type": "pageText",
+            "label": "Fundamentals course price",
+            "value": "$200",
+            "selector": "#plans [data-price-field=\"queenstown-fundamentals-price\"]"
+          },
+          {
+            "_key": "queenstown-fundamentals-description",
+            "_type": "pageText",
+            "label": "Fundamentals course description",
+            "value": "Fundamentals Course: $200.",
+            "selector": "#plans [data-price-field=\"queenstown-fundamentals-description\"]"
+          },
+          {
+            "_key": "queenstown-pilates-heading",
+            "_type": "pageText",
+            "label": "Pilates heading",
+            "value": "Pilates",
+            "selector": "#plans [data-price-field=\"queenstown-pilates-heading\"]"
+          },
+          {
+            "_key": "queenstown-pilates-price",
+            "_type": "pageText",
+            "label": "Pilates member price",
+            "value": "Free",
+            "selector": "#plans [data-price-field=\"queenstown-pilates-price\"]"
+          },
+          {
+            "_key": "queenstown-pilates-description",
+            "_type": "pageText",
+            "label": "Pilates description",
+            "value": "Free for members.\nNon-member prices:\nCasual pass: $25\n10-session concession pass: $200",
+            "selector": "#plans [data-price-field=\"queenstown-pilates-description\"]"
+          },
+          {
+            "_key": "queenstown-kids-period",
+            "_type": "pageText",
+            "label": "Kids and teens price period",
+            "value": "per school term",
+            "selector": "#plans [data-price-field=\"queenstown-kids-period\"]"
+          },
+          {
+            "_key": "queenstown-casual-period",
+            "_type": "pageText",
+            "label": "Casual price period",
+            "value": "per day",
+            "selector": "#plans [data-price-field=\"queenstown-casual-period\"]"
           }
         ],
         "images": [
@@ -5460,56 +5523,56 @@
             "_key": "e31138b8815d7df8",
             "_type": "pageText",
             "label": "Heading",
-            "value": "Pay for a class.Or make a week of it.",
+            "value": "Train for a day, a week, or ten sessions.",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)"
           },
           {
             "_key": "edcbdd097e07cc08",
             "_type": "pageText",
             "label": "Body text",
-            "value": "No complicated passes. Choose a single session or an unlimited visitor week, then spend the rest of your time thinking about the training.",
+            "value": "Queenstown casual training. All prices are in NZD. Day pass: $28. Week pass: $80. 10-session concession pass: $240.",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)"
           },
           {
             "_key": "769c9c95521e8b9b",
             "_type": "pageText",
             "label": "Casual drop-in — heading",
-            "value": "Casual drop-in",
+            "value": "Day pass",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)"
           },
           {
             "_key": "3adc4bf53ebc2067",
             "_type": "pageText",
             "label": "Casual drop-in — description",
-            "value": "One class, any suitable class on the timetable.",
+            "value": "A casual day pass for training in Queenstown.",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)"
           },
           {
             "_key": "58843cd3d03c5326",
             "_type": "pageText",
             "label": "Casual drop-in — description 2",
-            "value": "$30",
+            "value": "$28",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > div:nth-of-type(2) > strong:nth-of-type(1)"
           },
           {
             "_key": "489883dfc02633bf",
             "_type": "pageText",
             "label": "Weekly visitor rate — heading",
-            "value": "Weekly visitor rate",
+            "value": "Week pass",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)"
           },
           {
             "_key": "4904cf96d107c4b7",
             "_type": "pageText",
             "label": "Weekly visitor rate — description",
-            "value": "Training throughout your stay? This is the better deal.",
+            "value": "A week pass for training during your stay.",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)"
           },
           {
             "_key": "361e1c6b41efb18b",
             "_type": "pageText",
             "label": "Weekly visitor rate — description 2",
-            "value": "$95",
+            "value": "$80",
             "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > div:nth-of-type(2) > strong:nth-of-type(1)"
           },
           {

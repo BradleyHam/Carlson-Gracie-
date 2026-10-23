@@ -30,9 +30,10 @@ export function timetablePlugin() {
             const source = load(fs.readFileSync(path.join(root,'locations',academy,'index.html'),'utf8'));
             const doc = timetables.get('timetable-'+academy);
             const published = renderWeeklyTimetable(doc);
-            const grid = published ? load(published)('.tt-grid').first() : source('#timetable .tt-grid').first();
+            const grid = published ? load(published)('[data-sanity-timetable-content]').first() : source('#timetable [data-sanity-timetable-content], #timetable .tt-grid').first();
             if (!grid.length) throw new Error('No weekly classes for '+academy);
-            grid.addClass('location-tt-grid--four');
+            if (grid.hasClass('tt-grid')) grid.addClass('location-tt-grid--four');
+            grid.find('.tt-grid').addClass('location-tt-grid--four');
             grid.find('.tt-class').each((_,row) => {
               const name = grid.find(row).find('.n').first().text();
               const details = grid.find(row).find('.l').first().text();
@@ -61,7 +62,7 @@ export function timetablePlugin() {
         const doc = timetables.get('timetable-'+academy);
         const markup = renderWeeklyTimetable(doc);
         if (markup) {
-          const old = section.find('.tt-grid, .num-blocks, .timetable-fallback').first();
+          const old = section.find('[data-sanity-timetable-content], .tt-grid, .num-blocks, .timetable-fallback').first();
           if (old.length) old.replaceWith(markup);
           else section.find('.wrap').append(markup);
           section.find('.tt-legend').remove();

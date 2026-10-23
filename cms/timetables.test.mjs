@@ -45,8 +45,8 @@ test('published timetable replaces built academy HTML while other academies reta
     assert.equal($('script:contains("alert(1)")').length,0);
     const cromwell=fs.readFileSync('locations/cromwell/index.html','utf8');
     const cr=load(plugin.transformIndexHtml.handler(cromwell,{filename:path.resolve('locations/cromwell/index.html')}));
-    assert.equal(cr('#timetable .tt-col').length,7);
-    assert.equal(cr('#timetable .tt-class').length,24);
+    assert.equal(cr('#timetable .tt-col').length,6);
+    assert.equal(cr('#timetable .tt-class').length,18);
     const south=fs.readFileSync('locations/south-canterbury/index.html','utf8');
     const sc=load(plugin.transformIndexHtml.handler(south,{filename:path.resolve('locations/south-canterbury/index.html')}));
     assert.equal(sc('#timetable .tt-col').length,4);
@@ -56,7 +56,7 @@ test('published timetable replaces built academy HTML while other academies reta
     assert.equal(all('#academy-schedules .academy-schedule').length,5);
     assert.equal(all('#schedule-queenstown .tt-class').length,2);
     assert.equal(all('#schedule-queenstown .tt-class[data-class-type]').length,2);
-    assert.equal(all('#schedule-cromwell .tt-class').length,24);
+    assert.equal(all('#schedule-cromwell .tt-class').length,18);
     assert.equal(all('#schedule-south-canterbury .tt-class').length,12);
   } finally {globalThis.fetch=original;}
 });
@@ -64,4 +64,26 @@ test('published timetable replaces built academy HTML while other academies reta
 test('Foundations sessions appear under the beginner timetable filter',()=>{
   assert.equal(classType('BJJ Foundations'),'fundamentals');
   assert.equal(classType('BJJ Gi All-Levels Adult'),'adults');
+});
+
+test('academy and directory retain every session when adults, juniors and invitations are separated',async()=>{
+  const doc={_id:'timetable-queenstown',_rev:'split-1',published:true,sessions:[
+    {day:'Monday',time:'12:00–1:00 pm',name:'Gi All Levels'},
+    {day:'Monday',time:'3:30–4:15 pm',name:'Junior Gi'},
+    {day:'Wednesday',time:'3:30–4:15 pm',name:'Junior Fundamentals'},
+    {day:'Friday',time:'4:30–5:30 pm',name:'Guerreiros (invitation only)'},
+  ]};
+  const original=globalThis.fetch;
+  globalThis.fetch=async()=>({ok:true,json:async()=>({result:[doc]})});
+  try {
+    const plugin=timetablePlugin();plugin.configResolved({root:process.cwd()});await plugin.buildStart();
+    for(const file of ['locations/queenstown/index.html','training/timetable/index.html']){
+      const $=load(plugin.transformIndexHtml.handler(fs.readFileSync(file,'utf8'),{filename:path.resolve(file)}));
+      const schedule=file.startsWith('locations')?$('#timetable'):$('#schedule-queenstown');
+      assert.equal(schedule.find('.tt-class').length,4);
+      assert.equal(schedule.find('[data-timetable-audience="adults"] .tt-class').length,1);
+      assert.equal(schedule.find('[data-timetable-audience="kids"] .tt-class[data-class-type="kids"]').length,2);
+      assert.equal(schedule.find('[data-timetable-audience="invitation"] .n').text(),'Guerreiros (invitation only)');
+    }
+  }finally{globalThis.fetch=original;}
 });

@@ -35,6 +35,9 @@ function update() {
       day.hidden = !dayMatches;
       matches += dayMatches;
     }
+    for (const group of schedule.querySelectorAll('[data-timetable-audience]')) {
+      group.hidden = !group.querySelector('.tt-class:not([hidden])');
+    }
     schedule.hidden = !gymMatches || !matches;
     if (gymMatches) visible += matches;
   }

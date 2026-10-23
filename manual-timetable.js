@@ -13,7 +13,7 @@ if (section) {
       if (link) link.innerHTML = renderLiveScheduleLink(liveScheduleUrl(doc,academy));
       const markup = renderWeeklyTimetable(doc);
       if (!markup || section.dataset.timetableRevision === doc._rev) return;
-      const old = section.querySelector('.tt-grid, .num-blocks, .timetable-fallback');
+      const old = section.querySelector('[data-sanity-timetable-content], .tt-grid, .num-blocks, .timetable-fallback');
       if (old) old.outerHTML = markup;
       else section.querySelector('.wrap')?.insertAdjacentHTML('beforeend',markup);
       section.querySelector('.tt-legend')?.remove();
