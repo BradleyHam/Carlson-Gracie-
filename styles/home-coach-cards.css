@@ -1,0 +1,6 @@
+/* Keep the homepage's short summaries and profile links aligned. */
+#instructors .coach { display:flex; flex-direction:column; }
+#instructors .coach-photo, #instructors .coach-belt { flex-shrink:0; }
+#instructors .coach-rank { min-height:3.4em; }
+#instructors .coach-bio { margin-bottom:18px; flex:1; }
+#instructors .coach-details-button { margin-top:auto; }
