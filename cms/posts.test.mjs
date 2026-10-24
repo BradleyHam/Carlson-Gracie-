@@ -14,7 +14,7 @@ test('articles render safe rich text, image descriptions, links and lists',()=>{
 });
 test('published snapshot generates article routes, filters categories and clears removed posts',async()=>{
  const original=global.fetch;let data=[post,{...post,_id:'news',category:'News',slug:{current:'team-news'}}];global.fetch=async url=>{assert.equal(new URL(url).searchParams.get('perspective'),'published');return {ok:true,json:async()=>({result:data})};};
- try{const plugin=blogPlugin();await plugin.buildStart();const emitted=[];plugin.generateBundle.handler.call({emitFile:file=>emitted.push(file)});assert.deepEqual(emitted.map(f=>f.fileName),['blog/a-lesson/index.html','blog/team-news/index.html']);const html=plugin.transformIndexHtml.handler('<div class="journal-feed">Placeholder</div>',{path:'/blog/index.html'});assert(html.includes('/blog/team-news/'));assert(html.includes('/blog/a-lesson/'));const home=plugin.transformIndexHtml.handler('<div class="post-grid">Placeholder</div>',{path:'/index.html'});assert(home.includes('/blog/a-lesson/'));assert(!home.includes('/blog/team-news/'));data=[];await plugin.buildStart();const empty=[];plugin.generateBundle.handler.call({emitFile:f=>empty.push(f)});assert.equal(empty.length,0);assert(plugin.transformIndexHtml.handler('<div class="post-grid">Placeholder</div>',{path:'/index.html'}).includes('Stories from the academy'));}finally{global.fetch=original;}
+ try{const plugin=blogPlugin();await plugin.buildStart();const emitted=[];plugin.generateBundle.handler.call({emitFile:file=>emitted.push(file)});assert.deepEqual(emitted.map(f=>f.fileName),['blog/a-lesson/index.html','blog/team-news/index.html']);const html=plugin.transformIndexHtml.handler('<div class="journal-feed">Placeholder</div>',{path:'/blog/index.html'});assert(html.includes('/blog/team-news/'));assert(html.includes('/blog/a-lesson/'));const home=plugin.transformIndexHtml.handler('<div class="post-grid">Placeholder</div>',{path:'/index.html'});assert(home.includes('/blog/a-lesson/'));assert(!home.includes('/blog/team-news/'));data=[];await plugin.buildStart();const empty=[];plugin.generateBundle.handler.call({emitFile:f=>empty.push(f)});assert.equal(empty.length,0);assert.equal(load(plugin.transformIndexHtml.handler('<div class="post-grid">Placeholder</div>',{path:'/index.html'}))('.post-grid').text(),'');}finally{global.fetch=original;}
 });
 test('article shell keeps the logo, menus and bundled assets at nested routes',async()=>{
  const {extractBlogShell}=await import('./posts-plugin.js');
@@ -34,4 +34,31 @@ test('related event dates appear on cards and article headers without changing p
  for(const home of [true,false])assert.equal(load(renderPostCards([article],config,home))('.post-date').text(),'3 October 2026');
  const $=load(renderPostPage(article,config));assert.equal($('.article-meta span').eq(1).text(),'3 October 2026');
  assert.equal(article.publishedAt,post.publishedAt);
+});
+
+test('home news hides completely when empty and returns for a published story or featured upcoming event',async()=>{
+ const original=global.fetch;
+ let articles=[],events=[];
+ global.fetch=async url=>({ok:true,json:async()=>({result:new URL(url).searchParams.get('query').includes('_type == "event"')?events:articles})});
+ const template='<section id="events" hidden><h2>News from the mats</h2><div class="post-grid">Placeholder</div><a href="/blog/">See all stories</a></section>';
+ try{
+  const plugin=blogPlugin();
+  const render=async()=>{await plugin.buildStart();return load(plugin.transformIndexHtml.handler(template,{path:'/'}));};
+  let $=await render();
+  assert.equal($('#events').is('[hidden]'),true);
+  assert.equal($('.post-grid').text(),'');
+  articles=[post];
+  $=await render();
+  assert.equal($('#events').is('[hidden]'),false);
+  assert.equal($('.post-grid article').length,1);
+  articles=[];events=[{id:'future',title:'Future seminar',category:'Seminar',featured:true,startsAt:'2099-01-01T00:00:00Z',endsAt:'2099-01-01T03:00:00Z'}];
+  $=await render();
+  assert.equal($('#events').is('[hidden]'),false);
+  assert.equal($('.home-upcoming article').length,1);
+  assert.equal($('.post-grid').text(),'');
+  articles=[{...post,event:{startsAt:'2000-01-01T00:00:00Z',endsAt:'2000-01-01T03:00:00Z'}}];events=[];
+  $=await render();
+  assert.equal($('#events').is('[hidden]'),true);
+  assert.equal($('.home-upcoming').length,0);
+ }finally{global.fetch=original;}
 });
