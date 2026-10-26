@@ -1,4 +1,5 @@
 import {postType} from './post.js';
+import {fundamentalsCourse} from './FundamentalsCourse.jsx';
 import {TextListInput, PageLinkInput, UsageInput, OwnerGuide, FeaturedClassesInput} from './OwnerInputs.jsx';
 import {featuredClassOptions} from '../cms/classes.js';
 import {defineConfig, defineType, defineField} from 'sanity';
@@ -22,7 +23,7 @@ const academyTimetable = defineType({name:'academyTimetable',title:'Academy time
   defineField({name:'note',title:'Timetable note',type:'string',description:'Optional note for holidays or booking. Do not rely on this for dated cancellations.'}),
   defineField({name:'liveUrl',title:'Live Gymdesk schedule URL',type:'url',description:'Queenstown, Wānaka and Cromwell only. Enter the verified public schedule link, not the signup page.',validation:rule=>rule.custom(value=>!value||/^https:\/\/(?:app|[a-z0-9-]+)\.gymdesk\.com\/(?:widgets\/schedule\/render\/gym\/[A-Za-z0-9]+|schedule)\/?$/.test(value)||'Use a public Gymdesk schedule URL.')}),
 ]});
-const schemaTypes = [postType,classSession,academyTimetable,
+const schemaTypes = [postType,classSession,academyTimetable,fundamentalsCourse,
   defineType({name:'seminarGuest',title:'Seminar guest',type:'object',fields:[
     defineField({name:'name',title:'Guest name',type:'string',validation:required}),
     defineField({name:'photo',title:'Seminar photo',type:'image',validation:required}),
@@ -108,6 +109,7 @@ function ownerStructure(S){
  return S.list().title('Manage your website').items([
   S.listItem().title('Start here — editing guide').child(S.component().id('owner-guide').title('Editing guide').component(OwnerGuide)),
   profileList('Coaches','coachProfile'),profileList('Seminar guests','seminarProfile'),
+  S.documentTypeListItem('fundamentalsCourse').title('Fundamentals courses').child(S.documentTypeList('fundamentalsCourse').title('Fundamentals courses').defaultOrdering([{field:'startDate',direction:'desc'}]).initialValueTemplates([S.initialValueTemplateItem('fundamentalsCourse')])),
   S.listItem().title('Academy timetables').child(S.list().title('Academy timetables').items([
     S.listItem().title('Queenstown').child(S.document().schemaType('academyTimetable').documentId('timetable-queenstown')),
     S.listItem().title('Wānaka').child(S.document().schemaType('academyTimetable').documentId('timetable-wanaka')),
@@ -133,6 +135,6 @@ export default defineConfig({
   projectId:process.env.SANITY_STUDIO_PROJECT_ID || sanityConfig.projectId || 'setup-required',
   dataset:process.env.SANITY_STUDIO_DATASET || sanityConfig.dataset,
   plugins:[structureTool({structure:ownerStructure})],
-  schema:{types:schemaTypes,templates:templates=>templates.filter(t=>!['sitePage','siteSettings','academyTimetable'].includes(t.schemaType))},
+  schema:{types:schemaTypes,templates:templates=>templates.filter(t=>!['sitePage','siteSettings','academyTimetable'].includes(t.schemaType)).map(t=>t.schemaType==='fundamentalsCourse'?{...t,title:'Add six-week course'}:t)},
   document:{actions:(actions,context)=>['sitePage','siteSettings','academyTimetable'].includes(context.schemaType) ? actions.filter(action=>!['delete','duplicate','unpublish'].includes(action.action)) : actions},
 });

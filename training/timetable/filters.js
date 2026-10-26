@@ -1,3 +1,5 @@
+import {nzDateTime} from '../../cms/fundamentals.js';
+
 const mobileGym = document.querySelector('#mobile-gym-filter');
 const mobileClass = document.querySelector('#mobile-class-filter');
 const academyButtons = [...document.querySelectorAll('[data-gym-filter]')];
@@ -10,9 +12,11 @@ const empty = document.querySelector('#timetable-empty');
 const schedules = [...document.querySelectorAll('#academy-schedules .academy-schedule')];
 const names = {queenstown:'Queenstown',wanaka:'Wānaka',cromwell:'Cromwell',invercargill:'Invercargill','south-canterbury':'South Canterbury'};
 const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-const today = new Date().getDay() || 7;
+const todayDate = nzDateTime().slice(0,10);
+const today = new Date(todayDate+'T12:00:00Z').getUTCDay() || 7;
 for (const day of document.querySelectorAll('#academy-schedules .tt-col[data-day]')) {
-  day.classList.toggle('is-today',Number(day.dataset.day) === today);
+  const course = day.closest('[data-course-starts]');
+  day.classList.toggle('is-today',(!course || course.dataset.courseStarts<=todayDate) && Number(day.dataset.day) === today);
   const heading = day.querySelector('h3');
   if (heading) heading.setAttribute('aria-label',days[Number(day.dataset.day) % 7]);
 }
@@ -55,4 +59,5 @@ academyButtons.forEach(button => button.addEventListener('click',() => { selecte
 classButtons.forEach(button => button.addEventListener('click',() => { selectedClass = button.dataset.classFilter; choose(); }));
 mobileGym.addEventListener('change', () => { selectedAcademy = mobileGym.value; choose(); });
 mobileClass.addEventListener('change', () => { selectedClass = mobileClass.value; choose(); });
+document.addEventListener('academy-courses-updated',update);
 update();

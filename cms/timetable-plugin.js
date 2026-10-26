@@ -4,18 +4,25 @@ import {load} from 'cheerio';
 import {sanityConfig} from './config.js';
 import {fetchContent, isConfigured} from './shared.js';
 import {academyIds, timetableQuery, liveScheduleUrl, publishedSessions, renderWeeklyTimetable, timetableNote, renderLiveScheduleLink, classType} from './timetables.js';
+import {coursesQuery, renderCourses} from './fundamentals.js';
 
 export function timetablePlugin() {
   let root;
   let timetables = new Map();
+  let courses = [];
   return {
     name: 'carlson-academy-timetables',
     configResolved(config) { root = config.root; },
     async buildStart() {
       if (!isConfigured(sanityConfig)) return;
-      const docs = await fetchContent(sanityConfig, timetableQuery, {}, {cdn:false});
+      const [docs, blocks] = await Promise.all([
+        fetchContent(sanityConfig, timetableQuery, {}, {cdn:false}),
+        fetchContent(sanityConfig, coursesQuery, {}, {cdn:false}),
+      ]);
       if (!Array.isArray(docs)) throw new Error('Invalid academy timetable response');
+      if (!Array.isArray(blocks)) throw new Error('Invalid fundamentals courses response');
       timetables = new Map(docs.map(doc => [doc._id, doc]));
+      courses = blocks;
     },
     transformIndexHtml: {
       order: 'post',
@@ -57,6 +64,8 @@ export function timetablePlugin() {
             header.append($('<a class="academy-schedule-link"></a>').attr('href','/locations/'+academy+'/').text('Explore academy →'));
             block.append(header);
             block.append($(grid.toString()));
+            const courseMarkup = renderCourses(courses,academy);
+            block.append($('<div></div>').attr('data-fundamentals-courses',academy).attr('hidden',courseMarkup ? null : '').html(courseMarkup));
             const note = published ? timetableNote(doc) : source('#timetable .tt-note').first().text().trim();
             if (note) block.append($('<p class="tt-note"></p>').text(note));
             const live = renderLiveScheduleLink(liveScheduleUrl(doc,academy));
@@ -90,6 +99,9 @@ export function timetablePlugin() {
           else section.find('[data-sanity-timetable-content]').after('<p class="tt-note">'+$('<span>').text(timetableNote(doc)).html()+'</p>');
           section.attr('data-timetable-revision', doc._rev || '');
         }
+        const courseMarkup = renderCourses(courses,academy);
+        const courseTarget = $('<div></div>').attr('data-fundamentals-courses',academy).attr('hidden',courseMarkup ? null : '').html(courseMarkup);
+        section.find('[data-sanity-timetable-content], .tt-grid, .num-blocks, .timetable-fallback').first().after(courseTarget);
         const link = liveScheduleUrl(doc,academy);
         const target = section.find('[data-live-schedule-link]');
         if (target.length) target.html(renderLiveScheduleLink(link));

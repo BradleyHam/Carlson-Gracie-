@@ -1,6 +1,7 @@
 import './inline-video.js';
 import './coach-details.js';
 import './manual-timetable.js';
+import './fundamentals-courses.js';
 import './styles/mobile-nav.css';
 
 const header = document.querySelector('body > nav');
