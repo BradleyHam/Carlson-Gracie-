@@ -15,6 +15,7 @@ const classSession = defineType({name:'classSession',title:'Class session',type:
   defineField({name:'time',title:'Time',type:'string',description:'For example 5:30 pm. Include am or pm.',validation:required}),
   defineField({name:'name',title:'Class name',type:'string',validation:required}),
   defineField({name:'details',title:'Who it is for / class type',type:'string',description:'For example ages 8–15 or all levels.'}),
+  defineField({name:'blockOnly',title:'Fundamentals course slot — blocks only',type:'boolean',description:'Keep this conditional course time on the timetable between blocks. Published Fundamentals courses show their exact dates in its place.'}),
 ],preview:{select:{title:'name',day:'day',time:'time'},prepare({title,day,time}){return {title,subtitle:[day,time].filter(Boolean).join(' · ')}}}});
 const academyTimetable = defineType({name:'academyTimetable',title:'Academy timetable',type:'document',fields:[
   defineField({name:'published',title:'Show this timetable on the website',type:'boolean',initialValue:false,description:'Turn on only after all sessions and times have been confirmed by the local academy.'}),

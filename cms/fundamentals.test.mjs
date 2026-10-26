@@ -49,7 +49,10 @@ test('one published block reaches home, academy and timetable without changing r
   const future={...course,startDate:'2099-11-02',days:['Monday','Wednesday']};
   // 2099-11-02 is a Monday; a distant date makes build-time expiry independent of the test runner clock.
   assert.equal(validateCourse(future),true);
-  const timetable={_id:'timetable-queenstown',published:true,sessions:[{day:'Monday',name:'Gi All Levels',time:'6:00–7:30 pm'}]};
+  const timetable={_id:'timetable-queenstown',published:true,sessions:[
+    {day:'Monday',name:'Gi All Levels',time:'6:00–7:30 pm'},
+    ...['Monday','Wednesday'].map(day=>({day,name:'Fundamentals Course*',time:'7:30–8:30 pm',blockOnly:true})),
+  ]};
   globalThis.fetch=async url=>({ok:true,json:async()=>({result:new URL(url).searchParams.get('query')===coursesQuery?[future]:[timetable]})});
   try {
     const plugin=timetablePlugin();plugin.configResolved({root:process.cwd()});await plugin.buildStart();
@@ -60,7 +63,8 @@ test('one published block reaches home, academy and timetable without changing r
       assert.equal(target.find('.tt-class').length,2,file);
       assert.equal(target.attr('hidden'),undefined,file);
       assert.equal($('[data-fundamentals-courses="wanaka"] .tt-class').length,0);
-      assert.equal($('[data-sanity-timetable-content]').first().find('.tt-class').length,1);
+      assert.equal($('[data-sanity-timetable-content]').first().find('.tt-class:not([hidden])').length,1);
+      assert.equal($('[data-course-placeholder][data-course-superseded="true"][hidden]').length,2);
     }
   } finally {globalThis.fetch=original;}
 });

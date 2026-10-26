@@ -21,6 +21,17 @@ if (targets.length) {
       const today = new Date(localNow.slice(0,10)+'T12:00:00Z').getUTCDay() || 7;
       target.querySelectorAll('.tt-col').forEach(col=>col.classList.toggle('is-today',col.closest('[data-course-starts]').dataset.courseStarts<=localNow.slice(0,10) && Number(col.dataset.day)===today));
       target.hidden = !target.querySelector('[data-course-id]');
+      const schedule = target.closest('.academy-schedule, #timetable');
+      for (const row of schedule.querySelectorAll('[data-course-placeholder]')) {
+        row.dataset.courseSuperseded = String(!target.hidden);
+        row.hidden = !target.hidden;
+      }
+      for (const column of schedule.querySelectorAll('[data-sanity-timetable-content] .tt-col')) {
+        column.hidden = !column.querySelector('.tt-class:not([hidden])');
+      }
+      for (const group of schedule.querySelectorAll('[data-sanity-timetable-content] [data-timetable-audience]')) {
+        group.hidden = !group.querySelector('.tt-class:not([hidden])');
+      }
     }
     notify();
   };
@@ -34,4 +45,5 @@ if (targets.length) {
   // Open pages must also stop advertising a block after its final class.
   setInterval(refresh,60000);
   document.addEventListener('visibilitychange',()=>{if (!document.hidden) {refresh();load();}});
+  document.addEventListener('academy-timetable-updated',refresh);
 }

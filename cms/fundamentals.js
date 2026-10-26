@@ -1,7 +1,7 @@
 import {academyIds} from './timetables.js';
 
 export const courseDays = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-export const courseDefaults = {title:'Fundamentals Course',academy:'queenstown',weeks:6,startTime:'19:30',endTime:'20:30',enabled:true};
+export const courseDefaults = {title:'Fundamentals Course',academy:'queenstown',weeks:6,days:['Monday','Wednesday'],startTime:'19:30',endTime:'20:30',enabled:true};
 export const coursesQuery = '*[_type == "fundamentalsCourse" && enabled == true] | order(startDate asc){_id,_rev,title,academy,startDate,weeks,days,startTime,endTime,enabled}';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;

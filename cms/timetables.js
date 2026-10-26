@@ -46,7 +46,7 @@ export function renderWeeklyTimetable(doc) {
     const columns = days.map((day,index) => {
     const entries = group.filter(item => item.day === day);
     if (!entries.length) return '';
-    const rows = entries.map(item => '<div class="tt-class c-all" data-class-type="'+classType(item.name,item.details)+'"><span class="t">'+escape(item.time.trim())+'</span><span class="n">'+escape(item.name.trim())+'</span>'+(item.details ? '<span class="l">'+escape(item.details.trim())+'</span>' : '')+'</div>').join('');
+    const rows = entries.map(item => '<div class="tt-class c-all" data-class-type="'+classType(item.name,item.details)+'"'+(item.blockOnly ? ' data-course-placeholder="fundamentals"' : '')+'><span class="t">'+escape(item.time.trim())+'</span><span class="n">'+escape(item.name.trim())+'</span>'+(item.details ? '<span class="l">'+escape(item.details.trim())+'</span>' : '')+'</div>').join('');
     return '<div class="tt-col" data-day="'+(index+1)+'"><h3>'+day.slice(0,3)+' <span class="today-tag">Today</span></h3>'+rows+'</div>';
     }).join('');
     return '<section class="tt-audience" data-timetable-audience="'+key+'" aria-label="'+escape(label)+'"><p class="tt-audience-title">'+escape(label)+'</p><div class="tt-grid reveal in" role="group" aria-label="'+escape(label)+' weekly timetable">'+columns+'</div></section>';

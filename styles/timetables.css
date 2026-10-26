@@ -4,6 +4,7 @@
 .tt-audience .tt-grid { margin-top:14px; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); }
 .tt-audience .tt-class .t { letter-spacing:0; overflow-wrap:anywhere; }
 .tt-audience[hidden] { display:none!important; }
+.tt-class[data-course-superseded="true"] { display:none!important; }
 @media(max-width:430px) {
   .tt-audience .tt-grid { grid-template-columns:1fr; }
 }

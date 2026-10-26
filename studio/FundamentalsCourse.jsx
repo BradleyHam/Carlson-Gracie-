@@ -16,7 +16,7 @@ function CourseSummary() {
     {valid === true ? <>
       <p>{course.title || 'Fundamentals Course'}*<br/>{course.days.join(' & ')} · {courseTime(course)}<br/>{courseDateRange(course)}</p>
       <p>* Runs in blocks of {course.weeks} weeks.</p>
-      <p>Publish once to show this block on the homepage, the academy page and the main timetable. It disappears after the final class. For the next block, create a new course or duplicate this one and change the starting date.</p>
+      <p>Publish once to show this block on the homepage, the academy page and the main timetable. Its dates disappear after the final class; the regular conditional course times remain. For the next block, create a new course or duplicate this one and change the starting date.</p>
     </> : <p>{valid} The finish date and six-week note are calculated for you.</p>}
   </div>;
 }

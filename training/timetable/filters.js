@@ -32,7 +32,7 @@ function update() {
     for (const day of schedule.querySelectorAll('.tt-col')) {
       let dayMatches = 0;
       for (const session of day.querySelectorAll('.tt-class')) {
-        const show = selectedClass === 'all' || session.dataset.classType === selectedClass;
+        const show = session.dataset.courseSuperseded !== 'true' && (selectedClass === 'all' || session.dataset.classType === selectedClass);
         session.hidden = !show;
         if (show) dayMatches++;
       }

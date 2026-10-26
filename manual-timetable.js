@@ -19,12 +19,13 @@ if (section) {
       section.querySelector('.tt-legend')?.remove();
       const heading = section.querySelector('h2'); if (heading) heading.textContent = 'Weekly classes';
       const lead = section.querySelector('.lead'); if (lead) lead.textContent = 'The local academy maintains this weekly timetable. Check with the team before your first visit.';
-      let note = section.querySelector('.tt-note');
+      let note = [...section.querySelectorAll('.tt-note')].find(note=>!note.closest('[data-fundamentals-courses]'));
       if (!note) { note = document.createElement('p'); note.className = 'tt-note'; section.querySelector('[data-sanity-timetable-content]')?.after(note); }
       note.textContent = timetableNote(doc);
       section.dataset.timetableRevision = doc._rev || '';
       const today = new Date().getDay() || 7;
       section.querySelectorAll('.tt-col[data-day]').forEach(col => col.classList.toggle('is-today',Number(col.dataset.day) === today));
+      document.dispatchEvent(new Event('academy-timetable-updated'));
     })
     .catch(() => { /* The built timetable remains readable when Sanity is unavailable. */ });
 }

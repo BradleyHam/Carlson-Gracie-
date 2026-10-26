@@ -46,7 +46,7 @@ export function timetablePlugin() {
             const localSessions = [];
             source('#timetable .tt-col[data-day]').each((_,column) => {
               const day = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'][Number(source(column).attr('data-day'))-1];
-              source(column).find('.tt-class').each((_,row) => localSessions.push({day,time:source(row).find('.t').text().trim(),name:source(row).find('.n').text().trim(),details:source(row).find('.l').text().trim()}));
+              source(column).find('.tt-class').each((_,row) => localSessions.push({day,time:source(row).find('.t').text().trim(),name:source(row).find('.n').text().trim(),details:source(row).find('.l').text().trim(),blockOnly:source(row).attr('data-course-placeholder')==='fundamentals'}));
             });
             const markup = published || renderWeeklyTimetable({published:true,sessions:localSessions});
             const grid = markup ? load(markup)('[data-sanity-timetable-content]').first() : source('#timetable .tt-grid').first();
@@ -63,8 +63,9 @@ export function timetablePlugin() {
             header.append($('<div></div>').append($('<p class="eyebrow"></p>').text('Academy timetable'),$('<h2 class="display"></h2>').text(names[academy])));
             header.append($('<a class="academy-schedule-link"></a>').attr('href','/locations/'+academy+'/').text('Explore academy →'));
             block.append(header);
-            block.append($(grid.toString()));
             const courseMarkup = renderCourses(courses,academy);
+            if (courseMarkup) grid.find('[data-course-placeholder]').attr('data-course-superseded','true').attr('hidden','');
+            block.append($(grid.toString()));
             block.append($('<div></div>').attr('data-fundamentals-courses',academy).attr('hidden',courseMarkup ? null : '').html(courseMarkup));
             const note = published ? timetableNote(doc) : source('#timetable .tt-note').first().text().trim();
             if (note) block.append($('<p class="tt-note"></p>').text(note));
@@ -100,6 +101,7 @@ export function timetablePlugin() {
           section.attr('data-timetable-revision', doc._rev || '');
         }
         const courseMarkup = renderCourses(courses,academy);
+        if (courseMarkup) section.find('[data-course-placeholder]').attr('data-course-superseded','true').attr('hidden','');
         const courseTarget = $('<div></div>').attr('data-fundamentals-courses',academy).attr('hidden',courseMarkup ? null : '').html(courseMarkup);
         section.find('[data-sanity-timetable-content], .tt-grid, .num-blocks, .timetable-fallback').first().after(courseTarget);
         const link = liveScheduleUrl(doc,academy);
