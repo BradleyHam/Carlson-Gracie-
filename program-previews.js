@@ -1,5 +1,43 @@
 // Floating row previews share a viewport-safe position across the site.
 const hover = matchMedia('(hover:hover) and (min-width:641px)');
+
+// Hover images are translated off-screen, so native lazy loading may never
+// fetch them until the first hover. Warm each group shortly before it appears.
+const previewGroups = new Set([...document.querySelectorAll('.prog')].map(row => row.parentElement));
+const warmedGroups = new WeakSet();
+const warmedImages = new WeakSet();
+function warmPreviews(group) {
+  if (!hover.matches) return;
+  warmedGroups.add(group);
+  for (const image of group.querySelectorAll('.prog-img')) {
+    if (warmedImages.has(image)) continue;
+    warmedImages.add(image);
+    image.loading = 'eager';
+    image.decode?.().catch(() => {});
+  }
+}
+const preloadObserver = 'IntersectionObserver' in window
+  ? new IntersectionObserver(entries => {
+      for (const entry of entries) if (entry.isIntersecting) {
+        warmPreviews(entry.target);
+        if (warmedGroups.has(entry.target)) preloadObserver.unobserve(entry.target);
+      }
+    }, {rootMargin: '1200px 0px'})
+  : null;
+for (const group of previewGroups) {
+  if (preloadObserver) preloadObserver.observe(group);
+  else warmPreviews(group);
+  // Sanity can replace the class rows after the initial page is built.
+  new MutationObserver(() => { if (warmedGroups.has(group)) warmPreviews(group); })
+    .observe(group, {childList: true, subtree: true});
+}
+hover.addEventListener('change', () => {
+  if (!hover.matches) return;
+  for (const group of previewGroups) {
+    if (preloadObserver) { preloadObserver.unobserve(group); preloadObserver.observe(group); }
+    else warmPreviews(group);
+  }
+});
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const nav = document.querySelector('nav');
 const badge = nav?.querySelector('.wordmark');
