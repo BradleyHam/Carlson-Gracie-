@@ -1,0 +1,129 @@
+{
+  "redirects": [
+    {
+      "source": "/contact-us",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/timetable",
+      "destination": "/training/timetable/",
+      "permanent": true
+    },
+    {
+      "source": "/our-instructors",
+      "destination": "/about/coaches/",
+      "permanent": true
+    },
+    {
+      "source": "/our-instructors/:slug",
+      "destination": "/about/coaches/",
+      "permanent": true
+    },
+    {
+      "source": "/prices",
+      "destination": "/membership/",
+      "permanent": true
+    },
+    {
+      "source": "/adult-classes",
+      "destination": "/training/adults/",
+      "permanent": true
+    },
+    {
+      "source": "/no-gi",
+      "destination": "/training/adults/",
+      "permanent": true
+    },
+    {
+      "source": "/women-classes-2",
+      "destination": "/training/womens/",
+      "permanent": true
+    },
+    {
+      "source": "/fundamentals-2",
+      "destination": "/training/beginners/",
+      "permanent": true
+    },
+    {
+      "source": "/kids-classes-2",
+      "destination": "/training/kids/",
+      "permanent": true
+    },
+    {
+      "source": "/private-sessions",
+      "destination": "/training/private/",
+      "permanent": true
+    },
+    {
+      "source": "/brazilian-jiu-jitsu",
+      "destination": "/about/our-method/",
+      "permanent": true
+    },
+    {
+      "source": "/class-etiquette",
+      "destination": "/faq/",
+      "permanent": true
+    },
+    {
+      "source": "/queenstown",
+      "destination": "/locations/queenstown/",
+      "permanent": true
+    },
+    {
+      "source": "/wanaka",
+      "destination": "/locations/wanaka/",
+      "permanent": true
+    },
+    {
+      "source": "/invercargill",
+      "destination": "/locations/invercargill/",
+      "permanent": true
+    },
+    {
+      "source": "/south-canterbury",
+      "destination": "/locations/south-canterbury/",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/news",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/category/events",
+      "destination": "/seminars/events/",
+      "permanent": true
+    },
+    {
+      "source": "/category/seminars",
+      "destination": "/seminars/",
+      "permanent": true
+    },
+    {
+      "source": "/category/tournaments",
+      "destination": "/seminars/events/",
+      "permanent": true
+    },
+    {
+      "source": "/category/news",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/category/updates",
+      "destination": "/blog/",
+      "permanent": true
+    }
+  ]
+}

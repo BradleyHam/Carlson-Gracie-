@@ -1,10 +1,12 @@
 import {blogPlugin} from './cms/posts-plugin.js';
+import {seoPlugin} from './cms/seo-plugin.js';
+import {legacyArticlesPlugin} from './cms/legacy-plugin.js';
 import {sanityContentPlugin} from './cms/vite-plugin.js';
 import {timetablePlugin} from './cms/timetable-plugin.js';
 import { resolve } from 'path';
 
 export default {
-  plugins: [sanityContentPlugin(), timetablePlugin(), blogPlugin()],
+  plugins: [sanityContentPlugin(), timetablePlugin(), blogPlugin(), legacyArticlesPlugin(), seoPlugin()],
   server: {
     port: Number(process.env.PORT) || 5173,
   },
